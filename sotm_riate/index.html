@@ -11928,29 +11928,25 @@ a.anchor-link {
 <h2 id="1er-example-d'utilisation">1er example d'utilisation<a class="anchor-link" href="#1er-example-d'utilisation">&#182;</a></h2>
 </div>
 </div>
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Le cadre:   <p style="text-align:center;">
-  Étude visant à <b>établir une typologie socio-économique des espaces transfrontaliers européens</b>
-</p></li>
-</ul>
-
+<p><em>Le cadre</em></p>
+<p style="text-align:center;">
+    Étude visant à <b>établir une typologie socio-économique des espaces transfrontaliers européens</b>
+</p>
 </div>
 </div>
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Le coeur de l'étude: </li>
-</ul>
+<p><em>Le coeur de l'étude</em></p>
 <p style="text-align:center;">
     Définir une <b>maille territoriale</b> adaptée pour l’<b>observation transfrontalière</b>.<br>
     Définir l'<b>emprise de la zone d'étude</b>.<br>
@@ -11966,9 +11962,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Bonus :</li>
-</ul>
+<p><em>Bonus</em></p>
 
 </div>
 </div>
@@ -11987,9 +11981,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>L'idée ?</li>
-</ul>
+<p><em>L'idée ?</em></p>
 
 </div>
 </div>
@@ -12019,13 +12011,31 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="M&#233;thodologie-:">M&#233;thodologie :<a class="anchor-link" href="#M&#233;thodologie-:">&#182;</a></h3><ul>
 <li>Récupération des géométries OSM correspondants aux géométries des entités de notre espace d'étude.</li>
-<li>Extraction des réseaux routiers et ferrés</li>
+<li>Extraction des réseaux routiers et ferrés.</li>
 </ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Réseaux routier :</strong></p>
 <ul>
 <li>Transformation de l'information de hiérarchie du réseau routiers (highway, primary, etc.) en nombre de voies (pour avoir une unité comparable)</li>
 <li>Calcul d'une densité de points de passage pour chaque "tronçon transfrontalier" (frontière entre régions voisines).</li>
 </ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Réseau ferré :</strong></p>
 <ul>
 <li>Conservation de l'information de hiérarchie du réseau.</li>
@@ -12034,7 +12044,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12394,8 +12404,11 @@ text<span class="p">(</span>src<span class="p">[</span><span class="m">6</span><
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong> <a href="https://github.com/rCarto/photon">https://github.com/rCarto/photon</a> </strong></p>
-<div class="highlight"><pre><span></span>loc <span class="o">&lt;-</span> photon<span class="o">::</span>geocode<span class="p">(</span><span class="s">&quot;3 rue du Port aux Vins, 95220 Herblay&quot;</span><span class="p">,</span> limit <span class="o">=</span> <span class="m">1</span><span class="p">,</span> key <span class="o">=</span> <span class="s">&quot;place&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> loc <span class="o">&lt;-</span> photon<span class="o">::</span>geocode<span class="p">(</span><span class="s">&quot;3 rue du Port aux Vins, 95220 Herblay&quot;</span><span class="p">,</span> limit <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="kp">print</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span>loc<span class="p">[</span><span class="s">&#39;lon&#39;</span><span class="p">],</span> loc<span class="p">[</span><span class="s">&#39;lat&#39;</span><span class="p">],</span> sep<span class="o">=</span><span class="s">&#39;, &#39;</span><span class="p">))</span>
 </pre></div>
+
+<pre><code>[1] "2.1662455, 48.987152"</code></pre>
 
 </div>
 </div>
