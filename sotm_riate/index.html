@@ -67,8 +67,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1163,7 +1163,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2592,7 +2591,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3083,7 +3081,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8814,6 +8811,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -9016,8 +9016,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -9040,6 +9046,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9176,6 +9192,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9265,6 +9284,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9309,6 +9331,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9605,6 +9630,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9625,11 +9651,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11300,7 +11321,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11612,6 +11633,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11625,6 +11647,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11685,8 +11710,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11697,9 +11724,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11904,11 +11933,12 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong><em>Package R</em></strong> : <a href="https://github.com/Groupe-ElementR/cartography">cartography</a>, <a href="https://github.com/Groupe-ElementR/SpatialPosition">SpatialPosition</a>, <a href="https://github.com/rCarto/osrm">interface R-osrm</a>, etc.<br>
 <strong><em>Visualisation de données</em></strong> : <a href="http://fit.espon.eu/">FIT (Functional Indicator computation Tools)</a>, Geomedia Event Explorer, etc.<br>
-<strong><em>Cartographie thématique</em></strong> : <a href="http://magrit.cnrs.fr">♠ Magrit ♠</a></p>
+<strong><em>Cartographie thématique</em></strong> : <a href="http://magrit.cnrs.fr">♠ Magrit ♠</a><br>
+<strong>Rapports, études, etc.</strong>: Voir <a href="http://riate.cnrs.fr">riate.cnrs.fr</a></p>
 
 </div>
 </div>
-</div></div></section><section>
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11937,8 +11967,6 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><em>Le coeur de l'étude</em></p>
 <p style="text-align:center;">
-    Définir une <b>maille territoriale</b> adaptée pour l’<b>observation transfrontalière</b>.<br>
-    Définir l'<b>emprise de la zone d'étude</b>.<br>
     <b>Typologie socio-économique</b> des régions concernées.<br>
     <b>Typologie des discontinuités frontalières</b> (typologie des potentiels de coopération).<br>
     <b>Évolution</b> 2000-2012 des <b>potentiels de coopération transfrontalière</b>.<br>
@@ -12013,8 +12041,8 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Réseaux routier :</strong></p>
 <ul>
-<li>Transformation de l'information de hiérarchie du réseau routiers (highway, primary, etc.) en nombre de voies (pour avoir une unité comparable)</li>
-<li>Calcul d'une densité de points de passage pour chaque "tronçon transfrontalier" (frontière entre régions voisines).</li>
+<li>Transformation de l'information de hiérarchie du réseau routier (<em>primary</em>, <em>secondary</em> etc.) en <strong>nombre de voies</strong> (pour avoir une unité comparable)</li>
+<li>Calcul d'une <strong>densité de points de passage pour chaque "tronçon transfrontalier"</strong> (frontière entre régions voisines).</li>
 </ul>
 
 </div>
@@ -12239,9 +12267,9 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p>Seul le nom de la commune et son pays son connus : présence d'homonymes</p>
+<li><p>Seul le nom de la commune et son pays d'appartenance sont connus (présence d'homonymes à prévoir dans les résultats)</p>
 </li>
-<li><p>Difficultés supplémentaires : noms parfois mal ortohraphiés ou tronqués... (10 charactères)</p>
+<li><p>Difficulté supplémentaire : noms parfois mal orthographiés ou tronqués... (10 charactères)</p>
 </li>
 </ul>
 
@@ -12253,7 +12281,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>=&gt; Requetes à des instances locales Nominatim/Photon. Choix du résultat parmis les réponses (et les homonymes) en pondérant le résultat en fonction de la distance moyenne entre le résultat et les points de départs des trajets concernés (= on part du principe qu'il s'agit de déplacement quotidiens et donc relativement cours).</p>
+<p>=&gt; Requêtes à des instances locales <strong>Nominatim</strong>/<strong>Photon</strong>. Choix du résultat parmis les réponses (et les homonymes) en pondérant le résultat en fonction de la distance moyenne entre le résultat probable et les points de départs des trajets concernés (= on part du principe qu'il s'agit de déplacements quotidiens et donc relativement cours, sauf pour atteindre des gros basssins d'emplois).</p>
 
 </div>
 </div>
@@ -12263,7 +12291,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Utilisation-d'OSRM">Utilisation d'OSRM<a class="anchor-link" href="#Utilisation-d'OSRM">&#182;</a></h3><h4 id="(en-remplacement-du-distancier-INSEE)">(en remplacement du distancier INSEE)<a class="anchor-link" href="#(en-remplacement-du-distancier-INSEE)">&#182;</a></h4>
+<h3 id="Utilisation-d'OSRM">Utilisation d'OSRM<a class="anchor-link" href="#Utilisation-d'OSRM">&#182;</a></h3><h4 id="(en-remplacement-du-distancier-Metric&#169;-)">(en remplacement du distancier <em>Metric&#169;</em> )<a class="anchor-link" href="#(en-remplacement-du-distancier-Metric&#169;-)">&#182;</a></h4>
 </div>
 </div>
 </div></section><section>
@@ -12284,7 +12312,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><em>Les parcours concernés</em>
+<p><em>Extraits des parcours concernés</em>
 <img align="center" width="400" src="images/trajet_navetteurs_light.png"/></p>
 
 </div>
@@ -12296,7 +12324,7 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><strong>Comparaison entre le distancier INSEE, les temps de parcours OSRM et les temps de parcours Google Direction pour des trajets France-France</strong>.</li>
+<li><strong>Comparaison entre le distancier <em>Metric©</em>, les temps de parcours <em>OSRM</em> et les temps de parcours <em>Google Direction</em> pour des trajets France-France</strong>.</li>
 </ul>
 
 </div>
@@ -12308,7 +12336,7 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Forte corrélation entre le temps de parcours OSRM et le temps de parcours sur réseau vide du distancier.
-Des résidus parfois étonnant (en particulier dans des régions peu accessibles: des tronçons de routes récents ou des tunnels non pris en compte).
+Des résidus parfois étonnant (en particulier dans des régions peu accessibles : des tronçons de routes récents ou des tunnels non pris en compte).
 <img align="center" width="500" src="images/comparaison_osrm_metric.png"/></p>
 
 </div>
@@ -12320,7 +12348,7 @@ Des résidus parfois étonnant (en particulier dans des régions peu accessibles
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><strong>Developemment de package R</strong> (disponibles sur le CRAN) offrant une interface simplifiée pour consommer les API OSRM et Photon.</li>
+<li><strong>Dévelopemment de package R</strong> (disponibles sur le CRAN) offrant une interface simplifiée pour consommer les API OSRM et Photon.</li>
 </ul>
 
 </div>
@@ -12331,7 +12359,8 @@ Des résidus parfois étonnant (en particulier dans des régions peu accessibles
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong><a href="https://cran.r-project.org/web/packages/osrm/">https://cran.r-project.org/web/packages/osrm/</a></strong><br>
+<p><strong>Package OSRM (Timothée Giraud)</strong><br>
+<strong><a href="https://cran.r-project.org/web/packages/osrm/">https://cran.r-project.org/web/packages/osrm/</a></strong><br>
 <strong><a href="https://github.com/rCarto/osrm">https://github.com/rCarto/osrm</a></strong></p>
 <div class="highlight"><pre><span></span><span class="c1"># Get isochones with a SpatialPointsDataFrame, custom breaks:</span>
 iso <span class="o">&lt;-</span> osrm<span class="o">::</span>osrmIsochrone<span class="p">(</span>loc <span class="o">=</span> src<span class="p">[</span><span class="m">6</span><span class="p">,],</span> breaks <span class="o">=</span> <span class="kp">seq</span><span class="p">(</span>from <span class="o">=</span> <span class="m">0</span><span class="p">,</span>to <span class="o">=</span> <span class="m">30</span><span class="p">,</span> by <span class="o">=</span> <span class="m">5</span><span class="p">))</span>
@@ -12367,7 +12396,8 @@ text<span class="p">(</span>src<span class="p">[</span><span class="m">6</span><
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> <a href="https://github.com/rCarto/photon">https://github.com/rCarto/photon</a> </strong></p>
+<p><strong> Package Photon (Timothée Giraud)</strong><br>
+<strong> <a href="https://github.com/rCarto/photon">https://github.com/rCarto/photon</a> </strong></p>
 <div class="highlight"><pre><span></span><span class="o">&gt;</span> loc <span class="o">&lt;-</span> photon<span class="o">::</span>geocode<span class="p">(</span><span class="s">&quot;3 rue du Port aux Vins, 95220 Herblay&quot;</span><span class="p">,</span> limit <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
 <span class="o">&gt;</span> <span class="kp">print</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span>loc<span class="p">[</span><span class="s">&#39;lon&#39;</span><span class="p">],</span> loc<span class="p">[</span><span class="s">&#39;lat&#39;</span><span class="p">],</span> sep<span class="o">=</span><span class="s">&#39;, &#39;</span><span class="p">))</span>
 </pre></div>
@@ -12383,7 +12413,7 @@ text<span class="p">(</span>src<span class="p">[</span><span class="m">6</span><
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Developpement de <strong>plugin QGIS</strong> à usage interne (visualisation d'un ou de plusieurs parcours, création d'isochrones polycentriques, de matrices de temps de parcours entre deux jeux de points, etc.).
+<li>Développement de <strong>plugin QGIS</strong> à usage interne (visualisation d'un ou de plusieurs parcours, création d'isochrones polycentriques, de matrices de temps de parcours entre deux jeux de points, etc.).
 <img align="center" width="400" src="images/multi_isochrone.jpg"/></li>
 </ul>
 
@@ -12395,7 +12425,7 @@ text<span class="p">(</span>src<span class="p">[</span><span class="m">6</span><
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Aller-plus-loin">Aller plus loin<a class="anchor-link" href="#Aller-plus-loin">&#182;</a></h2><h3 id="Se-passer-de-la-base-Metric&#169;-par-la-cr&#233;ation-d'une-matrice-de-temps-de-parcours-entre-les-36000-communes-de-France-M&#233;tropolitaine">Se passer de la base <em>Metric&#169;</em> par la cr&#233;ation d'une matrice de temps de parcours entre les 36000 communes de France M&#233;tropolitaine<a class="anchor-link" href="#Se-passer-de-la-base-Metric&#169;-par-la-cr&#233;ation-d'une-matrice-de-temps-de-parcours-entre-les-36000-communes-de-France-M&#233;tropolitaine">&#182;</a></h3>
+<h2 id="Aller-plus-loin">Aller plus loin<a class="anchor-link" href="#Aller-plus-loin">&#182;</a></h2><h3 id="Se-passer-de-la-base-Metric&#169;-par-la-cr&#233;ation-d'une-matrice-de-temps-de-parcours-entre-les-36000-communes-de-France-M&#233;tropolitaine-(R&#233;alisation-et-cartographie-:-Timoth&#233;e-Giraud)">Se passer de la base <em>Metric&#169;</em> par la cr&#233;ation d'une matrice de temps de parcours entre les 36000 communes de France M&#233;tropolitaine (R&#233;alisation et cartographie : Timoth&#233;e Giraud)<a class="anchor-link" href="#Se-passer-de-la-base-Metric&#169;-par-la-cr&#233;ation-d'une-matrice-de-temps-de-parcours-entre-les-36000-communes-de-France-M&#233;tropolitaine-(R&#233;alisation-et-cartographie-:-Timoth&#233;e-Giraud)">&#182;</a></h3>
 </div>
 </div>
 </div></section><section>
@@ -12407,8 +12437,11 @@ text<span class="p">(</span>src<span class="p">[</span><span class="m">6</span><
 <p><strong>La méthode</strong> :</p>
 <ul>
 <li>Utilisation d'une instance locale OSRM utilisant une image de l'emprise de l'Europe.</li>
-<li>Requetes effectuées sur le service <em>table</em> de l'API OSRM sous la forme <strong>communes du département Y * ensemble des 36000 communes françaises</strong> (en utilisant le package R OSRM).</li>
-<li>Préparation des tables pour les stocker département par département au format CSV (temps en minutes, utilisation des codes INSEE des communes); Environ 7.5Go au format csv.</li>
+<li>Requetes effectuées sur le service <em>table</em> de l'API OSRM sous la forme:</li>
+</ul>
+<p><strong>communes du département Y * ensemble des 36000 communes françaises</strong> (en utilisant le package R OSRM).</p>
+<ul>
+<li>Préparation des tables pour les stocker département par département au format CSV (temps en minutes, utilisation des codes INSEE des communes en <em>header</em>); Une table (= un fichier csv) pour chaque département d'origine. Environ 7.5Go au format csv.</li>
 </ul>
 
 </div>
@@ -12506,7 +12539,7 @@ text<span class="p">(</span>src<span class="p">[</span><span class="m">6</span><
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Nécessite la formulation d'hypothèses sur le type d'interaction (portée, décroissance de la fonction d'interaction)</li>
+<li>Nécessite la formulation d'hypothèses sur le type d'interaction (portée, friction de la distance)</li>
 </ul>
 
 </div>
@@ -12659,6 +12692,18 @@ text<span class="p">(</span>src<span class="p">[</span><span class="m">6</span><
 <ul>
 <li>QGIS : plugin <strong>SpatialPositionModel</strong> (calcul de potentiel sur une grille régulière, sortie raster ou création de contours)<br>
 <a href="https://github.com/mthh/SpatialPositionModel">GitHub</a></li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Dans l'application web <strong><a href="http://magrit.cnrs.fr">♠ Magrit ♠</a></strong></li>
 </ul>
 
 </div>
