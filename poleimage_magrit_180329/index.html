@@ -134,7 +134,7 @@ mark {
   color: #000;
 }
 small {
-  font-size: 80%;
+  font-size: 85%;
 }
 sub,
 sup {
@@ -11857,19 +11857,19 @@ ul > li.item_plan {
 <div class="reveal">
 <div class="slides">
 
-  <section>
+  <section data-transition="convex">
     <h2 id="Magrit-:-cartographie-th&#233;matique">Magrit : Utilisation avancée / trucs et astuces<a class="anchor-link" href="#Magrit-:-cartographie-th&#233;matique">&#182;</a></h2>
     <p style="text-align: center;"><img src="img/magrit_banner.png" style="width: 99%;"></p>
     <br>
     <p>
-      <p align="center">Midis du Pôle Image - 29/03/2018 - Matthieu Viry</p>
-      <p align="center"><small>UMS 2414 RIATE</small></p>
+      <p align="center">Midis du Pôle Image - 29/03/2018</p>
+      <p align="center"><small><b>Matthieu Viry - UMS 2414 RIATE</b></small></p>
       <img src="img/logo_riate.png" align="left" width="120px">
       <img src="img/financeurs.png" align="right" width="160px">
     </p>
   </section>
 
-  <section>
+  <section data-transition="convex">
     <h2 id="Plan de la séance">Plan de la séance<a class="anchor-link" href="#Plan de la séance">&#182;</a></h2>
     <ul>
       <li class="item_plan">Options pour l'habillage de la carte</li>
@@ -11880,11 +11880,11 @@ ul > li.item_plan {
     </ul>
   </section>
 
-  <section>
+  <section data-transition="convex">
     <h2 id="Options pour l'habillage de la carte">Options pour l'habillage de la carte<a class="anchor-link" href="#Options pour l'habillage de la carte">&#182;</a></h2>
   </section>
 
-  <section>
+  <section data-transition="convex">
     <section>
       <h3 id="Ajouter une ombre a une couche">Ajouter une ombre à une couche<a class="anchor-link" href="#Ajouter une ombre a une couche">&#182;</a></h3>
     </section>
@@ -11906,7 +11906,7 @@ ul > li.item_plan {
     </section>
   </section>
 
-  <section>
+  <section data-transition="convex">
     <section>
       <h3 id="Aligner precisement les elements d'habillage">Aligner précisément les éléments d'habillage<a class="anchor-link" href="#Aligner precisement les elements d'habillage">&#182;</a></h3>
     </section>
@@ -11933,7 +11933,7 @@ ul > li.item_plan {
     </section>
   </section>
 
-  <section>
+  <section data-transition="convex">
     <section>
       <h3 style="text-shadow: -0.1em 0 red, 0.1em 0 cyan;"
           id="Ajouter un tampon autour du texte">
@@ -11962,7 +11962,7 @@ ul > li.item_plan {
     </section>
   </section>
 
-  <section>
+  <section data-transition="convex">
     <section>
       <h3 id="Creer puis ajouter un carton">Créer puis ajouter un "carton" de localisation<a class="anchor-link" href="#Creer puis ajouter un carton">&#182;</a></h3>
     </section>
@@ -11978,7 +11978,7 @@ ul > li.item_plan {
     </section>
   </section>
 
-  <section>
+  <section data-transition="convex">
     <section>
       <h3 id="Controler le zoom de manière plus precise">Contrôler le zoom de manière plus précise<a class="anchor-link" href="#Controler le zoom de manière plus precise">&#182;</a></h3>
     </section>
@@ -12003,11 +12003,11 @@ ul > li.item_plan {
     </section>
   </section>
 
-  <section>
+  <section data-transition="convex">
     <h2 id="Options pour la personnalisation des elements">Options pour la personnalisation des éléments de légende<a class="anchor-link" href="#Options pour la personnalisation des elements">&#182;</a></h2>
   </section>
 
-  <section>
+  <section data-transition="convex">
     <section>
       <div>
         <h3>
@@ -12055,11 +12055,11 @@ ul > li.item_plan {
 
   </section>
 
-  <section>
+  <section data-transition="convex">
     <h2 id="Options representations avancees">Options et explications pour bien maîtriser les représentations "avancées"<a class="anchor-link" href="#Options representations avancees">&#182;</a></h2>
   </section>
 
-  <section>
+  <section data-transition="convex">
     <section>
       <div>
         <h3>
@@ -12081,7 +12081,7 @@ ul > li.item_plan {
     <section>
       <div style="color:black;font-weight:bold;">
         <h3 style="color:black;">
-          Utiliser son semi de points dans Magrit :
+          Utiliser un semi de points dans Magrit :
         </h3>
         <ul>
           <li>Avec un fond de carte personnel ou en générant une grille régulière</li>
@@ -12126,22 +12126,39 @@ ul > li.item_plan {
     </section> -->
   </section>
 
-  <section>
+  <section data-transition="convex">
     <h2 id="Options sans internet">Explications pour utiliser Magrit sans internet (sauf pour l'installation)<a class="anchor-link" href="#Options sans internet">&#182;</a></h2>
   </section>
 
-  <section>
+  <section data-transition="convex">
+    <section>
+      <h3>Pourquoi ?</h3>
+    </section>
+    <section>
+      <h5>- Bénéficier de plus de puissance (carte lissées, carroyages, etc.) sans solliciter l'instance publique</h5>
+      <h5>- Ne pas faire circuler les données sur internet (temps d'acheminement, confidentialité, ...)</h5>
+    </section>
     <section>
       <div>
         <p>L'installation de Magrit sous forme d'une éxécutable "stand-alone" n'est pas encore possible.</p>
-        <p>Il est toutefois possible de procéder à l'installation de Magrit en utilisant la solution Docker.</p>
-        <p>Cette solution présente l'avantage de ne pas "modifier" le système en place.</p>
-        <p>Elle présente toutefois l'inconvénient de ne pas être compatible avec des anciennes versions de windows.</p>
+        <p>Il est toutefois possible de procéder à l'installation de Magrit en utilisant la solution <b>Docker</b>.</p>
       </div>
+    </section>
+    <section>
+      <div>
+          <div style="text-align:center;">
+            <p><img src="img/Docker_logo.png"></p>
+          </div>
+        <p>Avantage : ne "modifie" pas le système en place</p>
+        <p>Inconvénient : non-compatible avec d'anciennes versions de windows / procédure d'installation changeante..</p>
+      </div>
+    </section>
+    <section>
+      <h3>Comment faire ?</h3>
     </section>
   </section>
 
-  <section>
+  <section data-transition="convex">
     <section>
       <div>
         </p>
@@ -12150,36 +12167,45 @@ ul > li.item_plan {
   </section>
 
 
-  <section>
+  <section data-transition="convex">
     <h2 id="Plus astuces">Plus d'astuces<a class="anchor-link" href="#Plus astuces">&#182;</a></h2>
   </section>
 
-  <section>
+  <section data-transition="convex">
     <section>
       <div>
-        <h3>- Exporter les couches vers un format compatible SIG (GeoJSON, Shapefile, KML, GML)</h3>
+        <h3>- Exporter les couches vers un format compatible SIG (GeoJSON, Shapefile, ...)</h3>
         <h5>(Pour sauvegarder le résultat d'un lissage ou d'une anamorphose...)</h5>
         <h5>(Pour la ré-importer dans Magrit et l'utiliser pour effectuer une nouvelle représentation...)</h5>
+      </div>
+    </section>
+    <section>
+      <p>Export du résultat d'une anamorphose pour l'utiliser comme fond pour une carte de ratios</p>
+      <div style="text-align:center;">
+        <p><img style="width:60%;" src="img/export_result.gif"></p>
       </div>
     </section>
     <section>
       <div>
         <h3>- Ajuster manuellement la localisation des symboles proportionnels</h3>
         <h5>(Pour éviter les chauvechements...)</h5>
-        <h5>(Pour mettre le symbole vers la capitale...)
+        <h5>(Pour mettre le symbole vers la capitale ou un endroit qui a du sens...)
       </div>
     </section>
     <section>
       <div>
-        <h3>- Générer une couche de labels en filtrant selon la valeur d'un champ numérique</h3>
+        <h3>- Créer une couche de labels en filtrant selon la valeur d'un champ numérique</h3>
         <h5>(Étiquetter seulement les communes de plus de 50 000 habitants, etc.)</h5>
       </div>
     </section>
   </section>
 
-  <section>
-    <section>
+  <section data-transition="concave">
+    <section data-background-image="img/animation_trans.gif">
       <div>
+        <h2 style="text-align:center;">
+          Merci de votre attention!
+        </h2>
       </div>
     </section>
   </section>
