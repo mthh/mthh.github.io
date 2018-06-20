@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        #map {
+            width: 1512px;
+            height: 824px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet-svg-shape-markers.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Gridded_barricades_2.js"></script>
+        <script src="data/plaque_commune_osm_3.js"></script>
+        <script src="data/bat_commune_wikidata_4.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[48.80133398247416,2.199940793170523],[48.917787924167186,2.525099302457194]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var overlay_openstreetmapse_0 = L.tileLayer('https://a.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
+            opacity: 1.0
+        });
+        overlay_openstreetmapse_0.addTo(map);
+        var overlay_Stamentoner_1 = L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png', {
+            opacity: 1.0
+        });
+        overlay_Stamentoner_1.addTo(map);
+        map.addLayer(overlay_Stamentoner_1);
+        function pop_Gridded_barricades_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID cellule</th>\
+                        <td>' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Densité</th>\
+                        <td>' + (feature.properties['density_count'] !== null ? Autolinker.link(String(feature.properties['density_count'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre de barricades</th>\
+                        <td>' + (feature.properties['count'] !== null ? Autolinker.link(String(feature.properties['count'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Gridded_barricades_2_0(feature) {
+            if (feature.properties['density_count'] >= 0.100000 && feature.properties['density_count'] <= 0.407542 ) {
+                return {
+                pane: 'pane_Gridded_barricades_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.502)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(239,237,245,0.502)',
+            }
+            }
+            if (feature.properties['density_count'] >= 0.407542 && feature.properties['density_count'] <= 0.900000 ) {
+                return {
+                pane: 'pane_Gridded_barricades_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.502)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(218,218,235,0.502)',
+            }
+            }
+            if (feature.properties['density_count'] >= 0.900000 && feature.properties['density_count'] <= 1.500000 ) {
+                return {
+                pane: 'pane_Gridded_barricades_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.502)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(158,154,200,0.502)',
+            }
+            }
+            if (feature.properties['density_count'] >= 1.500000 && feature.properties['density_count'] <= 2.000000 ) {
+                return {
+                pane: 'pane_Gridded_barricades_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.502)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(106,81,163,0.502)',
+            }
+            }
+            if (feature.properties['density_count'] >= 2.000000 && feature.properties['density_count'] <= 3.100000 ) {
+                return {
+                pane: 'pane_Gridded_barricades_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.502)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(63,0,125,0.502)',
+            }
+            }
+        }
+        map.createPane('pane_Gridded_barricades_2');
+        map.getPane('pane_Gridded_barricades_2').style.zIndex = 402;
+        map.getPane('pane_Gridded_barricades_2').style['mix-blend-mode'] = 'normal';
+        var layer_Gridded_barricades_2 = new L.geoJson(json_Gridded_barricades_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Gridded_barricades_2',
+            onEachFeature: pop_Gridded_barricades_2,
+            style: style_Gridded_barricades_2_0,
+        });
+        bounds_group.addLayer(layer_Gridded_barricades_2);
+        map.addLayer(layer_Gridded_barricades_2);
+        function pop_plaque_commune_osm_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? Autolinker.link(String(feature.properties['name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">operator</th>\
+                        <td>' + (feature.properties['operator'] !== null ? Autolinker.link(String(feature.properties['operator'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">title</th>\
+                        <td>' + (feature.properties['title'] !== null ? Autolinker.link(String(feature.properties['title'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Inscription</strong><br />' + (feature.properties['complete_inscription'] !== null ? Autolinker.link(String(feature.properties['complete_inscription'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_plaque_commune_osm_3_0() {
+            return {
+                pane: 'pane_plaque_commune_osm_3',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(61,128,53,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(84,176,74,1.0)',
+            }
+        }
+        map.createPane('pane_plaque_commune_osm_3');
+        map.getPane('pane_plaque_commune_osm_3').style.zIndex = 403;
+        map.getPane('pane_plaque_commune_osm_3').style['mix-blend-mode'] = 'normal';
+        var layer_plaque_commune_osm_3 = new L.geoJson(json_plaque_commune_osm_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_plaque_commune_osm_3',
+            onEachFeature: pop_plaque_commune_osm_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_plaque_commune_osm_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_plaque_commune_osm_3);
+        map.addLayer(layer_plaque_commune_osm_3);
+        function pop_bat_commune_wikidata_4(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Nom</th>\
+                        <td>' + (feature.properties['itemLabel'] !== null ? Autolinker.link(String(feature.properties['itemLabel'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Type</th>\
+                        <td>' + (feature.properties['edgeLabel'] !== null ? Autolinker.link(String(feature.properties['edgeLabel'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pic2'] !== null ? Autolinker.link(String(feature.properties['pic2'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_bat_commune_wikidata_4_0() {
+            return {
+                pane: 'pane_bat_commune_wikidata_4',
+                radius: 13.2,
+                opacity: 1,
+                color: 'rgba(184,8,8,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(184,8,8,1.0)',
+            }
+        }
+        function style_bat_commune_wikidata_4_1() {
+            return {
+                pane: 'pane_bat_commune_wikidata_4',
+                radius: 14.4,
+                opacity: 1,
+                color: 'rgba(255,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,0,0,1.0)',
+            }
+        }
+        map.createPane('pane_bat_commune_wikidata_4');
+        map.getPane('pane_bat_commune_wikidata_4').style.zIndex = 404;
+        map.getPane('pane_bat_commune_wikidata_4').style['mix-blend-mode'] = 'normal';
+        var layer_bat_commune_wikidata_4 = new L.geoJson.multiStyle(json_bat_commune_wikidata_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_bat_commune_wikidata_4',
+            onEachFeature: pop_bat_commune_wikidata_4,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_bat_commune_wikidata_4_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_bat_commune_wikidata_4_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_bat_commune_wikidata_4);
+        map.addLayer(layer_bat_commune_wikidata_4);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/bat_commune_wikidata_4.png" /> bat_commune_wikidata': layer_bat_commune_wikidata_4,'<img src="legend/plaque_commune_osm_3.png" /> plaque_commune_osm': layer_plaque_commune_osm_3,'Gridded_barricades<br /><table><tr><td style="text-align: center;"><img src="legend/Gridded_barricades_2_0100410.png" /></td><td> 0.10 - 0.41 </td></tr><tr><td style="text-align: center;"><img src="legend/Gridded_barricades_2_0410901.png" /></td><td> 0.41 - 0.90 </td></tr><tr><td style="text-align: center;"><img src="legend/Gridded_barricades_2_0901502.png" /></td><td> 0.90 - 1.50 </td></tr><tr><td style="text-align: center;"><img src="legend/Gridded_barricades_2_1502003.png" /></td><td> 1.50 - 2.00 </td></tr><tr><td style="text-align: center;"><img src="legend/Gridded_barricades_2_2003104.png" /></td><td> 2.00 - 3.10 </td></tr></table>': layer_Gridded_barricades_2,"Stamen toner": overlay_Stamentoner_1,"openstreetmap.se": overlay_openstreetmapse_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>

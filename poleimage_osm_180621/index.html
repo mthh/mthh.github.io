@@ -11,7 +11,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="reveal.js/css/reveal.css">
 <link rel="stylesheet" href="reveal.js/css/theme/beige.css" id="theme">
@@ -11844,31 +11844,24 @@ ul > li.item_plan {
 }
 
 </style>
-
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
-
 </head>
-
-
 <body>
-
-
 <div class="reveal">
 <div class="slides">
 
   <section data-transition="convex">
-    <h2 id="intro">Mettre en ligne une carte sans utiliser Google<a class="anchor-link" href="#intro">&#182;</a></h2>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div style="text-align:center;"><h2 id="intro">Mettre en ligne une carte sans utiliser Google<a class="anchor-link" href="#intro">&#182;</a></h2><h4>(session 2)</h4></div>
+    <br><br><br>
     <p>
-      <p align="center">Midis du Pôle Image - Juin 2018 (session 2)</p>
-      <p align="center">Violaine Jurie - Matthieu Viry</p>
+      <p align="center">Midis du Pôle Image - Juin 2018</p>
+      <br>
+      <p align="center" style="font-size:0.8em;">Violaine Jurie - Matthieu Viry</p>
       <div style="float:left">
-        <p style="margin:auto;"><img src="img/riate.png" width="120px"></p>
-        <p style="margin:auto;"><img src="img/poleimage.png" width="120px"></p>
+        <p style="margin:auto;"><img src="img/poleimage.png" width="140px"></p>
+        <p style="margin:auto;"><img style="margin-bottom:1px;" src="img/riate.png" width="140px"></p>
+        <p style="margin:auto;"><img style="margin-top:1px;" src="img/bandologo.png" width="140px"></p>
       </div>
     </p>
   </section>
@@ -11880,6 +11873,7 @@ ul > li.item_plan {
       <li class="item_plan">Export depuis un interpréteur R</li>
       <li class="item_plan">Export depuis un interpréteur Python</li>
     </ul>
+    <p>Données utilisées dans les exemples : <a href="https://mthh.github.io/poleimage_osm_180621/data.zip">ICI!</a>
   </section>
 
   <section data-transition="convex">
@@ -11888,8 +11882,9 @@ ul > li.item_plan {
   </section>
 
   <section data-transition="convex">
-    <h5 id="QGIS2web_result">Exemple de résultat :<a class="anchor-link" href="#QGIS2web_result">&#182;</a></h2>
-    <a href="qgis2web_paris/index.html">ICI!</a>
+    <h3 id="QGIS2web_result">Exemple de résultat :<a class="anchor-link" href="#QGIS2web_result">&#182;</a></h2>
+    <p><a href="qgis2web_paris/index.html">ICI!</a></p>
+    <p>ou <a href="qgis2web_paris2/index.html">ICI!</a> (plus léger, sans les orthophotos!)</p>
   </section>
 
   <section data-transition="convex">
@@ -11901,18 +11896,6 @@ ul > li.item_plan {
         <p>- Disposer de QGIS (idéalement 2.18 ou 3)</p>
         <p>- Pouvoir installer l'extension QGIS2Web</p>
         <p style="margin:auto;"><img src="img/geo2web0.png" style="width:80%;" /></p>
-      </div>
-    </section>
-    <section>
-      <div style="text-align:center;">
-        - baz
-        - bar
-      </div>
-    </section>
-    <section>
-      <div style="display:center;">
-        - aaa
-        - bbb
       </div>
     </section>
   </section>
@@ -11944,7 +11927,7 @@ ul > li.item_plan {
     </section>
     <section>
       <div style="text-align:center;">
-        <p>- Mettre son projet dans la projection des tuiles à afficher (généralement EPSG:3857 dans le cas des tuiles OSM par exemple)</p>
+        <p>- Mettre le projet dans la projection des tuiles à afficher (généralement EPSG:3857 dans le cas des tuiles OSM par exemple)</p>
       </div>
     </section>
     <section>
@@ -11980,13 +11963,13 @@ ul > li.item_plan {
     </section>
     <section>
       <div style="text-align:center;">
-        <p>- Une requête simple dans la calculatrice de champs peut vous y aider :</p>
+        <p>- Une requête simple dans la calculatrice de champs peut aider :</p>
         <p style="margin:auto;"><img src="img/geo2web_field3.png" style="width:80%;" /></p>
       </div>
     </section>
     <section>
       <div style="text-align:center;">
-        <p>- Ouvrir QGIS2web et paramétrer les différentes options proposées : affichage de la légende actif, présence du nom du champ dans les popup, possibilité d'avoir un outil permettant de mesurer des distances, regroupement des points (<i>cluster</i>) lorsque le niveau de zoom n'est pas assez important, etc.</p>
+        <p>- Ouvrir QGIS2web et paramétrer les différentes options proposées : affichage de la légende actif, présence du nom du champ dans les popup, possibilité d'avoir un outil permettant de mesurer des distances, regroupement des points (cluster) lorsque le niveau de zoom n'est pas assez important, etc.</p>
       </div>
     </section>
     <section>
@@ -12002,21 +11985,135 @@ ul > li.item_plan {
   </section>
 
   <section data-transition="convex">
+    <h5 id="R_result">Exemple de résultat :<a class="anchor-link" href="#R_result">&#182;</a></h2>
+    <iframe src="r_cantons_bretagne.html" frameborder="no" border="0" scrolling="no" height="500" width="700"></iframe>
+  </section>
+
+  <section data-transition="convex">
     <section>
       <h3 id="R_Prerequis">Prérequis :<a class="anchor-link" href="#R_Prerequis">&#182;</a></h3>
     </section>
     <section>
       <div style="text-align:center;">
-        <p>- Installer le package <pre style="display:inline;">leaflet</pre></p>
-        <span><pre>install.packages('leaflet', dependencies=TRUE)</pre></span>
+        <p style="display:inline;">- Installer le package <pre style="display:inline;">leaflet</pre></p>
+        <span><pre  class="prettyprint lang-R">install.packages('leaflet', dependencies=TRUE)</pre></span>
       </div>
     </section>
   </section>
 
+  <section data-transition="convex">
+    <section>
+      <h3 id="R_Prerequis2">Import des bibliothèques nécessaires :<a class="anchor-link" href="#R_Prerequis2">&#182;</a></h3>
+    </section>
+    <section>
+      <div>
+        <pre  class="prettyprint lang-R">
+# Construction de la carte
+library(leaflet)
+# Export de la carte
+library(htmlwidgets)
+# Ouverture/préparation des données
+library(rgdal)
+library(rgeos)
+        </pre>
+      </div>
+    </section>
+  </section>
 
   <section data-transition="convex">
-    <h5 id="R_result">Exemple de résultat :<a class="anchor-link" href="#R_result">&#182;</a></h2>
-    <iframe src="choro_iris.html" frameborder="no" border="0" scrolling="no" height="600" width="960"></iframe>
+    <section>
+      <h3 id="R_Prerequis_">Préparation des données :<a class="anchor-link" href="#R_Prerequis_">&#182;</a></h3>
+    </section>
+    <section>
+      <div>
+        <pre  class="prettyprint lang-R">
+# Ouverture d'une couche de polygones et création des centroides
+data = readOGR('cantons_bretagne.geojson')
+data$centroids <- gCentroid(data, byid = TRUE)
+
+## Taille des rayons des cercles à afficher (en pixels)
+data$size <- sqrt(as.numeric(as.character(data$population)) * 4 / pi)
+## Label des cercles (ce qui apparait quand on click dessus)
+data$label <- paste0("<b>", data$nom, "</b>",
+                     "<br>Population du canton : ",
+                     data$population, ' habitants')
+        </pre>
+      </div>
+    </section>
+  </section>
+
+  <section data-transition="convex">
+    <section>
+      <div>
+        <pre  class="prettyprint lang-R">
+## Initialisation de la carte leaflet
+m <- leaflet(padding = 0)
+m <- addProviderTiles(map = m,
+                      provider = providers$Stamen.Watercolor)
+
+## Ajout des cantons bretons
+m <- addPolygons(map = m, data = data, opacity = 100,
+                 color = "#FAFCFA",
+                 weight = 0.25,
+                 popup = NULL,
+                 options = list(clickable = FALSE),
+                 fill = T, fillColor = "pink",
+                 fillOpacity = 75,
+                 stroke = T)
+        </pre>
+      </div>
+    </section>
+  </section>
+
+  <section data-transition="convex">
+    <section>
+      <div>
+        <pre  class="prettyprint lang-R">
+# Ajout de markers correspondants au centroide avec
+# un popup contenant le nom de l'entité
+m <- addCircleMarkers(map = m,
+                      lng = data$centroids$x,  lat = data$centroids$y,
+                      radius = data$size / 30, weight = 0.25,
+                      stroke = T, opacity = 100,
+                      fill = T, fillColor = "purple",
+                      fillOpacity = 100,
+                      popup = data$label,
+                      color = "white")
+
+## Centrage de la carte
+m <- fitBounds(map = m,
+               lng1 = data@bbox[1],
+               lat1 = data@bbox[2],
+               lng2 = data@bbox[3],
+               lat2 = data@bbox[4])
+## Dimensions de la carte
+m$width <- 700
+m$height <- 500
+
+# Export de la carte en html
+saveWidget(m, 'map.html', selfcontained = TRUE)
+        </pre>
+      </div>
+    </section>
+  </section>
+
+  <section data-transition="convex">
+    <h3 id="R_result">Le package s'utilise facilement dans un notebook R :<a class="anchor-link" href="#R_result">&#182;</a></h3>
+    <iframe src="leaflet_notebook.html" frameborder="no" border="0" scrolling="yes" height="600" width="800"></iframe>
+  </section>
+
+  <section data-transition="convex">
+    <section>
+      <div style="text-align:center;">
+        <p>De nombreuses autres fonctionnalités de Leaflet sont disponibles.</p>
+        <p>- Création de "Marker"</p>
+        <p>- Dessin de lignes</p>
+        <p>- ...</p>
+        <br>
+        <p>La documentation du package pour plus d'informations :<br><a href="https://rstudio.github.io/leaflet/">https://rstudio.github.io/leaflet/</a>
+        <p>Un exemple sur le blog RGeomatic :<br><a href="https://rgeomatic.hypotheses.org/550">https://rgeomatic.hypotheses.org/550</a>
+      </div>
+    </section>
   </section>
 
   <section data-transition="convex">
@@ -12035,20 +12132,49 @@ ul > li.item_plan {
     </section>
     <section>
       <div style="text-align:center;">
-        <p>- Installer le package <pre style="display:inline;">folium</pre></p>
-        <p>- Installer le package <pre style="display:inline;">geopandas</pre></p>
-        <p><pre>pip install folium geopandas</pre></p>
+        <p style="display:inline;">- Installer le package <pre style="display:inline;">folium</pre></p>
+        <p style="display:inline;">- Installer le package <pre style="display:inline;">geopandas</pre></p>
+        <p style="display:inline;"><pre>pip install folium geopandas</pre></p>
       </div>
     </section>
   </section>
 
   <section data-transition="convex">
     <section>
+      <h3 id="python_choro">Fond OSM + fichier GeoJSON<a class="anchor-link" href="#python_choro">&#182;</a></h3>
+    </section>
+    <section>
+      <pre class="prettyprint lang-py">
+### Exporter un fond OSM centré + une couche GeoJSON
+### en surimposition :
+import folium
+
+# On créé l'objet Map
+m = folium.Map(location=[48.87, 2.38],
+               zoom_start=11,
+               tiles='Stamen Terrain')
+
+# On ajoute une couche GeoJSON et on choisi son nom pour la "légende"
+folium.GeoJson(
+    'IRIS_LOGEMENT_HABITAT.geojson',
+    name='IRIS'
+).add_to(m)
+
+# On ajoute la "légende" (controle de visibilité des couches)
+folium.LayerControl().add_to(m)
+
+# On exporte le résultat
+m.save('/tmp/index2.html')
+      </pre>
+    </section>
+  </section>
+  <section data-transition="convex">
+    <section>
       <h3 id="python_choro">Carte chroplèthe (montrée en exemple) :<a class="anchor-link" href="#python_choro">&#182;</a></h3>
     </section>
     <section>
-      <pre>
-### Exporter un fond OSM centré sur ma localisation avec un couche GeoJSON
+      <pre class="prettyprint lang-python">
+### Exporter un fond OSM + une couche GeoJSON
 ### utilisée pour faire une carte choroplèthe :
 import folium
 
@@ -12056,17 +12182,32 @@ m = folium.Map(location=[48.87, 2.38],
                zoom_start=10.4,
                width=960,
                height=600)
-m.choropleth(geo_data=gdf,
-             data=gdf,
-             columns=['OBJECTID', 'TX12_RP_LO'],
-             key_on='feature.properties.OBJECTID',
-             line_opacity=0.2,
-             fill_color='PuBu',
-             highlight=True,
-             legend_name='Part des locataires dans le parc de résidences principales')
+
+m.choropleth(
+    geo_data=gdf,
+    data=gdf,
+    columns=['OBJECTID', 'TX12_RP_LO'],
+    key_on='feature.properties.OBJECTID',
+    line_opacity=0.2,
+    fill_color='PuBu',
+    highlight=True,
+    legend_name='Part des locataires dans le parc de résidences principales')
+
 folium.LayerControl().add_to(m)
 m.save('/tmp/index2.html')
       </pre>
+    </section>
+  </section>
+
+  <section data-transition="convex">
+    <section>
+      <div style="text-align:center;">
+        <p>De nombreuses autres fonctionnalités de Leaflet sont disponibles</p>
+        <br>
+        <p>Voir la documentation du package pour plus d'informations :<br><a href="http://python-visualization.github.io/folium/">http://python-visualization.github.io/folium/</a></p>
+        <br>
+        <p>Comme le package leaflet avec les notebook R, folium s'intègre parfaitement aux notebook jupyter/IPython.</p>
+      </div>
     </section>
   </section>
 
@@ -12088,7 +12229,6 @@ m.save('/tmp/index2.html')
       </div>
     </section>
   </section> -->
-
 
   <section data-transition="concave">
     <section data-background-image="img/animation_trans.gif">
