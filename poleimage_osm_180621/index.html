@@ -11888,6 +11888,11 @@ ul > li.item_plan {
   </section>
 
   <section data-transition="convex">
+    <h5 id="QGIS2web_result">Exemple de résultat :<a class="anchor-link" href="#QGIS2web_result">&#182;</a></h2>
+    <a href="qgis2web_paris/index.html">ICI!</a>
+  </section>
+
+  <section data-transition="convex">
     <section>
       <h3 id="QGIS2webPrerequis">Prérequis pour utiliser QGIS2Web:<a class="anchor-link" href="#QGIS2webPrerequis">&#182;</a></h3>
     </section>
@@ -11945,6 +11950,7 @@ ul > li.item_plan {
     <section>
       <div style="text-align:center;">
         <p>- Choisir les champs qu'on voudra afficher dans une popup</p>
+        <p>  (par défaut tous les champs le seront, il faut explicitement sélectionner "caché" pour ne pas les afficher)</p>
       </div>
     </section>
     <section>
@@ -11980,7 +11986,7 @@ ul > li.item_plan {
     </section>
     <section>
       <div style="text-align:center;">
-        <p>- Ouvrir QGIS2web et paramétrer les différentes options proposées : affichage de la légende actif, présence du nom du champ dans les popup, possibilité d'avoir un outil permettant de mesurer des distances, etc.</p>
+        <p>- Ouvrir QGIS2web et paramétrer les différentes options proposées : affichage de la légende actif, présence du nom du champ dans les popup, possibilité d'avoir un outil permettant de mesurer des distances, regroupement des points (<i>cluster</i>) lorsque le niveau de zoom n'est pas assez important, etc.</p>
       </div>
     </section>
     <section>
@@ -11996,8 +12002,72 @@ ul > li.item_plan {
   </section>
 
   <section data-transition="convex">
+    <section>
+      <h3 id="R_Prerequis">Prérequis :<a class="anchor-link" href="#R_Prerequis">&#182;</a></h3>
+    </section>
+    <section>
+      <div style="text-align:center;">
+        <p>- Installer le package <pre style="display:inline;">leaflet</pre></p>
+        <span><pre>install.packages('leaflet', dependencies=TRUE)</pre></span>
+      </div>
+    </section>
+  </section>
+
+
+  <section data-transition="convex">
+    <h5 id="R_result">Exemple de résultat :<a class="anchor-link" href="#R_result">&#182;</a></h2>
+    <iframe src="choro_iris.html" frameborder="no" border="0" scrolling="no" height="600" width="960"></iframe>
+  </section>
+
+  <section data-transition="convex">
     <h2 id="python">Depuis un interpréteur Python<a class="anchor-link" href="#python">&#182;</a></h2>
     <p style="text-align:right;"><img src="img/Python_logo.svg" height="80px" /></p>
+  </section>
+
+  <section data-transition="convex">
+    <h5 id="python_result">Exemple de résultat :<a class="anchor-link" href="#python_result">&#182;</a></h2>
+    <iframe src="choro_iris.html" frameborder="no" border="0" scrolling="no" height="600" width="960"></iframe>
+  </section>
+
+  <section data-transition="convex">
+    <section>
+      <h3 id="python_Prerequis">Prérequis :<a class="anchor-link" href="#python_Prerequis">&#182;</a></h3>
+    </section>
+    <section>
+      <div style="text-align:center;">
+        <p>- Installer le package <pre style="display:inline;">folium</pre></p>
+        <p>- Installer le package <pre style="display:inline;">geopandas</pre></p>
+        <p><pre>pip install folium geopandas</pre></p>
+      </div>
+    </section>
+  </section>
+
+  <section data-transition="convex">
+    <section>
+      <h3 id="python_choro">Carte chroplèthe (montrée en exemple) :<a class="anchor-link" href="#python_choro">&#182;</a></h3>
+    </section>
+    <section>
+      <pre>
+### Exporter un fond OSM centré sur ma localisation avec un couche GeoJSON
+### utilisée pour faire une carte choroplèthe :
+import folium
+
+m = folium.Map(location=[48.87, 2.38],
+               zoom_start=10.4,
+               width=960,
+               height=600)
+m.choropleth(geo_data=gdf,
+             data=gdf,
+             columns=['OBJECTID', 'TX12_RP_LO'],
+             key_on='feature.properties.OBJECTID',
+             line_opacity=0.2,
+             fill_color='PuBu',
+             highlight=True,
+             legend_name='Part des locataires dans le parc de résidences principales')
+folium.LayerControl().add_to(m)
+m.save('/tmp/index2.html')
+      </pre>
+    </section>
   </section>
 
   <section data-transition="convex">
