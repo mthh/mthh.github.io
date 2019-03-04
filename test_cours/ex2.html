@@ -1,0 +1,317 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Exercice 2 : Manipulation des attributs d’une couche &#8212; Documentation PythonQGIS_TP </title>
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/js/custom.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Exercice 3 : Géométries et calcul de champ" href="ex3.html" />
+    <link rel="prev" title="Exercice 1 : Prise en main" href="ex1.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ex3.html" title="Exercice 3 : Géométries et calcul de champ"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="ex1.html" title="Exercice 1 : Prise en main"
+             accesskey="P">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Documentation PythonQGIS_TP </a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Contenu</h2>
+    <div class="sidebar-localtoc">
+      <ul>
+<li><a class="reference internal" href="#">Exercice 2 : Manipulation des attributs d’une couche</a><ul>
+<li><a class="reference internal" href="#objectif">Objectif</a></li>
+<li><a class="reference internal" href="#donnees">Données</a></li>
+<li><a class="reference internal" href="#procedure">Procédure</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+</div>
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="ex1.html"
+                        title="Chapitre précédent">Exercice 1 : Prise en main</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="ex3.html"
+                        title="Chapitre suivant">Exercice 3 : Géométries et calcul de champ</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ex2.rst.txt"
+            rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>Exercice 2 : Manipulation des attributs d’une couche</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="exercice-2-manipulation-des-attributs-d-une-couche">
+<h1>Exercice 2 : Manipulation des attributs d’une couche<a class="headerlink" href="#exercice-2-manipulation-des-attributs-d-une-couche" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="objectif">
+<h2>Objectif<a class="headerlink" href="#objectif" title="Lien permanent vers ce titre">¶</a></h2>
+<p>À partir d’une couche vecteur de points représentants les principaux aéroports,
+créer un script python permettant d’exporter un fichier CSV contenant,
+pour chaque aéroport <em>majeur</em> son nom, son code, sa latitude et sa longitude.</p>
+</div>
+<div class="section" id="donnees">
+<h2>Données<a class="headerlink" href="#donnees" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les données proviennent de Natural Earth <a class="footnote-reference" href="#f1" id="id1">[1]</a>.</p>
+<div class="line-block">
+<div class="line">-&gt; <code class="docutils literal notranslate"><span class="pre">TP/data/ex1-3/ne_10m_airports.shp</span></code> (Points - Localisation des aéroports)</div>
+<div class="line">-&gt; <code class="docutils literal notranslate"><span class="pre">TP/data/ex1-3/ne_10m_admin_0_countries.shp</span></code> (Polygones - Pays du monde)</div>
+</div>
+</div>
+<div class="section" id="procedure">
+<h2>Procédure<a class="headerlink" href="#procedure" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li>Charger la couche vecteur <code class="docutils literal notranslate"><span class="pre">ne_10m_airports.shp</span></code> :<ul>
+<li>soit en faisant un glissé-déposé de ce fichier vers l’interface de QGIS,</li>
+<li>soit en en utilisant le menu <code class="docutils literal notranslate"><span class="pre">Couche</span> <span class="pre">&gt;</span> <span class="pre">Ajouter</span> <span class="pre">une</span> <span class="pre">couche</span> <span class="pre">&gt;</span> <span class="pre">Ajouter</span> <span class="pre">une</span> <span class="pre">couche</span> <span class="pre">vecteur...</span></code></li>
+</ul>
+</li>
+</ul>
+<div class="figure align-center" style="width: 98%">
+<a class="reference internal image-reference" href="_images/0_qgis_interface.png"><img alt="_images/0_qgis_interface.png" src="_images/0_qgis_interface.png" style="width: 100%;" /></a>
+</div>
+<ul class="simple">
+<li>De manière similaire, charger la couche <code class="docutils literal notranslate"><span class="pre">ne_10m_admin_0_countries.shp</span></code>.</li>
+<li>Modifier le style des couches pour obtenir le résultat suivant :<ul>
+<li>Utilisation d’un pictogramme d’avion pour les aéroports</li>
+<li>Utilisation d’un fond de couleur beige/jaune pour les pays du monde.</li>
+</ul>
+</li>
+</ul>
+<blockquote class="pull-quote">
+<div>Rappel: Le style de chacune des couches peut-être modifié depuis le gestionnaire de couches, en sélectionannt une couche puis en faisant <code class="docutils literal notranslate"><span class="pre">clic</span> <span class="pre">droit</span> <span class="pre">&gt;</span> <span class="pre">Propriétés</span></code> puis sélection de l’onglet <em>«&nbsp;Symbologie&nbsp;»</em>.
+QGIS offre de nombreux modes de rendu des couches (catégorisé, gradué, etc.) en fonction du type de couche et du type d’information à représenter.</div></blockquote>
+<div class="figure align-center" style="width: 98%">
+<a class="reference internal image-reference" href="_images/1_qgis_ouverture_style.png"><img alt="_images/1_qgis_ouverture_style.png" src="_images/1_qgis_ouverture_style.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center" style="width: 98%">
+<a class="reference internal image-reference" href="_images/2_qgis_apres_style.png"><img alt="_images/2_qgis_apres_style.png" src="_images/2_qgis_apres_style.png" style="width: 100%;" /></a>
+</div>
+<ul class="simple">
+<li>Utiliser l’outil «&nbsp;Identifier&nbsp;» pour visualiser les attributs de chacune des entités. Cet outil s’applique uniquement à la couche active.</li>
+</ul>
+<div class="figure align-center" style="width: 98%">
+<a class="reference internal image-reference" href="_images/3_qgis_identifier.png"><img alt="_images/3_qgis_identifier.png" src="_images/3_qgis_identifier.png" style="width: 100%;" /></a>
+</div>
+<ul class="simple">
+<li>Pour voir l’ensemble de la table de données relative à cette couche on peut ouvrir sa «&nbsp;table attributaire&nbsp;».</li>
+</ul>
+<div class="figure align-center" style="width: 98%">
+<a class="reference internal image-reference" href="_images/4_qgis_table_attributaire.png"><img alt="_images/4_qgis_table_attributaire.png" src="_images/4_qgis_table_attributaire.png" style="width: 100%;" /></a>
+</div>
+<ul>
+<li><p class="first">Ouvrir la console python.</p>
+<p>S’assurer que la couche des aéroports est bien celle qui est active.</p>
+<ul>
+<li><p class="first">Parcourir les différentes entités de la couche :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">layer</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">activeLayer</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">ft</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">getFeatures</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ft</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Accéder aux attributs de chaque enregistrement :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">layer</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">activeLayer</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">ft</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">getFeatures</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ft</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">ft</span><span class="p">[</span><span class="s1">&#39;iata_code&#39;</span><span class="p">],</span> <span class="n">ft</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Accéder à la géométrie de chaque enregistrement :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">layer</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">activeLayer</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">ft</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">getFeatures</span><span class="p">():</span>
+    <span class="n">geom</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
+    <span class="n">geom_point</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">asPoint</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">geom_point</span><span class="p">)</span>
+    <span class="c1"># L&#39;objet `QgsPoint` a notamment une méthode `x` et une méthode `y`</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">geom_point</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span> <span class="n">geom_point</span><span class="o">.</span><span class="n">y</span><span class="p">())</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Obtenir les différentes modalités du champ <code class="docutils literal notranslate"><span class="pre">type</span></code> en parcourant les
+différentes entités dans une liste de compréhension :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">categories</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">ft</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ft</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">getFeatures</span><span class="p">()]))</span>
+<span class="c1"># print(categories)</span>
+<span class="c1"># [&#39;military&#39;, &#39;spaceport&#39;, &#39;military mid&#39;, &#39;small&#39;, &#39;mid and military&#39;,</span>
+<span class="c1">#  &#39;major and military&#39;, &#39;military major&#39;, &#39;mid&#39;, &#39;major&#39;]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Nous savons donc comment accéder aux différentes informations nécessaires pour réaliser l’export souhaité.
+L’export au format CSV va nécessiter de structurer les valeurs relatives à
+chaque enregistrement (ici à chaque aéroport) sous forme d’une liste.
+Le module <code class="docutils literal notranslate"><span class="pre">csv</span></code> de la bibliothèque standard[#f2]_ se chargera d’écrire
+correctement les valeurs de chaque enregistrement selon le type de fichier CSV souhaité.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">layer</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">activeLayer</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">ft</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">getFeatures</span><span class="p">():</span>
+    <span class="n">geom_point</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span><span class="o">.</span><span class="n">asPoint</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">ft</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">ft</span><span class="p">[</span><span class="s1">&#39;iata_code&#39;</span><span class="p">],</span> <span class="n">geom_point</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span> <span class="n">geom_point</span><span class="o">.</span><span class="n">y</span><span class="p">()))</span>
+    <span class="c1"># Nos enregistrements seront donc de la forme suivante</span>
+    <span class="c1"># [ft[&#39;name&#39;], ft[&#39;iata_code&#39;], geom_point.x(), geom_point.y()]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Il suffit de quelques lignes supplémentaires pour écrire ces informations dans un fichier :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="n">output_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/matt/airports.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">csv_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Nom&quot;</span><span class="p">,</span> <span class="s2">&quot;Code_IATA&quot;</span><span class="p">,</span> <span class="s2">&quot;Latitude&quot;</span><span class="p">,</span> <span class="s2">&quot;Longitude&quot;</span><span class="p">]</span>
+<span class="n">csv_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">header_line</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">ft</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">getFeatures</span><span class="p">():</span>
+    <span class="c1"># Les résultats ne sont pas encore filtrés selon le type d&#39;aeroport !</span>
+    <span class="n">geom_point</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span><span class="o">.</span><span class="n">asPoint</span><span class="p">()</span>
+    <span class="n">csv_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">ft</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">ft</span><span class="p">[</span><span class="s1">&#39;iata_code&#39;</span><span class="p">],</span> <span class="n">geom_point</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span> <span class="n">geom_point</span><span class="o">.</span><span class="n">y</span><span class="p">()])</span>
+
+<span class="n">output_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line">À vous de jouer !</div>
+<div class="line">Reprendre les étapes qui viennent d’être vues et les synthétiser sous forme d’un script.</div>
+<div class="line"><em>Attention</em> : seuls les aéroports de type “major” et “major and military” doivent être exportés.</div>
+<div class="line">Enregistrer le script sous le nom <cite>export_txt.py</cite> dans le dossier TP.</div>
+<div class="line">Exécuter le script pour vérifier de son bon fonctionnement.</div>
+<div class="line"><strong>Combien d’aéroport ont été enregistrés ?</strong></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="http://www.naturalearthdata.com/">http://www.naturalearthdata.com/</a>. Données téléchargées le 28/02/2019.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><a class="reference external" href="https://docs.python.org/3/library/csv.html">https://docs.python.org/3/library/csv.html</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="ex1.html" title="Chapitre précédent (use the left arrow)">Exercice 1 : Prise en main</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="ex3.html" title="Chapitre suivant (use the right arrow)">Exercice 3 : Géométries et calcul de champ</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="ex3.html" title="Exercice 3 : Géométries et calcul de champ"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="ex1.html" title="Exercice 1 : Prise en main"
+             >précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Documentation PythonQGIS_TP </a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2019, Matthieu Viry. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

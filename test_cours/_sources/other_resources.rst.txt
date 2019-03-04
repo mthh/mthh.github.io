@@ -1,0 +1,27 @@
+Ressources utiles
+=================
+
+
+
+Python
+------
+
+- Ressource 1
+
+- Ressource 2
+
+
+QGIS
+----
+
+- Ressource 1
+
+- Ressource 2
+
+
+Python pour QGIS
+----------------
+
+- Ressource 1
+
+- Ressource 2

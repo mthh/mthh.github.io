@@ -1,0 +1,259 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Introduction QGIS &#8212; Documentation PythonQGIS_TP </title>
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/js/custom.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Exercice 1 : Prise en main" href="ex1.html" />
+    <link rel="prev" title="Introduction Python" href="intro.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ex1.html" title="Exercice 1 : Prise en main"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction Python"
+             accesskey="P">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Documentation PythonQGIS_TP </a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Contenu</h2>
+    <div class="sidebar-localtoc">
+      <ul>
+<li><a class="reference internal" href="#">Introduction QGIS</a><ul>
+<li><a class="reference internal" href="#pourquoi-python-qgis">Pourquoi Python-QGIS ?</a></li>
+<li><a class="reference internal" href="#quelle-s-version-s-utiliser">Quelle(s) version(s) utiliser ?</a></li>
+<li><a class="reference internal" href="#console-python-dans-qgis">Console Python dans QGIS</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+</div>
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="intro.html"
+                        title="Chapitre précédent">Introduction Python</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="ex1.html"
+                        title="Chapitre suivant">Exercice 1 : Prise en main</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/intro2.rst.txt"
+            rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>Introduction QGIS</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="introduction-qgis">
+<h1>Introduction QGIS<a class="headerlink" href="#introduction-qgis" title="Lien permanent vers ce titre">¶</a></h1>
+<a class="reference internal image-reference" href="_images/QGIS_logo_new.png"><img alt="_images/QGIS_logo_new.png" class="align-center" src="_images/QGIS_logo_new.png" style="width: 18%;" /></a>
+<p>QGIS est un logiciel de SIG distribué sous licence libre GNU GPL.
+C’est un projet officiel de la fondation OSGeo (Open Source Geospatial) qui
+permet de visualiser, gérer, éditer, analyser des données géospatiales et de composer des cartes.
+Les formats de données (vecteurs et rasters) qu’il supporte sont très nombreux
+et il permet également de se connecter à différents type de bases de données.</p>
+<p>QGIS est developpé en C++ (en utilisant notamment le framework Qt) et
+il est notamment compatible avec GNU/Linux, Max OS X et Windows.</p>
+<p>Depuis QGIS 0.9 le logiciel dispose d’une API python permettant :</p>
+<ul class="simple">
+<li>d’appeler l’API depus la console Python de QGIS.</li>
+<li>de créer des plugins pour QGIS.</li>
+<li>de créer des applications externes appelant les fonctionnalités de QGIS.</li>
+</ul>
+<div class="section" id="pourquoi-python-qgis">
+<h2>Pourquoi Python-QGIS ?<a class="headerlink" href="#pourquoi-python-qgis" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li>Automatiser des actions répétitives</li>
+<li>Faire tourner des scripts</li>
+<li>Effectuer des traitements spécifiques</li>
+<li>Développer ses propre plugins</li>
+<li>Développer ses propres applications</li>
+</ul>
+</div>
+<div class="section" id="quelle-s-version-s-utiliser">
+<h2>Quelle(s) version(s) utiliser ?<a class="headerlink" href="#quelle-s-version-s-utiliser" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>Ce TP utilise QGIS 3. Il a été testé avec la version de 3.4.</strong></p>
+</div>
+<div class="line-block">
+<div class="line">Par rapport à QGIS 2.x, la version 3 présente l’avantage d’utiliser <strong>Python 3</strong> et <strong>Qt 5</strong>.</div>
+<div class="line">Depuis novembre 2018, la dernière version maintenue sur le long terme (LTR) est la version 3.4.</div>
+<div class="line">Le versionnement et le developpement de QGIS suivent un planning temporel : une nouvelle version stable tous les 4 mois.
+La liste des fonctionnalités ajoutées à chaque version peut être consultée en ligne : <a class="reference external" href="http://changelog.qgis.org/en/qgis/version/list/">http://changelog.qgis.org/en/qgis/version/list/</a>.</div>
+</div>
+<p>La documentation complète de l’API python qui va être utilisée est disponible en ligne : <a class="reference external" href="https://qgis.org/pyqgis/3.4/">https://qgis.org/pyqgis/3.4/</a>.</p>
+</div>
+<div class="section" id="console-python-dans-qgis">
+<h2>Console Python dans QGIS<a class="headerlink" href="#console-python-dans-qgis" title="Lien permanent vers ce titre">¶</a></h2>
+<p>QGIS dispose d’une puissante interface de programmation qui permet d’étendre ses
+fonctionnalités notamment en écrivant des scripts pour automatiser les traitements.
+Cette API Python est généralement désignée sous le nom de <strong>PyQgis</strong>.</p>
+<p>Même en étant débutant, en apprenant un peu de python, l’interface de programmation de QGIS permet
+d’être plus productif (automatisation d’actions répétitives,
+chargement personnalisés au démarrage de l’application, contournement de limites
+imposées par l’interface graphique, etc.).</p>
+<p>Ce tutoriel ne nécessite que peu de connaissances en programmation Python et
+a pour but de donner une introduction aux capacités de scripting dans QGIS avec PyQGIS.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Dans les exercices suivants, faîtes l’effort d’écrire le code plutôt que de le copier-coller.
+Cela facilitera votre compréhension et vous évitera d’éventuelles erreurs de syntaxe.</p>
+</div>
+<p>QGIS fournit une console interactive python. Elle peut être ouverte depuis le
+menu <code class="docutils literal notranslate"><span class="pre">Extension</span> <span class="pre">&gt;</span> <span class="pre">Console</span> <span class="pre">Python</span></code>, en pressant <code class="docutils literal notranslate"><span class="pre">CTRL-ALT-P</span></code> ou en appuyant
+sur l’icone qui lui est dédiée.</p>
+<p>Lors de l’utilisation de la console Python dans QGIS, une variable <code class="docutils literal notranslate"><span class="pre">iface</span></code> est
+déjà existante. Cette variable est une instance de <code class="docutils literal notranslate"><span class="pre">QgsInterface</span></code> et elle
+permet d’accéder au canevas de la carte, aux menus, barres d’outils et aux
+autres parties de l’application QGIS ouverte.
+De même lors du démarrage d’une session interactive dans cette console,
+les imports suivants sont réalisés :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qgis.core</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">qgis.util</span>
+</pre></div>
+</div>
+<p>Lors de l’utilisation interactive de la console Python, la fonction native <code class="docutils literal notranslate"><span class="pre">dir()</span></code> pourra s’avérer très utile : en
+effet elle permet d’obtenir une liste d’attributs valides pour l’objet qui lui est donné en argument.</p>
+<p>Par exemple, la liste des attributs d’une variable (ici de type <code class="docutils literal notranslate"><span class="pre">list</span></code>) peut être récupérée
+de la manière suivante :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># Retourne une liste contenant les attributs de &#39;a&#39;</span>
+</pre></div>
+</div>
+<p>Les objets de PyQgis disposent généralement d’un grand nombre d’attributs.
+Ne pas hésiter à utiliser une <em>liste de compréhension</em> pour filter ce résultat.
+Par exemple si on souhaite seulement une liste des attributs de
+l’objet <code class="docutils literal notranslate"><span class="pre">iface</span></code> qui contiennent le terme “layer” :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">iface</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;layer&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+<span class="c1"># En respectant l&#39;ordre des éléments de notre liste de compréhension,</span>
+<span class="c1"># on pourrait exprimer cette instruction de la façon suivante :</span>
+<span class="c1"># &quot;Ajoute &#39;name&#39; à la liste pour chaque &#39;name&#39;</span>
+<span class="c1"># dans les attributs de &#39;iface&#39; si &#39;name&#39; en minuscule contient</span>
+<span class="c1"># la chaine de caractère &#39;layer&#39;&quot;</span>
+</pre></div>
+</div>
+<p>Par ailleurs il est possible de connaitre le type de cette variable en utilisant
+la fonction native <code class="docutils literal notranslate"><span class="pre">type()</span></code> :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">iface</span><span class="p">)</span>
+<span class="go"># &lt;class &#39;qgis._gui.QgisInterface&#39;&gt;</span>
+</pre></div>
+</div>
+<p>Cette fonctionnalité pourra être utile pour aller chercher des informations
+dans la documentation de l’API PyQgis.</p>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="intro.html" title="Chapitre précédent (use the left arrow)">Introduction Python</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="ex1.html" title="Chapitre suivant (use the right arrow)">Exercice 1 : Prise en main</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="ex1.html" title="Exercice 1 : Prise en main"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction Python"
+             >précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Documentation PythonQGIS_TP </a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2019, Matthieu Viry. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

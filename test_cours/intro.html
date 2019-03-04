@@ -1,0 +1,235 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Introduction Python &#8212; Documentation PythonQGIS_TP </title>
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/js/custom.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Introduction QGIS" href="intro2.html" />
+    <link rel="prev" title="TP Python pour QGIS" href="index.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="intro2.html" title="Introduction QGIS"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="TP Python pour QGIS"
+             accesskey="P">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Documentation PythonQGIS_TP </a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar">
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Contenu</h2>
+    <div class="sidebar-localtoc">
+      <ul>
+<li><a class="reference internal" href="#">Introduction Python</a><ul>
+<li><a class="reference internal" href="#language-oriente-objet">Language orienté objet</a></li>
+<li><a class="reference internal" href="#typage-dynamique-fort">Typage dynamique fort</a></li>
+<li><a class="reference internal" href="#langage-interprete">Langage interpreté</a></li>
+<li><a class="reference internal" href="#bloc-d-instructions-et-indentation">Bloc d’instructions et indentation</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+</div>
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="index.html"
+                        title="Chapitre précédent">TP Python pour QGIS</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="intro2.html"
+                        title="Chapitre suivant">Introduction QGIS</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/intro.rst.txt"
+            rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>Introduction Python</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="introduction-python">
+<h1>Introduction Python<a class="headerlink" href="#introduction-python" title="Lien permanent vers ce titre">¶</a></h1>
+<a class="reference internal image-reference" href="_images/Python_logo.png"><img alt="_images/Python_logo.png" class="align-center" src="_images/Python_logo.png" style="width: 18%;" /></a>
+<p>Python est un langage de programmation multi-paradigme libre (régit par la <em>Python Software Foundation License</em>, équivalent à
+BSD) créé en 1990 par Guido van Rossum, et géré depuis 2001 par la <a class="reference external" href="https://www.python.org/psf/">Python Software Foundation</a>.</p>
+<p>Python est un langage orienté objet de haut niveau (la syntaxe est séparée des mécanismes de bas-niveau)
+assez proche de Java, mais souvent considéré comme plus simple et moins ”verbeux”
+(le code python est parfois très proche du pseudo-code).</p>
+<p>Le langage connaît un fort succès depuis plusieurs années <a class="footnote-reference" href="#f1" id="id1">[1]</a> aussi bien
+pour le développement web (scripts CGI, Django, frameworks asynchrones, etc.)
+que pour le traitement et l’analyse de données (packages <a class="reference external" href="https://www.numpy.org/">Numpy</a>, <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>, <a class="reference external" href="https://www.scipy.org/">Scipy</a>, <a class="reference external" href="https://scikit-learn.org/">scikit-learn</a>, etc.).</p>
+<p>Comme il s’agit d’un language interpreté, c’est un candidat de choix comme langage
+de script au sein d’applications lourdes (et généralement développées dans un
+langage de plus bas niveau).
+On le retrouve ainsi dans des logiciels de modélisation 3d (Autodesk Maya, Blender),
+de retouche d’image vectorielle (Inkscape) ou de SIG (ArcGIS, QGIS).</p>
+<p>Python possède une grande bibliothèque standard et, en raison de son succès, il existe de
+très nombreuses bibliothèques, développées par la communauté et spécialisées
+pour un grand nombre de domaines, permettant aux développeurs de créer des outils rapidement
+et simplement en utilisant la robustesse de fonctionnalités validées par une large
+base d’utilisateurs.</p>
+<p>Comme tout langage, Python possède quelques spécificités qu’il est utile de connaître avant de
+commencer.</p>
+<div class="section" id="language-oriente-objet">
+<h2>Language orienté objet<a class="headerlink" href="#language-oriente-objet" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Python est orienté-objet. Il supporte l”<strong>héritage multiple</strong> et la <strong>surcharge des opérateurs</strong>.
+En Python toutes les données manipulées (y compris les types primitifs telles que les nombres et les chaînes de caractères) sont des objets : entier, flottant, liste, dictionnaire, etc. sont tous des objets.</p>
+<p>Les objets de même nature ont le même type.</p>
+<p>Ces objets contiennent notamment : des propriétés et des méthodes (qu’on va parfois retrouver sous le terme d’attributs).
+Les propriétés permettent de stocker la valeur de l’objet et les méthodes représentent les fonctions permettant de manipuler la valeur de l’objet.</p>
+</div>
+<div class="section" id="typage-dynamique-fort">
+<h2>Typage dynamique fort<a class="headerlink" href="#typage-dynamique-fort" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>TODO</strong></p>
+</div>
+<div class="section" id="langage-interprete">
+<h2>Langage interpreté<a class="headerlink" href="#langage-interprete" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Python est dynamique : l’interpréteur peut évaluer des chaînes de caractères
+représentant des expressions ou des instructions Python.
+Il s’agit d’un langage <em>interprété</em> (comme le Java ou le Perl)
+à l’inverse de langage comme le C, le C++ ou le Pascal qui sont <em>compilés</em>.</p>
+<p>Les langages compilés vont nécessiter de transformer le code source en code binaire
+(langage machine) lors d’une opération appelée la <em>compilation</em>.
+Cette opération produit un fichier éxécutable dépendant du système d’exploitation
+et est à effectuer à chaque modification du code source.</p>
+<p>Dans le cas d’un langage interprété (l’expression «&nbsp;langage de script&nbsp;» est synonyme),
+les instructions (le code source) sont «&nbsp;transcrites&nbsp;»
+par un <em>interpréteur</em> en langage machine au fur et à mesure de leur lecture.
+L’éxécution d’un script écrit en Python est donc conditionnée par la présence
+de l’intepréteur Python (comme le serait du code Java avec la JVM par exemple).</p>
+</div>
+<div class="section" id="bloc-d-instructions-et-indentation">
+<h2>Bloc d’instructions et indentation<a class="headerlink" href="#bloc-d-instructions-et-indentation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En programmation il est courant de faire des choix (<em>structures conditionnelle</em>),
+de répéter des opérations (<em>boucles</em>) ou de définir de nouveaux objets.
+Les instructions propres à ces cas sont appelées <strong>bloc d’instructions</strong>.
+.. Autrement dit, un bloc d’instructions est une suite d’instructions formant un
+.. ensemble logique, qui est exécuté en fonction de l’instruction définit dans la
+.. ligne d’en-tête (condition, boucles, etc.).</p>
+<p>En python les blocs d’instructions sont toujours associés à
+une <strong>ligne d’en-tête contenant une instruction spécifique</strong> (if, elif, else, while, def, class, …) <strong>se terminant par un double point</strong>.</p>
+<p><strong>Les blocs sont délimités par l’indentation : toutes les lignes d’un même bloc doivent être indentées exactement de la même manière (c’est-à-dire décalées vers la droite d’un même nombre d’espaces).</strong>
+Le nombre d’espaces à utiliser sans importance, mais la plupart des programmeurs
+utilisent des multiples de 4 et la lecture du code est plus agréable si ce nombre
+ne varie pas au sein d’un même programme ou d’une même base de code.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="https://stackoverflow.blog/2017/09/06/incredible-growth-python/">https://stackoverflow.blog/2017/09/06/incredible-growth-python/</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="index.html" title="Chapitre précédent (use the left arrow)">TP Python pour QGIS</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="intro2.html" title="Chapitre suivant (use the right arrow)">Introduction QGIS</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="intro2.html" title="Introduction QGIS"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="TP Python pour QGIS"
+             >précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Documentation PythonQGIS_TP </a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2019, Matthieu Viry. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>
