@@ -1,1 +1,2 @@
 theme: jekyll-theme-architect
+include: ["test_cours/_images", "test_cours/_sources", "test_cours/_static"]
