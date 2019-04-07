@@ -13293,7 +13293,7 @@ a.anchor-link {
 <p><a href="https://www.anaconda.com/distribution/">https://www.anaconda.com/distribution/</a></p>
 <p>C'est probablement la distribution la plus répandue.</p>
 <p>Elle s'appuie sur l'outil de virtualisation d'environnement <code>conda</code> et est fournie avec environ 200 bibliothèques pré-installées et de nombreuses autres pré-compilés sont disponibles en téléchargement (-&gt; plus simples à installer pour les utilisateurs Windows qu'en utilisant <code>pip</code> avec une installation traditionnelle de Python).</p>
-<p>Contrairement aux distributions suivantes, elle n'est pas fournit avec un IDE <em>desktop</em> mais on pourra l'utiliser avec la majorité des IDE Python traditionnels : <a href="https://docs.anaconda.com/anaconda/user-guide/tasks/integration/#using-ides">https://docs.anaconda.com/anaconda/user-guide/tasks/integration/#using-ides</a>.</p>
+<p>Contrairement aux distributions suivantes, elle n'est pas fournie avec un IDE <em>desktop</em> mais on pourra l'utiliser avec la majorité des IDE Python traditionnels : <a href="https://docs.anaconda.com/anaconda/user-guide/tasks/integration/#using-ides">https://docs.anaconda.com/anaconda/user-guide/tasks/integration/#using-ides</a>.</p>
 
 </div>
 </div>
@@ -13352,7 +13352,7 @@ a.anchor-link {
 <h4 id="Des-biblioth&#232;ques-install&#233;es-en-s'appuyant-sur-des-biblioth&#232;ques-de-bas-niveau-qui-offrent-de-hautes-performances-pour-l'alg&#232;bre-lin&#233;aire">Des biblioth&#232;ques install&#233;es en s'appuyant sur des biblioth&#232;ques de bas niveau qui offrent de hautes performances pour l'alg&#232;bre lin&#233;aire<a class="anchor-link" href="#Des-biblioth&#232;ques-install&#233;es-en-s'appuyant-sur-des-biblioth&#232;ques-de-bas-niveau-qui-offrent-de-hautes-performances-pour-l'alg&#232;bre-lin&#233;aire">&#182;</a></h4>
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13361,7 +13361,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13372,7 +13372,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -13430,7 +13430,7 @@ lapack_opt_info:
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.distutils.system_info</span> <span class="k">import</span> <span class="n">get_info</span>
@@ -13476,7 +13476,7 @@ BLAS info:
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
@@ -13493,7 +13493,19 @@ BLAS info:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The rpy2.ipython extension is already loaded. To reload it, use:
+  %reload_ext rpy2.ipython
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -13875,9 +13887,9 @@ Basé sur le concept des <strong><em>notebook</em>s</strong> (calepins électron
 <ul>
 <li><strong>Jupyter Lab</strong></li>
 </ul>
-<p>Récemment arrivé, <em>Jupyter Lab</em> étend les fonctionnalités des <em>notebook</em>s Jupyter en offrant un véritable environnement de travail (bien que toujours basé sur un naviguateur web) avec une interface plus flexible permettant.</p>
+<p>Récemment arrivé, <em>Jupyter Lab</em> étend les fonctionnalités des <em>notebook</em>s Jupyter en offrant un véritable environnement de travail (bien que toujours basé sur un naviguateur web) avec une interface plus flexible.</p>
 <p>En plus de la manipulation de <em>notebook</em>s on peut, comme dans un IDE classique, travailler sur plusieurs fichiers de code source (et avoir une console associée), tout en bénéficiant des nombreux langages supportés par Jupyter.</p>
-<p>On peut ainsi réellement éxécuter du code R et Python dans deux onglets voisins, dans un même environnement.</p>
+<p>On peut ainsi réellement éxécuter du code R et Python dans deux onglets voisins, dans un même environnement de travail.</p>
 
 </div>
 </div>

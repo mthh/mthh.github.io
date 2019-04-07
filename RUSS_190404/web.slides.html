@@ -13276,6 +13276,16 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Point fort : <strong>utilisation de la syntaxe déclarative de Plot.ly</strong></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="c1"># dash_example.py</span>
 
 <span class="kn">import</span> <span class="nn">dash</span>
@@ -13285,7 +13295,7 @@ a.anchor-link {
 <span class="n">app</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">Dash</span><span class="p">()</span>
 
 <span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
-    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s1">&#39;LinuxHint Youtube Hi&#39;</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s1">&#39;Demo chart&#39;</span><span class="p">),</span>
     <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span>
         <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;graphss&#39;</span><span class="p">,</span>
         <span class="n">figure</span><span class="o">=</span><span class="p">{</span>
@@ -13307,7 +13317,7 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Si on a peu ou pas besoin de la réactivité offerte par Shiny ou si on est prêt à écrire quelques lignes de codes supplémentaires, on pourra commencer à utiliser de "vrais" framework web comme Python en offre :</p>
+<p>Si on a peu ou pas besoin de la réactivité offerte par Shiny ou si on est prêt à écrire quelques lignes de codes supplémentaires, on pourra commencer à utiliser de "vrais" frameworks web comme Python en offre :</p>
 <ul>
 <li>flask</li>
 <li>aiohttp</li>
@@ -13322,10 +13332,11 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Dans ce cas, des bibliothèques puissantes existent pour :</p>
+<p>Dans ce cas, des bibliothèques puissantes existent notamment pour :</p>
 <ul>
-<li>gérer les communications avec la base de données (en établissant un mappage entre le modèle de données utilisé par la page web et celui contenu dans la base de données utilisées, pour éviter d'écrire manuellement du SQL par exemple)</li>
-<li>effectuer le templetage coté serveur (<em>Jinja 2</em>, etc.)</li>
+<li>gérer les communications avec la base de données (en établissant un mappage entre le modèle de données utilisé par la page web et celui contenu dans la base de données utilisées, pour éviter d'écrire manuellement du SQL par exemple),</li>
+<li>effectuer le templetage coté serveur (<em>Jinja 2</em>, etc.),</li>
+<li>gérer les sessions et l'authentification des utilisateurs.</li>
 </ul>
 
 </div>
@@ -13387,7 +13398,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># with_hug.py</span>
