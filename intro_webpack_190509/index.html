@@ -193,7 +193,8 @@ Il dispose de différentes fonctionnalités permettant d'avoir un **_workflow_ p
 - Prise en charge des dépendances des modules développés (image, styles, url, etc.).
 - Automatisation de tâches (transpilation, analyse du style, remplacement de constante au moment de la construction, etc.).
 - Remplacement du code à chaud.
-- Remplace des outils tels que *browserify*, *gulp*, *rollup* ou *grunt*.
+<br><br>
+-> Webpack remplace des outils tels que *browserify*, *gulp*, *rollup* ou *grunt*.
 ---
 
 ### 1.1 La définition d'un point d'entrée
@@ -286,9 +287,7 @@ module.exports = {
   },
 * plugins: [
 *   new ReplaceHashWebpackPlugin({
-*     cwd: 'src',
-*     src: '**/*.html',
-*     dest: 'dist',
+*     cwd: 'src', src: '**/*.html', dest: 'dist',
 *   }),
 *   new webpack.DefinePlugin({
 *     APP_VERSION: JSON.stringify(version),
@@ -505,17 +504,17 @@ name: part3
 ```js
 module.exports = {
   entry: {
-*    app: './src/js/main.js',
-*    vendor: [
-*      'alertifyjs', 'colorbrewer',
-*      'i18next', 'i18next-xhr-backend',
-*      'proj4', 'tippy.js', 'topojson',
-*    ],
-*  },
-*  output: {
-*    filename: '[name].[hash:6].js',
-*    publicPath: 'static/dist/',
-*  },
+*   app: './src/js/main.js',
+*   vendor: [
+*     'alertifyjs', 'colorbrewer',
+*     'i18next', 'i18next-xhr-backend',
+*     'proj4', 'tippy.js', 'topojson',
+*   ],
+  },
+  output: {
+*   filename: '[name].[hash:6].js',
+*   publicPath: 'static/dist/',
+  },
   modules: {
     ...
   },
@@ -534,7 +533,7 @@ module.exports = {
 
 ---
 
-### 3.3 Prévoir deux sorties : version web et version desktop
+### 3.3 Prévoir deux sorties : *web* et *desktop*
 
 
 **TODO**
@@ -650,7 +649,7 @@ module.exports = {
 ```
 ---
 
-### 3.7 Replacement de modules à chaud (*Hot Module Replacement*)
+### 3.7 Remplacement de modules à chaud (*Hot Module Replacement*)
 
 - Voir le guide : https://webpack.js.org/guides/hot-module-replacement/
 
@@ -672,6 +671,8 @@ L'autre *bundler* à la mode : **parcel**
 name: parcel2
 
 ### Parcel : https://parceljs.org/
+
+<br><br><br>
 
 - Supporte plus de fonctionnalités dans le mode "zero config".
 
@@ -710,7 +711,7 @@ name: resources
 
 --
 
-- ... plein de tutos trop courts pour être vraiment utiles :/
+- ... de nombreux tutos trop courts pour être vraiment utiles :/
 
 ---
 class: center, middle
@@ -740,3 +741,4 @@ name: thankyou
     </script>
   </body>
 </html>
+
