@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>Introduction à Webpack</title>
     <meta charset="utf-8">
     <style>
       /* @import url(https://fonts.googleapis.com/css?family=Raleway); */
@@ -19,7 +19,10 @@
 name: intro_title
 class: middle
 
-<div style="margin:auto;text-align:center;display:flex;"><h1>Introduction à </h1><img src="img/logo-on-white-bg.png" style="width:50%;height:50%;" /></div>
+<div style="margin:auto;text-align:center;display:flex;">
+  <h1>Introduction à </h1>
+  <img src="img/logo-on-white-bg.png" style="width:50%;height:50%;" />
+</div>
 <p style="bottom:30px;right:20px;position:absolute;opacity:0.5;">09/05/2019</p>
 <img src="img/webpack-version.svg" style="bottom:85px;right:20px;position:absolute;opacity:0.8;" />
 
@@ -61,7 +64,7 @@ class: middle
 
 Webpack est un outil de **construction et d'empaquetage de modules** pour applications JS *modernes*.
 
-Lorsqu'il analyse le code d'un projet il va créer un **graph de dépendances**
+Lorsqu'il analyse le code d'un projet il va créer un **graphe de dépendances**
 et permettre de **générer un ou plusieurs fichiers** utilisables, par exemple,
 depuis un navigateur web.
 
@@ -191,7 +194,7 @@ Il dispose de différentes fonctionnalités permettant d'avoir un **_workflow_ p
 </div>
 
 - Prise en charge des dépendances des modules développés (image, styles, url, etc.).
-- Automatisation de tâches (transpilation, analyse du style, remplacement de constante au moment de la construction, etc.).
+- Automatisation de tâches (transpilation, analyse du style, remplacement de constantes au moment de la construction, etc.).
 - Remplacement du code à chaud.
 <br><br>
 -> Webpack remplace des outils tels que *browserify*, *gulp*, *rollup* ou *grunt*.
@@ -307,10 +310,11 @@ module.exports = {
 
 --
 
-**Installation de webpack et quelques indispensables (babel-loader)**
+**Installation de webpack et quelques indispensables (babel 7, babel-loader, css-loader, ...)**
 ```
 npm install --save-dev webpack@latest webpack-dev-server@latest \
-          babel-loader@latest css-loader@latest style-loader@latest
+          babel-loader css-loader style-loader \
+          @babel/core @babel/preset-env
 ```
 
 ---
@@ -437,7 +441,7 @@ module.exports = {
 ---
 class: middle
 
-- Il existe des *loaders* pour d'autres types de fichiers (*Markdown*, *JSON*, *graphql*, etc.)
+- Il existe des *loaders* pour d'autres types de fichiers (*Markdown*, *JSON*, *graphql*, *TypeScript*, etc.)
 
 ---
 
@@ -485,12 +489,6 @@ module.exports = {
 ```
 
 ---
-
-### 2.6 Angular, VueJs, etc.
-
-**TODO**
-
----
 class: center, middle
 name: part3
 
@@ -529,19 +527,73 @@ module.exports = {
 
 ### 3.2 Découpage du code et chargement différé (*lazy loading*)
 
-**TODO**
+Il est possible d'utiliser `import()` dans le code de l'application; cette fonction retourne une *Promesse*.
+
+Grace à WebPack et à un plugin `babel`, les fichiers appelés de cette manière pourront être transformés et émis dans des fichiers distincts du code principal de l'application.
+
+```bash
+npm install @babel/plugin-syntax-dynamic-import --save-dev
+```
+
+*.babelrc*
+```
+{
+  "plugins": ["@babel/plugin-syntax-dynamic-import"],
+  ...
+}
+```
+
+*src/js/lazy.js*
+```
+export default "Hello from lazy";
+```
 
 ---
 
-### 3.3 Prévoir deux sorties : *web* et *desktop*
+*src/js/component.js*
+
+```
+export default (text = "Hello world") => {
+  const element = document.createElement("div");
+
+  element.className = "pure-button";
+  element.innerHTML = text;
+
+  element.onclick = () =>
+*   import("./lazy")
+*     .then(lazy => {
+*       element.textContent = lazy.default;
+*     })
+      .catch(err => {
+        console.error(err);
+      });
 
 
-**TODO**
-
+  return element;
+};
+```
 
 ---
 
-### 3.4 Support des web-workers
+```bash
+$ npm run build
+
+Hash: 063e54c36163f79e8c90
+Version: webpack 4.30.0
+Time: 3185ms
+
+               Asset       Size  Chunks             Chunk Names
+
+            0.js.map  198 bytes       0  [emitted]
+                0.js  156 bytes       0  [emitted]
+
+              app.js    2.2 KiB       2  [emitted]  app
+...
+```
+
+---
+
+### 3.3 Support des web-workers
 
 --
 __Installation du *loader*__
@@ -585,7 +637,7 @@ export default () => {
 
 ---
 
-### 3.5 Appliquer des opérations personnalisées à la fin de la construction
+### 3.4 Appliquer des opérations personnalisées à la fin de la construction
 
 ```js
 module.exports = {
@@ -607,7 +659,7 @@ module.exports = {
 ```
 ---
 
-### 3.6 Utiliser `postcss-loader` et `autoprefixer`
+### 3.5 Utiliser `postcss-loader` et `autoprefixer`
 
 *__Une des façons de le configurer...__*
 
@@ -649,7 +701,7 @@ module.exports = {
 ```
 ---
 
-### 3.7 Remplacement de modules à chaud (*Hot Module Replacement*)
+### 3.6 Remplacement de modules à chaud (*Hot Module Replacement*)
 
 - Voir le guide : https://webpack.js.org/guides/hot-module-replacement/
 
@@ -688,6 +740,7 @@ name: parcel2
 name: resources
 
 ## Ressources utiles :
+
 <br><br><br>
 --
 
@@ -741,4 +794,3 @@ name: thankyou
     </script>
   </body>
 </html>
-
