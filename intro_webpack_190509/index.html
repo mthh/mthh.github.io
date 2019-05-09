@@ -458,7 +458,8 @@ module.exports = {
   entry: ...,
   output: ...,
   plugins: [
-    new CleanWebpackPlugin(['dist'], {
+    new CleanWebpackPlugin({
+      cleanAfterEveryBuildPatterns: ['static/dist/*.*'],
       watch: true,
     }),
 };
@@ -794,3 +795,4 @@ name: thankyou
     </script>
   </body>
 </html>
+
