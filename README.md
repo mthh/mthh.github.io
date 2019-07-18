@@ -21,4 +21,4 @@
 
 - ["Introduction à Webpack" (09 mai 2019)](https://mthh.github.io/intro_webpack_190509/)
 
-- ["Improving the search for victims in mountain environments with geovisualization and competing hypotheses management" - *ICC / Conférence Internationnale de Cartographie* (Tokyo - 16 juillet 2019)](https://mthh.github.io/icc19/)  
+- ["Improving the search for victims in mountain environments with geovisualization and competing hypotheses management" - *ICC / Conférence Internationnale de Cartographie* (Tokyo - 16 juillet 2019)](https://mthh.github.io/icc19/ViryEtAl_choucas_icc19_prez.pdf)  
