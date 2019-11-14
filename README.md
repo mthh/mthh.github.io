@@ -22,3 +22,5 @@
 - ["Introduction à Webpack" (09 mai 2019)](https://mthh.github.io/intro_webpack_190509/)
 
 - ["Improving the search for victims in mountain environments with geovisualization and competing hypotheses management" - *ICC / Conférence Internationnale de Cartographie* (Tokyo - 16 juillet 2019)](https://mthh.github.io/icc19/ViryEtAl_choucas_icc19_prez.pdf)  
+
+- ["L’Ontologie d’Alerte Choucas : de la modélisation des connaissances à un outil support d’un raisonnement géovisuel Application à la recherche de victime en haute-montagne (Clermont-Ferrand - 14 novembre 2019)"](https://mthh.github.io/sageo2019/)  
