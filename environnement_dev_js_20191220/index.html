@@ -1,0 +1,553 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Environnement de développement autour de NPM</title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+		<style>
+			.reveal {
+				font-size: 34px !important;
+			}
+			.reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+				text-transform: none;
+			}
+			.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+				margin: 0 0 30px 0;
+			}
+			.reveal .small {
+				font-size: 0.8em;
+			}
+			.reveal .small p > code {
+				background: #d3d3d363;
+			}
+			.reveal .smallsmall > pre {
+				font-size: 0.3em;
+			}
+			.reveal section.smallsmall {
+				top: 0;
+		    padding: 0;
+		    height: auto;
+			}
+			.reveal section.smallsmall code {
+				max-height: none;
+			}
+			.reveal section.smallsmall pre {
+				margin-bottom: 10px;
+			}
+			.reveal h3 > code {
+				font-family: cursive;
+			}
+			.reveal img.no-box {
+				border: none;
+				box-shadow: none;
+			}
+		</style>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+## Environnement de dev.
+## javascript
+## pour applications Web
+
+<div style="padding: 0;margin: 250px 0 0 0;font-size: 0.8em;display: flex;">
+    <span style="
+    width: 50%;
+    text-align: left;
+">Matthieu Viry</span><span style="
+    width: 50%;
+    text-align: right;
+">20 décembre 2019</span>
+</div>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+## Au programme (et si ça vous va)
+
+* L'ancienne approche
+* Node.js et npm
+* Outils utiles qui vont avec
+* On essaye
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+### "L'ancienne approche"
+
+* Téléchargement des bibliothèques JS une à une dans un dossier local ...
+
+* ... ou utilisation de Réseau de Distribution du Contenu (*CDN*)
+
+* Approche *CDN* a également des avantages ... (mise en cache du contenu, etc.)
+
+<img src="img/Cloudflare_logo.svg" class="no-box" style="width: 164px;margin: 0 50px 0 0;">
+<img src="img/JsDelivr_Logo.svg" class="no-box" style="width: 164px;margin: 0 50px 0 0;">
+
+<pre style="font-size: 0.3em;">
+	<code class="hljs xml">
+<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.1.1/build/ol.js"></script>
+<link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.1.1/css/ol.css">
+	</code>
+</pre>
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+### "L'ancienne approche"
+
+* Suivi des mises à jour plus difficile
+
+* Si utilisation d'un *CDN* : nécessite accès internet <br><span class="small"> + risque de lien mort (pas vraiment un *CDN* mais utilisation de https://openlayers.org/en/v4.6.4/build/ol.js dans le code d'un collègue ... lien mort depuis)</span>
+
+* Pas d'élimination du code non utilisé ni du code en double (dépendances utilisées par plusieurs des bibliothèques importées par exemple)
+
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+
+<img src="img/Node.js_logo.svg" class="no-box" style="width: 240px;" />
+
+---
+
+### `Node.js`
+
+
+- Un environnement d'exécution JavaScript (*runtime*) <span></span><br><br> <!-- .element: class="fragment" -->
+- V8 comme moteur d'exécution <br><br><!-- .element: class="fragment" -->
+- Exécuter du code JS hors du navigateur <br><br><!-- .element: class="fragment" -->
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+<img src="img/Npm-logo.svg" class="no-box" style="width: 240px;" />
+
+---
+
+### `npm`
+
+- Gestionnaire de package par défaut de Node.js<br><br> <!-- .element: class="fragment" -->
+- Partage et publication du code source de bibliothèques javascript<br><br> <!-- .element: class="fragment" -->
+- Installation / mise à jour / etc. des dépendances<br><br> <!-- .element: class="fragment" -->
+- Alternatives : <!-- .element: class="fragment" --><span class="small">__Yarn__ (https://yarnpkg.com) et __Bower__ (https://bower.io/)</span>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+### Installation de `npm`
+
+- Fournit avec les dernières versions de `Node.js`
+
+- Téléchargement : https://nodejs.org/
+
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+### Le fichier `package.json`
+
+<span class="small"><em>Doc. officielle : https://docs.npmjs.com/files/package.json</em></span>
+
+- **Décrire les dépendances d'un projet**
+
+- **Spécifier des actions à exécuter** (pour préparer le code avant de l'utiliser, pour exécuter une suite de tests, etc.)
+
+- Les données de ce fichier (auteur, email, numéro de version, etc.) seront utilisées si le projet est publié sur https://www.npmjs.com/
+
+- Il est créé par la commande `npm init`
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+**Fichier par défaut, obtenu avec `npm init -y` (utilise le nom du répertoire courant)**
+
+```json
+{
+  "name": "test-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+```
+					</textarea>
+				</section>
+				<section data-markdown class="smallsmall">
+					<textarea data-template>
+**Fichier d'un projet existant**
+
+```json
+{
+  "name": "@mapbox/hecatejs",
+  "version": "11.1.0",
+  "main": "cli.js",
+  "repository": "git@github.com:mapcommons/HecateJS",
+  "author": "ingalls <ingalls@protonmail.com>",
+  "license": "MIT",
+  "bin": {
+    "hecatecli": "cli.js"
+  },
+  "devDependencies": {
+    "@mapbox/eslint-config-geocoding": "^2.0.0",
+    "codecov": "^3.0.4",
+    "documentation": "^12.1.4",
+    "eslint": "^6.6.0",
+    "eslint-plugin-node": "10.0.0",
+    "nyc": "^14.1.1",
+    "tape": "^4.9.0"
+  },
+  "dependencies": {
+    "@mapbox/geojsonhint": "^3.0.0",
+    "@turf/turf": "^5.1.6",
+    "aws-sdk": "^2.224.1",
+    "better-sqlite3": "^5.4.3",
+    "d3-queue": "^3.0.7",
+    "geojson-rewind": "^0.3.1",
+    "geojson-validation": "^0.2.0",
+    "minimist": "^1.2.0",
+    "n-readlines": "^1.0.0 ",
+    "nock": "^11.7.0",
+    "parallel-transform": "^1.2.0",
+    "prompt": "^1.0.0",
+    "request": "^2.88.0",
+    "requestretry": "^4.0.0",
+    "split": "^1.0.1"
+  },
+  "eslintConfig": {
+    "extends": "@mapbox/eslint-config-geocoding"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "doc": "$(yarn bin)/documentation build --github --format md --output docs/api.md cli.js lib/**",
+    "test": "yarn lint && tape test/*.test.js",
+    "coverage": "TESTING=true nyc tape 'test/**/*.js' && nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "lint": "eslint cli.js lib/*.js util/*.js test/*.js"
+  }
+}
+```
+<p style="margin: auto; font-size: 0.4em;">
+	<span>Source : <a href="https://github.com/mapbox/HecateJS/blob/master/package.json">https://github.com/mapbox/HecateJS/blob/master/package.json</a>
+	</span>
+</p>
+					</textarea>
+				</section>
+				<section data-markdown class="small">
+					<textarea data-template>
+### Commandes `npm` (1)
+
+**Création d'un projet, (dés)installation de dépendances, etc.**
+
+- Agissent dans le dossier actuel (sauf si paramètre `-g` est utilisé)
+
+- `npm init`
+
+- `npm install`
+
+- `npm install <package-name>`
+
+- `npm install --save-dev <package-name>`
+
+- `npm uninstall <package-name>`
+					</textarea>
+				</section>
+				<section data-markdown class="small">
+					<textarea data-template>
+### Commandes `npm` (2)
+
+
+**Exécution de scripts liés au projet, mise à niveau des dépendances, etc.**
+
+- `npm run <cmd>`
+
+- `npm outdated` <br>
+
+- `npm update` <br>(utilise la version de la colonne *Wanted* de la commande précédente) <br>
+
+<img style="width: 260px;margin: 12px;" src="img/npm_outdated.png"><img style="width: 500px;margin: 12px;" src="img/npm_update.png">
+
+					</textarea>
+				</section>
+				<section data-markdown class="small">
+					<textarea data-template>
+### Commandes `npm` (3)
+
+**Gestion du versionnement (_semver_), publication sur npmjs.org, etc.**
+
+
+- `npm version patch` (*0.1.0* -> *0.1.1*)
+
+- `npm version premajor --preid alpha` (*0.1.0* -> *1.0.0-alpha.0*)
+
+- `npm publish` <br>
+
+- `npm deprecate <package-name@version> "message"`
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+### Outils utiles / fréquemment utilisés
+
+- __*Bundler*__ / __Empaqueteur de ressources__ (*Webpack*, *Parcel*, etc.)
+
+- __Transpileur__ / __compilateur source à source__ (*Babel*, etc.)<br><span class="small"><em>(Convertir code JS récent vers versions précédentes pour cibler d'anciens navigateurs ou utiliser des fonctionnalités pas encore implémentées dans navigateurs actuels ; convertir les fichiers `JSX` ; etc.)</em></span>
+
+- __Préprocesseur CSS__ (*Sass*, *Less*)
+
+- __Analyse statique du code__ (*ESLint*, etc.) ou formatteur de code (*ESLint*, *standardjs*, etc.)
+
+- Framework pour l'exécution de __tests__ (*Jasmine*, *MochaJS*, *QUnit*, *Tape*, *AVA*, etc.)
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+### *Bundler*
+
+- Webpack
+
+- Google Closure Compiler
+
+- Parcel
+
+- Rollup
+
+- Browserify
+
+- ...
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+### Webpack - https://webpack.js.org/
+
+- Couvre énormément d'aspects de la préparation du code d'une appli en JS
+
+- Peut paraitre complexe à prendre en main
+
+- *PWA*, *hot-reloading*, *code splitting*, *tree shaking*, etc.
+
+- Voir présentation : https://mthh.github.io/intro_webpack_190509/
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+### Parcel - https://parceljs.org/
+
+- Assez puissant dans son mode _"zero-config"_
+
+- Doc. entièrement en français
+
+- Va empaqueter les différentes ressources utilisées (JS, images, JSON, etc.)
+
+- Remplacement de modules à chaud, etc.
+					</textarea>
+				</section>
+				<section data-markdown class="small">
+					<textarea data-template>
+### Mise en pratique
+#### Créer un nouveau projet utilisant `parcel` et les bibliothèques `d3` et `bulma`
+
+- `mkdir projet-vendredi && cd projet-vendredi && npm init`
+
+- `npm install --save-dev parcel-bundler`
+
+- `npm install d3 bulma`
+
+- `mkdir src && touch src/index.html && touch src/main.js`
+
+- Ajouter dans le fichier `package.json`:
+
+```json
+{
+	...
+	"scripts": {
+		"dev": "parcel src/index.html",
+		"build": "parcel build src/index.html"
+	},
+	...
+}
+```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+**La structure du projet actuellement**
+
+```
+project-vendredi          -- Racine du projet
+├── src/                  -- Fichiers sources
+│   ├── index.html
+│   └── main.js
+├── node_modules/         -- Dépendances Node.js
+├── package.json
+└── package.lock.json     -- Généré automatiquement
+```
+
+<!-- ---
+
+- On ajoute au fichier `src/index.html` :
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Projet de vendredi</title>
+</head>
+<body>
+    <section id="main">Test</section>
+    <script src="./main.js"></script>
+</body>
+</html>
+``` -->
+
+---
+
+- On ajoute au fichier `src/index.html` :
+
+```html
+<body>
+    <section id="main">Test</section>
+    <script src="./main.js"></script>
+</body>
+```
+
+---
+
+- On ajoute au fichier `src/main.js` :
+
+```js
+import 'bulma/css/bulma.css';
+import * as d3 from 'd3';
+
+d3.select('#main')
+	.attr('class', 'section')
+	.append('a')
+	.attr('class', 'button is-info is-rounded')
+	.text('Ok !');
+```
+
+---
+
+- On peut démarrer `parcel`
+
+```
+npm run dev
+```
+
+... continuer à éditer les fichiers `index.html` et `main.js` <br><br>
+... et voir le résultat à l'url http://localhost:1234 <br><br>
+*(on constate que notre boutton a bien été créé grace à `d3` et qu'il utilise bien le style définit par `bulma`)*
+
+---
+
+- Pour seulement préparer le code et le récupérer dans le dossier `dist/` :
+
+```
+npm run build
+```
+
+					</textarea>
+				</section>
+				<!-- <section data-markdown>
+					<textarea data-template>
+						<div class="fragment" data-fragment-index="1">
+						</div>
+						<div class="fragment" data-fragment-index="2">
+						</div>
+					</textarea>
+				</section> -->
+				<section data-markdown>
+					<textarea data-template>
+### Remarques sur Parcel
+
+
+- Ici on l'a utilisé en mode _"zero-config"_
+
+- https://github.com/parcel-bundler/parcel#parcel-config si besoin
+
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+### Prochaine étapes :
+
+- Ajouter de nouvelles dépendances nécessaires à notre projet"
+
+- Quelques idées sur la prochaine slide ...
+					</textarea>
+				</section>
+				<section data-markdown class="small">
+					<textarea data-template>
+### Autres outils utiles :
+
+- [Sass](https://sass-lang.com/) (préprocesseur CSS)
+
+- [ESLint](https://eslint.org/) (analyse statique du code)
+
+- [PostCSS](https://github.com/postcss/postcss) et [Autoprefixer](https://github.com/postcss/autoprefixer)<br>(pour ne pas saisir les préfixes vendeurs : `webkit-`, `moz-`, etc.)
+
+- [Browserlist](https://github.com/browserslist/browserslist) (pour cibler certains navigateurs / des versions spécifiques)
+
+					</textarea>
+				</section>
+				<section data-markdown class="small">
+					<textarea data-template>
+### Merci !
+
+<img class="no-box" src="img/ttt_transp.png">
+
+					</textarea>
+				</section>
+			</div>
+		</div>
+		<script src="js/reveal.js"></script>
+		<script>
+			document.querySelectorAll('section[data-markdown]')
+				.forEach((el) => {
+					el.setAttribute('data-separator', '^\n----\n$');
+					el.setAttribute('data-separator-vertical', '^\n---\n$');
+				});
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				],
+				hash: true,
+			});
+		</script>
+	</body>
+</html>
