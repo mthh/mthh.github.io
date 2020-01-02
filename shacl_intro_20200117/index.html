@@ -382,7 +382,7 @@ Une forme `s` remplit une de ces conditions :
 
 #### Exemple
 
-```moonscript
+```
 ex:BookShape1
 	a sh:NodeShape ;
 	sh:targetClass ex:Book ;
@@ -398,7 +398,7 @@ ex:BookShape1
 
 ```
 ex:AliceInWonderland a ex:Book ;
-	ex:datePublished "1971-07-07"^^xsd:date .
+	ex:datePublished "1865-11-26"^^xsd:date .
 ```
 
 <br><br>
@@ -424,7 +424,7 @@ ex:AliceInWonderland a ex:Book ;
 
 #### Exemple
 
-```moonscript
+```
 ex:BookShape2
 	a sh:NodeShape ;
 	sh:targetClass ex:Book ;
@@ -449,7 +449,7 @@ ex:AliceInWonderland a ex:Book ;
 
 ```
 ex:AliceInWonderland a ex:Book ;
-	ex:datePublished "1971-07-07"^^xsd:date .
+	ex:datePublished "1865-11-26"^^xsd:date .
 ```
 					</textarea>
 				</section>
@@ -470,7 +470,7 @@ ex:AliceInWonderland a ex:Book ;
 
 #### Exemple
 
-```moonscript
+```
 ex:BookShape3
     a sh:NodeShape ;
     sh:targetClass ex:Book ;
@@ -553,6 +553,14 @@ ex:PersonAddressShape
 ex:Alice a ex:Person ;
 	ex:address "12 rue des Lilas" .
 ```
+
+```
+ex:AddressAlice a ex:Address.
+
+ex:Alice a ex:Person ;
+	ex:address ex:AddressAlice .
+```
+
 
 <br><br>
 **Invalide**
@@ -663,7 +671,7 @@ ex:MyBook
 ```
 					</textarea>
 				</section>
-				<section data-markdown class="small-content8 smallsmall" id="3-af">
+				<section data-markdown class="small-content8 smallsmall" id="3-af" data-transition="zoom">
 					<textarea data-template>
 ### 3) _Advanced Features_
 
@@ -685,7 +693,7 @@ ex:MyBook
 
 **Définition d'une fonction**
 
-```c++
+```ttl
 ex:multiply
 	a sh:SPARQLFunction ;
 	rdfs:comment "Multiplies its two arguments $op1 and $op2." ;
@@ -711,7 +719,7 @@ ex:multiply
 
 **Définition d'une forme à laquelle doivent se conformer les instances de `ex:Rectangle`**
 
-```stata
+```ttl
 ex:RectangleShape
 	a sh:NodeShape ;
 	sh:targetClass ex:Rectangle ;
@@ -733,7 +741,7 @@ ex:RectangleShape
 
 **Création d'une règle à appliquer aux instance de `ex:Rectangle` qui sont valides au regard de la forme `ex:RectangleShape`**
 
-```stata
+```
 ex:RectangleRulesShape
 	a sh:NodeShape ;
 	sh:targetClass ex:Rectangle ;
@@ -752,7 +760,7 @@ ex:RectangleRulesShape
 
 **Création d'une instance de `ex:Rectangle`**
 
-```stata
+```
 ex:ExampleRectangle1
 	a ex:Rectangle ;
 	ex:width 7 ;
@@ -761,7 +769,7 @@ ex:ExampleRectangle1
 
 **Nouveau triplet généré**
 
-```stata
+```
 ex:ExampleRectangle1 ex:area  56 .
 ```
 
@@ -831,7 +839,7 @@ ex:ExampleRectangle2
 
 					</textarea>
 				</section>
-				<section data-markdown class="small-content8">
+				<section data-markdown class="small-content8" data-transition="zoom-in-convex-out">
 					<textarea data-template>
 ### 4) Limitations
 
@@ -909,7 +917,7 @@ ex:ExampleRectangle2
 
 					</textarea>
 				</section>
-				<section data-markdown id="6-mise-en-oeuvre">
+				<section data-markdown id="6-mise-en-oeuvre"  data-transition="zoom-in-fade-out">
 					<textarea data-template>
 ### 6) Tentative de mise en oeuvre avec `GASPAR`
 
