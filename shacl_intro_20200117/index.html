@@ -204,7 +204,7 @@ _"Shackle"_: https://en.wiktionary.org/wiki/shackle
 
 #### `SHACL` c'est quoi ?
 
-- Inspiré par SPIN, OSLO (*Open Standards for Linked Organisations*) et un peu par ShEx
+- Inspiré par SPIN, IBM's Resource Shapes et un peu par ShEx
 
 - Un **vocabulaire RDF** `<http://www.w3.org/ns/shacl#>`
 
@@ -217,9 +217,9 @@ _"Shackle"_: https://en.wiktionary.org/wiki/shackle
 
 - Les conditions / contraintes sont représentées par leur _graphe de formes_ (__*shapes graph*__)
 
-- Les graphes RDF à valider sont appelés les _graphes de données_  (__*data graphs*__)
-
 - Le graphe de formes contient l'ensemble des formes à utiliser
+
+- Les graphes RDF à valider sont appelés les _graphes de données_  (__*data graphs*__)
 
 - Hypothèse de monde fermé
 
@@ -228,9 +228,9 @@ _"Shackle"_: https://en.wiktionary.org/wiki/shackle
 #### `SHACL` - Éléments essentiels
 
 
-- _**Focus node**_: Un terme RDF qui est validé selon une forme (*shape*) en utilisant les triples du graphe de données
+- _**Focus node**_: Un terme RDF qui est validé selon une forme (*shape*) en utilisant les triplets du graphe de données
 
-- Deux types de *Shapes* :
+- Deux types de **formes** :
 
 	* __Node shapes__: shapes about the focus node
 
@@ -685,7 +685,7 @@ ex:MyBook
 
 - __*Expression constraints*__ (spécification d'une expression devant être respectée)
 
-- *__SHACL rules__ [...] __a light-weight RDF vocabulary for the exchange of rules that can be used to derive inferred RDF triples from existing asserted triples__*
+- __*SHACL rules*__ (un vocabulaire léger pour l'échange de règles utilisables pour dériver des triplets RDF depuis des triplets existants)
 
 ---
 
@@ -873,7 +873,7 @@ ex:ExampleRectangle2
 
 | **Bibliothèque**     | Langage            | Basé sur ... |Fonctionnalités |
 |------------------|--------------------|--------------|----------------|
-| `pySHACL`        | Python | RDFLib | Core (with entailment) |
+| `pySHACL`        | Python | RDFLib | Core |
 | `SHACL` (TopQuadrant) | Java | Jena | Core + SHACL-SPARQL, Advanced features, SHACL-JS |
 | `Shacl.js`       | Javascript | | Core |
 | `dotNetRDF`      | C# | | Core |
@@ -909,9 +909,11 @@ ex:ExampleRectangle2
 
 - SHACL playground ➔ https://shacl.org/playground/
 
+- SHACL Online Editor ➔ https://www.ida.liu.se/~robke04/SHACLTutorial/
+
 - RDFShape: RDF playground ➔ https://rdfshape.herokuapp.com/ <br>*(source: https://github.com/weso/rdfshape)*
 
-- `Shape Designer` : https://gitlab.inria.fr/jdusart/shexjapp
+- `Shape Designer` ➔ https://gitlab.inria.fr/jdusart/shexjapp
 
 - `Stardog Studio`, `TopBraid Composer`, `Protégé`
 
@@ -933,7 +935,7 @@ ex:ExampleRectangle2
 					<textarea data-template>
 ### 7) Références biblio.
 
-- Boneva, I., Dusart, J., Fernándezálvarez, D., & Gayo, J. E. L. (2019). **Shape Designer for ShEx and SHACL Constraints**. Présenté à ISWC 2019 - 18th International Semantic Web Conference, Auckland, Nouvelle-Zélande. Consulté à l’adresse https://hal.archives-ouvertes.fr/hal-02268667
+- Boneva, I., Dusart, J., Fernándezálvarez, D., & Labra Gayo, J. E. (2019). **Shape Designer for ShEx and SHACL Constraints**. Présenté à ISWC 2019 - 18th International Semantic Web Conference, Auckland, Nouvelle-Zélande. Consulté à l’adresse https://hal.archives-ouvertes.fr/hal-02268667
 
 - Corman, J., Reutter, J. L., & Savković, O. (2018). **Semantics and Validation of Recursive SHACL**. In D. Vrandečić, K. Bontcheva, M. C. Suárez-Figueroa, V. Presutti, I. Celino, M. Sabou, … E. Simperl (Éd.), The Semantic Web – ISWC 2018 (Vol. 11136, p. 318‑336). https://doi.org/10.1007/978-3-030-00671-6_19
 
