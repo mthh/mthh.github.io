@@ -691,7 +691,7 @@ ex:MyBook
 
 #### Exemple 1 : Définition d'une règle utilisant une fonction SPARQL
 
-**Définition d'une fonction**
+**Définition d'une fonction (`sh:SPARQLFunction`)**
 
 ```ttl
 ex:multiply
@@ -739,7 +739,7 @@ ex:RectangleShape
 
 ---
 
-**Création d'une règle à appliquer aux instance de `ex:Rectangle` qui sont valides au regard de la forme `ex:RectangleShape`**
+**Création d'une règle (`sh:rule`) à appliquer aux instance de `ex:Rectangle` qui sont valides au regard de la forme `ex:RectangleShape`**
 
 ```
 ex:RectangleRulesShape
@@ -775,7 +775,7 @@ ex:ExampleRectangle1 ex:area  56 .
 
 ---
 
-#### Exemple 2 : Définition d'une règle SPARQL
+#### Exemple 2 : Définition d'une règle SPARQL (`sh:SPARQLRule`)
 
 ```
 ex:ClassificationRectangleRule
