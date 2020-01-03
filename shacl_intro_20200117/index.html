@@ -127,6 +127,9 @@
 			.syntax > ul > li {
 				margin: 20px auto;
 			}
+			.reveal code.CodeMirror {
+				height: unset !important;
+			}
 		</style>
 		<!-- Printing and PDF exports -->
 		<script>
@@ -527,7 +530,7 @@ ex:AliceInWonderland a ex:Book ;
 
 #### Exemple
 
-```moonscript
+```
 ex:PersonAddressShape
 	a sh:NodeShape ;
 	sh:targetClass ex:Person ;
@@ -693,7 +696,7 @@ ex:MyBook
 
 **Définition d'une fonction (`sh:SPARQLFunction`)**
 
-```ttl
+```
 ex:multiply
 	a sh:SPARQLFunction ;
 	rdfs:comment "Multiplies its two arguments $op1 and $op2." ;
@@ -719,7 +722,7 @@ ex:multiply
 
 **Définition d'une forme à laquelle doivent se conformer les instances de `ex:Rectangle`**
 
-```ttl
+```
 ex:RectangleShape
 	a sh:NodeShape ;
 	sh:targetClass ex:Rectangle ;
@@ -812,7 +815,7 @@ ex:ClassificationRectangleRule
 
 **Avec deux instances de `ex:Rectangle`**
 
-```stata
+```
 ex:ExampleRectangle1 a ex:Rectangle ;
 	ex:width 7 ;
 	ex:height 8 .
@@ -825,8 +828,7 @@ ex:ExampleRectangle2 a ex:Rectangle ;
 
 **Nouveaux triplets générés**
 
-```stata
-
+```
 ex:ExampleRectangle1
 	ex:area  56 ;
 	ex:has_category "SMALL RECTANGLE !" .
@@ -915,7 +917,7 @@ ex:ExampleRectangle2
 
 - `Shape Designer` ➔ https://gitlab.inria.fr/jdusart/shexjapp
 
-- `Stardog Studio`, `TopBraid Composer`, `Protégé`
+- Et aussi `Stardog Studio`, `TopBraid Composer`, `Protégé`
 
 					</textarea>
 				</section>
@@ -989,12 +991,17 @@ ex:ExampleRectangle2
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				codemirrorHighlight: {
+					default_lang: 'turtle',
+					theme: 'zenburn',
+					path: 'codemirror/'
+				},
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
+					{ src: 'plugin/codemirror/revealjs-plugin-codemirror.js' },
 				],
 				hash: true,
 				slideNumber: 'c/t',
