@@ -8,8 +8,6 @@
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/beige.css">
 		<!-- <link rel="stylesheet" href="css/theme/simple.css"> -->
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
 		<style>
 			.reveal {
 				font-size: 34px !important;
@@ -26,7 +24,7 @@
 			.reveal .small p > code {
 				background: #d3d3d363;
 			}
-			.reveal .smallsmall pre {
+			.reveal .smallsmall.fontpre pre {
 				font-size: 0.45em !important;
 			}
 			.reveal section.smallsmall {
@@ -35,7 +33,7 @@
 		    height: auto;
 			}
 			.reveal section.smallsmall code {
-				max-height: 590px;
+				max-height: 635px;
 			}
 			.reveal section.smallsmall pre {
 				margin-bottom: 10px;
@@ -126,9 +124,6 @@
 			}
 			.syntax > ul > li {
 				margin: 20px auto;
-			}
-			.reveal code.CodeMirror {
-				height: unset !important;
 			}
 		</style>
 		<!-- Printing and PDF exports -->
@@ -574,7 +569,7 @@ ex:Alice a ex:Person ;
 ```
 					</textarea>
 				</section>
-				<section data-markdown class="smallsmall">
+				<section data-markdown class="smallsmall fontpre">
 					<textarea data-template>
 #### Exemple complet
 
@@ -787,26 +782,25 @@ ex:ClassificationRectangleRule
 	sh:rule [
 		a sh:SPARQLRule ;
 		sh:construct """
-		    prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-            prefix ex:  <http://example.com/ns#>
+      prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+      prefix ex: <http://example.com/ns#>
 
-            CONSTRUCT {
-                 ?rect ex:has_category ?cat .
-            } WHERE {
-                {
-                    SELECT (AVG(?_area) AS ?avg_area)
-                    WHERE {
-                        ?_rect ex:height ?_a ;
-                              ex:width ?_b .
-                        BIND(?_a * ?_b AS ?_area)
-                    }
-                }
-                ?rect ex:height ?a ;
-                      ex:width ?b .
-                BIND(?a * ?b AS ?area) .
-                BIND(IF(?a * ?b > ?avg_area, "BIG RECTANGLE !", "SMALL RECTANGLE !") AS ?cat).
-            }
-			""" ;
+      CONSTRUCT {
+        ?rect ex:has_category ?cat ;
+             ex:area ?area .
+      } WHERE {
+        {
+          SELECT (AVG(?_area) AS ?avg_area) WHERE {
+            ?_rect ex:height ?_a ;
+                  ex:width ?_b .
+            BIND(?_a * ?_b AS ?_area)
+          }
+        }
+        ?rect ex:height ?a ;
+             ex:width ?b .
+        BIND(?a * ?b AS ?area) .
+        BIND(IF(?area > ?avg_area, "BIG RECTANGLE !", "SMALL RECTANGLE !") AS ?cat).
+      } """ ;
 	] .
 ```
 
@@ -1001,7 +995,7 @@ ex:ExampleRectangle2
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/codemirror/revealjs-plugin-codemirror.js' },
+					{ src: 'plugin/codemirror/revealjs-plugin-codemirror.js', async: true },
 				],
 				hash: true,
 				slideNumber: 'c/t',
