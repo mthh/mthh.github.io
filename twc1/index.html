@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Technologies Web - Cours 1</title>
+    <meta charset="utf-8">
+    <style>
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i|Permanent+Marker&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+.remark-slide-content h1 {
+  font-family: 'Permanent Marker', cursive;
+  color: #606060;
+  letter-spacing: 0.05em;
+  margin-block-start: 0.15em;
+  margin-block-end: 0.25em;
+}
+.remark-slide-content h2 {
+  font-family: 'Permanent Marker', cursive;
+  color: #4e4d4d;
+  margin-block-start: 0.15em;
+  margin-block-end: 0.25em;
+  font-size: 40px;
+}
+.remark-slide-content h3 {
+  font-family: 'Yanone Kaffeesatz';
+  margin-block-start: 0.15em;
+  margin-block-end: 1em;
+}
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+.remark-slide-container { transition: opacity 0.25s ease-out;opacity: 0; }
+.remark-visible { transition: opacity 0.25s ease-out;opacity: 1; }
+.remark-fading {z-index: 9;}
+
+.left-column {
+  width: 48%;
+  float: left;
+}
+
+.right-column {
+  width: 48%;
+  float: right;
+  padding-top: 0em;
+  margin-top: 0em;
+  text-align: left;
+}
+
+.remark-slide-scaler {
+  overflow: hidden;
+}
+
+.remark-slide-content {
+  padding: 0em 2em 0em 2em;
+  letter-spacing: 0.025em;
+  font-size: 24px;
+}
+
+.remark-slide-content p,ol,ul {
+  font-weight: 600;
+  text-align: justify;
+}
+
+.remark-slide-content img { width: 100%; }
+
+.remark-code,.remark-inline-code {
+  font-family: 'Ubuntu Mono';
+}
+.note {
+  margin: 50px 0px 10px 10px;
+  background: #fff3d4;
+  border-color: #f6b73c;
+  padding: 12px 12px 12px 26px;
+  border-left-width: 5px;
+  border-left-style: solid;
+  list-style: unset;
+}
+.note li::before {
+  content: none;
+}
+.source {
+  font-weight: 400;
+  font-size:0.65em;
+}
+
+/* For quick highlightling */
+span.red { color : #b50606; }
+/* For slightly lighter chunks of text */
+span.light { font-weight: 400; }
+/* For slightly heavier chunks of text */
+.bb { font-weight: 900; }
+
+.underline {
+  text-decoration: underline;
+}
+
+blockquote {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: 20px;
+  margin-inline-end: 20px;
+}
+/* For the black page between each big section of the presentation */
+.section-change {
+  background: #272822;
+  color: #777872;
+  text-shadow: 0 0 20px #333;
+  text-align: center;
+  vertical-align: middle;
+}
+.section-change h1, .section-change h2 {
+  color: #f3f3f3;
+  line-height: 0.8em;
+  font-size: 3em;
+}
+
+a { text-decoration: none;color: #0e6baf; }
+a:visited { color: #0e6baf; }
+a:hover { color: #33AA99; }
+a:active, a#active { color: #FF9700; }
+
+/* Lets mess with list styles ... */
+ul {
+  list-style: none;
+  padding-inline-start: 0px;
+  margin-block-end: 0;
+  padding: 1px 0;
+}
+li {
+  padding-left: 0em;
+}
+li::before {
+  content: "✔ ";
+  color: red;
+}
+.t1 > ul > li::before {
+  content: "</> ";
+  color: red;
+}
+li ul li {
+  padding-left: 1.75em;
+}
+ul li ul {
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+}
+ul li ul li::before {
+  content: "✔ ";
+  color: blue;
+}
+ul li ul li {
+  margin: 10px 0px;
+}
+ul li ul li > p {
+  display: inline;
+}
+ul li ul li ul {
+  list-style: none;
+  margin-block-end: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+ul li ul li ul li::before {
+  content: "→ ";
+  color: black;
+}
+li > p {
+  display: inline-block;
+  margin-block-start: 5px;
+  margin-block-end: 7px;
+}
+
+/* Color code from bulma css framework */
+span.bulma-success {
+  color: hsl(141, 53%, 53%);
+  font-weight: 900;
+}
+span.bulma-info {
+  color: hsl(204, 86%, 53%);
+  font-weight: 900;
+}
+span.bulma-warning {
+  color: hsl(48, 100%, 67%)	;
+  font-weight: 900;
+}
+span.bulma-danger {
+  color: hsl(348, 100%, 61%);
+  font-weight: 900;
+}
+    </style>
+  </head>
+  <body>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+const slideshow = remark.create({
+  sourceUrl: 'Cours1.md'
+});
+    </script>
+  </body>
+</html>

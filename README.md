@@ -26,3 +26,5 @@
 - ["L’Ontologie d’Alerte Choucas : de la modélisation des connaissances à un outil support d’un raisonnement géovisuel Application à la recherche de victime en haute-montagne - *SAGEO 2019* (Clermont-Ferrand - 14 novembre 2019)"](https://mthh.github.io/sageo2019/)  
 
 - ["Environnement de dev. en JS" (20 décembre 2019)](https://mthh.github.io/environnement_dev_js_20191220/)  
+
+- ["Tour d'horizons des fonctionnalité de SHACL"](https://mthh.github.io/shacl_intro_20200117/)
