@@ -1,11 +1,12 @@
 # Technologies Web
 ### LP ESSIG 2019-20
 
+<br><br>
+<div class="center"><h2>Cours 1 : Éléments théoriques</h2></div>
 
-
-<div style="margin: auto; text-align: center; position: relative; bottom: -300px; left: 20px;">
-<p style="font-size: 20px;margin:auto; text-align: center">Matthieu Viry - LIG (Laboratoire d'Informatique de Grenoble)</p>
-🖂 <a href="maito:matthieu.viry@univ-grenoble-alpes.fr">matthieu.viry@univ-grenoble-alpes.fr</a>
+<div style="margin: auto; text-align: center; position: relative; bottom: -290px; left: 20px;">
+<p style="font-size: 20px;margin:auto; text-align: center">Matthieu Viry - LIG <em>(Laboratoire d'Informatique de Grenoble)</em></p>
+<p style="font-size: 20px;margin:5px auto; text-align: center">🖂 <a href="maito:matthieu.viry@univ-grenoble-alpes.fr">matthieu.viry@univ-grenoble-alpes.fr</a></p>
 </div>
 
 ---
@@ -29,6 +30,9 @@ class: t1
 
   * Intro. aux principes et langages permettant de créer des pages web
   * Pratique en TP
+
+.center.source[*(document élaboré à partir de supports produits par M. Villanova-Oliver - UGA)*]
+
 
 ---
 class: section-change
@@ -141,8 +145,8 @@ class: center, middle
 
 - CERN Genève, 1989-1990
   * Idée sous-jacente : appliquer les principes de l'hypertexte
-      - Un concept introduit en 1945 (V. Bush, Memex)
-      - Terme inventé en 1965 par T. Nelson : *« Let me introduce the word 'hypertext' to mean a body of written or pictorial material interconnected in such a complex way that it could not conveniently be presented or represented on paper »*
+      - Un concept introduit en 1945 (Vannevar Bush, [Memex](https://en.wikipedia.org/wiki/Memex))
+      - Terme inventé en 1965 par Ted Nelson : *« Let me introduce the word 'hypertext' to mean a body of written or pictorial material interconnected in such a complex way that it could not conveniently be presented or represented on paper »*
 
   * Principe :
       - un réseau constitué par un ensemble de documents informatiques liés entre eux
@@ -183,7 +187,7 @@ protocoles, ...
       - lier et structurer l'information du Web pour accéder simplement à la connaissance
 
   * Le courant Open Data
-      - [Le web des données ouvertes et liées. Qu'est-ce que c'est ?](https://www.youtube.com/watch?v=oEuDaJjEFos)
+      - [Le web des données ouvertes et liées. Qu'est-ce que c'est ?](https://www.youtube.com/watch?v=oEuDaJjEFos) .source[(EuropeanaEU collections)]
 
 ---
 
@@ -515,9 +519,7 @@ class: section-change
       - Sites ‘statiques’, ‘interactifs’ (formulaires, menus, etc.)
       - Sites ‘dynamiques’ plus élaborés, souvent couplés à une BD
 - Concrètement
-  * Un site Web est ensemble de pages et autres ressources (images,
-fichiers, etc.) liées les unes autres dans une structure cohérente (souvent
-par des hyperliens)
+  * Un site Web est ensemble de pages et autres ressources (images, fichiers, etc.) liées les unes aux autres dans une structure cohérente (souvent par des hyperliens)
   * Publiées par un propriétaire
   * Les pages sont hébergées sur un serveur web
   * Et sont donc accessibles en ligne (URL associé)
@@ -612,7 +614,7 @@ de temps un framework CSS de référence
       - langage complémentaire de HTML depuis HTML4
       - gérer l'apparence de la page web : couleurs, taille du texte, positionnement, décoration, ... et d’avoir une charte graphique uniforme
       - Version actuelle : **CSS3**
-      - Feuilles de styles ad hoc associées désormais très souvent à Bootstrap
+      - Feuilles de styles ad hoc (souvent associées à un framework comme `Bootstrap`)
 
 <p style="margin: auto; text-align: center">
 <img style="width: 50%"src="img/css_carbon.png"></p>
@@ -729,7 +731,7 @@ de temps un framework CSS de référence
 <br><br>
 [Mozilla Developer Network](https://developer.mozilla.org/fr/) - *"Des ressources pour les développeurs, par les développeurs"* :<br> Tutoriaux en français + documentation de référence des fonctionnalités HTML / CSS et JS utilisées dans les navigateurs Web
 
-[Le Web démystifié](https://www.youtube.com/playlist?list=PLo3w8EB99pqLEopnunz-dOOBJ8t-Wgt2g) :<br>série de vidéos expliquant les fondamentaux du Web, visant à parfaire des débutants dans le développement Web. Créée par Jérémie Patonnier.
+[Le Web démystifié](https://www.youtube.com/playlist?list=PLo3w8EB99pqLEopnunz-dOOBJ8t-Wgt2g) :<br>Série de vidéos expliquant les fondamentaux du Web, visant à parfaire des débutants dans le développement Web. Créée par Jérémie Patonnier.
 
 <br>
 

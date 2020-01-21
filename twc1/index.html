@@ -10,6 +10,7 @@
 
 body {
   font-family: 'Lato', sans-serif;
+
 }
 .remark-slide-content h1 {
   font-family: 'Permanent Marker', cursive;
@@ -56,6 +57,14 @@ body {
   padding: 0em 2em 0em 2em;
   letter-spacing: 0.025em;
   font-size: 24px;
+  background: #f7f2d3;
+  background: -moz-radial-gradient(center, circle cover, white 58%, #f7f2d3 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(58%, white), color-stop(100%, #f7f2d3));
+  background: -webkit-radial-gradient(center, circle cover, white 58%, #f7f2d3 100%);
+  background: -o-radial-gradient(center, circle cover, white 58%, #f7f2d3 100%);
+  background: -ms-radial-gradient(center, circle cover, white 58%, #f7f2d3 100%);
+  background: radial-gradient(center, circle cover, white 58%, #f7f2d3 100%);
+  background-color: #f7f3de;
 }
 
 .remark-slide-content p,ol,ul {
@@ -190,6 +199,16 @@ span.bulma-warning {
 span.bulma-danger {
   color: hsl(348, 100%, 61%);
   font-weight: 900;
+}
+@page { size: 1024px 768px; margin: 0; }
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
 }
     </style>
   </head>
