@@ -151,13 +151,18 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#cours-technologies-web" id="cours-technologies-web">Cours Technologies Web</a></h1>
+                        <div style="text-align: center">
+<h1><a class="header" href="#cours-technologies-web" id="cours-technologies-web">Cours Technologies Web</a></h1>
 <h1><a class="header" href="#lp-essig---université-grenoble-alpes" id="lp-essig---université-grenoble-alpes">LP ESSIG - Université Grenoble Alpes</a></h1>
-<p>Vous trouverez sur cette page le contenu des différents cours / TP en version HTML ainsi qu'en version PDF.</p>
 <p><br><br><br></p>
-<h4><a class="header" href="#supports-de-cours--matthieu-viry" id="supports-de-cours--matthieu-viry">Supports de cours : Matthieu Viry</a></h4>
+<p>Sur cette page sont disponibles les différents cours / TP en version HTML ainsi qu'en version PDF.</p>
+<p>Le contenu de cette page est actualisé au fil de votre progression avant chaque séance.</p>
+<p><br><br><br></p>
+<h4><a class="header" href="#supports-de-cours--a-hrefmailtomatthieuviryuniv-grenoble-alpesfrmatthieu-virya" id="supports-de-cours--a-hrefmailtomatthieuviryuniv-grenoble-alpesfrmatthieu-virya">Supports de cours : <a href="mailto:matthieu.viry@univ-grenoble-alpes.fr">Matthieu Viry</a></a></h4>
 <h4><a class="header" href="#préparé-sur-la-base-des-supports-de-marlène-villanova-oliver" id="préparé-sur-la-base-des-supports-de-marlène-villanova-oliver">(préparé sur la base des supports de Marlène Villanova-Oliver)</a></h4>
-<h1><a class="header" href="#introduction-aux-technos-web---Éléments-théoriques" id="introduction-aux-technos-web---Éléments-théoriques">Introduction aux Technos Web - Éléments théoriques</a></h1>
+</div>
+<h1><a class="header" href="#cours-dintroduction-aux-technos-web" id="cours-dintroduction-aux-technos-web">Cours d'introduction aux Technos Web</a></h1>
+<h1><a class="header" href="#Éléments-théoriques" id="Éléments-théoriques">Éléments théoriques</a></h1>
 <br>
 <br>
 <div style="text-align: center;"><h4>
@@ -181,6 +186,7 @@ La mise en forme du contenu est prise en charge par un autre fichier codé dans 
 <div class="img-center">
 <p><img src="img/logo_html5.png" alt=" " /></p>
 </div>
+<h3><a class="header" href="#21-balises-html" id="21-balises-html">2.1 Balises HTML</a></h3>
 <p>Les <strong>balises</strong> structurent le contenu en délimitant les différentes parties du document HTML (titre, paragraphe, ...). Elles fonctionnent par paire: une balise ouvrante <code>&lt;nom_balise&gt;</code>, une balise fermante <code>&lt;/nom_balise&gt;</code> délimitant ensemble une partie du contenu, représenté par une chaine de caractères. Exemple d’une balise délimitant un paragraphe :</p>
 <pre><code class="language-html">&lt;p&gt;ici le texte du paragraphe&lt;/p&gt;
 </code></pre>
@@ -207,7 +213,7 @@ La mise en forme du contenu est prise en charge par un autre fichier codé dans 
 <blockquote>
 <p><strong>Remarque</strong> : Lorsque plusieurs balises sont imbriquées, une règle simple s'applique : une balise ouverte à l'intérieur d'une autre doit obligatoirement être refermée avant la fermeture de sa balise mère.</p>
 </blockquote>
-<h3><a class="header" href="#structure-générale-dun-document-html" id="structure-générale-dun-document-html">Structure générale d’un document HTML</a></h3>
+<h3><a class="header" href="#22-structure-générale-dun-document-html" id="22-structure-générale-dun-document-html">2.2 Structure générale d’un document HTML</a></h3>
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
@@ -238,7 +244,7 @@ La mise en forme du contenu est prise en charge par un autre fichier codé dans 
 <li>la visualiser dans l’éditeur de texte (lancez l’éditeur, puis ouvrez le fichier depuis le menu) : vous voyez le code HTML</li>
 <li>la visualiser dans le navigateur : vous voyez le code interprété par le navigateur (« la page web »)</li>
 </ul>
-<p>→ <strong><em>Nous allons compléter le code du fichier <code>accueil.html</code> en suivant les instructions données en commentaires.</em></strong></p>
+<p>→ <strong><em>Nous allons compléter le code du fichier <code>accueil.html</code> en suivant les instructions données en commentaires. Attention, une erreur de syntaxe s'est également glissée dans ce fichier, il faut la corriger !</em></strong></p>
 <blockquote>
 <p><strong>Remarque</strong> : Vous passerez d’un outil à l’autre pour modifier et visualiser ce code (i.e. de l’éditeur au navigateur), sans fermer ces logiciels mais en enregistrant vos modifications dans l’éditeur et en actualisant la page dans le navigateur pour que le code soit réinterprété.</p>
 </blockquote>
@@ -273,13 +279,13 @@ La mise en forme du contenu est prise en charge par un autre fichier codé dans 
 <li>tous les liens cliqués en italique, soulignés et en vert</li>
 <li>tous les paragraphes de cours à connaître en police Comic, de taille 11, en noir, surlignés en gris et centrés</li>
 </ul>
-<p>Le but recherché est de mettre en place une indépendance entre le contenu d’une page web et sa présentation, et ce pour garantir :</p>
+<p>Le but recherché est de mettre en place une <strong>indépendance entre le contenu d’une page web et sa présentation</strong>, et ce pour garantir :</p>
 <ul>
 <li>une meilleure lisibilité du code source puisque les 2 aspects (contenu et style) sont séparés</li>
 <li>un gain de temps quand il s’agit de procéder à des modifications : pour changer, pour tous les titres, la taille de police, il suffit de changer une valeur à un seul endroit et la modification sera répercutée partout.</li>
 <li>une réutilisation aisée d’un contenu (pour lui appliquer d’autres styles) ou d’une présentation (qu’on appliquera à d’autres contenus).</li>
 </ul>
-<h3><a class="header" href="#syntaxe" id="syntaxe">Syntaxe</a></h3>
+<h3><a class="header" href="#31-syntaxe" id="31-syntaxe">3.1 Syntaxe</a></h3>
 <p>Il existe 3 façons de définir le style d'éléments en utilisant la syntaxe des CSS. Par exemple, pour que la couleur de fond d’un document HTML soit rouge, on pourra :</p>
 <ol>
 <li>Utiliser l'attribut « style » des balises HTML. Exemples :</li>
@@ -289,16 +295,16 @@ La mise en forme du contenu est prise en charge par un autre fichier codé dans 
 <li><code>&lt;p style=&quot;font-family: cursive&quot;&gt;Contenu du paragraphe en police manuscrite&lt;/p&gt;</code></li>
 </ul>
 <ol start="2">
-<li>
-<p>Utiliser la balise HTML « style » (dans l'en-tête de la page XHTML, entre <code>&lt;head&gt;</code> et <code>&lt;/head&gt;</code>). Exemple :</p>
-<p>&lt;style type=&quot;text/css&quot;&gt;
-body { background-color: red; }
-</style></p>
-</li>
-<li>
-<p>Utiliser une feuille de style externe et placer un lien vers la feuille de style dans l'en-tête de la page HTML.
+<li>Utiliser la balise HTML « style » (dans l'en-tête de la page XHTML, entre <code>&lt;head&gt;</code> et <code>&lt;/head&gt;</code>). Exemple :</li>
+</ol>
+<pre><code class="language-css">&lt;style type=&quot;text/css&quot;&gt;
+	body { background-color: red; }
+&lt;/style&gt;
+</code></pre>
+<ol start="3">
+<li>Utiliser une feuille de style externe et placer un lien vers la feuille de style dans l'en-tête de la page HTML.
 Les instructions de style sont placées dans un fichier texte dont l’extension est <code>.css</code> alors que le contenu est dans le fichier HTML appelant. Nous privilégierons cette 3ème solution pour coder le style à appliquer à nos pages HTML.
-Une feuille de style externe est ainsi constituée d’une série de blocs d’instructions composés chacun:</p>
+Une feuille de style externe est ainsi constituée d’une série de blocs d’instructions composés chacun:
 <ul>
 <li>d’un sélecteur,</li>
 <li>d’une accolade ouvrante,</li>
@@ -333,7 +339,7 @@ Une feuille de style externe est ainsi constituée d’une série de blocs d’i
 <li>Ouvrez ensuite le fichier <code>styleAccueil.css</code> avec l’éditeur de texte.</li>
 <li>Modifiez et/ou ajoutez d’autres propriétés et/ou d’autres sélecteurs et visualisez le résultat.</li>
 </ol>
-<h3><a class="header" href="#pour-aller-plus-loin-avec-les-css" id="pour-aller-plus-loin-avec-les-css">Pour aller plus loin avec les CSS</a></h3>
+<h3><a class="header" href="#32-pour-aller-plus-loin-avec-les-css" id="32-pour-aller-plus-loin-avec-les-css">3.2 Pour aller plus loin avec les CSS</a></h3>
 <p>Jusqu’ici, vous avez écrit des instructions de style qui s’appliquent à une balise (les mêmes balises ex. <code>&lt;h1&gt;</code> ont un seul et même style). Nous allons voir deux mécanismes supplémentaires portés par les attributs HTML <code>class</code> et <code>id</code> qui permettent d’appliquer des styles différents aux différentes occurrences d’une même balise.</p>
 <p>Les classes. On définit autant de classes que nécessaires pour la balise concernée et on associe un style à chacune des classes. La notation suivante est adoptée :</p>
 <p><u>Code CSS:</u></p>
@@ -367,31 +373,39 @@ p#ident1 { color: green; }
 </code></pre>
 <p><u>Résultat:</u></p>
 <div class="res">	<p>Un paragraphe sans style particulier<p>	<p style="color: blue;text-align: center;">Seul paragraphe utilisant le style défini par p#abc dans la CSS</p>	<p style="color: green;">Seul qui utilise le style défini par p#ident1 dans la CSS</p></div>
-<h3><a class="header" href="#quelques-autres-sélécteurs-css-que-vous-pourrez-rencontrer" id="quelques-autres-sélécteurs-css-que-vous-pourrez-rencontrer">Quelques autres sélécteurs CSS que vous pourrez rencontrer...</a></h3>
-<ul>
-<li><strong>La sélection de plusieurs éléments</strong> séparés par une virgule :</li>
-</ul>
+<h3><a class="header" href="#33-quelques-autres-sélecteurs-css-que-vous-pourrez-rencontrer" id="33-quelques-autres-sélecteurs-css-que-vous-pourrez-rencontrer">3.3 Quelques autres sélecteurs CSS que vous pourrez rencontrer...</a></h3>
+<h4><a class="header" href="#la-sélection-de-plusieurs-éléments-séparés-par-une-virgule--" id="la-sélection-de-plusieurs-éléments-séparés-par-une-virgule--"><strong>La sélection de plusieurs éléments</strong> séparés par une virgule <code>,</code> :</a></h4>
 <pre><code class="language-css">h1, h2, h3 {
 	color: green;
 }
 </code></pre>
 <p>Ici plusieurs types d'éléments (<code>h1</code>, <code>h2</code> et <code>h3</code>) sont sélectionnés pour appliquer à tous une même règle.</p>
-<ul>
-<li><strong>Le sélecteur d'éléments enfants</strong> directs avec le <strong>combinateur</strong> <code>&gt;</code> :</li>
-</ul>
-<pre><code class="language-css">ul.type-A &gt; li {
-	margin: 2em;
-}
-</code></pre>
-<p>Ici la règle de style va s'appliquer seulement aux éléments de type <code>li</code> qui sont enfants directs d'un élément <code>ul</code> avec la classe <code>type-A</code> .</p>
-<ul>
-<li><strong>Le sélecteur d'attributs</strong> avec la notation entre crochets :</li>
-</ul>
+<h4><a class="header" href="#le-sélecteur-dattributs-avec-la-notation-entre-crochets-" id="le-sélecteur-dattributs-avec-la-notation-entre-crochets-"><strong>Le sélecteur d'attributs</strong> avec la notation entre crochets :</a></h4>
 <pre><code class="language-css">img[src] {
 	border: solid 1px gray;
 }
 </code></pre>
 <p>Ce sélecteur sélection les éléments qui possèdent l'attribut donné entre crochet. Ici la règle ne sera appliquée qu'aux  images qui ont un attribut <code>src</code>.</p>
+<h4><a class="header" href="#le-sélecteur-déléments-enfants-directs-avec-le-combinateur--" id="le-sélecteur-déléments-enfants-directs-avec-le-combinateur--"><strong>Le sélecteur d'éléments enfants</strong> directs avec le <strong>combinateur</strong> <code>&gt;</code> :</a></h4>
+<pre><code class="language-css">ul.type-A &gt; li {
+	margin: 2em;
+}
+</code></pre>
+<p>Ici la règle de style va s'appliquer seulement aux éléments de type <code>li</code> qui sont enfants directs d'un élément <code>ul</code> avec la classe <code>type-A</code> .</p>
+<h4><a class="header" href="#le-sélecteur-déléments-descendants-avec-le-combinateur---espace-" id="le-sélecteur-déléments-descendants-avec-le-combinateur---espace-"><strong>Le sélecteur d'éléments descendants</strong> avec le <strong>combinateur</strong> <code> </code> (espace) :</a></h4>
+<pre><code class="language-css">div span {
+	color: red;
+}
+</code></pre>
+<p>Ici la règle de style va s'appliquer à tous les éléments de type <code>span</code> qui sont enfants (pas nécessairement directs) d'un élément <code>div</code>.</p>
+<h4><a class="header" href="#des-sélections-encores-plus-fines" id="des-sélections-encores-plus-fines">Des sélections encores plus fines.</a></h4>
+<p>Nous verrons qu'il existe encore plusieurs manières de manipuler les sélecteurs CSS. Il est par exemple possible de cibler un élément seulement lorsque il est dans un état particulier : on parle alors de <strong>sélecteur de pseudo-classe</strong>.
+Par exemple il est possible d'appliquer un style particulier aux liens (éléments <code>&lt;a&gt;</code>) qui ont déjà été cliqués par l'utilisateur en ciblant les liens appropriés avec la pseudo-classe <code>:visited</code> :</p>
+<pre><code class="language-css">a:visited {
+	color: darkblue;
+}
+</code></pre>
+<p>Cette possibilité va permettre d'étendre de manière puissante le mécanisme de sélection vu jusqu'ici grâce à l'existence de pseudo-classes telles que : <code>:hover</code> (spécification de l'apparence d'un élément lors du survole avec le pointeur), <code>:disabled</code> (pour cibler un élément désactivé), <code>:only-child</code> (sélection d'un élément qui est le seul enfant de son parent), etc.</p>
 <h2><a class="header" href="#glossaire" id="glossaire">Glossaire</a></h2>
 <h2><a class="header" href="#mémo-balises-html" id="mémo-balises-html">Mémo Balises HTML</a></h2>
 <blockquote>
