@@ -1,0 +1,531 @@
+<!DOCTYPE HTML>
+<html lang="fr" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Cours Technologies Web - LP ESSIG - 2020</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="src/custom.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <!-- <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script> -->
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Cours Technologies Web - LP ESSIG - 2020</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#introduction-aux-technos-web---Éléments-théoriques" id="introduction-aux-technos-web---Éléments-théoriques">Introduction aux Technos Web - Éléments théoriques</a></h1>
+<br>
+<br>
+<div style="text-align: center;"><h4>
+Voir le <a target="blank" href="1-Intro-Internet-web/index.html">cours sous forme de slides<img src="img/magnify-clip-ltr.svg" /></a></h4>
+</div>
+<h1><a class="header" href="#cours--tp" id="cours--tp">Cours / TP</a></h1>
+<h1><a class="header" href="#introduction-à-la-création-de-pages-web-en-html-5--css-3" id="introduction-à-la-création-de-pages-web-en-html-5--css-3">Introduction à la création de pages Web en HTML 5 / CSS 3</a></h1>
+<p>HTML est l’abréviation de <em>HyperText Markup Language</em>. Il s'agit d'un langage qui formalise l'écriture d'un document web à l’aide de balises.<br />
+Une page HTML est un fichier texte contenant des balises permettant de structurer le contenu de la page (titres, paragraphes, images, liens, etc.).<br />
+La mise en forme du contenu est prise en charge par un autre fichier codé dans le langage <em>Cascasding Style Sheet</em> (appelé une feuille de style en cascade). L'expression de « cascade » permet ici de désigner la possibilité, pour un document HTML, d'avoir un style hérité de plusieurs de ces feuilles de style.</p>
+<p>Ce TP est une brève introduction à ces 2 langages complémentaires.</p>
+<h2><a class="header" href="#1-environnement-de-travail" id="1-environnement-de-travail">1. Environnement de travail</a></h2>
+<hr />
+<p>L’environnement dans lequel nous allons travailler comprend :</p>
+<ul>
+<li>un éditeur de texte, par exemple <code>NotePad++</code> ou <code>Brackets</code>, pour créer et modifier du code,</li>
+<li>le navigateur de votre choix (Firefox de préférence, Chrome, Microsoft Edge, etc.) pour visualiser les pages créées et naviguer d’une page à l’autre.</li>
+</ul>
+<h2><a class="header" href="#2-html--principe-général-des-balises" id="2-html--principe-général-des-balises">2. HTML : principe général des balises</a></h2>
+<hr />
+<div class="img-center">
+<p><img src="img/logo_html5.png" alt=" " /></p>
+</div>
+<p>Les <strong>balises</strong> structurent le contenu en délimitant les différentes parties du document HTML (titre, paragraphe, ...). Elles fonctionnent par paire: une balise ouvrante <code>&lt;nom_balise&gt;</code>, une balise fermante <code>&lt;/nom_balise&gt;</code> délimitant ensemble une partie du contenu, représenté par une chaine de caractères. Exemple d’une balise délimitant un paragraphe :</p>
+<pre><code class="language-html">&lt;p&gt;ici le texte du paragraphe&lt;/p&gt;
+</code></pre>
+<p>L’exemple suivant montre la syntaxe permettant de placer une image dans la page Web. Dans la balise ouvrante, on trouve des paires attribut/valeur :</p>
+<pre><code class="language-html">&lt;img src=&quot;smiley.gif&quot; alt=&quot;Smiley face&quot; height=&quot;42&quot; width=&quot;42&quot;&gt;&lt;/img&gt;
+</code></pre>
+<ul>
+<li><code>src</code> permet d’indiquer le chemin vers le fichier image</li>
+<li><code>alt</code> définit le texte de substitution à afficher éventuellement</li>
+<li><code>height</code> et <code>width</code> donnent les dimensions de l’image.</li>
+</ul>
+<p>Dans certain cas, une seule balise – à la fois ouvrante et fermante – est utilisée : <code>&lt;nom_balise /&gt;</code>, celà ne l'empêche pas de contenir des attributs ; en réalité on l'utilise notamment pour la balise <code>&lt;img&gt;</code> et on écrira donc plus souvent :</p>
+<pre><code class="language-html">&lt;img src=&quot;smiley.gif&quot; alt=&quot;Smiley face&quot; height=&quot;42&quot; width=&quot;42&quot; /&gt;
+</code></pre>
+<p>Les jeux de balises peuvent être imbriquées entre elles :</p>
+<pre><code class="language-html">&lt;body&gt;
+	&lt;h1&gt;du texte&lt;/h1&gt;
+	&lt;p&gt;du texte encore, avec une image
+	&lt;img …&gt;&lt;/img&gt;
+	et ka fin du texte
+	&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+<blockquote>
+<p><strong>Remarque</strong> : Lorsque plusieurs balises sont imbriquées, une règle simple s'applique : une balise ouverte à l'intérieur d'une autre doit obligatoirement être refermée avant la fermeture de sa balise mère.</p>
+</blockquote>
+<h3><a class="header" href="#structure-générale-dun-document-html" id="structure-générale-dun-document-html">Structure générale d’un document HTML</a></h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset=&quot;utf-8&quot;/&gt;
+		&lt;meta name=&quot;Language&quot; content=&quot;fr&quot; /&gt;
+		&lt;meta name=&quot;Description&quot; content=&quot;cette page…&quot; /&gt;
+		&lt;title&gt;Titre de la page&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		Corps de la page, ce qui est visible...
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>La première ligne du document est indispensable : elle indique qu'il s'agit d'une page HTML. En HTML5 on écrit simplement <code>&lt;!DOCTYPE html&gt;</code> (vous pouvez rencontrer des fichiers HTML de versions antérieures avec un doctype beaucoup plus compliqué...).</p>
+<p>Ensuite, la balise <code>&lt;html&gt;  &lt;/html&gt;</code> englobera l’ensemble des autres balises de la page. Elle contient deux paires de balises:</p>
+<ul>
+<li>La balise <code>&lt;head&gt;  &lt;/head&gt;</code> délimitant l’entête du document et contenant diverses informations sur le document lui-même (métadonnées). Son contenu n’est pas visible dans la page interprétée par le navigateur. À noter :
+<ul>
+<li>l’encodage du texte <code>&lt;meta charset=&quot;utf-8&quot;/&gt;</code> pour éviter les problèmes d’affichages des caractères spéciaux</li>
+<li>La balise <code>&lt;title&gt;Titre de la page&lt;/title&gt;</code> qui contient le titre (assez court) qui s’affiche dans l’onglet de la fenêtre du navigateur.</li>
+</ul>
+</li>
+<li>La balise <code>&lt;body&gt; &lt;/body&gt;</code> délimitant le corps du document. Cette portion contient la partie visible du document HTML. C’est ici qu’on trouvera les autres balises (de différents types) structurant le document.</li>
+</ul>
+<h4><a class="header" href="#exercice-1--création-dune-page--une-introduction-au-langage-html" id="exercice-1--création-dune-page--une-introduction-au-langage-html">Exercice 1 : Création d’une page – une introduction au langage HTML</a></h4>
+<p>La page qui va nous servir d’exemple est la page d’accueil du site web d’un centre commercial. La page <code>accueil.html</code> est à récupérer à l'emplacement suivant : <a href="data/TP2.zip">TP2.zip</a>, puis nous allons :</p>
+<ul>
+<li>la visualiser dans l’éditeur de texte (lancez l’éditeur, puis ouvrez le fichier depuis le menu) : vous voyez le code HTML</li>
+<li>la visualiser dans le navigateur : vous voyez le code interprété par le navigateur (« la page web »)</li>
+</ul>
+<p>→ <strong><em>Nous allons compléter le code du fichier <code>accueil.html</code> en suivant les instructions données en commentaires.</em></strong></p>
+<blockquote>
+<p><strong>Remarque</strong> : Vous passerez d’un outil à l’autre pour modifier et visualiser ce code (i.e. de l’éditeur au navigateur), sans fermer ces logiciels mais en enregistrant vos modifications dans l’éditeur et en actualisant la page dans le navigateur pour que le code soit réinterprété.</p>
+</blockquote>
+<h4><a class="header" href="#exercice-2--introduction-à-lutilisation-des-hyperliens" id="exercice-2--introduction-à-lutilisation-des-hyperliens">Exercice 2 : introduction à l’utilisation des hyperliens</a></h4>
+<p>Plusieurs types de liens existent. Pour l’instant nous allons voir les liens envoyant vers une autre page (du web ou que vous avez créée).</p>
+<p>Pour pointer vers une page du web, on utilisera :</p>
+<pre><code class="language-html">&lt;a href=&quot;https://www.stid-grenoble.fr/&quot;&gt;Lien vers le site de STID&lt;/a&gt;
+</code></pre>
+<p>ce qui affiche : <a href="https://www.stid-grenoble.fr/">Lien vers le site de STID</a>.</p>
+<p>Pour pointer vers une de ses propres pages, il suffit de donner le chemin vers le fichier comme valeur pour l’attribut <code>href</code>.</p>
+<blockquote>
+<p><strong>Remarque</strong> : Un mécanisme existe pour demander au navigateur d'ouvrir la cible du lien si possible dans un nouvel onglet ou sinon dans une nouvelle fenêtre. Il faut pour celà utiliser l'attribut <code>target</code> et lui donner la valeur <code>_blank</code> :</p>
+</blockquote>
+<pre><code class="language-html">&lt;a href=&quot;https://fr.wikipedia.org/&quot; target=&quot;_blank&quot;&gt;Wikipedia&lt;/a&gt;
+</code></pre>
+<p>→ <strong>Consignes</strong>:</p>
+<ul>
+<li>Créez une nouvelle page appelée <code>partenaires.html</code> et placez-la au même endroit que le fichier <code>accueil.html</code>.</li>
+<li>Éditez le document <code>partenaires.html</code> pour ajouter un lien vers le site du département STID <em>(/!\ attention, la cible de ce lien doit s'ouvrir dans un nouvel onglet car on ne veut pas que les visiteurs quittent notre site !)</em>.</li>
+<li>Insérez un lien vers la page <code>partenaires.html</code> dans le fichier <code>accueil.html</code>.</li>
+<li>En plus (ou à la place) d'utiliser un morceau de texte, on souhaite que l'utilisateur puisse accéder à la page  <code>partenaires.html</code> en cliquant sur l'image ajoutée précédemment. Comment devez-vous vous-y prendre ?</li>
+</ul>
+<h2><a class="header" href="#3-css--objectifs-et-avantage" id="3-css--objectifs-et-avantage">3. CSS : Objectifs et avantage</a></h2>
+<hr />
+<div class="img-center">
+<p><img src="img/logo_css3.png" alt=" " /></p>
+</div>
+<p>Une feuille de style est un document associé à un document HTML et qui indique comment devra être affiché tel ou tel élément de la page.</p>
+<p>Par exemple, une feuille de style permettra de présenter :</p>
+<ul>
+<li>tous les liens en italique, soulignés et en bleu</li>
+<li>tous les liens cliqués en italique, soulignés et en vert</li>
+<li>tous les paragraphes de cours à connaître en police Comic, de taille 11, en noir, surlignés en gris et centrés</li>
+</ul>
+<p>Le but recherché est de mettre en place une indépendance entre le contenu d’une page web et sa présentation, et ce pour garantir :</p>
+<ul>
+<li>une meilleure lisibilité du code source puisque les 2 aspects (contenu et style) sont séparés</li>
+<li>un gain de temps quand il s’agit de procéder à des modifications : pour changer, pour tous les titres, la taille de police, il suffit de changer une valeur à un seul endroit et la modification sera répercutée partout.</li>
+<li>une réutilisation aisée d’un contenu (pour lui appliquer d’autres styles) ou d’une présentation (qu’on appliquera à d’autres contenus).</li>
+</ul>
+<h3><a class="header" href="#syntaxe" id="syntaxe">Syntaxe</a></h3>
+<p>Il existe 3 façons de définir le style d'éléments en utilisant la syntaxe des CSS. Par exemple, pour que la couleur de fond d’un document HTML soit rouge, on pourra :</p>
+<ol>
+<li>Utiliser l'attribut « style » des balises HTML. Exemples :</li>
+</ol>
+<ul>
+<li><code>&lt;body style=&quot;background-color: red;&quot;&gt;</code></li>
+<li><code>&lt;p style=&quot;font-family: cursive&quot;&gt;Contenu du paragraphe en police manuscrite&lt;/p&gt;</code></li>
+</ul>
+<ol start="2">
+<li>
+<p>Utiliser la balise HTML « style » (dans l'en-tête de la page XHTML, entre <code>&lt;head&gt;</code> et <code>&lt;/head&gt;</code>). Exemple :</p>
+<p>&lt;style type=&quot;text/css&quot;&gt;
+body { background-color: red; }
+</style></p>
+</li>
+<li>
+<p>Utiliser une feuille de style externe et placer un lien vers la feuille de style dans l'en-tête de la page HTML.
+Les instructions de style sont placées dans un fichier texte dont l’extension est <code>.css</code> alors que le contenu est dans le fichier HTML appelant. Nous privilégierons cette 3ème solution pour coder le style à appliquer à nos pages HTML.
+Une feuille de style externe est ainsi constituée d’une série de blocs d’instructions composés chacun:</p>
+<ul>
+<li>d’un sélecteur,</li>
+<li>d’une accolade ouvrante,</li>
+<li>d’une série de couples propriété/valeur séparés par des points virgules,</li>
+<li>et d’une accolade fermante.</li>
+</ul>
+</li>
+</ol>
+<p><img src="img/tmp_css_selector.png" alt="Sélecteur et déclaration de la règle (propriété / valeur)" title="Sélecteur et déclaration (propriété / valeur)" /></p>
+<p>Pour revenir à l’exemple, on écrira ainsi un fichier texte contenant l’instruction <code>body { background-color: red; }</code> et on associera ce fichier à un document HTML : pour établir le lien avec la feuille de style (supposons qu’elle soit nommée <code>mafeuille.css</code>), on écrira dans l’entête du fichier HTML (i.e. entre les balises <code>&lt;head&gt; &lt;/head&gt;</code>) :</p>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mafeuille.css&quot; /&gt;
+</code></pre>
+<h4><a class="header" href="#exercice-3--découverte-des-css" id="exercice-3--découverte-des-css">Exercice 3 : Découverte des CSS</a></h4>
+<p>Utilisez le tutoriel du site <a href="http://www.w3schools.com/css/">http://www.w3schools.com/css/</a> pour découvrir les CSS et en comprendre le fonctionnement. Cliquez sur le bouton vert Try it yourself pour accéder au logiciel en ligne.</p>
+<blockquote>
+<p><strong>Remarque</strong> : dans cet outil, la balise <code>&lt;style&gt;</code> est utilisée (cf. 2ème syntaxe présentée).</p>
+</blockquote>
+<p>→ <strong>Consignes</strong> :</p>
+<p>Modifiez les instructions comme indiqué :</p>
+<ul>
+<li>pour <code>body</code>, changer la couleur par #550066 (cliquez sur le bouton ‘Run’ pour visualiser le résultat après chaque modification)</li>
+<li>pour <code>h1</code>,  utilisez la couleur jaune et alignez le texte à gauche</li>
+<li>pour <code>p</code>, passez en Arial 16 pixels, écrit en blanc (<code>color: white;</code>)</li>
+<li>ajouter d’autres textes encadrés par des balises <code>&lt;h1&gt;&lt;/h1&gt;</code> et <code>&lt;p&gt;&lt;/p&gt;</code></li>
+<li>modifier à nouveau les caractéristiques de style applicables aux balises <code>&lt;h1&gt;&lt;/h1&gt;</code> et <code>&lt;p&gt;&lt;/p&gt;</code></li>
+</ul>
+<h4><a class="header" href="#exercice-4--liaison-entre-un-fichier-html-et-un-fichier-css" id="exercice-4--liaison-entre-un-fichier-html-et-un-fichier-css">Exercice 4 : Liaison entre un fichier HTML et un fichier CSS</a></h4>
+<p>→ <strong>Consignes</strong> :</p>
+<ol>
+<li>Dans l’entête du fichier <code>accueil.html</code> (celui de la page d’accueil du site web du centre commercial), établissez le lien vers la feuille de style fournie (<code>styleAccueil.css</code>).</li>
+<li>Visualisez le fichier HTML dans le navigateur.</li>
+<li>Ouvrez ensuite le fichier <code>styleAccueil.css</code> avec l’éditeur de texte.</li>
+<li>Modifiez et/ou ajoutez d’autres propriétés et/ou d’autres sélecteurs et visualisez le résultat.</li>
+</ol>
+<h3><a class="header" href="#pour-aller-plus-loin-avec-les-css" id="pour-aller-plus-loin-avec-les-css">Pour aller plus loin avec les CSS</a></h3>
+<p>Jusqu’ici, vous avez écrit des instructions de style qui s’appliquent à une balise (les mêmes balises ex. <code>&lt;h1&gt;</code> ont un seul et même style). Nous allons voir deux mécanismes supplémentaires portés par les attributs HTML <code>class</code> et <code>id</code> qui permettent d’appliquer des styles différents aux différentes occurrences d’une même balise.</p>
+<p>Les classes. On définit autant de classes que nécessaires pour la balise concernée et on associe un style à chacune des classes. La notation suivante est adoptée :</p>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">p.typeA { color: blue; }
+p.typeB { color: red; }
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;p&gt;Un paragraphe sans style particulier&lt;p&gt;
+&lt;p class=&quot;typeA&quot;&gt;Un paragraphe qui utilise le style défini par p.typeA dans la CSS&lt;/p&gt;
+&lt;p class=&quot;typeB&quot;&gt;Un autre qui utile le style défini par p.typeB dans la CSS&lt;/p&gt;
+&lt;p class=&quot;typeA&quot;&gt;De nouveau un paragraphe qui utilise le style défini par p.typeA&lt;/p&gt;
+&lt;p class=&quot;typeB&quot;&gt;et un paragraphe qui utilise également le style défini par p.typeB&lt;/p&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res"><p>Un paragraphe sans style particulier<p><p style="color: blue;">Un paragraphe qui utilise le style défini par p.typeA dans la CSS</p><p style="color: red;">Un autre qui utile le style défini par p.typeB dans la CSS</p><p style="color: blue;">De nouveau un paragraphe qui utilise le style défini par p.typeA</p><p style="color: red;">et un paragraphe qui utilise également le style défini par p.typeB</p></div>
+<p>Il existe une autre façon de procéder pour permettre l’application de styles différents à une même balise. Il s’agit d’utiliser non pas une classe (attribut <code>class</code>) mais un identifiant (attribut <code>id</code>).</p>
+<p>Le principe est le même dans les deux cas mais la différence est qu’on utilisera l’attribut <code>class</code> lorsque le style est applicable à plusieurs endroits dans le document alors qu’on utilisera l’attribut <code>id</code> quand le style est spécifique à un endroit particulier dans le document.</p>
+<p>En conséquence, la valeur d’un <code>id</code> est unique dans le document.</p>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">p#abc {
+	color: blue;
+	text-align: center;
+}
+
+p#ident1 { color: green; }
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;p&gt;Un paragraphe sans style particulier&lt;p&gt;
+&lt;p id=&quot;abc&quot;&gt;Seul paragraphe utilisant le style défini par p#abc dans la CSS&lt;/p&gt;
+&lt;p id=&quot;ident1&quot;&gt;Seul qui utilise le style défini par p#ident1 dans la CSS&lt;/p&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res">	<p>Un paragraphe sans style particulier<p>	<p style="color: blue;text-align: center;">Seul paragraphe utilisant le style défini par p#abc dans la CSS</p>	<p style="color: green;">Seul qui utilise le style défini par p#ident1 dans la CSS</p></div>
+<h1><a class="header" href="#mémo" id="mémo">Mémo</a></h1>
+<h2><a class="header" href="#glossaire" id="glossaire">Glossaire</a></h2>
+<h2><a class="header" href="#balises-html" id="balises-html">Balises HTML</a></h2>
+<blockquote>
+<p><strong>Remarque</strong>: ce mémo présente les principales balises HTML, notamment celles rencontrées lors de cette session de TP, mais n'est pas exhaustif - une liste plus complète accompagnée de sa description est consultable à l'adresse <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">developer.mozilla.org/fr/docs/Web/HTML/Element</a>.</p>
+</blockquote>
+<h3><a class="header" href="#balises-den-tête" id="balises-den-tête">Balises d'en-tête</a></h3>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;html&gt;</code></td><td>Balise principale du document</td></tr>
+<tr><td>-</td><td>-</td></tr>
+<tr><td><code>&lt;head&gt;</code></td><td>En-tête de la page</td></tr>
+<tr><td><code>&lt;body&gt;</code></td><td>Corps de la page</td></tr>
+</tbody></table>
+<h3><a class="header" href="#balises-de-containeur-générique" id="balises-de-containeur-générique">Balises de containeur générique</a></h3>
+<p><em>pas de rôle sémantique</em></p>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;span&gt;</code></td><td>Conteneur générique en ligne <em>(inline)</em></td></tr>
+<tr><td><code>&lt;div&gt;</code></td><td>Conteneur générique qui permet d'organiser le contenu <em>(block)</em></td></tr>
+</tbody></table>
+<h3><a class="header" href="#balises-sectionnantes" id="balises-sectionnantes">Balises sectionnantes</a></h3>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;header&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;nav&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;footer&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;section&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;article&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;aside&gt;</code></td><td></td></tr>
+</tbody></table>
+<h3><a class="header" href="#autres-balises-avec-sémantique-associée" id="autres-balises-avec-sémantique-associée">Autres balises avec sémantique associée</a></h3>
+<p><em>cette liste présente aussi bien des balises relatives au sectionnement du contenu que des balises relatives au contenu textuel par exemple</em></p>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;abbr&gt;</code></td><td>Abréviation</td></tr>
+<tr><td><code>&lt;blockquote&gt;</code></td><td>Citation (longue)</td></tr>
+<tr><td><code>&lt;cite&gt;</code></td><td>Citation du titre d'une oeuvre</td></tr>
+<tr><td><code>&lt;q&gt;</code></td><td>Citation (courte)</td></tr>
+<tr><td><code>&lt;sup&gt;</code></td><td>Exposant</td></tr>
+<tr><td><code>&lt;sub&gt;</code></td><td>Indice</td></tr>
+<tr><td><code>&lt;strong&gt;</code></td><td>Mise en valeur forte</td></tr>
+<tr><td><code>&lt;em&gt;</code></td><td>Mise en valeur</td></tr>
+<tr><td><code>&lt;mark&gt;</code></td><td>Mise en valeur pour sa pertinence</td></tr>
+<tr><td><code>&lt;h1&gt;</code></td><td>Titre de niveau 1</td></tr>
+<tr><td><code>&lt;h2&gt;</code></td><td>Titre de niveau 2</td></tr>
+<tr><td><code>&lt;h3&gt;</code></td><td>Titre de niveau 3</td></tr>
+<tr><td><code>&lt;h4&gt;</code></td><td>Titre de niveau 4</td></tr>
+<tr><td><code>&lt;h5&gt;</code></td><td>Titre de niveau 5</td></tr>
+<tr><td><code>&lt;h6&gt;</code></td><td>Titre de niveau 6</td></tr>
+<tr><td><code>&lt;img /&gt;</code></td><td>Image</td></tr>
+<tr><td><code>&lt;figure&gt;</code></td><td>Figure (image, code, ...)</td></tr>
+<tr><td><code>&lt;figcaption&gt;</code></td><td>Description de la figure</td></tr>
+<tr><td><code>&lt;audio&gt;</code></td><td>Son</td></tr>
+<tr><td><code>&lt;video&gt;</code></td><td>Vidéo</td></tr>
+<tr><td><code>&lt;source&gt;</code></td><td>Source pour <audio> et &lt;vidéo&gt;</td></tr>
+<tr><td><code>&lt;a&gt;</code></td><td>Lien hypertexte</td></tr>
+<tr><td><code>&lt;br /&gt;</code></td><td>Retour à la ligne</td></tr>
+<tr><td><code>&lt;p&gt;</code></td><td>Paragraphe</td></tr>
+<tr><td><code>&lt;hr /&gt;</code></td><td>Ligne horizontale</td></tr>
+<tr><td><code>&lt;address&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;del&gt;</code></td><td>Texte supprimé</td></tr>
+<tr><td><code>&lt;ins&gt;</code></td><td>Texte inséré</td></tr>
+<tr><td><code>&lt;dfn&gt;</code></td><td>Définition</td></tr>
+<tr><td><code>&lt;kdb&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;pre&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;progress&gt;</code></td><td>Barre de progression</td></tr>
+<tr><td><code>&lt;time&gt;</code></td><td></td></tr>
+</tbody></table>
+<h3><a class="header" href="#balises-de-liste" id="balises-de-liste">Balises de liste</a></h3>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;ul&gt;</code></td><td>Liste à puce, non numérotée</td></tr>
+<tr><td><code>&lt;ol&gt;</code></td><td>Liste numérotée</td></tr>
+<tr><td><code>&lt;li&gt;</code></td><td>Élément de la liste</td></tr>
+</tbody></table>
+<!-- | `<dl>` | Liste de définitions |
+| `<dt>` | Terme à définir |
+| `<dd>` | Définition du terme | -->
+<h3><a class="header" href="#balises-de-tableau" id="balises-de-tableau">Balises de tableau</a></h3>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;table&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;caption&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;tr&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;th&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;td&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;thead&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;tbody&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;tfoot&gt;</code></td><td></td></tr>
+</tbody></table>
+<h3><a class="header" href="#balises-de-formulaire" id="balises-de-formulaire">Balises de formulaire</a></h3>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;form&gt;</code></td><td>Formulaire</td></tr>
+<tr><td><code>&lt;fieldset&gt;</code></td><td>Groupe de champs</td></tr>
+<tr><td><code>&lt;legend&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;label&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;input /&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;textarea&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;select&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;option&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;optgroup&gt;</code></td><td></td></tr>
+</tbody></table>
+<h2><a class="header" href="#version-pdf-des-courstp" id="version-pdf-des-courstp">Version PDF des Cours/TP</a></h2>
+<ul>
+<li>
+<p><a href="./1-Intro-Internet-web/1-Intro-slides.pdf">1 - Éléments théoriques</a></p>
+</li>
+<li>
+<p><a href="./2-HTML_CSS.pdf">2 - Intro HTML 5 / CSS 3</a></p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
