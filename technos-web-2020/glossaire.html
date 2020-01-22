@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Éléments théoriques - Cours Technologies Web - LP ESSIG - 2020</title>
+        <title>Glossaire - Mémo - Cours Technologies Web - LP ESSIG - 2020</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html" class="active">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -150,21 +150,115 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#introduction-aux-technos-web---Éléments-théoriques" id="introduction-aux-technos-web---Éléments-théoriques">Introduction aux Technos Web - Éléments théoriques</a></h1>
-<br>
-<br>
-<div style="text-align: center;"><h4>
-Voir le <a target="blank" href="1-Intro-Internet-web/index.html">cours sous forme de slides<img src="img/magnify-clip-ltr.svg" /></a></h4>
-</div>
+                        <h2><a class="header" href="#glossaire" id="glossaire">Glossaire</a></h2>
+<h2><a class="header" href="#mémo-balises-html" id="mémo-balises-html">Mémo Balises HTML</a></h2>
+<blockquote>
+<p><strong>Remarque</strong>: ce mémo présente les principales balises HTML, notamment celles rencontrées lors de cette session de TP, mais n'est pas exhaustif - une liste plus complète accompagnée de sa description est consultable à l'adresse <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">developer.mozilla.org/fr/docs/Web/HTML/Element</a>.</p>
+</blockquote>
+<h3><a class="header" href="#balises-den-tête" id="balises-den-tête">Balises d'en-tête</a></h3>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;html&gt;</code></td><td>Balise principale du document</td></tr>
+<tr><td>-</td><td>-</td></tr>
+<tr><td><code>&lt;head&gt;</code></td><td>En-tête de la page</td></tr>
+<tr><td><code>&lt;body&gt;</code></td><td>Corps de la page</td></tr>
+</tbody></table>
+<h3><a class="header" href="#balises-de-containeur-générique" id="balises-de-containeur-générique">Balises de containeur générique</a></h3>
+<p><em>pas de rôle sémantique</em></p>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;span&gt;</code></td><td>Conteneur générique en ligne <em>(inline)</em></td></tr>
+<tr><td><code>&lt;div&gt;</code></td><td>Conteneur générique qui permet d'organiser le contenu <em>(block)</em></td></tr>
+</tbody></table>
+<h3><a class="header" href="#balises-sectionnantes" id="balises-sectionnantes">Balises sectionnantes</a></h3>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;header&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;nav&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;footer&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;section&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;article&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;aside&gt;</code></td><td></td></tr>
+</tbody></table>
+<h3><a class="header" href="#autres-balises-avec-sémantique-associée" id="autres-balises-avec-sémantique-associée">Autres balises avec sémantique associée</a></h3>
+<p><em>cette liste présente aussi bien des balises relatives au sectionnement du contenu que des balises relatives au contenu textuel par exemple</em></p>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;abbr&gt;</code></td><td>Abréviation</td></tr>
+<tr><td><code>&lt;blockquote&gt;</code></td><td>Citation (longue)</td></tr>
+<tr><td><code>&lt;cite&gt;</code></td><td>Citation du titre d'une oeuvre</td></tr>
+<tr><td><code>&lt;q&gt;</code></td><td>Citation (courte)</td></tr>
+<tr><td><code>&lt;sup&gt;</code></td><td>Exposant</td></tr>
+<tr><td><code>&lt;sub&gt;</code></td><td>Indice</td></tr>
+<tr><td><code>&lt;strong&gt;</code></td><td>Mise en valeur forte</td></tr>
+<tr><td><code>&lt;em&gt;</code></td><td>Mise en valeur</td></tr>
+<tr><td><code>&lt;mark&gt;</code></td><td>Mise en valeur pour sa pertinence</td></tr>
+<tr><td><code>&lt;h1&gt;</code></td><td>Titre de niveau 1</td></tr>
+<tr><td><code>&lt;h2&gt;</code></td><td>Titre de niveau 2</td></tr>
+<tr><td><code>&lt;h3&gt;</code></td><td>Titre de niveau 3</td></tr>
+<tr><td><code>&lt;h4&gt;</code></td><td>Titre de niveau 4</td></tr>
+<tr><td><code>&lt;h5&gt;</code></td><td>Titre de niveau 5</td></tr>
+<tr><td><code>&lt;h6&gt;</code></td><td>Titre de niveau 6</td></tr>
+<tr><td><code>&lt;img /&gt;</code></td><td>Image</td></tr>
+<tr><td><code>&lt;figure&gt;</code></td><td>Figure (image, code, ...)</td></tr>
+<tr><td><code>&lt;figcaption&gt;</code></td><td>Description de la figure</td></tr>
+<tr><td><code>&lt;audio&gt;</code></td><td>Son</td></tr>
+<tr><td><code>&lt;video&gt;</code></td><td>Vidéo</td></tr>
+<tr><td><code>&lt;source&gt;</code></td><td>Source pour <audio> et &lt;vidéo&gt;</td></tr>
+<tr><td><code>&lt;a&gt;</code></td><td>Lien hypertexte</td></tr>
+<tr><td><code>&lt;br /&gt;</code></td><td>Retour à la ligne</td></tr>
+<tr><td><code>&lt;p&gt;</code></td><td>Paragraphe</td></tr>
+<tr><td><code>&lt;hr /&gt;</code></td><td>Ligne horizontale</td></tr>
+<tr><td><code>&lt;address&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;del&gt;</code></td><td>Texte supprimé</td></tr>
+<tr><td><code>&lt;ins&gt;</code></td><td>Texte inséré</td></tr>
+<tr><td><code>&lt;dfn&gt;</code></td><td>Définition</td></tr>
+<tr><td><code>&lt;kdb&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;pre&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;progress&gt;</code></td><td>Barre de progression</td></tr>
+<tr><td><code>&lt;time&gt;</code></td><td></td></tr>
+</tbody></table>
+<h3><a class="header" href="#balises-de-liste" id="balises-de-liste">Balises de liste</a></h3>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;ul&gt;</code></td><td>Liste à puce, non numérotée</td></tr>
+<tr><td><code>&lt;ol&gt;</code></td><td>Liste numérotée</td></tr>
+<tr><td><code>&lt;li&gt;</code></td><td>Élément de la liste</td></tr>
+</tbody></table>
+<!-- | `<dl>` | Liste de définitions |
+| `<dt>` | Terme à définir |
+| `<dd>` | Définition du terme | -->
+<h3><a class="header" href="#balises-de-tableau" id="balises-de-tableau">Balises de tableau</a></h3>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;table&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;caption&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;tr&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;th&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;td&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;thead&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;tbody&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;tfoot&gt;</code></td><td></td></tr>
+</tbody></table>
+<h3><a class="header" href="#balises-de-formulaire" id="balises-de-formulaire">Balises de formulaire</a></h3>
+<table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;form&gt;</code></td><td>Formulaire</td></tr>
+<tr><td><code>&lt;fieldset&gt;</code></td><td>Groupe de champs</td></tr>
+<tr><td><code>&lt;legend&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;label&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;input /&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;textarea&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;select&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;option&gt;</code></td><td></td></tr>
+<tr><td><code>&lt;optgroup&gt;</code></td><td></td></tr>
+</tbody></table>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="2-HTML_CSS.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
-                            <a rel="next" href="2-HTML_CSS.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="page_pdf.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -176,9 +270,13 @@ Voir le <a target="blank" href="1-Intro-Internet-web/index.html">cours sous form
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a href="2-HTML_CSS.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
                 
-                    <a href="2-HTML_CSS.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="page_pdf.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

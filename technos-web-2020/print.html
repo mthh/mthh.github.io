@@ -85,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -152,7 +152,13 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#introduction-aux-technos-web---Éléments-théoriques" id="introduction-aux-technos-web---Éléments-théoriques">Introduction aux Technos Web - Éléments théoriques</a></h1>
+                        <h1><a class="header" href="#cours-technologies-web" id="cours-technologies-web">Cours Technologies Web</a></h1>
+<h1><a class="header" href="#lp-essig---université-grenoble-alpes" id="lp-essig---université-grenoble-alpes">LP ESSIG - Université Grenoble Alpes</a></h1>
+<p>Vous trouverez sur cette page le contenu des différents cours / TP en version HTML ainsi qu'en version PDF.</p>
+<p><br><br><br></p>
+<h4><a class="header" href="#supports-de-cours--matthieu-viry" id="supports-de-cours--matthieu-viry">Supports de cours : Matthieu Viry</a></h4>
+<h4><a class="header" href="#préparé-sur-la-base-des-supports-de-marlène-villanova-oliver" id="préparé-sur-la-base-des-supports-de-marlène-villanova-oliver">(préparé sur la base des supports de Marlène Villanova-Oliver)</a></h4>
+<h1><a class="header" href="#introduction-aux-technos-web---Éléments-théoriques" id="introduction-aux-technos-web---Éléments-théoriques">Introduction aux Technos Web - Éléments théoriques</a></h1>
 <br>
 <br>
 <div style="text-align: center;"><h4>
@@ -362,9 +368,33 @@ p#ident1 { color: green; }
 </code></pre>
 <p><u>Résultat:</u></p>
 <div class="res">	<p>Un paragraphe sans style particulier<p>	<p style="color: blue;text-align: center;">Seul paragraphe utilisant le style défini par p#abc dans la CSS</p>	<p style="color: green;">Seul qui utilise le style défini par p#ident1 dans la CSS</p></div>
-<h1><a class="header" href="#mémo" id="mémo">Mémo</a></h1>
+<h3><a class="header" href="#quelques-autres-sélécteurs-css-que-vous-pourrez-rencontrer" id="quelques-autres-sélécteurs-css-que-vous-pourrez-rencontrer">Quelques autres sélécteurs CSS que vous pourrez rencontrer...</a></h3>
+<ul>
+<li><strong>La sélection de plusieurs éléments</strong> séparés par une virgule :</li>
+</ul>
+<pre><code class="language-css">h1, h2, h3 {
+	color: green;
+}
+</code></pre>
+<p>Ici plusieurs types d'éléments (<code>h1</code>, <code>h2</code> et <code>h3</code>) sont sélectionnés pour appliquer à tous une même règle.</p>
+<ul>
+<li><strong>Le sélecteur d'éléments enfants</strong> directs avec le <strong>combinateur</strong> <code>&gt;</code> :</li>
+</ul>
+<pre><code class="language-css">ul.type-A &gt; li {
+	margin: 2em;
+}
+</code></pre>
+<p>Ici la règle de style va s'appliquer seulement aux éléments de type <code>li</code> qui sont enfants directs d'un élément <code>ul</code> avec la classe <code>type-A</code> .</p>
+<ul>
+<li><strong>Le sélecteur d'attributs</strong> avec la notation entre crochets :</li>
+</ul>
+<pre><code class="language-css">img[src] {
+	border: solid 1px gray;
+}
+</code></pre>
+<p>Ce sélecteur sélection les éléments qui possèdent l'attribut donné entre crochet. Ici la règle ne sera appliquée qu'aux  images qui ont un attribut <code>src</code>.</p>
 <h2><a class="header" href="#glossaire" id="glossaire">Glossaire</a></h2>
-<h2><a class="header" href="#balises-html" id="balises-html">Balises HTML</a></h2>
+<h2><a class="header" href="#mémo-balises-html" id="mémo-balises-html">Mémo Balises HTML</a></h2>
 <blockquote>
 <p><strong>Remarque</strong>: ce mémo présente les principales balises HTML, notamment celles rencontrées lors de cette session de TP, mais n'est pas exhaustif - une liste plus complète accompagnée de sa description est consultable à l'adresse <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">developer.mozilla.org/fr/docs/Web/HTML/Element</a>.</p>
 </blockquote>
