@@ -398,7 +398,7 @@ p#ident1 { color: green; }
 }
 </code></pre>
 <p>Ici la règle de style va s'appliquer à tous les éléments de type <code>span</code> qui sont enfants (pas nécessairement directs) d'un élément <code>div</code>.</p>
-<h4><a class="header" href="#des-sélections-encores-plus-fines" id="des-sélections-encores-plus-fines">Des sélections encores plus fines.</a></h4>
+<h4><a class="header" href="#des-sélections-encores-plus-fines-avec-les-sélecteur-de-pseudo-classe" id="des-sélections-encores-plus-fines-avec-les-sélecteur-de-pseudo-classe">Des sélections encores plus fines avec les sélecteur de pseudo-classe</a></h4>
 <p>Nous verrons qu'il existe encore plusieurs manières de manipuler les sélecteurs CSS. Il est par exemple possible de cibler un élément seulement lorsque il est dans un état particulier : on parle alors de <strong>sélecteur de pseudo-classe</strong>.
 Par exemple il est possible d'appliquer un style particulier aux liens (éléments <code>&lt;a&gt;</code>) qui ont déjà été cliqués par l'utilisateur en ciblant les liens appropriés avec la pseudo-classe <code>:visited</code> :</p>
 <pre><code class="language-css">a:visited {
@@ -406,6 +406,54 @@ Par exemple il est possible d'appliquer un style particulier aux liens (élémen
 }
 </code></pre>
 <p>Cette possibilité va permettre d'étendre de manière puissante le mécanisme de sélection vu jusqu'ici grâce à l'existence de pseudo-classes telles que : <code>:hover</code> (spécification de l'apparence d'un élément lors du survole avec le pointeur), <code>:disabled</code> (pour cibler un élément désactivé), <code>:only-child</code> (sélection d'un élément qui est le seul enfant de son parent), etc.</p>
+<p>Ainsi, la pseudo-class <code>:nth-child</code> va rendre possible de cibler chaque élément qui est le <code>n</code>ième enfant, quel que soit sont type, de son parent. Si nous avons 5 paragraphes dans un même élément de type <code>div</code> il est possible de sélectionner le second de la manière suivante :</p>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">p:nth-child(2) {
+	color: red;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;div&gt;
+	&lt;p&gt;The first paragraph.&lt;/p&gt;
+	&lt;p&gt;The second paragraph.&lt;/p&gt;
+	&lt;p&gt;The third paragraph.&lt;/p&gt;
+	&lt;p&gt;The fourth paragraph.&lt;/p&gt;
+	&lt;p&gt;The fifth paragraph.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res">
+	<p>The first paragraph.</p>
+	<p style="color: red;">The second paragraph.</p>
+	<p>The third paragraph.</p>
+	<p>The fourth paragraph.</p>
+	<p>The fifth paragraph.</p>
+</div>
+<p>C'est également avec cet élément <code>:nth-child</code> qu'il va être possible de sélectionner tous les enfants dont l'indice est paire ou impaire en utilisant les mots-clés <code>even</code> ou <code>odd</code>.</p>
+<pre><code class="language-css">p:nth-child(even) {
+	background: green;
+}
+p:nth-child(odd) {
+	background: gray;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;div&gt;
+	&lt;p&gt;The first paragraph.&lt;/p&gt;
+	&lt;p&gt;The second paragraph.&lt;/p&gt;
+	&lt;p&gt;The third paragraph.&lt;/p&gt;
+	&lt;p&gt;The fourth paragraph.&lt;/p&gt;
+	&lt;p&gt;The fifth paragraph.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res">
+	<p style="background: gray;">The first paragraph.</p>
+	<p style="background: green;">The second paragraph.</p>
+	<p style="background: gray;">The third paragraph.</p>
+	<p style="background: green;">The fourth paragraph.</p>
+	<p style="background: gray;">The fifth paragraph.</p>
+</div>
 <h2><a class="header" href="#glossaire" id="glossaire">Glossaire</a></h2>
 <h2><a class="header" href="#mémo-balises-html" id="mémo-balises-html">Mémo Balises HTML</a></h2>
 <blockquote>
