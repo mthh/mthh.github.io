@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -454,6 +454,183 @@ p:nth-child(odd) {
 	<p style="background: green;">The fourth paragraph.</p>
 	<p style="background: gray;">The fifth paragraph.</p>
 </div>
+<h1><a class="header" href="#structurer-et-styler-un-document-html" id="structurer-et-styler-un-document-html">Structurer et styler un document HTML</a></h1>
+<p>Lors de ce TP vous allez manipuler plusieurs nouvelles balises HTML.<br />
+Dans un premier temps nous allons découvrir rapidement leurs usages.<br />
+Dans un second temps vous devrez les utiliser pour compléter et mettre en forme une page web.</p>
+<h2><a class="header" href="#1-le-modèle-de-boite-css" id="1-le-modèle-de-boite-css">1. Le &quot;modèle de boite CSS&quot;</a></h2>
+<p>En CSS, tous les éléments sont inclus dans une &quot;boite&quot;. Il existe deux types de boites :</p>
+<ul>
+<li>
+<p><strong>en ligne</strong> <em>(inline)</em> :</p>
+<ul>
+<li>la boite ne créé pas de retour à la ligne et s'insère dans le flux du contenu ;</li>
+<li>les propriétés <code>width</code> et <code>height</code> ne s'appliquent pas ;</li>
+<li>les propriétés <code>padding</code>, <code>margin</code> peuvent être appliquées mais ne vont pas déplacer les éléments voisins sur l'axe vertical (top / bottom) et peuvent créer un chevauchement ;</li>
+<li><strong>sert surtout à associer un style à une partie d'un texte (au sein d'un bloc de texte ou d'un paragraphe)</strong> ;</li>
+<li>le conteneur générique de ce type est l'élément <code>&lt;span&gt;</code> ;</li>
+<li>d'autres éléments <em>en ligne</em> : <code>&lt;a&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;strong&gt;</code> par exemple.</li>
+</ul>
+</li>
+<li>
+<p><strong>en bloc</strong> <em>(block)</em> :</p>
+<ul>
+<li>la boite s'étend en largeur pour remplir tout l'espace de son conteneur ;</li>
+<li>elle se positionne sur une nouvelle ligne et va engendrer un retour à la ligne avant l'élément qui la suite ;</li>
+<li>les propriétés <code>width</code> et <code>height</code> s'appliquent ;</li>
+<li>les propriétés <code>padding</code>, <code>margin</code> et <code>border</code> vont repousser les éléments voisins ;</li>
+<li><strong>sert à agencer le contenu de la page et à regrouper des éléments ensemble</strong> ;</li>
+<li>le conteneur générique de ce type est l'élément <code>&lt;div&gt;</code> ;</li>
+<li>d'autres éléments <em>en bloc</em> : <code>&lt;p&gt;</code> ou les titres <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, et d'autres éléments de sectionnement comme <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, etc.</li>
+</ul>
+</li>
+</ul>
+<p>Ce modèle de boite CSS prend la forme suivante :</p>
+<div class="img-center">
+<p><img src="img/dessin_css_box.png" alt="Le modèle de boite CSS" /></p>
+</div>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">.styled {
+  margin: 5px;
+  border: solid 2px black;
+  padding: 22px;
+  background-color: cornsilk;
+  box-shadow: 10px 5px red;
+}
+
+.keyword {
+  color: red;
+  font-style: italic;
+  /* La propriété suivante ne sera pas appliquée car
+   elle ne s'applique pas aux élément en ligne :  */
+  height: 300px;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;styled&quot;&gt;
+ &lt;p&gt;Some &lt;span class=&quot;keyword&quot;&gt;interesting&lt;/span&gt; content in a paragraph.&lt;/p&gt;
+ &lt;p&gt;Another paragraph with more &lt;span class=&quot;keyword&quot;&gt;highlighted&lt;/span&gt; keywords.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div style="margin: 5px; border: solid 2px black; padding: 22px; background-color: cornsilk; box-shadow: 10px 5px red;">
+ <p>Some <span style="color: red; font-style: italic; height: 300px;">interesting</span> content in a paragraph.</p>
+ <p>Another paragraph with more <span style="color: red; font-style: italic; height: 300px;">highlighted</span> keywords.</p>
+</div>
+<h2><a class="header" href="#2-formats-et-unités-de-valeurs-css" id="2-formats-et-unités-de-valeurs-css">2. Formats et unités de valeurs CSS</a></h2>
+<h3><a class="header" href="#21-quelques-unités-acceptées-par-les-propriétés-margin-padding-width-height-et-font-size" id="21-quelques-unités-acceptées-par-les-propriétés-margin-padding-width-height-et-font-size">2.1 Quelques unités acceptées par les propriétés <code>margin</code>, <code>padding</code>, <code>width</code>, <code>height</code> et <code>font-size</code></a></h3>
+<p>Ces propriétés CSS (ce ne sont pas les seules) acceptent des valeurs sous forme d'une &quot;longueur&quot;.<br />
+Cette longueur peut-être spécifiée de manière relative ou absolue.</p>
+<table><thead><tr><th>Unité absolue</th><th>Description</th></tr></thead><tbody>
+<tr><td>px</td><td>Pixel</td></tr>
+</tbody></table>
+<br>
+<table><thead><tr><th>Unité relative</th><th>Description</th></tr></thead><tbody>
+<tr><td>%</td><td>Taille relative à l'élément parent</td></tr>
+<tr><td>em</td><td>Relative à la taille de police de l'élément</td></tr>
+<tr><td>rem</td><td>Relative à la taille de police de l'élément racine</td></tr>
+</tbody></table>
+<h3><a class="header" href="#22-les-formats-de-valeurs-acceptés-par-les-propriétés-margin-et-padding" id="22-les-formats-de-valeurs-acceptés-par-les-propriétés-margin-et-padding">2.2 Les formats de valeurs acceptés par les propriétés <code>margin</code> et <code>padding</code></a></h3>
+<ul>
+<li>
+<p><code>padding: 10px 5px 15px 20px;</code></p>
+<ul>
+<li>lecture dans le sens des aiguilles d'une montre</li>
+<li>signifie : top -&gt; 10px, right -&gt; 5px, bottom -&gt; 15px, left -&gt; 20px</li>
+</ul>
+</li>
+<li>
+<p><code>padding: 10px 5px 15px;</code></p>
+<ul>
+<li>signifie : top -&gt; 10px, right and left -&gt; 5px bottom -&gt; 15px</li>
+</ul>
+</li>
+<li>
+<p><code>padding: 10px 5px;</code></p>
+<ul>
+<li>signifie : top and bottom -&gt; 10px, right and left -&gt; 5px</li>
+</ul>
+</li>
+<li>
+<p><code>padding: 10px;</code></p>
+<ul>
+<li>signifie : top, right, left and bottom -&gt; 10px</li>
+</ul>
+</li>
+<li>
+<p>Il est possible d'utiliser les autres unités existantes (<code>%</code>, <code>em</code>, etc.).</p>
+</li>
+<li>
+<p>Il est possible de les spécifier une à une (en utilisant les propriétés <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, <code>padding-left</code>).</p>
+</li>
+</ul>
+<h3><a class="header" href="#23-la-valeur-spéciale-auto" id="23-la-valeur-spéciale-auto">2.3 La valeur spéciale &quot;auto&quot;</a></h3>
+<p>Lors de l'utilisation de la valeur <code>auto</code>, la valeur calculée pour la propriété en question est ajustée automatiquement en fonction du contenu et/ou du contexte de l'élément concerné.</p>
+<p>Cette fonctionnalité peut être très pratique dans certains cas puisqu'elle va permettre :</p>
+<ul>
+<li>de centrer horizontalement les éléments <em>en bloc</em> avec l'utilisation de la déclaration <code>margin: auto;</code> (les marges, étirées au maximum et de mêmes longueurs de chaque coté de l'élément vont avoir pour effet de le centrer)</li>
+<li>d'ajouter une barre de défilement lorsque cela sera nécessaire pour garder le contenu dans l'élément contenant avec l'utilisation de la déclaration <code>overflow: auto;</code></li>
+<li>d'afficher correctement des images dont la largeur auraient été définie de manière relative au conteneur avec la déclaration <code>height: auto;</code></li>
+</ul>
+<blockquote>
+<p><strong>Remarque</strong>: seul un petit nombre de propriétés supporte l'utilisation de cette valeur.</p>
+</blockquote>
+<h2><a class="header" href="#3-tableaux-html" id="3-tableaux-html">3. Tableaux HTML</a></h2>
+<p>La construction d'un tableau HTML nécessite l'utilisation de plusieurs balises :</p>
+<ul>
+<li><code>&lt;table&gt; &lt;/table&gt;</code> pour délimiter l'ensemble du tableau</li>
+<li><code>&lt;thead&gt; &lt;/thead&gt;</code> pour désigner <strong>les lignes constituant l'en-tête</strong> du tableau</li>
+<li><code>&lt;tbody&gt; &lt;/tbody&gt;</code> pour désigner <strong>les lignes constituant le corps</strong> du tableau</li>
+<li><code>&lt;th&gt; &lt;/th&gt;</code> pour désigner <strong>une cellule</strong> de <strong>l'en-tête</strong> du tableau</li>
+<li><code>&lt;td&gt; &lt;/td&gt;</code> pour désigner <strong>une cellule</strong> du <strong>corps</strong> du tableau</li>
+<li><code>&lt;tr&gt; &lt;/tr&gt;</code> pour désigner <strong>une ligne de cellules</strong> (aussi bien dans l'en-tête que dans le corps du tableau, elle contient donc des éléments <code>td</code> ou des éléments <code>th</code>)</li>
+</ul>
+<p>Ainsi le code d'un tableau simple contenant 2 colonnes et 3 lignes (dont celle de l'en-tête) prendra la forme suivante :</p>
+<pre><code class="language-html">&lt;table&gt;
+  &lt;thead&gt;  &lt;!-- Début de l'en-tête --&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nom colonne 1&lt;/th&gt;
+      &lt;th&gt;Nom colonne 2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt; &lt;!-- Fin de l'en-tête --&gt;
+  &lt;tbody&gt;  &lt;!-- Début du corps du tableau --&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Data ligne 1 - colonne 1&lt;/td&gt;
+      &lt;td&gt;Data ligne 1 - colonne 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Data ligne 2 - colonne 1&lt;/td&gt;
+      &lt;td&gt;Data ligne 2 - colonne 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt; &lt;!-- Fin du corps du tableau --&gt;
+&lt;/table&gt;
+</code></pre>
+<h2><a class="header" href="#4-listes-ordonnées-ou-non-en-html" id="4-listes-ordonnées-ou-non-en-html">4. Listes (ordonnées ou non) en HTML</a></h2>
+<p>Il existe deux éléments HTML qui permettent de désigner un liste :</p>
+<ul>
+<li>les balises <code>&lt;ol&gt; &lt;/ol&gt;</code> désignent une liste ordonnée (<u>o</u>rdered <u>l</u>ist)</li>
+<li>les balises <code>&lt;ul&gt; &lt;/ul&gt;</code> désignent une liste non-ordonnée (<u>u</u>nordered <u>l</u>ist)</li>
+</ul>
+<p>Ces balises délimitent <em>la liste</em> (i.e. l'élément qui contient les items de la liste). Chaque item d'une liste est représenté par la balises <code>&lt;li&gt; &lt;/li&gt;</code>.</p>
+<p>Ainsi une liste non ordonnée (liste de course par exemple) prendra la forme suivante :</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;Avocat&lt;/li&gt;
+  &lt;li&gt;Citron&lt;/li&gt;
+  &lt;li&gt;Tomate&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>Une liste ordonnée (instructions de directions par exemple) prendra la forme suivante :</p>
+<pre><code class="language-html">&lt;ol&gt;
+  &lt;li&gt;Tournez à gauche&lt;/li&gt;
+  &lt;li&gt;Continuez 500m puis prendre la contre-allée&lt;/li&gt;
+  &lt;li&gt;Vous êtes arrivé chez le vendeur de fruits et légumes&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<p>Vous pouvez remarquer que les listes disposent d'un style par défaut.</p>
+<h2><a class="header" href="#5-groupage-des-éléments-et-organisation-générale-dune-page" id="5-groupage-des-éléments-et-organisation-générale-dune-page">5. Groupage des éléments et organisation générale d'une page</a></h2>
+<p><img src="img/layout_web_page.png" alt="Exemple d'organisation de page Web" title="Exemple d'organisation de page Web" /></p>
+<h2><a class="header" href="#6-mise-en-pratique-1" id="6-mise-en-pratique-1">6. Mise en pratique (1)</a></h2>
+<h2><a class="header" href="#7-mise-en-pratique-2" id="7-mise-en-pratique-2">7. Mise en pratique (2)</a></h2>
 <h2><a class="header" href="#glossaire" id="glossaire">Glossaire</a></h2>
 <h2><a class="header" href="#mémo-balises-html" id="mémo-balises-html">Mémo Balises HTML</a></h2>
 <blockquote>
@@ -466,7 +643,7 @@ p:nth-child(odd) {
 <tr><td><code>&lt;head&gt;</code></td><td>En-tête de la page</td></tr>
 <tr><td><code>&lt;body&gt;</code></td><td>Corps de la page</td></tr>
 </tbody></table>
-<h3><a class="header" href="#balises-de-containeur-générique" id="balises-de-containeur-générique">Balises de containeur générique</a></h3>
+<h3><a class="header" href="#balises-de-conteneur-générique" id="balises-de-conteneur-générique">Balises de conteneur générique</a></h3>
 <p><em>pas de rôle sémantique</em></p>
 <table><thead><tr><th>Balise</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>&lt;span&gt;</code></td><td>Conteneur générique en ligne <em>(inline)</em></td></tr>
@@ -557,6 +734,9 @@ p:nth-child(odd) {
 </li>
 <li>
 <p><a href="./2-HTML_CSS.pdf">2 - Intro HTML 5 / CSS 3</a></p>
+</li>
+<li>
+<p><a href="./3-structure-style.pdf">3 - Structurer et styler un document HTML</a></p>
 </li>
 </ul>
 
