@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -502,7 +502,7 @@ Dans un second temps vous devrez les utiliser pour compléter et mettre en forme
   color: red;
   font-style: italic;
   /* La propriété suivante ne sera pas appliquée car
-   elle ne s'applique pas aux élément en ligne :  */
+   elle ne s'applique pas aux éléments en ligne :  */
   height: 300px;
 }
 </code></pre>
@@ -521,15 +521,20 @@ Dans un second temps vous devrez les utiliser pour compléter et mettre en forme
 <h3><a class="header" href="#21-quelques-unités-acceptées-par-les-propriétés-margin-padding-width-height-et-font-size" id="21-quelques-unités-acceptées-par-les-propriétés-margin-padding-width-height-et-font-size">2.1 Quelques unités acceptées par les propriétés <code>margin</code>, <code>padding</code>, <code>width</code>, <code>height</code> et <code>font-size</code></a></h3>
 <p>Ces propriétés CSS (ce ne sont pas les seules) acceptent des valeurs sous forme d'une &quot;longueur&quot;.<br />
 Cette longueur peut-être spécifiée de manière relative ou absolue.</p>
-<table><thead><tr><th>Unité absolue</th><th>Description</th></tr></thead><tbody>
-<tr><td>px</td><td>Pixel</td></tr>
+<table><thead><tr><th>Unités absolues</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>px</code></td><td>Pixel</td></tr>
+<tr><td><code>cm</code>, <code>in</code>, <code>mm</code></td><td>Centimètre, Pouce, Millimètre</td></tr>
+<tr><td><code>pt</code>, <code>pc</code></td><td>Point, Pica</td></tr>
 </tbody></table>
 <br>
 <table><thead><tr><th>Unité relative</th><th>Description</th></tr></thead><tbody>
-<tr><td>%</td><td>Taille relative à l'élément parent</td></tr>
-<tr><td>em</td><td>Relative à la taille de police de l'élément</td></tr>
-<tr><td>rem</td><td>Relative à la taille de police de l'élément racine</td></tr>
+<tr><td><code>%</code></td><td>Taille relative à l'élément parent</td></tr>
+<tr><td><code>em</code></td><td>Relative à la taille de police de l'élément</td></tr>
+<tr><td><code>rem</code></td><td>Relative à la taille de police de l'élément racine</td></tr>
 </tbody></table>
+<blockquote>
+<p><strong>Remarque</strong>: Lors de l'utilisation de la valeur 0 il n'est pas nécessaire de spécifier d'unité.</p>
+</blockquote>
 <h3><a class="header" href="#22-les-formats-de-valeurs-acceptés-par-les-propriétés-margin-et-padding" id="22-les-formats-de-valeurs-acceptés-par-les-propriétés-margin-et-padding">2.2 Les formats de valeurs acceptés par les propriétés <code>margin</code> et <code>padding</code></a></h3>
 <ul>
 <li>
@@ -629,8 +634,75 @@ Cette longueur peut-être spécifiée de manière relative ou absolue.</p>
 <p>Vous pouvez remarquer que les listes disposent d'un style par défaut.</p>
 <h2><a class="header" href="#5-groupage-des-éléments-et-organisation-générale-dune-page" id="5-groupage-des-éléments-et-organisation-générale-dune-page">5. Groupage des éléments et organisation générale d'une page</a></h2>
 <p><img src="img/layout_web_page.png" alt="Exemple d'organisation de page Web" title="Exemple d'organisation de page Web" /></p>
+<h2><a class="header" href="#6-autres-propriétés-css-utiles-pour-ajuster-lorganisation-de-votre-page" id="6-autres-propriétés-css-utiles-pour-ajuster-lorganisation-de-votre-page">6. Autres propriétés CSS utiles pour ajuster l'organisation de votre page</a></h2>
+<ul>
+<li>
+<p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/position"><code>position</code></a> : permet de spécifier le type de positionnement pour un élément (les valeurs possibles sont : <code>static</code> (par défaut), <code>relative</code>, <code>absolute</code>, <code>sticky</code>, <code>fixed</code>)</p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/display"><code>display</code></a> ; permet de spécifier le type de rendu pour un élement (en ligne ou en bloc) et la dispositions utilisées pour ses enfants (valeurs utiles : <code>inline</code> et <code>block</code> pour définir comment l'élément participe au flux des éléments ; <code>flow</code>, <code>table</code>, <code>flex</code> pour définir comment les éléments s'organisent à l'intérieur ; <code>inline-block</code> pour obtenir des blocs en ligne à l'intérieur de l'élément ; <code>none</code> pour ne pas afficher l'élément).</p>
+</li>
+</ul>
 <h2><a class="header" href="#6-mise-en-pratique-1" id="6-mise-en-pratique-1">6. Mise en pratique (1)</a></h2>
+<p>→ <strong>Consignes</strong>:</p>
+<ol>
+<li>
+<p>Récupérer les données du jour : <a href="data/TP3.zip">TP3.zip</a> et extraire le contenu de l'archive sur votre ordinateur</p>
+</li>
+<li>
+<p>Ouvrir la page <code>index.html</code> (dans votre navigateur et dans votre éditeur de code). Cette page contient déjà plusieurs blocs de texte formattés sous la forme de paragraphes.</p>
+</li>
+<li>
+<p>Éditer cette page pour insérer l'image (<code>prog.png</code>) de l'évolution de la fréquentation de notre centre commercial.</p>
+</li>
+<li>
+<p>Éditer cette page pour intégrer le tableau correspondant aux données du fichier <code>data.csv</code> en utilisant l'élément HTML <code>table</code> (cette table devra être agréable à lire, vous veillerez donc à l'espacement dans les cellules ainsi qu'à son style : bordure, couleur de la ligne d'en-tête et couleur des lignes qui contiennent les données, etc.)</p>
+</li>
+<li>
+<p>Effectuer le reste de la mise en page :</p>
+<ul>
+<li>barre / menu de navigation plus agréable à utiliser (utilisation de règles CSS pour changer l'apparence du lien au survol, pour faire disparaître les 'puces' qui correspondent à chaque item de la liste, etc.)</li>
+<li>pied-de-page contenant votre nom et les mentions légales éventuelles (<em>copyright</em>, etc.)</li>
+</ul>
+</li>
+<li>
+<p>Si le contenu de votre page dépasse la taille de votre écran, vous devrez veiller à ce que votre page ait un comportement approprié (présence de barre de défilement sur le coté, <em>quid</em> du positionnement du menu de navigation, etc.)</p>
+</li>
+</ol>
+<p>→ <strong>Faire valider l'apparence de votre page Web</strong></p>
+<p>→ <strong>Vous pouvez également valider votre code HTML et votre code CSS en ligne : <a href="https://validator.w3.org/">https://validator.w3.org/</a></strong></p>
+<blockquote>
+<p><strong>Remarque</strong> : Vous trouverez ci-dessous plusieurs captures d'écran de styles appliqués au même contenu HTML, celui qui vous êtes censé créer.
+Vous pouvez vous en inspirer lors de la réalisation de votre page, mais n'hésitez pas à faire preuve d'imagination !</p>
+</blockquote>
 <h2><a class="header" href="#7-mise-en-pratique-2" id="7-mise-en-pratique-2">7. Mise en pratique (2)</a></h2>
+<p><em>À réaliser après avoir valider la partie précédente</em></p>
+<p>→ <strong>Consignes</strong>:</p>
+<ol>
+<li>
+<p>Vous voulez intégrer un encart contenant une carte permettant de localiser l'emplacement de notre centre commercial. Une des manières les plus simples consiste à utiliser la fonctionnalité appropriée du projet OpenStreetMap. Rendez-vous sur le site www.openstreetmap.org et utilisez la fonctionnalité &quot;Partager&quot; qui permet d'obtenir un code HTML que vous pourrez intégrer à votre page. Ce code HTML contient notamment une balise <code>&lt;iframe&gt;</code>.</p>
+<ul>
+<li>Vous veillerez à ce que l'export inclue le <em>marker</em> indiquant la position de notre centre commercial.</li>
+<li>Vous veillerez à ce que la carte s'insère de manière harmonieuse au reste de la page.</li>
+</ul>
+</li>
+<li>
+<p>Il est maintenant nécessaire d'ajouter un barre de recherche à notre page. Nous n'avons pas encore abordé les éléments HTML permettant de faire saisir des informations à l'utilisateur. Le principal d'entre-eux est l'élément <code>&lt;input&gt;</code>. Prenez connaissance des différents types de champs qu'il permet de créer en lisant la documentation en ligne : https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input puis ajouter un élément <code>&lt;input&gt;</code> à votre page.</p>
+<ul>
+<li>Vous veillerez à ce que cet élément s'insère de manière harmonieuse au reste de la page (localisation dans la barre de navigation, ou dans un panneau latéral par exemple).</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4><a class="header" href="#exemples" id="exemples">Exemples</a></h4>
+<div class="img-center">
+<p><img src="img/tp3_style1.png" alt="Exemple de style (1)" /></p>
+<p><img src="img/tp3_style2.png" alt="Exemple de style (2)" /></p>
+<p><img src="img/tp3_style_table.png" alt="Exemple de style pour le tableau" /></p>
+</div>
+<h1><a class="header" href="#programmation-coté-serveur--introduction-à-flask" id="programmation-coté-serveur--introduction-à-flask">Programmation coté serveur : introduction à Flask</a></h1>
+<h1><a class="header" href="#programmation-coté-serveur--introduction-à-flask-1" id="programmation-coté-serveur--introduction-à-flask-1">Programmation coté serveur : introduction à Flask</a></h1>
+<h1><a class="header" href="#programmation-coté-serveur--introduction-à-flask-2" id="programmation-coté-serveur--introduction-à-flask-2">Programmation coté serveur : introduction à Flask</a></h1>
 <h2><a class="header" href="#glossaire" id="glossaire">Glossaire</a></h2>
 <h2><a class="header" href="#mémo-balises-html" id="mémo-balises-html">Mémo Balises HTML</a></h2>
 <blockquote>

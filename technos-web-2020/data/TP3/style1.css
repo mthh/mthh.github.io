@@ -3,21 +3,26 @@ body {
 }
 
 footer {
-  position: fixed;
+  position: sticky;
   left: 0;
   bottom: 0;
-  width: 100%;
   background-color: darkgray;
   color: white;
   text-align: center;
+  padding: 1px;
 }
 
 header {
   background-color: #333;
-  overflow: hidden;
   position: sticky;
   top: 0;
   width: 100%;
+}
+
+.nav-title-wrapper {
+  width: 80%;
+  margin: auto;
+  display: flex;
 }
 
 img.logo {
@@ -26,23 +31,29 @@ img.logo {
 
 nav {
   text-align: center;
+  position: sticky;
+  width: 70%;
+  margin: auto;
 }
 
 nav ul {
-  display: inline-block;
+  display: flex;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  padding-inline-start: 0px;
+  text-align: center;
+  margin: auto;
 }
 
 nav li {
   list-style-type: none;
-  display: inline;
+  margin: auto;
 }
 
 nav a {
   float: left;
-  display: block;
   color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
+  padding: 18px 30px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -52,25 +63,58 @@ nav a:hover {
   color: black;
 }
 
-nav a:active {
-  background-color: #4CAF50;
-  color: white;
-}
-
 .main-wrapper {
-  width: 80%;
+  width: 50%;
   text-align: center;
   margin: auto;
 }
 
+.main-wrapper p {
+  text-align: justify;
+}
+
+table {
+  margin: auto;
+}
+
+table caption {
+  font-style: italic;
+}
+
+thead > tr {
+  background: lightgreen;
+}
+
 td, th {
-  padding: 2px 4px;
+  padding: 8px 12px;
 }
 
 tbody > tr:nth-child(odd) {
-  background: grey;
+  background: #fdf4f4;
 }
 
 tbody > tr:nth-child(even) {
-  background: blue;
+  background: lightgray;
+}
+
+.comeseeus {
+  background: beige;
+  position: fixed;
+  top: 33%;
+  right: 0;
+  width: 18%;
+  padding: 3px 0px 3px 5px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.comeseeus > p {
+  text-align: center;
+  margin: 2px;
+}
+
+header input {
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
 }
