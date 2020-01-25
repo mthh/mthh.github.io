@@ -5,10 +5,11 @@ footer {
   color: white;
   text-align: center;
   padding: 1px;
+  margin: auto auto auto 15%;
 }
 body { margin: 0; }
 
-header {
+.header {
   background-color: #fafafb;
   position: fixed;
   top: 0;
@@ -28,7 +29,7 @@ nav {
 }
 
 nav ul {
-  display: inline-block;
+  display: block;
   margin-block-start: 0em;
   margin-block-end: 0em;
   padding-inline-start: 0px;
@@ -40,11 +41,12 @@ nav li {
 }
 
 nav a {
-  float: left;
   color: #191a4a;
-  padding: 20px 18px;
-  text-decoration: none;
+  display: block;
   font-size: 17px;
+  padding: 20px 0;
+  text-decoration: none;
+  text-indent: 2em;
   width: 100%;
 }
 
@@ -79,9 +81,9 @@ nav a:active {
   text-align: right;
 }
 
-header input {
+.header input {
   border-radius: 10px;
-  margin: 4px;
+  margin-top: 25px;
   padding: 8px;
   width: 80%;
 }
@@ -108,4 +110,11 @@ tbody > tr:nth-child(even) {
 
 section h1 {
   text-align: center;
+}
+
+iframe {
+  width: 99%;
+  height: 320px;
+  margin: 0;
+  border: 0;
 }
