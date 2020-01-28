@@ -20,6 +20,10 @@
   width: 200px;
 }
 
+.center.smallcontent img {
+  max-width: 50%;
+}
+
 .center {
   text-align: center;
   margin: auto;
