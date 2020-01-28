@@ -7,6 +7,10 @@
   background: #f1f1f1;
 }
 
+.res [class*="col"] {
+  border: solid 1px gray;
+  text-align: center;
+}
 .img-center {
   text-align: center;
   margin: auto;
@@ -14,4 +18,25 @@
 
 .img-center > img {
   width: 200px;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+table.twbs.table td {
+  padding: 16px 20px;
+}
+
+h3 {
+  font-size: 1.3em !important;
+}
+
+h4 {
+  font-size: 1.2em !important;
+}
+
+h4 {
+  font-size: 1.05em !important;
 }

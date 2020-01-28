@@ -32,6 +32,8 @@
         
         <link rel="stylesheet" href="src/custom.css">
         
+        <link rel="stylesheet" href="src/bootstrap-scoped.min.css">
+        
 
         
     </head>
@@ -631,7 +633,7 @@ Cette longueur peut-être spécifiée de manière relative ou absolue.</p>
   &lt;li&gt;Vous êtes arrivé chez le vendeur de fruits et légumes&lt;/li&gt;
 &lt;/ol&gt;
 </code></pre>
-<p>Vous pouvez remarquer que les listes disposent d'un style par défaut.</p>
+<p>Vous pouvez remarquer que les listes disposent d'un style par défaut. Ce style est modifiable avec la propriété CSS <a href="https://developer.mozilla.org/fr/docs/Web/CSS/list-style"><code>list-style</code></a></p>
 <h2><a class="header" href="#5-groupage-des-éléments-et-organisation-générale-dune-page" id="5-groupage-des-éléments-et-organisation-générale-dune-page">5. Groupage des éléments et organisation générale d'une page</a></h2>
 <p><img src="img/layout_web_page.png" alt="Exemple d'organisation de page Web" title="Exemple d'organisation de page Web" /></p>
 <h2><a class="header" href="#6-autres-propriétés-css-utiles-pour-ajuster-lorganisation-de-votre-page" id="6-autres-propriétés-css-utiles-pour-ajuster-lorganisation-de-votre-page">6. Autres propriétés CSS utiles pour ajuster l'organisation de votre page</a></h2>
@@ -640,7 +642,7 @@ Cette longueur peut-être spécifiée de manière relative ou absolue.</p>
 <p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/position"><code>position</code></a> : permet de spécifier le type de positionnement pour un élément (les valeurs possibles sont : <code>static</code> (par défaut), <code>relative</code>, <code>absolute</code>, <code>sticky</code>, <code>fixed</code>)</p>
 </li>
 <li>
-<p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/display"><code>display</code></a> ; permet de spécifier le type de rendu pour un élement (en ligne ou en bloc) et la dispositions utilisées pour ses enfants (valeurs utiles : <code>inline</code> et <code>block</code> pour définir comment l'élément participe au flux des éléments ; <code>flow</code>, <code>table</code>, <code>flex</code> pour définir comment les éléments s'organisent à l'intérieur ; <code>inline-block</code> pour obtenir des blocs en ligne à l'intérieur de l'élément ; <code>none</code> pour ne pas afficher l'élément).</p>
+<p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/display"><code>display</code></a> ; permet de spécifier le type de rendu pour un élement (en ligne ou en bloc) et la disposition utilisé pour ses enfants (valeurs utiles : <code>inline</code> et <code>block</code> pour définir comment l'élément participe au flux des éléments ; <code>flow</code>, <code>table</code>, <code>flex</code> pour définir comment les éléments s'organisent à l'intérieur ; <code>inline-block</code> pour obtenir des blocs en ligne à l'intérieur de l'élément ; <code>none</code> pour ne pas afficher l'élément).</p>
 </li>
 </ul>
 <h2><a class="header" href="#6-mise-en-pratique-1" id="6-mise-en-pratique-1">6. Mise en pratique (1)</a></h2>
@@ -695,10 +697,196 @@ Vous pouvez vous en inspirer lors de la réalisation de votre page, mais n'hési
 </ol>
 <hr />
 <h4><a class="header" href="#exemples" id="exemples">Exemples</a></h4>
-<div class="img-center">
+<div class="center">
 <p><img src="img/tp3_style1.png" alt="Exemple de style (1)" /></p>
 <p><img src="img/tp3_style2.png" alt="Exemple de style (2)" /></p>
 <p><img src="img/tp3_style_table.png" alt="Exemple de style pour le tableau" /></p>
+</div>
+<h2><a class="header" href="#8-retour-sur-quelques-aspects-du-positionnement-des-éléments" id="8-retour-sur-quelques-aspects-du-positionnement-des-éléments">8. Retour sur quelques aspects du positionnement des éléments</a></h2>
+<h3><a class="header" href="#81-le-centrage-dun-élément-dans-la-page-dans-son-conteneur-" id="81-le-centrage-dun-élément-dans-la-page-dans-son-conteneur-">8.1 Le centrage d'un élément (dans la page, dans son conteneur, ...)</a></h3>
+<p>Ici en définissant une largeur (<code>width</code>) et des marges automatiques (<code>margin: auto</code>) sur un élément en bloc ; puis en demandant à centrer le texte autour de l'axe vertical au sein de cet élément (<code>text-align: center</code>).</p>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">.a {
+  width: 50%;
+  padding: 3px;
+  background-color: lightgreen;
+  border: solid 1px gray;
+}
+
+.b {
+  margin: auto;
+}
+
+.c {
+  text-align: center;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;section&gt;
+   &lt;div class=&quot;a&quot;&gt;Bloc utilisant la propriété 'width', non centré&lt;/div&gt;
+&lt;/section&gt;
+&lt;hr&gt;
+&lt;section&gt;
+   &lt;div class=&quot;a b&quot;&gt;Bloc utilisant la propriété 'width', centré ('margin:auto')&lt;/div&gt;
+&lt;/section&gt;
+&lt;hr&gt;
+&lt;section&gt;
+   &lt;div class=&quot;a b c&quot;&gt;Bloc utilisant la propriété 'width', centré ('margin:auto') et texte aligné au centre&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res">
+  <section>
+     <section style="padding: 3px; border: solid 1px gray; width: 50%; background-color: lightgreen;">Bloc utilisant la propriété 'width', non centré</section>
+  </section>
+  <hr>
+  <section>
+     <section style="padding: 3px; border: solid 1px gray; width: 50%; margin: auto; background-color: lightgreen;">Bloc utilisant la propriété 'width', centré ('margin:auto')</section>
+  </section>
+  <hr>
+  <section>
+     <section style="padding: 3px; border: solid 1px gray; width: 50%; margin: auto; background-color: lightgreen;text-align: center;">Bloc utilisant la propriété 'width', centré ('margin:auto') et texte aligné au centre</section>
+  </section>
+</div>
+<h3><a class="header" href="#82-utilisation-de-display-inline-block-pour-avoir-des-blocs-en-ligne-" id="82-utilisation-de-display-inline-block-pour-avoir-des-blocs-en-ligne-">8.2 Utilisation de <code>display: inline-block;</code> pour avoir des blocs en ligne :</a></h3>
+<p>Les blocs qui utilisent cette propriété vont se comporter comme des éléments en bloc (respect des propriétés <code>width</code>, <code>height</code>, etc.) mais ne vont pas créer de retour à la ligne avant / après l'élément, lui permettant de s'afficher à coté de ses éléments frères.</p>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">.a {
+  background-color: cornsilk;
+  border: solid 1px gray;
+  padding: 4px;
+  width: 30%;
+}
+
+.b {
+  display: inline-block;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;div&gt;
+ &lt;div class=&quot;a&quot;&gt;Bloc 1&lt;/div&gt;
+ &lt;div class=&quot;a&quot;&gt;Bloc 2&lt;/div&gt;
+ &lt;div class=&quot;a&quot;&gt;Bloc 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;div&gt;
+ &lt;div class=&quot;a b&quot;&gt;Bloc 1&lt;/div&gt;
+ &lt;div class=&quot;a b&quot;&gt;Bloc 2&lt;/div&gt;
+ &lt;div class=&quot;a b&quot;&gt;Bloc 3&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div>
+  <section>
+   <section style="background-color: cornsilk;border: solid 1px gray;padding: 4px; width: 30%;">Bloc 1</section>
+   <section style="background-color: cornsilk;border: solid 1px gray;padding: 4px; width: 30%;">Bloc 2</section>
+   <section style="background-color: cornsilk;border: solid 1px gray;padding: 4px; width: 30%;">Bloc 3</section>
+  </section>
+  <hr>
+  <section>
+   <section style="background-color: cornsilk;border: solid 1px gray;padding: 4px; display: inline-block; width: 30%;">Bloc 1</section>
+   <section style="background-color: cornsilk;border: solid 1px gray;padding: 4px; display: inline-block; width: 30%;">Bloc 2</section>
+   <section style="background-color: cornsilk;border: solid 1px gray;padding: 4px; display: inline-block; width: 30%;">Bloc 3</section>
+  </section>
+</div>
+<h3><a class="header" href="#83-lutilisation-de-la-propriété-position-pour-changer-le-type-de-positionnement-dun-élément" id="83-lutilisation-de-la-propriété-position-pour-changer-le-type-de-positionnement-dun-élément">8.3 L'utilisation de la propriété <code>position</code> pour changer le type de positionnement d'un élément</a></h3>
+<p><em>(voir la démonstration sur <a href="https://developer.mozilla.org/fr/docs/Web/CSS/position">https://developer.mozilla.org/fr/docs/Web/CSS/position</a>)</em></p>
+<ul>
+<li>
+<p>positionnement relatif avec <code>position: relative</code> :</p>
+<ul>
+<li>l'élément est décalé à l'aide des propriétés <code>top</code>, <code>right</code>, <code>left</code>, <code>bottom</code> par rapport à sa position normale dans le flux du document</li>
+<li>celà n'affecte pas les boites voisines mais l'élément peut prendre place au dessus de ses éléments frères</li>
+</ul>
+</li>
+<li>
+<p>positionnement absolu avec <code>position: absolute</code> :</p>
+<ul>
+<li>l'élément est positionné à l'aide des propriétés <code>top</code>, <code>right</code>, <code>left</code>, <code>bottom</code></li>
+<li>l'élément est sorti du flux et ne participe plus au positionnement de ses éléments frères</li>
+</ul>
+</li>
+<li>
+<p>positionnement fixe avec <code>position: fixed</code> :</p>
+<ul>
+<li>l'élément reste fixe dans la page : il n'est pas affecté par le défillement de la page</li>
+<li>il s'agit d'un positionnement absolu : l'élément est sorti du flux et ne participe plus au positionnement de ses éléments frères</li>
+</ul>
+</li>
+<li>
+<p>positionnement en adhérence avec <code>position: sticky</code> :</p>
+<ul>
+<li>il s'agit d'un positionnement relatif jusqu'à un seuil donné puis l'élément se comporte ensuite comme un élément fixe</li>
+</ul>
+</li>
+</ul>
+<p><em>La différence de participation au flux des éléments entre <code>sticky</code> et <code>fixed</code> est la raison pour laquelle il pouvait être plus judicieux d'utiliser <code>sticky</code> pour positionner de manière fixe l'élément <code>header</code> ou l'élément <code>footer</code> tout en permettant sa contribution au flux des éléments lors des exercices du TP3.</em></p>
+<h3><a class="header" href="#84-la-possibilité-de-faire-flotter-des-éléments" id="84-la-possibilité-de-faire-flotter-des-éléments">8.4 La possibilité de faire &quot;flotter&quot; des éléments</a></h3>
+<p>La propriété <code>float</code> permet de faire sortir l'élément du flux et de le pousser dans la direction indiquée par la valeur de la propriété (<code>float:right</code> ou <code>float:left</code>).<br />
+Ses éléments frères vont venir prendre place autour de lui.<br />
+Lorsque l'on souhaite interdire le voisinage avec un élément flottant et reprendre le flux normal du document, on utilise la propriété <code>clear</code> (avec la valeur <code>right</code>, <code>left</code> ou <code>both</code> selon le besoin).</p>
+<h4><a class="header" href="#-pour-les-répartir-sur-la-page-1" id="-pour-les-répartir-sur-la-page-1">... pour les répartir sur la page (1)</a></h4>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">.s {
+  text-align: center;
+  background: lightgreen;
+  padding: 4px;
+}
+
+.left {
+  float: left;
+  width: 48%;
+}
+
+.right {
+  float: right;
+  width: 48%;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;left s&quot;&gt;Bloc de gauche&lt;/div&gt;
+&lt;div class=&quot;right s&quot;&gt;Bloc de droite&lt;/div&gt;
+&lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt; &lt;!-- Cela va permettre au titre
+            en dessous des blocs verts de ne pas venir se coller à eux --&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div>
+  <section style="float: left;width: 48%; text-align: center; background: lightgreen; padding: 4px;">Bloc de gauche</section>
+  <section style="float: right;width: 48%; text-align: center; background: lightgreen; padding: 4px;">Bloc de droite</section>
+  <div style="clear: both;"></div> <!-- Cela va permettre à mon titre en dessous de ne pas venir se coller aux deux blocs verts -->
+</div>
+<h4><a class="header" href="#-pour-les-répartir-sur-la-page-2" id="-pour-les-répartir-sur-la-page-2">... pour les répartir sur la page (2)</a></h4>
+<pre><code class="language-css">.s {
+  text-align: center;
+  background: lightgreen;
+  padding: 4px;
+  margin: 4px;
+  border: solid 1px black;
+}
+
+.floatbox {
+  float: left;
+  width: 22%;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;floatbox s&quot;&gt;1&lt;/div&gt;
+&lt;div class=&quot;floatbox s&quot;&gt;2&lt;/div&gt;
+&lt;div class=&quot;floatbox s&quot;&gt;3&lt;/div&gt;
+&lt;div class=&quot;floatbox s&quot;&gt;4&lt;/div&gt;
+&lt;div class=&quot;floatbox s&quot;&gt;5&lt;/div&gt;
+&lt;div class=&quot;floatbox s&quot;&gt;6&lt;/div&gt;
+&lt;div class=&quot;floatbox s&quot;&gt;7&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div>
+<div style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">1</div>
+<div style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">2</div>
+<div style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">3</div>
+<div style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">4</div>
+<div style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">5</div>
+<div style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">6</div>
+<div style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">7</div>
 </div>
 <h1><a class="header" href="#interactions-serveurclient-formulaires-et-bd" id="interactions-serveurclient-formulaires-et-bd">Interactions serveur/client, formulaires et BD</a></h1>
 <h1><a class="header" href="#interactions-serveurclient-formulaires-et-bd-1" id="interactions-serveurclient-formulaires-et-bd-1">Interactions serveur/client, formulaires et BD</a></h1>
@@ -810,6 +998,9 @@ Vous pouvez vous en inspirer lors de la réalisation de votre page, mais n'hési
 <li>
 <p><a href="./3-structure-style.pdf">3 - Structurer et styler un document HTML</a></p>
 </li>
+<li>
+<p>4 - Le framework <code>Bootstrap</code> <!-- [4 - Le framework `Bootstrap`](./4-css-bootstrap.pdf) --></p>
+</li>
 </ul>
 <h2><a class="header" href="#données--corrections" id="données--corrections">Données &amp; corrections</a></h2>
 <ul>
@@ -818,6 +1009,9 @@ Vous pouvez vous en inspirer lors de la réalisation de votre page, mais n'hési
 </li>
 <li>
 <p><a href="data/TP3.zip">Données TP3</a> - <a href="data/TP3_correction.zip">Exemple / correction (.zip)</a> - <a href="data/TP3/index_example.html">Exemple / correction (interactif)</a></p>
+</li>
+<li>
+<p>Données TP4 <!-- [Données TP4](data/TP4.zip) --></p>
 </li>
 </ul>
 
