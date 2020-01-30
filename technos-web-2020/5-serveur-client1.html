@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html" class="active"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">7.</strong> Javascript</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html" class="active"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="6-serveur-client2.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">7.</strong> Javascript</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -199,8 +199,8 @@
 <li><strong><code>GET</code></strong> : méthode pour demander une ressource (une requête <code>GET</code> est sans effet sur la ressource, on peut la répéter et obtenir le même résultat), c'est la méthode utilisée lors de la récupération d'une page Web par exemple.</li>
 <li><strong><code>POST</code></strong> : méthode pour transmettre des données en vue de leur traitement (par exemple depuis un formulaire HTML)</li>
 </ul>
-<p>→ <strong>Concrêtement, lorsqu'une page HTML est consultée, la première étape consiste à la récupérer : une requête HTTP de type <code>GET</code> sur l'url de la page est effectuée</strong>.</p>
-<p>→ <strong>De même, lorsque vous validez un formulaire, une requête HTTP de type <code>POST</code> est effectuée sur une url du serveur permettant de valider et de traiter le formulaire</strong>.</p>
+<p><strong>→ Concrêtement, lorsqu'une page HTML est consultée, la première étape consiste à la récupérer : une requête HTTP de type <code>GET</code> sur l'url de la page est effectuée</strong>.</p>
+<p><strong>→ De même, lorsque vous validez un formulaire, une requête HTTP de type <code>POST</code> est effectuée sur une url du serveur permettant de valider et de traiter le formulaire</strong>.</p>
 <p>Ces autres méthodes sont parfois utilisées (notamment lors de l'utilisation d'une API de type REST pour les 3 dernières), gardez leur nom en tête pour savoir qu'il s'agit de méthodes HTTP si vous les rencontrez :</p>
 <ul>
 <li><code>HEAD</code> : méthode pour demander des informations sur la ressource, sans récupérer la ressource.</li>
@@ -244,11 +244,11 @@
 
 app = Flask(__name__)
 
-@app.route(&quot;/&quot;)
+@app.route(&quot;/route1&quot;)
 def root():
     return &quot;Hello from Flask!&quot;
 </code></pre>
-<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/">http://mthh.pythonanywhere.com/</a></p>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/route1">http://mthh.pythonanywhere.com/route1</a></p>
 <p><u>Explications :</u></p>
 <ul>
 <li><code>app</code> désigne une application Flask;</li>
@@ -433,7 +433,7 @@ il est possible d'utiliser la déclaration <strong><code>{% for item in navigati
 {% include 'footer.html' %}
 </code></pre>
 <p>Les <em>templates</em> appelés de cette manière ont accès aux mêmes variables que le <em>template</em> qui les a inclus.</p>
-<h2><a class="header" href="#3---mise-en-pratique---exercice-1---démarrage-dun-projet-flask" id="3---mise-en-pratique---exercice-1---démarrage-dun-projet-flask">3 - Mise en pratique - Exercice 1 - Démarrage d'un projet <code>Flask</code></a></h2>
+<h2><a class="header" href="#3---mise-en-pratique--exercice-1--démarrage-dun-projet-flask" id="3---mise-en-pratique--exercice-1--démarrage-dun-projet-flask">3 - Mise en pratique 🚀 Exercice 1 🚀 Démarrage d'un projet <code>Flask</code></a></h2>
 <h3><a class="header" href="#31-option-1--installation-globale-et-création-dun-dossier-pour-le-projet" id="31-option-1--installation-globale-et-création-dun-dossier-pour-le-projet">3.1-option 1 : Installation &quot;globale&quot; et création d'un dossier pour le projet</a></h3>
 <p>Comme pour les autres packages Python, l'installation peut se faire en ligne de commande en utilisant l'utilitaire <code>pip</code>:</p>
 <pre><code class="language-bash">pip install Flask Jinja2
@@ -489,7 +489,7 @@ export FLASK_APP=app.py # Sous Linux
 </code></pre>
 <p><strong>Il est ensuite possible d'accéder à l'application avec un navigateur web : <a href="http://127.0.0.1:5000/">http://127.0.0.1:5000/</a>.</strong></p>
 <p>Comme vu lors du premier cours, <code>127.0.0.1</code> désigne votre <strong>adresse IP</strong> et <code>5000</code> désigne le <strong>port TCP</strong> sur lequel votre application écoute et émet.</p>
-<h2><a class="header" href="#4-mise-en-pratique---exercice-2---modification-de-lapplication" id="4-mise-en-pratique---exercice-2---modification-de-lapplication">4. Mise en pratique - Exercice 2 - Modification de l'application</a></h2>
+<h2><a class="header" href="#4-mise-en-pratique--exercice-2--modification-de-lapplication" id="4-mise-en-pratique--exercice-2--modification-de-lapplication">4. Mise en pratique 🚀 Exercice 2 🚀 Modification de l'application</a></h2>
 <ol>
 <li>Ajoutez le morceau de code suivant dans le fichier <code>app.py</code>, il s'agit des premiers avis fictifs à utiliser avant que nous ne constituions la base de données :</li>
 </ol>
@@ -507,7 +507,7 @@ export FLASK_APP=app.py # Sous Linux
 <p>Vous devez modifier la route existante afin que la route <code>/</code> et la route <code>/index</code> appellent toutes deux la fonction <code>root</code>. Cette fonction devra utiliser le <em>template</em> <code>index.html</code>. Vous devrez également ouvrir ce fichier de <em>template</em> pour voir les variables qui sont attendues et que vous devrez donner en argument à la fonction <code>render_template</code>.</p>
 </li>
 <li>
-<p>Vous devez créer une nouvelle route du nom de <code>/review</code> doit accepter un argument de type <code>int</code>, l'identifiant de l'avis que l'utilisateur souhaite obtenir. Vous devez également écrire la fonction correspondante : pour un identifiant donné, elle doit renvoyer la note et l'avis sous forme d'un bloc de texte formatté de manière simple <em>(par exemple: &quot;Note X - Commentaire : xxxxx&quot;)</em>. Si aucun avis ne correspond à l'identifiant, elle retourne une chaine de caractères vide.</p>
+<p>Vous devez créer une nouvelle route du nom de <code>/review</code> doit accepter un argument de type <code>int</code>, l'identifiant de l'avis que l'utilisateur souhaite obtenir. Vous devez également écrire la fonction correspondante : pour un identifiant donné, elle doit renvoyer la note et l'avis sous forme d'un bloc de texte formatté de manière simple <em>(par exemple: &quot;Note X - Commentaire : xxxxx&quot;)</em>. Si aucun avis ne correspond à l'identifiant, elle retourne une chaîne de caractères vide.</p>
 </li>
 <li>
 <p>Dans votre navigateur, vérifiez les points suivants avant de passer à l'exercice qui suit:</p>
@@ -521,7 +521,7 @@ export FLASK_APP=app.py # Sous Linux
 <p><img src="img/tp5_ex2_index.png" alt="Capture d'écran de la route &quot;/index&quot;" />
 <img src="img/tp5_ex2_review.png" alt="Capture d'écran de la route &quot;/review/2&quot;" /></p>
 </div>
-<h2><a class="header" href="#5-mise-en-pratique---exercice-3---utilisation-des-templates" id="5-mise-en-pratique---exercice-3---utilisation-des-templates">5. Mise en pratique - Exercice 3 - Utilisation des <em>templates</em></a></h2>
+<h2><a class="header" href="#5-mise-en-pratique--exercice-3--utilisation-des-templates" id="5-mise-en-pratique--exercice-3--utilisation-des-templates">5. Mise en pratique 🚀 Exercice 3 🚀 Utilisation des <em>templates</em></a></h2>
 <ol>
 <li>En plus d'afficher le nombre d'avis présents dans la base, nous souhaitons afficher la totalité de la liste des avis sur la page d'accueil. Vous devez modifier le <em>template</em> <code>index.html</code> pour créer dynamiquement une liste HTML où chaque item correspondra à un avis de la <code>list</code> Python appellée <code>entries</code>. Un exemple similaire a été donné <a href="#exemple-avec-une-boucle">ici</a>.</li>
 </ol>
@@ -540,7 +540,7 @@ export FLASK_APP=app.py # Sous Linux
                         
 
                         
-                            <a rel="next" href="#.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="6-serveur-client2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -558,7 +558,7 @@ export FLASK_APP=app.py # Sous Linux
                 
 
                 
-                    <a href="#.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="6-serveur-client2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
