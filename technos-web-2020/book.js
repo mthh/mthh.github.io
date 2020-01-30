@@ -280,11 +280,17 @@ function playpen_text(playpen) {
         tomorrowNight: document.querySelector("[href$='tomorrow-night.css']"),
         highlight: document.querySelector("[href$='highlight.css']"),
     };
+    function getCurrentTheme() {
+      var previousTheme;
+      try { previousTheme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+      if (previousTheme === null || previousTheme === undefined) { previousTheme = default_theme; }
+      return previousTheme;
+    }
 
     function showThemes() {
         themePopup.style.display = 'block';
         themeToggleButton.setAttribute('aria-expanded', true);
-        themePopup.querySelector("button#" + document.body.className).focus();
+        themePopup.querySelector("button#" + getCurrentTheme()).focus();
     }
 
     function hideThemes() {
@@ -324,10 +330,7 @@ function playpen_text(playpen) {
             });
         }
 
-        var previousTheme;
-        try { previousTheme = localStorage.getItem('mdbook-theme'); } catch (e) { }
-        if (previousTheme === null || previousTheme === undefined) { previousTheme = default_theme; }
-
+        var previousTheme = getCurrentTheme();
         if (store) {
             try { localStorage.setItem('mdbook-theme', theme); } catch (e) { }
         }
@@ -337,9 +340,10 @@ function playpen_text(playpen) {
     }
 
     // Set theme
-    var theme;
-    try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-    if (theme === null || theme === undefined) { theme = default_theme; }
+    var theme = getCurrentTheme();
+    // var theme;
+    // try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+    // if (theme === null || theme === undefined) { theme = default_theme; }
 
     set_theme(theme, false);
 

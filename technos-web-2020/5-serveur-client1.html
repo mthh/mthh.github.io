@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="fr" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <title>Programmation Web coté serveur en Python - Cours Technologies Web - LP ESSIG - 2020</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="src/custom.css">
+        
+        <link rel="stylesheet" href="src/bootstrap-scoped.min.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try {
+                  sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch(e) {
+                  sidebar = 'visible';
+                }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html" class="active"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">7.</strong> Javascript</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Cours Technologies Web - LP ESSIG - 2020</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#programmation-web-coté-serveur-en-python" id="programmation-web-coté-serveur-en-python">Programmation Web coté serveur en Python</a></h1>
+<h2><a class="header" href="#1-préambule" id="1-préambule">1. Préambule</a></h2>
+<h3><a class="header" href="#11-langages-coté-client-et-langages-coté-serveur-" id="11-langages-coté-client-et-langages-coté-serveur-">1.1 Langages coté client et langages coté serveur ...</a></h3>
+<p>HTML <em>(HyperText Markup Language)</em> et CSS <em>(Cascading Style Sheet)</em>, sont deux langages de simple affichage statique de contenus (statique car rien ne change, le contenu est toujours le même).</p>
+<p>Les langages de script permettent de produire des pages web non statiques, c’est-à-dire dont le contenu peut varier en fonction de différentes conditions (et notamment des actions de l'utilisateur).</p>
+<p>Il existe des langages côté client (le principal actuellement est Javascript) et des langages côté serveur.</p>
+<p><strong>PHP</strong> est un célèbre exemple de langage de programmation qui s’exécute côté serveur. Ce langage permet de produire du code, visualisable par le client, qui peut différer en fonction de circonstances définies, ce qui introduit donc un certain dynamisme. Ce dynamisme peut être accru grâce à une connexion avec une base de données (PostGreSQL, MySQL, SQLite, etc.).</p>
+<div class="center" style="border: solid 3px black; border-radius: 10px;">
+<p><img src="1-Intro-Internet-web/img/traitement_page_serveur.png" alt="" /></p>
+</div>
+<p>La figure ci-dessus (également présentée dans les slides du 1er cours) présente l’architecture couplant un langage de programmation et une base de données afin de générer, sur le serveur, du contenu dynamique lors d'une requête en provenance d'un client (navigateur Web) : c'est ce que nous allons implémenter dans les 2 prochains TP.<br />
+<strong>Nous n'utiliserons pas le langage PHP mais le langage Python avec le <em>micro-framework</em> <code>Flask</code>.</strong></p>
+<p>Il existe de nombreux <em>frameworks</em> de programmation de <strong>serveur</strong> Web dans un multitude de langages, par exemple :</p>
+<ul>
+<li>en PHP : <code>laravel</code>, <code>Symphony</code>,</li>
+<li>en Python : <code>Django</code>, <code>Flask</code>, <code>cherry.py</code></li>
+<li>en JavaScript avec node.js : <code>Express.js</code>,</li>
+<li>en Java : <code>Spring</code>, ...</li>
+<li>en Ruby : <code>Ruby on Rails</code>, ...</li>
+</ul>
+<p>Les logiciels <a href="https://fr.wikipedia.org/wiki/Apache_HTTP_Server"><code>Apache HTTP server</code></a> et <a href="https://fr.wikipedia.org/wiki/NGINX"><code>NGINX</code></a> sont également des serveurs HTTP.</p>
+<p>Au même titre, il existe différents <strong>clients</strong>, que vous utilisez ou connaissez déjà pour certains puisqu'il s'agit notamment des navigateurs Web :</p>
+<ul>
+<li><code>Chrome</code>, <code>Firefox</code>, <code>Microsoft Edge</code>, etc.</li>
+<li>En ligne de commande : <a href="https://fr.wikipedia.org/wiki/CURL"><code>cURL</code></a>, <a href="https://fr.wikipedia.org/wiki/GNU_Wget"><code>Wget</code></a></li>
+<li>Des bibliothèques proposent d'effectuer des requêtes HTTP dans la plupart des langages de programmation (<a href="https://requests.readthedocs.io/en/master/"><code>requests</code></a> et <a href="https://www.python-httpx.org/"><code>httpx</code></a> en Python par exemple)</li>
+</ul>
+<h3><a class="header" href="#12-le-protocole-http" id="12-le-protocole-http">1.2 Le protocole HTTP</a></h3>
+<p>Dans le 1er cours, nous avons évoqué le protocole HTTP (pour <em>Hypertext Transfer Protocol</em>, littéralement &quot;protocole de transfert hypertexte&quot;). Il s'agit d'un <strong>protocole de communication client-serveur</strong> (se situant au niveau &quot;application&quot; du modèle en couches présenté à cette occasion).</p>
+<p>Le protocole HTTP définie plusieurs <strong>méthodes</strong>. Une méthode est une commande spécifiant au serveur un type de requête, lui demandant d'effectuer une action particulière sur la ressource désignée par l'URL qui accompagne cette méthode.</p>
+<p>Les méthodes qui seront utilisées dans ce TP sont les suivantes (il s'agit également des plus utilisées):</p>
+<ul>
+<li><strong><code>GET</code></strong> : méthode pour demander une ressource (une requête <code>GET</code> est sans effet sur la ressource, on peut la répéter et obtenir le même résultat), c'est la méthode utilisée lors de la récupération d'une page Web par exemple.</li>
+<li><strong><code>POST</code></strong> : méthode pour transmettre des données en vue de leur traitement (par exemple depuis un formulaire HTML)</li>
+</ul>
+<p>→ <strong>Concrêtement, lorsqu'une page HTML est consultée, la première étape consiste à la récupérer : une requête HTTP de type <code>GET</code> sur l'url de la page est effectuée</strong>.</p>
+<p>→ <strong>De même, lorsque vous validez un formulaire, une requête HTTP de type <code>POST</code> est effectuée sur une url du serveur permettant de valider et de traiter le formulaire</strong>.</p>
+<p>Ces autres méthodes sont parfois utilisées (notamment lors de l'utilisation d'une API de type REST pour les 3 dernières), gardez leur nom en tête pour savoir qu'il s'agit de méthodes HTTP si vous les rencontrez :</p>
+<ul>
+<li><code>HEAD</code> : méthode pour demander des informations sur la ressource, sans récupérer la ressource.</li>
+<li><code>PUT</code> : méthode pour remplacer ou ajouter une ressource.</li>
+<li><code>DELETE</code> : méthode pour supprimer une ressource.</li>
+<li><code>PATCH</code> : méthode pour faire une modification partielle (contrairement à <code>PUT</code> qui la remplacerait) d'une ressource.</li>
+</ul>
+<h3><a class="header" href="#13-le-fil-rouge-de-ce-tp-et-des-suivants-" id="13-le-fil-rouge-de-ce-tp-et-des-suivants-">1.3 Le fil rouge de ce TP et des suivants ...</a></h3>
+<p>Nous souhaitons construire <strong>une plate-forme collaborative permettant de noter et de donner un avis sur les bâtiments du campus</strong>. Cette tâche complexe peut-être décomposée en plusieurs sous-tâches:</p>
+<ul>
+<li>créer une base de données permettant de stocker cette information</li>
+<li>donner à l'utilisateur la possibilité de consulter l'information (localisation des bâtiments notés et détails des notes/avis)</li>
+<li>donner à l'utilisateur la possibilité de saisir une nouvelle information (ajout d'une note/avis à une localisation en ayant déjà où non)</li>
+</ul>
+<p>Aujourd'hui (<strong>TP5</strong>), nous verrons comment organiser le code coté serveur pour que différentes actions puissent être effectuées en fonction du type de requête ou du chemin de la requête <em>(i.e. comment passer d'un contenu statique à un contenu dynamique)</em> et nous verrons comment utiliser des <em>templates</em> HTML.</p>
+<p>Le <strong>TP6</strong> servira à créer un formulaire dans la page HTML et à le traiter coté serveur pour ajouter son contenu dans une base de données <a href="https://www.sqlite.org/">SQLite</a>. Les informations présentes dans la base de données seront mobilisées pour être affichées coté client ; elles pourront également être mises à jour.</p>
+<p>Le <strong>TP7</strong> servira à ajouter une carte interactive dans la page HTML. C'est cette carte qui sera utilisée comme interface pour l'ajout d'avis (lors d'un  de l'utilisateur par exemple) ainsi que pour l'affichage de la localisation des avis présents dans la base de données (sous forme de <em>markers</em>). Cette carte fera appel à du code Javascript, exécuté directement dans le navigateur web du client. L'application construite pourra être déployée individuellement sur la plate-forme <a href="https://www.pythonanywhere.com/">PythonAnywhere</a>.</p>
+<p>Le <strong>TP8</strong>, sera consacré au langage Javascript (aspects théoriques et pratiques).</p>
+<h2><a class="header" href="#2-la-bibliothèque-flask" id="2-la-bibliothèque-flask">2. La bibliothèque <code>Flask</code></a></h2>
+<p>Il s'agit d'un <em>micro-framework</em> conçu pour développer une application Web coté serveur. À ce titre il va fournir des outils génériques pour créer ce type d'application tout en favorisant la mise en oeuvre de bonnes pratiques et en limitant l'écriture de code inutile. Le qualificatif <em>micro</em> décrit ici plusieurs réalités :</p>
+<ul>
+<li>vise à garder le code de base simple mais extensible,</li>
+<li>n'est pas opiniâtre dans le choix d'une base de données,</li>
+<li>au final, <code>Flask</code> s'occupe de l'essentiel (gérer les routes et les requêtes HTTP et permettre l'utilisation de <em>templates</em>) mais les autres tâches &quot;optionnelles&quot; (connexion à une DB, authentification, formulaires, etc.) sont laissées à des extensions.</li>
+</ul>
+<p><strong><code>Flask</code></strong> repose notamment sur deux bibliothèques dont il est utile d'avoir connaissance : <code>Werkzeug</code> (une boite à outils WSGI) et <code>Jinja2</code> (un moteur de <em>template</em>).</p>
+<div class="center smallcontent">
+<p><img src="https://flask.palletsprojects.com/en/1.1.x/_images/flask-logo.png" alt="" /></p>
+</div>
+<p><strong>Liens utiles:</strong></p>
+<ul>
+<li>Documentation officielle de <code>Flask</code>: <a href="https://flask.palletsprojects.com/en/1.1.x/">https://flask.palletsprojects.com/en/1.1.x/</a></li>
+<li>Documentation officielle de <code>Jinja2</code>: <a href="https://jinja.palletsprojects.com/en/2.11.x/">https://jinja.palletsprojects.com/en/2.11.x/</a></li>
+<li>Cours <em>&quot;Créez vos applications web avec Flask&quot;</em> sur <a href="https://openclassrooms.com/fr/courses/1654786-creez-vos-applications-web-avec-flask?status=published">Openclassrooms</a></li>
+<li>Liste de <em>plugins</em> et de ressources pour <code>Flask</code>: <a href="https://github.com/humiaozuzu/awesome-flask">https://github.com/humiaozuzu/awesome-flask</a></li>
+</ul>
+<h3><a class="header" href="#21-premier-pas-avec-flask---application-et-routes" id="21-premier-pas-avec-flask---application-et-routes">2.1 Premier pas avec Flask - Application et routes</a></h3>
+<h4><a class="header" href="#application" id="application">Application</a></h4>
+<p><u>Code :</u></p>
+<pre><code class="language-python">from flask import Flask
+
+app = Flask(__name__)
+
+@app.route(&quot;/&quot;)
+def root():
+    return &quot;Hello from Flask!&quot;
+</code></pre>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/">http://mthh.pythonanywhere.com/</a></p>
+<p><u>Explications :</u></p>
+<ul>
+<li><code>app</code> désigne une application Flask;</li>
+<li>la fonction <code>root</code> est appelée une <strong>vue</strong>. Elle retourne une chaîne de caractères, qui sera le contenu de la réponse. Par défaut, le statut de la réponse est 200, et le type de contenu est HTML, encodé en UTF-8;</li>
+<li>la ligne qui précède la fonction <code>root</code> est un <strong><a href="https://www.python.org/dev/peps/pep-0318/">décorateur</a></strong>, il sert ici à spécifier l’URL pour laquelle cette vue doit être utilisée (sa <em><strong>route</strong></em>). Ce décorateur est une méthode de l'objet <code>app</code>, l'application Flask, créée au-dessus, dans laquelle s'inscrit cette route.</li>
+</ul>
+<h4><a class="header" href="#routes" id="routes">Routes</a></h4>
+<p>En développement Web, on appelle <strong>route</strong> une URL ou un ensemble d’URLs conduisant à l’exécution d’une fonction donnée.</p>
+<p>Dans Flask, les routes sont déclarées via le décorateur <code>@app.route</code>, comme dans l’exemple ci-dessus.
+Une route peut être paramétrée, auquel cas le paramêtre sera passé à la fonction vue :</p>
+<pre><code class="language-python">@app.route(&quot;/hello/&lt;name&gt;&quot;)
+def hello(name):
+    return &quot;Hello {}&quot;.format(name)
+</code></pre>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/hello/John">http://mthh.pythonanywhere.com/hello/John</a></p>
+<p>Les exemples ci-dessus vous permettent de personnaliser la réponse en fonction de la demande de l'utilisateur ou de faire effectuer des calculs coté serveur en bénéficiant de la puissance et de l'étendue des fonctionnalités offertes par python et son écosystème.</p>
+<ul>
+<li>Il est également possible de spécifier plusieurs paramètres lors de la définition d'une route en utilisant la forme <code>/hello/&lt;a&gt;/&lt;b&gt;</code> :</li>
+</ul>
+<pre><code class="language-python">@app.route(&quot;/add/&lt;a&gt;/&lt;b&gt;&quot;)
+def add(a, b):
+    return &quot;Result: {}&quot;.format(int(a) + int(b))
+</code></pre>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/add/3/12">http://mthh.pythonanywhere.com/add/3/12</a></p>
+<ul>
+<li>Il est possible de spécifier le type attendu pour les paramètres de la route ; s'ils ne sont pas satisfaits, une réponse de type <code>404 - NOT FOUND</code> sera renvoyé par défaut :</li>
+</ul>
+<pre><code class="language-python">@app.route(&quot;/add/&lt;int:a&gt;/&lt;int:b&gt;&quot;)
+def add(a, b):
+    return &quot;Result: {}&quot;.format(a + b)
+</code></pre>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/add/12/abc">http://mthh.pythonanywhere.com/add/12/abc</a></p>
+<p>Un réponse <code>404 - NOT FOUND</code> sera également renvoyée si vous essayer d'accéder à une route qui n'est pas définie (ici <code>abdef</code>) :</p>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/abdef">http://mthh.pythonanywhere.com/abdef</a></p>
+<ul>
+<li>Par commoditée il est également possible de spécifier plusieurs routes conduisant à l'exécution d'une fonction :</li>
+</ul>
+<pre><code class="language-python">@app.route(&quot;/greetings&quot;)
+@app.route(&quot;/greetings/&lt;name&gt;&quot;)
+def greetings(name=None):
+    return &quot;Hello {} !&quot;.format(name or 'world')
+</code></pre>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/greetings">http://mthh.pythonanywhere.com/greetings</a>
+<br>
+<span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/greetings/Paul">http://mthh.pythonanywhere.com/greetings/Paul</a></p>
+<h3><a class="header" href="#22-templates" id="22-templates">2.2 <em>Templates</em></a></h3>
+<p><strong><code>Flask</code></strong> dispose d'un mécanisme qui permet d'utiliser un <strong>modèle</strong> <em>(template)</em> de document dont certaines parties seront remplacées dynamiquement à l'exécution, avant d'être envoyé au client.</p>
+<p>Les exemples présentés jusqu'ici ne renvoient que des chaînes de caractères. Comme indiqué plus haut, il s'agit en réalité de contenu HTML ; vous pouvez ainsi écrire des routes renvoyant du contenu HTML correctement formatté et généré de manière dynamique:</p>
+<pre><code class="language-python">from datetime import date
+
+@app.route(&quot;/pretty-add/&lt;int:a&gt;/&lt;int:b&gt;&quot;)
+def pretty_add(a, b):
+    current_date = date.today().isoformat()
+    result = a + b
+    return &quot;&quot;&quot;
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot; /&gt;
+        &lt;title&gt;Addition result page&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body style=&quot;text-align:center;&quot;&gt;
+        &lt;h1&gt;Result page&lt;/h1&gt;
+        &lt;p&gt;{} + {} = &lt;strong&gt;{}&lt;/strong&gt;&lt;/p&gt;
+        &lt;hr/&gt;
+        &lt;p&gt;&lt;em&gt;Computed on {}&lt;/em&gt;&lt;/p&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;&quot;&quot;&quot;.format(a, b, result, current_date)
+</code></pre>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/pretty-add/12/20">http://mthh.pythonanywhere.com/pretty-add/12/20</a></p>
+<p>Si cette méthode est utilisable, elle va toutefois vite rendre votre code difficilement compréhensible et elle ne facilite pas la réutilisation de morceau de code qui pourraient l'être.</p>
+<p>C'est ici que l'intérêt du <strong>moteur de <em>templates</em></strong> rentre en jeu. Ce dernier va permettre de stocker dans des fichiers séparés le <strong>modèle</strong> de nos pages HTML. Lors de l'exécution (avec la fonction <code>render_template</code> présentée ensuite), le modèle va être complété avec les paramètres fournis pour produire un document HTML utilisable par le client.</p>
+<h4><a class="header" href="#syntaxe-utilisée-par-jinja2" id="syntaxe-utilisée-par-jinja2">Syntaxe utilisée par <code>Jinja2</code></a></h4>
+<p>Reprenons l'exemple de notre route <code>pretty-add</code> définit ci-dessus ; il est possible de définir (dans un fichier <code>template/pretty-add.html</code> par exemple) le <em>template</em> suivant:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;Addition result page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body style=&quot;text-align:center;&quot;&gt;
+    &lt;h1&gt;Result page&lt;/h1&gt;
+    &lt;p&gt;{{ a }} + {{ b }} = &lt;strong&gt;{{ result }}&lt;/strong&gt;&lt;/p&gt;
+    &lt;hr/&gt;
+    &lt;p&gt;&lt;em&gt;Computed on {{ current_date }}&lt;/em&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>... et de réécrire la fonction de la manière suivante :</p>
+<pre><code class="language-python">from Flask import render_template
+
+@app.route(&quot;/pretty-add/&lt;int:a&gt;/&lt;int:b&gt;&quot;)
+def pretty_add(a, b):
+    date_now = date.today().isoformat()
+    result = a + b
+    return render_template('pretty-add.html',
+                           a=a,
+                           b=b,
+                           result=result,
+                           current_date=date_now)
+</code></pre>
+<p>Dans cet exemple nous avons utilisé:</p>
+<ul>
+<li>des <strong>expressions</strong>, délimitées par les symboles <code>{{ ... }}</code> ; elles peuvent contenir des expressions Python et ici, lorsqu'on écrit <code>{{ result }}</code> on cherche donc à utiliser le contenu de la variable <code>result</code> pour l'afficher dans la page HTML qui sera renvoyée.</li>
+</ul>
+<p>D'autres constructions peuvent être utilisées:</p>
+<ul>
+<li>des <strong>déclarations</strong> <em>(statements)</em>, délimités avec les symboles <code>{% ... %}</code> (conditions, boucles, etc.),</li>
+<li>des <strong>commentaires</strong>, délimités avec les symboles <code>{# ... #}</code>.</li>
+</ul>
+<blockquote>
+<p><strong>Remarque:</strong> La fonction <code>render_template</code> accepte les variables attendues par le <em>template</em> (son premier argument) en tant qu'arguments optionnels nommés : on utilise le nom de la variable attendue dans le <em>template</em> comme clé et le nom de la variable dans le code actuel comme valeur (<code>current_date=date_now</code> dans l'exemple précédent).</p>
+</blockquote>
+<p>Il va ainsi être possible d'utiliser, dans les <em>templates</em> des déclarations Python complexes ainsi que différents éléments utilisés habituellement pour le contrôle du flux d'exécution du programme. Regardez le code de ce <em>template</em> :</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Webpage&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;ul id=&quot;navigation&quot;&gt;
+    {% for item in navigation %}
+        &lt;li&gt;&lt;a href=&quot;{{ item['href'] }}&quot;&gt;{{ item['caption'] }}&lt;/a&gt;&lt;/li&gt;
+    {% endfor %}
+    &lt;/ul&gt;
+
+    &lt;h1&gt;My Webpage&lt;/h1&gt;
+    &lt;p&gt;Hello {{ name }}&lt;/p&gt;
+
+    {#
+      A multi
+          -line
+        comment
+    #}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><u>Explications :</u></p>
+<ul>
+<li>La variable <code>navigation</code> est ici une <code>list</code> de <code>dict</code>, de la forme
+<pre><code class="language-python">navigation = [
+    {&quot;href&quot;: &quot;index.html&quot;, &quot;caption&quot;: &quot;Accueil&quot;},
+    {&quot;href&quot;: &quot;partenaires.html&quot;, &quot;caption&quot;: &quot;Partenaires&quot;}
+]
+</code></pre>
+il est possible d'utiliser la déclaration <strong><code>{% for item in navigation %}</code></strong> qui a le même effet qu'une boucle utilisant <code>for</code> en Python - la syntaxe utilisée ici nécessite toutefois de fermer le bloc correspondant à cette boucle avec la déclaration <strong><code>{% endfor %}</code></strong>.</li>
+<li>La variable <code>name</code> est de type <code>str</code> et on l'affiche telle-quelle.</li>
+<li>La dernier bloc <code>{# ... #}</code> correspond à un commentaire ; comme dans les autres langages, servez-vous en si nécessaire !</li>
+<li>Les variables attendues (ici <code>navigation</code> et <code>name</code>) dans le <em>template</em> sont à donner en arguments optionnels et nommés de la fonction <code>render_template</code>.</li>
+</ul>
+<h4><a class="header" href="#réutilisation-de-template" id="réutilisation-de-template">Réutilisation de <em>template</em></a></h4>
+<p>Reprenons l'exemple des pages que nous avons créées dans les TP précédents : elles contenaient une barre de navigation et un <em>footer</em> qui avaient tous deux vocation à être les mêmes pour chacune des pages du site.</p>
+<p>Grâce au <strong>mécanisme permettant d'inclure</strong> des <em>templates</em>, nous allons par exemple pouvoir définir dans des fichiers séparés les éléments réutilisables de notre site, pour les inclure depuis le <em>template</em> contenant le contenu principal de la page :</p>
+<pre><code class="language-html">{% include 'header.html' %}
+    Contenu principal de la page ici...
+{% include 'footer.html' %}
+</code></pre>
+<p>Les <em>templates</em> appelés de cette manière ont accès aux mêmes variables que le <em>template</em> qui les a inclus.</p>
+<h2><a class="header" href="#3---mise-en-pratique-1---démarrage-dun-projet-flask" id="3---mise-en-pratique-1---démarrage-dun-projet-flask">3 - Mise en pratique (1) - Démarrage d'un projet <code>Flask</code></a></h2>
+<h3><a class="header" href="#31-option-1--installation-globale-et-création-dun-dossier-pour-le-projet" id="31-option-1--installation-globale-et-création-dun-dossier-pour-le-projet">3.1-option 1 : Installation &quot;globale&quot; et création d'un dossier pour le projet</a></h3>
+<p>Comme pour les autres packages Python, l'installation peut se faire en ligne de commande en utilisant l'utilitaire <code>pip</code>:</p>
+<pre><code class="language-bash">pip install Flask Jinja2
+</code></pre>
+<p>Si vous souhaitez les installer dans votre espace utilisateur vous pouvez utiliser l'argument <code>--user</code>:</p>
+<pre><code class="language-bash">pip install --user Flask Jinja2
+</code></pre>
+<p>On créé ensuite le dossier (<code>projet_flask</code>) dans lequel on va placer le code de notre projet :</p>
+<pre><code class="language-bash">mkdir projet_flask
+</code></pre>
+<h3><a class="header" href="#31-option-2--installation-dans-un-environnement-virtuel-au-sein-du-dossier-du-projet" id="31-option-2--installation-dans-un-environnement-virtuel-au-sein-du-dossier-du-projet">3.1-option 2 : Installation dans un environnement virtuel au sein du dossier du projet</a></h3>
+<p>Cette solution sera préférée si vous avez l'habitude d'utiliser des <a href="https://docs.python.org/fr/3.8/library/venv.html">environnements virtuels Python</a> :</p>
+<pre><code class="language-bash">mkdir projet_flask &amp;&amp; cd projet_flask
+python3 -m venv env
+</code></pre>
+<ul>
+<li><code>projet_flask</code> représente le dossier dans lequel on va placer le code du projet</li>
+<li><code>env</code> représente le nom de votre environnement virtuel, vous êtes libre d'en choisir un autre</li>
+</ul>
+<p>On active ensuite l'environnement virtuel et on y installe Flask et Jinja2 :</p>
+<pre><code class="language-bash">source env/bin/activate
+pip install Flask Jinja2
+</code></pre>
+<h2><a class="header" href="#32-structure-du-projet" id="32-structure-du-projet">3.2 Structure du projet</a></h2>
+<p>Dans le dossier <code>projet_flask</code> vous aller créer un fichier <code>app.py</code> ainsi qu'un dossier <code>templates</code>. Dans le dossier <code>templates</code> vous décompresserez les données du jour : <a href="data/TP5.zip">données TP5</a> - il s'agit de 2 fichiers de <em>templates</em> utilisant <code>Jinja2</code>.</p>
+<p>Vous devez donc avoir la structure de projet suivante:</p>
+<pre><code>projet_flask
+├── app.py              &lt;--- Le code de l'appli Web à réaliser
+├── templates           &lt;--- Le dossier contenant nos modèles de documents HTML
+│   ├── index.html
+│   └── header.html     
+└── env                 &lt;--- Seulement si vous avez utilisé un environnement virtuel !
+</code></pre>
+<h3><a class="header" href="#33-premier-bloc-de-code-et-vérification-du-démarage-de-lapplication" id="33-premier-bloc-de-code-et-vérification-du-démarage-de-lapplication">3.3 Premier bloc de code et vérification du démarage de l'application</a></h3>
+<p>Utilisez le premier extrait de code de ce TP pour créer votre application Flask dans le fichier <code>app.py</code>. Ajouter le morceau de code suivant à la fin du fichier :</p>
+<pre><code class="language-python">if __name__ == '__main__':
+    app.run(debug=True)
+</code></pre>
+<p>Il vous permettra de lancer l'application en utilisant la commande :</p>
+<pre><code class="language-bash">python3 app.py
+</code></pre>
+<!-- (Option 1) Dans le cas où l'application a été écrite avec le morceau de code suivant :
+
+```python
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+il est possible de la démarrer en tapant la commande :
+
+```bash
+python3 app.py
+```
+
+(Option 2) Il est possible d'utiliser l'outil en ligne de commande de Flask pour démarrer l'application. Dans ce cas on devra définir la variable d'environnement `FLASK_APP` pour quelle contiennent le nom du fichier à exécuter :
+
+```bash
+export FLASH_APP=app.py
+```
+
+L'application peut ensuite être démarrée de la manière suivante :
+
+```bash
+flask run
+``` -->
+<p><strong>Il est ensuite possible d'accéder à l'application avec un navigateur web : <a href="http://0.0.0.0:5000/">http://0.0.0.0:5000/</a>.</strong></p>
+<h2><a class="header" href="#4-mise-en-pratique-2---modification-de-lapplication-flask" id="4-mise-en-pratique-2---modification-de-lapplication-flask">4. Mise en pratique (2) - Modification de l'application Flask</a></h2>
+<ol>
+<li>Ajoutez le morceau de code suivant dans le fichier <code>app.py</code>, il s'agit des premiers avis fictifs à utiliser avant que nous ne constituions la base de données :</li>
+</ol>
+<pre><code class="language-python">entries = [
+ {&quot;id_review&quot;: 1, &quot;id_batiment&quot;: 26, &quot;rate&quot;: 5, &quot;comment&quot;: &quot;Mattis molestie a iaculis at erat pellentesque adipiscing commodo.&quot;},
+ {&quot;id_review&quot;: 2, &quot;id_batiment&quot;: 18, &quot;rate&quot;: 4, &quot;comment&quot;: &quot;Amet massa vitae tortor condimentum lacinia.&quot;},
+ {&quot;id_review&quot;: 3, &quot;id_batiment&quot;: 31, &quot;rate&quot;: 3, &quot;comment&quot;: &quot;Imperdiet sed euismod nisi porta lorem mollis aliquam.&quot;},
+ {&quot;id_review&quot;: 4, &quot;id_batiment&quot;: 22, &quot;rate&quot;: 1, &quot;comment&quot;: &quot;Dignissim enim sit amet venenatis. Urna cursus eget nunc scelerisque.&quot;},
+ {&quot;id_review&quot;: 5, &quot;id_batiment&quot;: 26, &quot;rate&quot;: 4, &quot;comment&quot;: &quot;A pellentesque sit amet porttitor eget dolor morbi.&quot;},
+ {&quot;id_review&quot;: 6, &quot;id_batiment&quot;: 18, &quot;rate&quot;: 3, &quot;comment&quot;: &quot;Consequat nisl vel pretium lectus quam id leo in vitae.&quot;},
+]
+</code></pre>
+<ol start="2">
+<li>
+<p>Vous devez modifier la route existante afin que la route <code>/</code> et la route <code>/index</code> appellent toutes deux la fonction <code>root</code>. Cette fonction devra utiliser le <em>template</em> <code>index.html</code>. Vous devrez également ouvrir ce fichier de <em>template</em> pour voir les variables qui sont attendues.</p>
+</li>
+<li>
+<p>Vous devez créer une nouvelle route du nom de <code>/review</code> doit accepter un argument de type <code>int</code>, l'identifiant de l'avis que l'utilisateur souhaite obtenir. Vous devez également écrire la fonction correspondante : pour un identifiant donner, elle doit renvoyer la note et l'avis. Si aucun avis ne correspond à l'identifiant, elle retourne une chaine de caractères vide.</p>
+</li>
+<li>
+<p>Dans votre navigateur, vérifiez les points suivants :</p>
+</li>
+</ol>
+<ul>
+<li>les routes <code>/</code> et <code>/index</code> fonctionnent et renvoient le même contenu.</li>
+<li>la route <code>/review</code> retourne une erreur <code>404 - NOT FOUND</code> alors que la route <code>/review/3</code> retourne bien le contenu d'un avis existant.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="4-css-bootstrap.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="#.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="4-css-bootstrap.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="#.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="src/custom.js"></script>
+        
+
+        
+
+    </body>
+</html>

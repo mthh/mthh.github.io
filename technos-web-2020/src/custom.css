@@ -33,6 +33,15 @@ table.twbs.table td {
   padding: 16px 20px;
 }
 
+main > h1 {
+  text-align: center;
+}
+
+main > h2 {
+  border-bottom: solid 0.1em var(--fg);
+  padding-bottom: 0.1em;
+}
+
 h3 {
   font-size: 1.3em !important;
 }
@@ -43,4 +52,34 @@ h4 {
 
 h4 {
   font-size: 1.05em !important;
+}
+
+.tryit {
+  font-style: italic;
+}
+
+.tryit:before {
+  content: url(../img/magnify-clip-ltr.svg);
+}
+
+.tryit-section {
+  margin: 20px 20px;
+  padding: 10px 10px;
+  color: white;
+  background-color: var(--search-mark-bg);
+  border-top: .1em solid var(--quote-border);
+  border-bottom: .1em solid var(--quote-border);
+  text-align: center;
+  font-weight: 700;
+}
+
+.normal-before-bold {
+  font-weight: normal;
+}
+
+.ayu img, .coal img, .navy img {
+  background: #ffffffa3;
+  border-radius: 5px;
+  padding: 5px;
+  /* filter: invert(1); */
 }

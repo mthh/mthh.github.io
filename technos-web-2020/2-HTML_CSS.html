@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="sidebar-visible no-js rust">
+<html lang="fr" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <title>Intro HTML 5 / CSS 3 - Cours Technologies Web - LP ESSIG - 2020</title>
@@ -39,7 +39,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -65,26 +65,30 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('rust')
+            html.classList.remove('light')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <!-- <script type="text/javascript">
+        <script type="text/javascript">
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                try {
+                  sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch(e) {
+                  sidebar = 'visible';
+                }
                 sidebar = sidebar || 'visible';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
-        </script> -->
+        </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html" class="active"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">7.</strong> Javascript</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html" class="active"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">7.</strong> Javascript</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -103,8 +107,8 @@
                                 <i class="fa fa-paint-brush"></i>
                             </button>
                             <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
@@ -158,14 +162,12 @@ Une page HTML est un fichier texte contenant des balises permettant de structure
 La mise en forme du contenu est prise en charge par un autre fichier codé dans le langage <em>Cascasding Style Sheet</em> (appelé une feuille de style en cascade). L'expression de « cascade » permet ici de désigner la possibilité, pour un document HTML, d'avoir un style hérité de plusieurs de ces feuilles de style.</p>
 <p>Ce TP est une brève introduction à ces 2 langages complémentaires.</p>
 <h2><a class="header" href="#1-environnement-de-travail" id="1-environnement-de-travail">1. Environnement de travail</a></h2>
-<hr />
 <p>L’environnement dans lequel nous allons travailler comprend :</p>
 <ul>
 <li>un éditeur de texte, par exemple <code>NotePad++</code> ou <code>Brackets</code>, pour créer et modifier du code,</li>
 <li>le navigateur de votre choix (Firefox de préférence, Chrome, Microsoft Edge, etc.) pour visualiser les pages créées et naviguer d’une page à l’autre.</li>
 </ul>
 <h2><a class="header" href="#2-html--principe-général-des-balises" id="2-html--principe-général-des-balises">2. HTML : principe général des balises</a></h2>
-<hr />
 <div class="img-center">
 <p><img src="img/logo_html5.png" alt=" " /></p>
 </div>
@@ -251,7 +253,6 @@ La mise en forme du contenu est prise en charge par un autre fichier codé dans 
 <li>En plus (ou à la place) d'utiliser un morceau de texte, on souhaite que l'utilisateur puisse accéder à la page  <code>partenaires.html</code> en cliquant sur l'image ajoutée précédemment. Comment devez-vous vous-y prendre ?</li>
 </ul>
 <h2><a class="header" href="#3-css--objectifs-et-avantage" id="3-css--objectifs-et-avantage">3. CSS : Objectifs et avantage</a></h2>
-<hr />
 <div class="img-center">
 <p><img src="img/logo_css3.png" alt=" " /></p>
 </div>
@@ -296,7 +297,9 @@ Une feuille de style externe est ainsi constituée d’une série de blocs d’i
 </ul>
 </li>
 </ol>
+<div class="center">
 <p><img src="img/tmp_css_selector.png" alt="Sélecteur et déclaration de la règle (propriété / valeur)" title="Sélecteur et déclaration (propriété / valeur)" /></p>
+</div>
 <p>Pour revenir à l’exemple, on écrira ainsi un fichier texte contenant l’instruction <code>body { background-color: red; }</code> et on associera ce fichier à un document HTML : pour établir le lien avec la feuille de style (supposons qu’elle soit nommée <code>mafeuille.css</code>), on écrira dans l’entête du fichier HTML (i.e. entre les balises <code>&lt;head&gt; &lt;/head&gt;</code>) :</p>
 <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mafeuille.css&quot; /&gt;
 </code></pre>
@@ -500,6 +503,8 @@ p:nth-child(odd) {
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="src/custom.js"></script>
         
 
         
