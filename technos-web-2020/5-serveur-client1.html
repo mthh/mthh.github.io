@@ -183,9 +183,17 @@
 <li>Des bibliothèques proposent d'effectuer des requêtes HTTP dans la plupart des langages de programmation (<a href="https://requests.readthedocs.io/en/master/"><code>requests</code></a> et <a href="https://www.python-httpx.org/"><code>httpx</code></a> en Python par exemple)</li>
 </ul>
 <h3><a class="header" href="#12-le-protocole-http" id="12-le-protocole-http">1.2 Le protocole HTTP</a></h3>
-<p>Dans le 1er cours, nous avons évoqué le protocole HTTP (pour <em>Hypertext Transfer Protocol</em>, littéralement &quot;protocole de transfert hypertexte&quot;). Il s'agit d'un <strong>protocole de communication client-serveur</strong> (se situant au niveau &quot;application&quot; du modèle en couches présenté à cette occasion).</p>
-<p>Le protocole HTTP définie plusieurs <strong>méthodes</strong>. Une méthode est une commande spécifiant au serveur un type de requête, lui demandant d'effectuer une action particulière sur la ressource désignée par l'URL qui accompagne cette méthode.</p>
-<p>Les méthodes qui seront utilisées dans ce TP sont les suivantes (il s'agit également des plus utilisées):</p>
+<p>Dans le 1er cours, nous avons évoqué le protocole HTTP (pour <em>Hypertext Transfer Protocol</em>, littéralement &quot;protocole de transfert hypertexte&quot;). Il s'agit d'un <strong>protocole de communication client-serveur</strong> (se situant au niveau &quot;application&quot; du modèle en couches présenté à cette occasion et dont l'illustration est rappelée ci-dessous).</p>
+<div class="center">
+<p><img src="1-Intro-Internet-web/img/dataflow_ips_wikipedia.png" alt="" /></p>
+<p class="source center" style="font-size: 0.5em;">Source: <a href="https://commons.wikimedia.org/wiki/File:Data_Flow_of_the_Internet_Protocol_Suite.PNG">Wikimedia Commons - user: renepick</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a></span>
+</div>
+<div class="center">
+<p><img src="1-Intro-Internet-web/img/client-server-mdn.png" alt="" /></p>
+<p><span class="source" style="display: block;padding-right: 86px;font-size: 0.5em;">Source: <a href="https://developer.mozilla.org/files/4291/client-server.png">Mozilla Developpers Network</a></span></p>
+</div>
+<p>Le protocole HTTP définie plusieurs <strong>méthodes</strong>. Une méthode est une commande spécifiant au serveur un <strong>type de requête</strong>, lui demandant d'effectuer une action particulière sur la ressource désignée par l'URL qui accompagne cette méthode.</p>
+<p>Les méthodes qui seront utilisées dans cette série de TP sont les suivantes (il s'agit également des plus utilisées):</p>
 <ul>
 <li><strong><code>GET</code></strong> : méthode pour demander une ressource (une requête <code>GET</code> est sans effet sur la ressource, on peut la répéter et obtenir le même résultat), c'est la méthode utilisée lors de la récupération d'une page Web par exemple.</li>
 <li><strong><code>POST</code></strong> : méthode pour transmettre des données en vue de leur traitement (par exemple depuis un formulaire HTML)</li>
@@ -208,7 +216,7 @@
 </ul>
 <p>Aujourd'hui (<strong>TP5</strong>), nous verrons comment organiser le code coté serveur pour que différentes actions puissent être effectuées en fonction du type de requête ou du chemin de la requête <em>(i.e. comment passer d'un contenu statique à un contenu dynamique)</em> et nous verrons comment utiliser des <em>templates</em> HTML.</p>
 <p>Le <strong>TP6</strong> servira à créer un formulaire dans la page HTML et à le traiter coté serveur pour ajouter son contenu dans une base de données <a href="https://www.sqlite.org/">SQLite</a>. Les informations présentes dans la base de données seront mobilisées pour être affichées coté client ; elles pourront également être mises à jour.</p>
-<p>Le <strong>TP7</strong> servira à ajouter une carte interactive dans la page HTML. C'est cette carte qui sera utilisée comme interface pour l'ajout d'avis (lors d'un  de l'utilisateur par exemple) ainsi que pour l'affichage de la localisation des avis présents dans la base de données (sous forme de <em>markers</em>). Cette carte fera appel à du code Javascript, exécuté directement dans le navigateur web du client. L'application construite pourra être déployée individuellement sur la plate-forme <a href="https://www.pythonanywhere.com/">PythonAnywhere</a>.</p>
+<p>Le <strong>TP7</strong> servira à ajouter une carte interactive dans la page HTML. C'est cette carte qui sera utilisée comme interface pour l'ajout d'avis (lors du clic de l'utilisateur par exemple) ainsi que pour l'affichage de la localisation des avis présents dans la base de données (sous forme de <em>markers</em>). Cette carte fera appel à du code Javascript, exécuté directement dans le navigateur web du client. L'application construite pourra être déployée individuellement sur la plate-forme <a href="https://www.pythonanywhere.com/">PythonAnywhere</a>.</p>
 <p>Le <strong>TP8</strong>, sera consacré au langage Javascript (aspects théoriques et pratiques).</p>
 <h2><a class="header" href="#2-la-bibliothèque-flask" id="2-la-bibliothèque-flask">2. La bibliothèque <code>Flask</code></a></h2>
 <p>Il s'agit d'un <em>micro-framework</em> conçu pour développer une application Web coté serveur. À ce titre il va fournir des outils génériques pour créer ce type d'application tout en favorisant la mise en oeuvre de bonnes pratiques et en limitant l'écriture de code inutile. Le qualificatif <em>micro</em> décrit ici plusieurs réalités :</p>
@@ -225,7 +233,7 @@
 <ul>
 <li>Documentation officielle de <code>Flask</code>: <a href="https://flask.palletsprojects.com/en/1.1.x/">https://flask.palletsprojects.com/en/1.1.x/</a></li>
 <li>Documentation officielle de <code>Jinja2</code>: <a href="https://jinja.palletsprojects.com/en/2.11.x/">https://jinja.palletsprojects.com/en/2.11.x/</a></li>
-<li>Cours <em>&quot;Créez vos applications web avec Flask&quot;</em> sur <a href="https://openclassrooms.com/fr/courses/1654786-creez-vos-applications-web-avec-flask?status=published">Openclassrooms</a></li>
+<li>Documentation officielle de <code>Werkzeug</code> : <a href="https://werkzeug.palletsprojects.com/en/0.16.x/">https://werkzeug.palletsprojects.com/en/0.16.x/</a></li>
 <li>Liste de <em>plugins</em> et de ressources pour <code>Flask</code>: <a href="https://github.com/humiaozuzu/awesome-flask">https://github.com/humiaozuzu/awesome-flask</a></li>
 </ul>
 <h3><a class="header" href="#21-premier-pas-avec-flask---application-et-routes" id="21-premier-pas-avec-flask---application-et-routes">2.1 Premier pas avec Flask - Application et routes</a></h3>
@@ -285,6 +293,31 @@ def greetings(name=None):
 <p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/greetings">http://mthh.pythonanywhere.com/greetings</a>
 <br>
 <span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/greetings/Paul">http://mthh.pythonanywhere.com/greetings/Paul</a></p>
+<h4><a class="header" href="#méthodes-http" id="méthodes-http">Méthodes HTTP</a></h4>
+<p>Lors de la création d'une route, il est possible de spécifier la ou les méthodes par laquelle elle est accessible. Dans les exemples précédents, comme aucune méthode n'était spécifiée explicitement, il s'agissait de la méthode <strong>GET</strong>. Ainsi notre première fonction aurait pu être écrite de la manière qui suit :</p>
+<pre><code class="language-python">@app.route(&quot;/&quot;, methods=['GET'])
+def root():
+    return &quot;Hello from Flask!&quot;
+</code></pre>
+<p>Une route qui accepte seulement une méthode <strong>POST</strong> sera donc déclarée de la manière suivante :</p>
+<pre><code class="language-python">@app.route('/valid-form', methods=['POST'])
+</code></pre>
+<p>Il pourra parfois être nécessaire de créer des routes qui acceptent les deux méthodes. Prenons l'exemple du code ci-dessous. La route <code>/update</code> est créée pour accepter les méthodes <strong>GET</strong> et <strong>POST</strong> :</p>
+<pre><code class="language-python">from flask import request
+
+@app.route('/update', methods=['GET', 'POST'])
+def example():
+    if request.method == 'GET':
+        return render_template('update.html')
+    elif request.method == 'POST':
+        # traitement des données envoyées ...
+        return 'Entry updated' !
+
+</code></pre>
+<ul>
+<li>S'il s'agit d'une requête de type <strong>GET</strong>, la page qui correspond au <em>template</em> <code>update.html</code> sera retournée au client <em>(on s'imagine qu'elle contient notamment un formulaire permettant de mettre à jour une entrée dans la BD)</em>.</li>
+<li>S'il s'agit d'une requête de type <strong>POST</strong>, les données envoyées sont traitées pour mettre à jour l'entrée <em>(cette action correspond à la validation et à l'envoi, par le client, du formulaire contenu dans la page auquel il a accedé précédement par la route <code>/update</code>)</em> :</li>
+</ul>
 <h3><a class="header" href="#22-templates" id="22-templates">2.2 <em>Templates</em></a></h3>
 <p><strong><code>Flask</code></strong> dispose d'un mécanisme qui permet d'utiliser un <strong>modèle</strong> <em>(template)</em> de document dont certaines parties seront remplacées dynamiquement à l'exécution, avant d'être envoyé au client.</p>
 <p>Les exemples présentés jusqu'ici ne renvoient que des chaînes de caractères. Comme indiqué plus haut, il s'agit en réalité de contenu HTML ; vous pouvez ainsi écrire des routes renvoyant du contenu HTML correctement formatté et généré de manière dynamique:</p>
@@ -353,6 +386,7 @@ def pretty_add(a, b):
 <blockquote>
 <p><strong>Remarque:</strong> La fonction <code>render_template</code> accepte les variables attendues par le <em>template</em> (son premier argument) en tant qu'arguments optionnels nommés : on utilise le nom de la variable attendue dans le <em>template</em> comme clé et le nom de la variable dans le code actuel comme valeur (<code>current_date=date_now</code> dans l'exemple précédent).</p>
 </blockquote>
+<h4><a class="header" href="#exemple-avec-une-boucle" id="exemple-avec-une-boucle">Exemple avec une boucle</a></h4>
 <p>Il va ainsi être possible d'utiliser, dans les <em>templates</em> des déclarations Python complexes ainsi que différents éléments utilisés habituellement pour le contrôle du flux d'exécution du programme. Regardez le code de ce <em>template</em> :</p>
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
@@ -390,7 +424,7 @@ il est possible d'utiliser la déclaration <strong><code>{% for item in navigati
 <li>La dernier bloc <code>{# ... #}</code> correspond à un commentaire ; comme dans les autres langages, servez-vous en si nécessaire !</li>
 <li>Les variables attendues (ici <code>navigation</code> et <code>name</code>) dans le <em>template</em> sont à donner en arguments optionnels et nommés de la fonction <code>render_template</code>.</li>
 </ul>
-<h4><a class="header" href="#réutilisation-de-template" id="réutilisation-de-template">Réutilisation de <em>template</em></a></h4>
+<h4><a class="header" href="#réutilisation-de-templates" id="réutilisation-de-templates">Réutilisation de <em>templates</em></a></h4>
 <p>Reprenons l'exemple des pages que nous avons créées dans les TP précédents : elles contenaient une barre de navigation et un <em>footer</em> qui avaient tous deux vocation à être les mêmes pour chacune des pages du site.</p>
 <p>Grâce au <strong>mécanisme permettant d'inclure</strong> des <em>templates</em>, nous allons par exemple pouvoir définir dans des fichiers séparés les éléments réutilisables de notre site, pour les inclure depuis le <em>template</em> contenant le contenu principal de la page :</p>
 <pre><code class="language-html">{% include 'header.html' %}
@@ -398,7 +432,7 @@ il est possible d'utiliser la déclaration <strong><code>{% for item in navigati
 {% include 'footer.html' %}
 </code></pre>
 <p>Les <em>templates</em> appelés de cette manière ont accès aux mêmes variables que le <em>template</em> qui les a inclus.</p>
-<h2><a class="header" href="#3---mise-en-pratique-1---démarrage-dun-projet-flask" id="3---mise-en-pratique-1---démarrage-dun-projet-flask">3 - Mise en pratique (1) - Démarrage d'un projet <code>Flask</code></a></h2>
+<h2><a class="header" href="#3---mise-en-pratique---exercice-1---démarrage-dun-projet-flask" id="3---mise-en-pratique---exercice-1---démarrage-dun-projet-flask">3 - Mise en pratique - Exercice 1 - Démarrage d'un projet <code>Flask</code></a></h2>
 <h3><a class="header" href="#31-option-1--installation-globale-et-création-dun-dossier-pour-le-projet" id="31-option-1--installation-globale-et-création-dun-dossier-pour-le-projet">3.1-option 1 : Installation &quot;globale&quot; et création d'un dossier pour le projet</a></h3>
 <p>Comme pour les autres packages Python, l'installation peut se faire en ligne de commande en utilisant l'utilitaire <code>pip</code>:</p>
 <pre><code class="language-bash">pip install Flask Jinja2
@@ -422,7 +456,7 @@ python3 -m venv env
 <pre><code class="language-bash">source env/bin/activate
 pip install Flask Jinja2
 </code></pre>
-<h2><a class="header" href="#32-structure-du-projet" id="32-structure-du-projet">3.2 Structure du projet</a></h2>
+<h3><a class="header" href="#32-structure-du-projet" id="32-structure-du-projet">3.2 Structure du projet</a></h3>
 <p>Dans le dossier <code>projet_flask</code> vous aller créer un fichier <code>app.py</code> ainsi qu'un dossier <code>templates</code>. Dans le dossier <code>templates</code> vous décompresserez les données du jour : <a href="data/TP5.zip">données TP5</a> - il s'agit de 2 fichiers de <em>templates</em> utilisant <code>Jinja2</code>.</p>
 <p>Vous devez donc avoir la structure de projet suivante:</p>
 <pre><code>projet_flask
@@ -433,7 +467,7 @@ pip install Flask Jinja2
 └── env                 &lt;--- Seulement si vous avez utilisé un environnement virtuel !
 </code></pre>
 <h3><a class="header" href="#33-premier-bloc-de-code-et-vérification-du-démarage-de-lapplication" id="33-premier-bloc-de-code-et-vérification-du-démarage-de-lapplication">3.3 Premier bloc de code et vérification du démarage de l'application</a></h3>
-<p>Utilisez le premier extrait de code de ce TP pour créer votre application Flask dans le fichier <code>app.py</code>. Ajouter le morceau de code suivant à la fin du fichier :</p>
+<p>Utilisez le premier extrait de code de ce TP (<a href="#application">ici</a>) pour créer votre application Flask dans le fichier <code>app.py</code>. Ajouter le morceau de code suivant à la fin du fichier :</p>
 <pre><code class="language-python">if __name__ == '__main__':
     app.run(debug=True)
 </code></pre>
@@ -464,8 +498,9 @@ L'application peut ensuite être démarrée de la manière suivante :
 ```bash
 flask run
 ``` -->
-<p><strong>Il est ensuite possible d'accéder à l'application avec un navigateur web : <a href="http://0.0.0.0:5000/">http://0.0.0.0:5000/</a>.</strong></p>
-<h2><a class="header" href="#4-mise-en-pratique-2---modification-de-lapplication-flask" id="4-mise-en-pratique-2---modification-de-lapplication-flask">4. Mise en pratique (2) - Modification de l'application Flask</a></h2>
+<p><strong>Il est ensuite possible d'accéder à l'application avec un navigateur web : <a href="http://127.0.0.1:5000/">http://127.0.0.1:5000/</a>.</strong></p>
+<p>Comme vu lors du premier cours, <code>127.0.0.1</code> désigne votre <strong>adresse IP</strong> et <code>5000</code> désigne le <strong>port TCP</strong> sur lequel votre application écoute et émet.</p>
+<h2><a class="header" href="#4-mise-en-pratique---exercice-2---modification-de-lapplication" id="4-mise-en-pratique---exercice-2---modification-de-lapplication">4. Mise en pratique - Exercice 2 - Modification de l'application</a></h2>
 <ol>
 <li>Ajoutez le morceau de code suivant dans le fichier <code>app.py</code>, il s'agit des premiers avis fictifs à utiliser avant que nous ne constituions la base de données :</li>
 </ol>
@@ -480,19 +515,27 @@ flask run
 </code></pre>
 <ol start="2">
 <li>
-<p>Vous devez modifier la route existante afin que la route <code>/</code> et la route <code>/index</code> appellent toutes deux la fonction <code>root</code>. Cette fonction devra utiliser le <em>template</em> <code>index.html</code>. Vous devrez également ouvrir ce fichier de <em>template</em> pour voir les variables qui sont attendues.</p>
+<p>Vous devez modifier la route existante afin que la route <code>/</code> et la route <code>/index</code> appellent toutes deux la fonction <code>root</code>. Cette fonction devra utiliser le <em>template</em> <code>index.html</code>. Vous devrez également ouvrir ce fichier de <em>template</em> pour voir les variables qui sont attendues et que vous devrez donner en argument à la fonction <code>render_template</code>.</p>
 </li>
 <li>
-<p>Vous devez créer une nouvelle route du nom de <code>/review</code> doit accepter un argument de type <code>int</code>, l'identifiant de l'avis que l'utilisateur souhaite obtenir. Vous devez également écrire la fonction correspondante : pour un identifiant donner, elle doit renvoyer la note et l'avis. Si aucun avis ne correspond à l'identifiant, elle retourne une chaine de caractères vide.</p>
+<p>Vous devez créer une nouvelle route du nom de <code>/review</code> doit accepter un argument de type <code>int</code>, l'identifiant de l'avis que l'utilisateur souhaite obtenir. Vous devez également écrire la fonction correspondante : pour un identifiant donné, elle doit renvoyer la note et l'avis sous forme d'un bloc de texte formatté de manière simple <em>(par exemple: &quot;Note X - Commentaire : xxxxx&quot;)</em>. Si aucun avis ne correspond à l'identifiant, elle retourne une chaine de caractères vide.</p>
 </li>
 <li>
-<p>Dans votre navigateur, vérifiez les points suivants :</p>
+<p>Dans votre navigateur, vérifiez les points suivants avant de passer à l'exercice qui suit:</p>
 </li>
 </ol>
 <ul>
-<li>les routes <code>/</code> et <code>/index</code> fonctionnent et renvoient le même contenu.</li>
-<li>la route <code>/review</code> retourne une erreur <code>404 - NOT FOUND</code> alors que la route <code>/review/3</code> retourne bien le contenu d'un avis existant.</li>
+<li>les routes <code>/</code> et <code>/index</code> fonctionnent et renvoient le même contenu (cf. image).</li>
+<li>la route <code>/review</code> retourne une erreur <code>404 - NOT FOUND</code> alors que la route <code>/review/2</code> retourne bien le contenu de l'avis correspondant.</li>
 </ul>
+<div class="center">
+<p><img src="img/tp5_ex2_index.png" alt="Capture d'écran de la route &quot;/index&quot;" />
+<img src="img/tp5_ex2_review.png" alt="Capture d'écran de la route &quot;/review/2&quot;" /></p>
+</div>
+<h2><a class="header" href="#5-mise-en-pratique---exercice-3---utilisation-des-templates" id="5-mise-en-pratique---exercice-3---utilisation-des-templates">5. Mise en pratique - Exercice 3 - Utilisation des <em>templates</em></a></h2>
+<ol>
+<li>En plus d'afficher le nombre d'avis présents dans la base, nous souhaitons afficher la totalité de la liste des avis sur la page d'accueil. Vous devez modifier le <em>template</em> <code>index.html</code> pour créer dynamiquement un élément liste HTML où chaque item correspondra à un avis. Un exemple similaire a été donné <a href="#exemple-avec-une-boucle">ici</a>.</li>
+</ol>
 
                     </main>
 
