@@ -298,7 +298,7 @@ db = SQLAlchemy(app)
 
 class Review(db.Model):
     id_review = db.Column(db.Integer, primary_key=True)
-    rate = db.Column(db.Integer, unique=False, nullable=False)
+    rate = db.Column(db.Integer, nullable=False)
     comment = db.Column(db.String(255))
 
 
