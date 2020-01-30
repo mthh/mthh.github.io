@@ -1492,7 +1492,7 @@ def root():
 <pre><code class="language-python">@app.route('/valid-form', methods=['POST'])
 </code></pre>
 <p>Il pourra parfois être nécessaire de créer des routes qui acceptent les deux méthodes. Prenons l'exemple du code ci-dessous. La route <code>/update</code> est créée pour accepter les méthodes <strong>GET</strong> et <strong>POST</strong> :</p>
-<pre><code class="language-python">from flask import request
+<pre><code class="language-python">from flask import request, render_template
 
 @app.route('/update', methods=['GET', 'POST'])
 def example():
@@ -1663,30 +1663,18 @@ pip install Flask Jinja2
 <p>Il vous permettra de lancer l'application en utilisant la commande :</p>
 <pre><code class="language-bash">python3 app.py
 </code></pre>
-<!-- (Option 1) Dans le cas où l'application a été écrite avec le morceau de code suivant :
-
-```python
-if __name__ == '__main__':
-    app.run(debug=True)
-```
-
-il est possible de la démarrer en tapant la commande :
-
-```bash
-python3 app.py
-```
-
-(Option 2) Il est possible d'utiliser l'outil en ligne de commande de Flask pour démarrer l'application. Dans ce cas on devra définir la variable d'environnement `FLASK_APP` pour quelle contiennent le nom du fichier à exécuter :
-
-```bash
-export FLASH_APP=app.py
-```
-
-L'application peut ensuite être démarrée de la manière suivante :
-
-```bash
-flask run
-``` -->
+<p><strong>Si cette façon de faire ne fonctionne pas :</strong></p>
+<p>Rendez-vous dans le dossier dans lequel se situe votre code :</p>
+<pre><code class="language-bash">cd MonDossier/projet_flask
+</code></pre>
+<p>Il est possible d'utiliser l'outil en ligne de commande de Flask pour démarrer l'application. Dans ce cas on devra définir la variable d'environnement <code>FLASK_APP</code> pour quelle contiennent le nom du fichier à exécuter :</p>
+<pre><code class="language-bash">set FLASK_APP=app.py # Sous windows
+#  ...  ou
+export FLASK_APP=app.py # Sous Linux
+</code></pre>
+<p>L'application peut ensuite être démarrée de la manière suivante :</p>
+<pre><code class="language-bash">flask run
+</code></pre>
 <p><strong>Il est ensuite possible d'accéder à l'application avec un navigateur web : <a href="http://127.0.0.1:5000/">http://127.0.0.1:5000/</a>.</strong></p>
 <p>Comme vu lors du premier cours, <code>127.0.0.1</code> désigne votre <strong>adresse IP</strong> et <code>5000</code> désigne le <strong>port TCP</strong> sur lequel votre application écoute et émet.</p>
 <h2><a class="header" href="#4-mise-en-pratique---exercice-2---modification-de-lapplication" id="4-mise-en-pratique---exercice-2---modification-de-lapplication">4. Mise en pratique - Exercice 2 - Modification de l'application</a></h2>

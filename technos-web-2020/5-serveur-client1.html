@@ -304,7 +304,7 @@ def root():
 <pre><code class="language-python">@app.route('/valid-form', methods=['POST'])
 </code></pre>
 <p>Il pourra parfois être nécessaire de créer des routes qui acceptent les deux méthodes. Prenons l'exemple du code ci-dessous. La route <code>/update</code> est créée pour accepter les méthodes <strong>GET</strong> et <strong>POST</strong> :</p>
-<pre><code class="language-python">from flask import request
+<pre><code class="language-python">from flask import request, render_template
 
 @app.route('/update', methods=['GET', 'POST'])
 def example():
@@ -480,8 +480,9 @@ pip install Flask Jinja2
 <pre><code class="language-bash">cd MonDossier/projet_flask
 </code></pre>
 <p>Il est possible d'utiliser l'outil en ligne de commande de Flask pour démarrer l'application. Dans ce cas on devra définir la variable d'environnement <code>FLASK_APP</code> pour quelle contiennent le nom du fichier à exécuter :</p>
-<pre><code class="language-bash">set FLASH_APP=app.py # Sous windows
-export FLASH_APP=app.py # Sous Linux
+<pre><code class="language-bash">set FLASK_APP=app.py # Sous windows
+#  ...  ou
+export FLASK_APP=app.py # Sous Linux
 </code></pre>
 <p>L'application peut ensuite être démarrée de la manière suivante :</p>
 <pre><code class="language-bash">flask run
