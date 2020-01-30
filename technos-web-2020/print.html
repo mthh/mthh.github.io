@@ -1352,6 +1352,7 @@ Cette barre de navigation devra être <em>responsive</em>, lorsque la largeur de
 <p><strong>PHP</strong> est un célèbre exemple de langage de programmation qui s’exécute côté serveur. Ce langage permet de produire du code, visualisable par le client, qui peut différer en fonction de circonstances définies, ce qui introduit donc un certain dynamisme. Ce dynamisme peut être accru grâce à une connexion avec une base de données (PostGreSQL, MySQL, SQLite, etc.).</p>
 <div class="center" style="border: solid 3px black; border-radius: 10px;">
 <p><img src="1-Intro-Internet-web/img/traitement_page_serveur.png" alt="" /></p>
+<p class="source center" style="font-size: 0.85em;">Source: Marlène Villanova-Oliver</p>
 </div>
 <p>La figure ci-dessus (également présentée dans les slides du 1er cours) présente l’architecture couplant un langage de programmation et une base de données afin de générer, sur le serveur, du contenu dynamique lors d'une requête en provenance d'un client (navigateur Web) : c'est ce que nous allons implémenter dans les 2 prochains TP.<br />
 <strong>Nous n'utiliserons pas le langage PHP mais le langage Python avec le <em>micro-framework</em> <code>Flask</code>.</strong></p>
@@ -1374,11 +1375,11 @@ Cette barre de navigation devra être <em>responsive</em>, lorsque la largeur de
 <p>Dans le 1er cours, nous avons évoqué le protocole HTTP (pour <em>Hypertext Transfer Protocol</em>, littéralement &quot;protocole de transfert hypertexte&quot;). Il s'agit d'un <strong>protocole de communication client-serveur</strong> (se situant au niveau &quot;application&quot; du modèle en couches présenté à cette occasion et dont l'illustration est rappelée ci-dessous).</p>
 <div class="center">
 <p><img src="1-Intro-Internet-web/img/dataflow_ips_wikipedia.png" alt="" /></p>
-<p class="source center" style="font-size: 0.5em;">Source: <a href="https://commons.wikimedia.org/wiki/File:Data_Flow_of_the_Internet_Protocol_Suite.PNG">Wikimedia Commons - user: renepick</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a></span>
+<p class="source center" style="font-size: 0.85em;">Source: <a href="https://commons.wikimedia.org/wiki/File:Data_Flow_of_the_Internet_Protocol_Suite.PNG">Wikimedia Commons - user: renepick</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a></p>
 </div>
 <div class="center">
 <p><img src="1-Intro-Internet-web/img/client-server-mdn.png" alt="" /></p>
-<p><span class="source" style="display: block;padding-right: 86px;font-size: 0.5em;">Source: <a href="https://developer.mozilla.org/files/4291/client-server.png">Mozilla Developpers Network</a></span></p>
+<p><span class="source" style="display: block;padding-right: 86px;font-size: 0.85em;">Source: <a href="https://developer.mozilla.org/files/4291/client-server.png">Mozilla Developpers Network</a></span></p>
 </div>
 <p>Le protocole HTTP définie plusieurs <strong>méthodes</strong>. Une méthode est une commande spécifiant au serveur un <strong>type de requête</strong>, lui demandant d'effectuer une action particulière sur la ressource désignée par l'URL qui accompagne cette méthode.</p>
 <p>Les méthodes qui seront utilisées dans cette série de TP sont les suivantes (il s'agit également des plus utilisées):</p>
@@ -1655,7 +1656,7 @@ pip install Flask Jinja2
 └── env                 &lt;--- Seulement si vous avez utilisé un environnement virtuel !
 </code></pre>
 <h3><a class="header" href="#33-premier-bloc-de-code-et-vérification-du-démarage-de-lapplication" id="33-premier-bloc-de-code-et-vérification-du-démarage-de-lapplication">3.3 Premier bloc de code et vérification du démarage de l'application</a></h3>
-<p>Utilisez le premier extrait de code de ce TP (<a href="5-serveur-client1.html#application">ici</a>) pour créer votre application Flask dans le fichier <code>app.py</code>. Ajouter le morceau de code suivant à la fin du fichier :</p>
+<p>Utilisez le premier extrait de code de ce TP (<a href="5-serveur-client1.html#application">ici</a>) pour créer votre application Flask dans le fichier <code>app.py</code>. Ajoutez le morceau de code suivant à la fin du fichier :</p>
 <pre><code class="language-python">if __name__ == '__main__':
     app.run(debug=True)
 </code></pre>
@@ -1722,8 +1723,11 @@ flask run
 </div>
 <h2><a class="header" href="#5-mise-en-pratique---exercice-3---utilisation-des-templates" id="5-mise-en-pratique---exercice-3---utilisation-des-templates">5. Mise en pratique - Exercice 3 - Utilisation des <em>templates</em></a></h2>
 <ol>
-<li>En plus d'afficher le nombre d'avis présents dans la base, nous souhaitons afficher la totalité de la liste des avis sur la page d'accueil. Vous devez modifier le <em>template</em> <code>index.html</code> pour créer dynamiquement un élément liste HTML où chaque item correspondra à un avis. Un exemple similaire a été donné <a href="5-serveur-client1.html#exemple-avec-une-boucle">ici</a>.</li>
+<li>En plus d'afficher le nombre d'avis présents dans la base, nous souhaitons afficher la totalité de la liste des avis sur la page d'accueil. Vous devez modifier le <em>template</em> <code>index.html</code> pour créer dynamiquement une liste HTML où chaque item correspondra à un avis de la <code>list</code> Python appellée <code>entries</code>. Un exemple similaire a été donné <a href="5-serveur-client1.html#exemple-avec-une-boucle">ici</a>.</li>
 </ol>
+<div class="center">
+<p><img src="img/tp5_ex3_resultat.png" alt="Capture d'écran de la route &quot;/index&quot;" /></p>
+</div>
 <h1><a class="header" href="#interactions-serveurclient-formulaires-et-bd" id="interactions-serveurclient-formulaires-et-bd">Interactions serveur/client, formulaires et BD</a></h1>
 <h1><a class="header" href="#interactions-serveurclient-formulaires-et-bd-1" id="interactions-serveurclient-formulaires-et-bd-1">Interactions serveur/client, formulaires et BD</a></h1>
 <h2><a class="header" href="#glossaire" id="glossaire">Glossaire</a></h2>
@@ -1849,7 +1853,7 @@ flask run
 <p><a href="data/TP3.zip">Données TP3</a> - <a href="data/TP3_correction.zip">Exemple / correction (.zip)</a> - <a href="data/TP3/index_example.html">Exemple / correction (interactif)</a></p>
 </li>
 <li>
-<p><a href="data/TP4.zip">Données TP4</a></p>
+<p><a href="data/TP4.zip">Données TP4</a> - <a href="data/TP4_correction.zip">Correction (.zip)</a></p>
 </li>
 <li>
 <p><a href="data/TP5.zip">Données TP5</a></p>
