@@ -1723,44 +1723,43 @@ export FLASK_APP=app.py # Sous Linux
 <p>Dans notre cas, elle va être utile car elle permet d'héberger une application Web (créee avec <code>Flask</code> mais aussi avec <code>Web2py</code> ou <code>Django</code>) et d'y accéder à une URL de la forme <strong><code>http://{pseudonyme}.pythonanywhere.com</code></strong>.</p>
 <p>Suivez les indications suivantes pour y créer une application <code>Flask</code> vide.</p>
 <ul>
-<li>
-<p>Après vous être enregistré et loggé sur la plateforme, cliquez sur le bouton <strong>&quot;Web&quot;</strong> :
-<img src="img/pa1.png" alt="" /></p>
-</li>
-<li>
-<p>Cliquez sur le bouton &quot;Add a new web app&quot; :
-<img src="img/pa2.png" alt="" /></p>
-</li>
-<li>
-<p>Une fenetre s'ouvre, cliquez sur &quot;next&quot; :
-<img src="img/pa3.png" alt="" /></p>
-</li>
-<li>
-<p>Choisissez d'utiliser le <em>framework</em> <strong>Flask</strong> :
-<img src="img/pa4.png" alt="" /></p>
-</li>
-<li>
-<p>Sélectionnez la version de Python avec laquelle vous avez l'habitude de travailler :
-<img src="img/pa5.png" alt="" /></p>
-</li>
-<li>
-<p>Ne modifiez pas le chemin du fichier <code>flask_app.py</code> et cliquez sur &quot;next&quot; :
-<img src="img/pa6.png" alt="" /></p>
-</li>
-<li>
-<p>L'application est créé et accessible à l'URL <strong><code>http://{pseudonyme}.pythonanywhere.com</code></strong>. Cliquez sur le bouton &quot;Files&quot; pour éditer le code de votre serveur :
-<img src="img/pa7.png" alt="" /></p>
-</li>
-<li>
-<p>Naviguez dans l'arborescence jusqu'à trouver ce fichier. Cliquez pour l'ouvrir :
-<img src="img/pa8.png" alt="" /></p>
-</li>
-<li>
-<p>Vous pouvez l'éditer (et le sauvegarder en faisant <code>ctrl</code> + <code>s</code> par exemple).
-<img src="img/pa9.png" alt="" /></p>
-</li>
-<li>
-<p>Après l'avoir édité, vous devez recharger votre <em>web app</em> dans la section <strong>Web</strong> de <em>PythonAnywhere</em>. Je vous conseille d'avoir deux onglets ouverts dans votre navigateur :</p>
+<li>Après vous être enregistré et loggé sur la plateforme, cliquez sur le bouton <strong>&quot;Web&quot;</strong> :</li>
+</ul>
+<p><img src="img/pa1.png" alt="" /></p>
+<ul>
+<li>Cliquez sur le bouton &quot;Add a new web app&quot; :</li>
+</ul>
+<p><img src="img/pa2.png" alt="" /></p>
+<ul>
+<li>Une fenetre s'ouvre, cliquez sur &quot;next&quot; :</li>
+</ul>
+<p><img src="img/pa3.png" alt="" /></p>
+<ul>
+<li>Choisissez d'utiliser le <em>framework</em> <strong>Flask</strong> :</li>
+</ul>
+<p><img src="img/pa4.png" alt="" /></p>
+<ul>
+<li>Sélectionnez la version de Python avec laquelle vous avez l'habitude de travailler :</li>
+</ul>
+<p><img src="img/pa5.png" alt="" /></p>
+<ul>
+<li>Ne modifiez pas le chemin du fichier <code>flask_app.py</code> et cliquez sur &quot;next&quot; :</li>
+</ul>
+<p><img src="img/pa6.png" alt="" /></p>
+<ul>
+<li>L'application est créée et accessible à l'URL <strong><code>https://{pseudonyme}.pythonanywhere.com</code></strong>. Cliquez sur le bouton &quot;Files&quot; pour éditer le code de votre serveur :</li>
+</ul>
+<p><img src="img/pa7.png" alt="" /></p>
+<ul>
+<li>Naviguez dans l'arborescence jusqu'à trouver ce fichier. Cliquez pour l'ouvrir :</li>
+</ul>
+<p><img src="img/pa8.png" alt="" /></p>
+<ul>
+<li>Vous pouvez l'éditer (et le sauvegarder en faisant <code>ctrl</code> + <code>s</code> par exemple).</li>
+</ul>
+<p><img src="img/pa9.png" alt="" /></p>
+<ul>
+<li>Après l'avoir édité, vous devez recharger votre <em>web app</em> dans la section <strong>Web</strong> de <em>PythonAnywhere</em>. Je vous conseille d'avoir deux onglets ouverts dans votre navigateur :
 <ul>
 <li>celui de la section &quot;File&quot; avec l'éditeur de code</li>
 <li>celui de la section &quot;Web&quot; ; vous pourrez ainsi mettre à jour l'appli. web directement après sauvegardé votre code et sans quitter l'éditeur.</li>
@@ -1972,7 +1971,7 @@ def root():
 <li>lit le formulaire (<code>request.form</code>) en accédant à la valeur des champs avec la notation entre crochets (<code>request.form['rate']</code> et <code>request.form['comment']</code>)</li>
 <li>créée un objet correspondant à une nouvelle entrée (<code>new_review = Review(rate=data['rate'], comment=data['comment'])</code>)</li>
 <li>ajoute cette entrée à la table <code>Review</code> avec <code>db.session.add(new_review)</code> et <code>db.session.commit()</code></li>
-<li>renvoie la page actuelle (<code>redirect(url_for('root'))</code>), celà a pour effet de rafraichir la page dans le navigateur du client et de faire apparaitre l'avis qu'il vient de laisser</li>
+<li>renvoie la page actuelle (<code>redirect(url_for('root'))</code>), celà a pour effet de rafraichir la page dans le navigateur du client et de faire apparaître l'avis qu'il vient de laisser</li>
 </ul>
 </li>
 </ul>
@@ -1984,7 +1983,7 @@ def root():
 <li>Le résultat attendu est le suivant :</li>
 </ul>
 <p><img src="img/pa11.png" alt="" /></p>
-<p><strong>🚀 Modifier le code l'application pour ajouter un champ <code>name_reviewer</code> au modèles <code>Review</code>. Cette modification doit également se refléter dans le formulaire affiché à l'utilisateur qui doit maintenant proposer un champ &quot;Nom&quot;.<br />
+<p><strong>🚀 Modifiez le code l'application pour ajouter un champ <code>name_reviewer</code> au modèle <code>Review</code>. Cette modification doit également se refléter dans le formulaire affiché à l'utilisateur qui doit maintenant proposer un champ &quot;Nom&quot;.<br />
 Vous devrez modifier plusieurs éléments dans le fichier <code>flask_app.py</code> (le modèle, la création d'une nouvelle entrée, etc.) et dans le formulaire du fichier <code>index.html</code> (ajout d'un nouvel élément <code>&lt;input type=&quot;text&quot; /&gt;</code>, etc.).</strong></p>
 <div class="center">
 <p><img src="img/pa12.png" alt="" /></p>
