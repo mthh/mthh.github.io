@@ -1759,19 +1759,15 @@ export FLASK_APP=app.py # Sous Linux
 </ul>
 <p><img src="img/pa9.png" alt="" /></p>
 <ul>
-<li>Après l'avoir édité, vous devez recharger votre <em>web app</em> dans la section <strong>Web</strong> de <em>PythonAnywhere</em>. Je vous conseille d'avoir deux onglets ouverts dans votre navigateur :
-<ul>
-<li>celui de la section &quot;File&quot; avec l'éditeur de code</li>
-<li>celui de la section &quot;Web&quot; ; vous pourrez ainsi mettre à jour l'appli. web directement après sauvegardé votre code et sans quitter l'éditeur.</li>
+<li>Après l'avoir édité, vous devez recharger votre <em>web app</em>. Cela peut se faire directement depuis la page de l'éditeur de code (image ci-dessous) ou depuis la section <strong>Web</strong> de votre espace <em>PythonAnywhere</em>.</li>
 </ul>
-</li>
-</ul>
+<p><img src="img/pa10.png" alt="" /></p>
 <p><strong>🚀 Copiez le code de l'application <code>app.py</code> créée dans le TP précédent dans le fichier <code>flask_app.py</code> dans votre espace personnel sur <em>PythonAnywhere</em>. Les étudiants qui ont eu des difficultés avec l'installation de <code>Flask</code> lors du dernier TP peuvent récupérer les fichiers attendus : <a href="data/TP5_correction.zip">TP5_correction.zip</a></strong></p>
 <p><strong>🚀 Créez un dossier <code>templates</code> et ajoutez-y les 2 fichiers de <em>template</em> : <code>index.html</code> et <code>header.html</code>.</strong></p>
 <p><strong>🚀 Rechargez votre application et vérifiez que tout fonctionne correctement.</strong></p>
 <p><img src="img/pa10.png" alt="" /></p>
 <blockquote>
-<p><strong>Remarque:</strong> Vous pouvez consulter les logs d'erreur de l'application à l'adresse <strong>https://www.pythonanywhere.com/user/{pseudonyme}/files/var/log/{pseudonyme}.pythonanywhere.com.error.log</strong></p>
+<p><strong>Remarque:</strong> Vous pouvez consulter les logs d'erreur de l'application à l'adresse <small>https://www.pythonanywhere.com/user/{pseudonyme}/files/var/log/{pseudonyme}.pythonanywhere.com.error.log</small></p>
 </blockquote>
 <h2><a class="header" href="#1-préambule-1" id="1-préambule-1">1. Préambule</a></h2>
 <p>Les objectifs de ce TP sont:</p>
@@ -1977,7 +1973,7 @@ def root():
 </ul>
 <p><strong>🚀 Lisez attentivement ce morceau de code, il mobilise le modèle <code>Review</code> présenté précedemment ainsi que les fonctionnalités d'ajout à la base de données.</strong></p>
 <p><strong>🚀 Ajoutez-le à votre fichier <code>flask_app.py</code> en remplacement de la fonction <code>root</code> actuelle.</strong></p>
-<p><strong>🚀 Après avoir sauvegardé votre code, recharger votre <em>web app</em> dans l'onglet &quot;Web&quot; de PythonAnywhere. Testez l'ajout de nouveaux avis grâce au formulaire qui vient d'être créé.</strong></p>
+<p><strong>🚀 Après avoir sauvegardé votre code, recharger votre <em>web app</em>. Testez l'ajout de nouveaux avis grâce au formulaire qui vient d'être créé.</strong></p>
 <p><img src="img/pa10.png" alt="" /></p>
 <ul>
 <li>Le résultat attendu est le suivant :</li>
@@ -1985,12 +1981,43 @@ def root():
 <p><img src="img/pa11.png" alt="" /></p>
 <p><strong>🚀 Modifiez le code l'application pour ajouter un champ <code>name_reviewer</code> au modèle <code>Review</code>. Cette modification doit également se refléter dans le formulaire affiché à l'utilisateur qui doit maintenant proposer un champ &quot;Nom&quot;.<br />
 Vous devrez modifier plusieurs éléments dans le fichier <code>flask_app.py</code> (le modèle, la création d'une nouvelle entrée, etc.) et dans le formulaire du fichier <code>index.html</code> (ajout d'un nouvel élément <code>&lt;input type=&quot;text&quot; /&gt;</code>, etc.).</strong></p>
-<p><strong>🚀 Attention, vous devrez supprimer puis recréer la base de données afin d'utiliser ce nouveau modèle. Vous devrez utiliser une console Bash de <em>PythonAnywhere</em> pour effectuer ces actions : <code>cd mysite &amp;&amp; rm db.app &amp;&amp; flask init_db</code>.</strong></p>
+<p><strong>🚀 Que se passe-t-il lors de l'utilisation de la BD avec ce nouveau modèle ?</strong></p>
+<p>Lors de l'utilisation de ce nouveau modèle l'application génère un message d'erreur car la table qu'elle utilise dans la BD à laquelle nous sommes connectés ne comporte pas les champs nécessaires (la colonne <code>name</code> est manquante). Deux solutions sont possibles :</p>
+<ul>
+<li>si l'on souhaite conserver les entrées présentes, nous pouvons utiliser un outil comme <a href="https://alembic.sqlalchemy.org/en/latest/index.html">Alembic</a> qui va se charger de la <em>migration</em> de notre table</li>
+<li>nous pouvons supprimer la BD SQLite et la recréer avec la fonctionnalité apprioriée de notre application <code>Flask</code>.
+Suivez les instructions qui suivent et qui nécessitent d'utiliser une console système :</li>
+</ul>
+<p><strong>🚀 Ouvrir une console <code>Bash</code> depuis la page de l'éditeur de code. Cette console s'ouvre dans le dossier contenant le fichier <code>flask_app.py</code> - c'est ici que nous souhaitons travailler.</strong></p>
+<p><img src="img/pa13.png" alt="" /></p>
+<p><strong>🚀 Saisir la commande qui suit :</strong>
+<strong><code>rm db.app &amp;&amp; export FLASK_APP=flask.py &amp;&amp; flask init_db</code>.</strong></p>
+<p><img src="img/pa14.png" alt="" /></p>
+<p>Cette commande permet :</p>
+<ul>
+<li>De supprimer (<em><code>rm</code></em>, pour <em>remove</em>) le fichier (<em><code>app.db</code></em>) correspondant à votre base de données.</li>
+<li>De définir la <a href="">variable d'environnement</a> <em><code>FLASK_APP</code></em> avec la valeur <em><code>flask_app.py</code></em> : celà sert à indiquer à l'utilitaire CLI <code>flask</code> le fichier de l'application avec lequel on souhaite travailler.</li>
+<li>D'utiliser l'utilitaire CLI <em><code>flask</code></em> avec la commande <em><code>init_db</code></em> qui correspond à la commande permettant de créer et d'initialiser notre BD avec notre modèle <code>Review</code>, définit grâce au décorateur <code>@app.cli.command(&quot;init_db&quot;)</code> dans le fichier <code>flask_app.py</code>.</li>
+</ul>
+<p><strong>🚀 Rechargez la <em>web app</em> et tester l'ajout d'avis grâce à ce nouveau formulaire.</strong></p>
+<p><img src="img/pa10.png" alt="" /></p>
+<ul>
+<li>Le résultat attendu est le suivant :</li>
+</ul>
 <div class="center">
 <p><img src="img/pa12.png" alt="" /></p>
 </div>
 <h1><a class="header" href="#interactions-serveurclient-formulaires-et-bd-1" id="interactions-serveurclient-formulaires-et-bd-1">Interactions serveur/client, formulaires et BD</a></h1>
 <h2><a class="header" href="#glossaire" id="glossaire">Glossaire</a></h2>
+<ul>
+<li>
+<p>CLI: <em>Command Line Interface</em> - terme utilisé pour désigner un outil utilisable depuis une console système.</p>
+</li>
+<li>
+<p>Framework:</p>
+</li>
+<li></li>
+</ul>
 <h2><a class="header" href="#mémo-balises-html" id="mémo-balises-html">Mémo Balises HTML</a></h2>
 <blockquote>
 <p><strong>Remarque</strong>: ce mémo présente les principales balises HTML, notamment celles rencontrées lors de cette session de TP, mais n'est pas exhaustif - une liste plus complète accompagnée de sa description est consultable à l'adresse <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">developer.mozilla.org/fr/docs/Web/HTML/Element</a>.</p>
@@ -2119,7 +2146,7 @@ Vous devrez modifier plusieurs éléments dans le fichier <code>flask_app.py</co
 <p><a href="data/TP5.zip">Données TP5</a> - <a href="data/TP5_correction.zip">Correction (.zip)</a></p>
 </li>
 <li>
-<p>Données TP6 : fichier SQLite <a href="data/TP6/app.db">app.db</a></p>
+<p><a href="data/TP6/app.db">Données TP6 : fichier SQLite <code>app.db</code></a></p>
 </li>
 </ul>
 
