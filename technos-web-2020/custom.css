@@ -93,3 +93,13 @@ kbd {
   border: 0.11em solid rgba(0,0,0,0.6);
   border-bottom-width: 0.3em;
 }
+
+.light .glo a[name], .rust .glo a[name]  {
+  color: darkblue;
+  font-weight: 600;
+}
+
+.ayu .glo a[name], .coal .glo a[name], .navy .glo a[name] {
+  color: #bcbcff;
+  font-weight: 600;
+}

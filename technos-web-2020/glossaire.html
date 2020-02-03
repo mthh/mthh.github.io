@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="6-serveur-client2.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">7.</strong> Interactions serveur/client (2)</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html" class="active">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="6-serveur-client2.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="7-serveur-client3.html"><strong aria-hidden="true">7.</strong> Interactions serveur/client (suite)</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">8.</strong> Javascript - Théorie et pratique</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html" class="active">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -156,15 +156,19 @@
                 <div id="content" class="content">
                     <main>
                         <h2><a class="header" href="#glossaire---termes-importants" id="glossaire---termes-importants">Glossaire - Termes importants</a></h2>
+<div class="glo">
 <ul>
 <li>
 <p><a name="Bootstrap">Bootstrap</a>: collection d'outils (CSS et Javascript) pour la création de sites web, développé par Twitter.</p>
 </li>
 <li>
-<p>&lt;a name&quot;CLI&quot;&gt;CLI</a>: <em>Command Line Interface</em> - terme utilisé pour désigner un outil proposant une interface en ligne de commande, c'est à dire utilisable depuis une console du système par exemple.</p>
+<p><a name="CLI">CLI</a>: <em>Command Line Interface</em> - terme utilisé pour désigner un outil proposant une interface en ligne de commande, c'est à dire utilisable depuis une console du système par exemple.</p>
 </li>
 <li>
 <p><a name="CSS">CSS</a>: <em>Cascasding StyleSheet</em> - c'est un langage permettant de décrire la présentation de documents HTML. Sa version actuelle est CSS3.</p>
+</li>
+<li>
+<p><a name="DOM">DOM</a>: <em>Document Object Model</em> - c'est ...</p>
 </li>
 <li>
 <p><a name="Framework">Framework</a>: Voir <a href="https://fr.wikipedia.org/wiki/Framework">https://fr.wikipedia.org/wiki/Framework</a>.</p>
@@ -173,21 +177,31 @@
 <p><a name="HTML">HTML</a>: <em>HyperText Markup Language</em> - c'est un langage de balisage permettant de représenter les pages Web (il permet de les structurer sémantiquement et logiquement, d'inclure des formulaires et différents autres types de ressources : images, vidéos, liens vers d'autres pages ou ressources, etc.). Sa version actuelle est HTML5. C'est un des concepts central du <a href="#WWW">World Wide Web</a>.</p>
 </li>
 <li>
-<p><a name="HTTP">HTTP</a>: <em>HyperText Transfert Protocol</em> - c'est un protocole de communication client-serveur permettant notamment d'échanger des documents hypertexte. C'est un des concepts central du <a href="#WWW">World Wide Web</a>.</p>
+<p><a name="HTTP">HTTP</a>: <em>HyperText Transfert Protocol</em> - un protocole de communication client-serveur permettant notamment d'échanger des documents hypertexte. C'est un des concepts central du <a href="#WWW">World Wide Web</a>.</p>
 </li>
 <li>
-<p><a name="Javascript">Javascript</a>: C'est un langage de scripts notamment utilisé pour créer des pages web interactives : du code Javascript peut être intégré dans les pages web pour être exécuté dans le navigateur du client.</p>
+<p><a name="Javascript">Javascript</a>: un langage de scripts notamment utilisé pour créer des pages web interactives: du code JavaScript peut être intégré dans les pages web pour être exécuté dans le navigateur du client.</p>
 </li>
 <li>
-<p><a name="SQLite">SQLite</a>: C'est un moteur de base de données relationnelle <em>open-source</em> (son code est dans le domaine public) dont la spécificité est de stocker l'intégralité de la BD dans un fichier indépendant de la plateforme. C'est probablement le moteur de base de données le plus utilisé au monde (<a href="https://www.sqlite.org/famous.html">https://www.sqlite.org/famous.html</a>).</p>
+<p>JSON: <em>JavaScript Object Notation</em> - un format de données textuelles <em>(human readable)</em> dérivé de la syntaxe des objets en JavaScript.</p>
 </li>
 <li>
-<p><a name="URI">URI / URL</a>:</p>
+<p>Moteur de <em>template</em> : un système qui permet (coté serveur dans notre cas) de personnaliser des documents web envoyées au client en combinant la réutilisation d'éléments statiques (le modèle) l'utilisation d'éléments dynamiques (servant à définir le contenu) basés sur les paramètres d'une requête.</p>
 </li>
 <li>
-<p><a name="WWW">WWW</a>: <em>World Wide Web</em> - décrit le système d'information, utilisant le réseau Internet, dans lequel les ressources (documents, etc.) sont identifiées par <a href="#URI">URL</a> et reliées entre elles par des liens hypertextes. Les ressources du WWW sont consultables par des <em>clients Web</em> (généralement des navigateurs Web), publiées des <em>serveurs Web</em> et transférées en utilisant le protocole <a href="#HTTP">HTTP</a>.</p>
+<p><a name="SQLite">SQLite</a>: c'est un moteur de base de données relationnelle <em>open-source</em> (son code est dans le domaine public) dont la spécificité est de stocker l'intégralité de la BD dans un fichier indépendant de la plateforme. C'est probablement le moteur de base de données le plus utilisé au monde (<a href="https://www.sqlite.org/famous.html">https://www.sqlite.org/famous.html</a>).</p>
+</li>
+<li>
+<p><a name="URI">URI</a>: <em>Uniform Resource Identifier</em> - c'est une chaîne de caractères qui désigne une ressource sur un réseau.</p>
+</li>
+<li>
+<p><a name="URL">URL</a>: <em>Uniform Resource Locator</em> - c'est une chaîne de caractères qui désigne une ressource du <a href="#WWW">WWW</a>. Les URL sont parfois appelées <em>adresses Web</em> et composent un sous-ensemble des <a href="#URI">URI</a>.</p>
+</li>
+<li>
+<p><a name="WWW">WWW</a>: <em>World Wide Web</em> - décrit le système d'information, utilisant le réseau Internet, dans lequel les ressources (documents, etc.) sont identifiées par une <a href="#URL">URL</a> et reliées entre elles par des liens hypertextes. Les ressources du WWW sont consultables par des <em>clients Web</em> (généralement des navigateurs Web), publiées des <em>serveurs Web</em> et transférées en utilisant le protocole <a href="#HTTP">HTTP</a>.</p>
 </li>
 </ul>
+</div>
 <h2><a class="header" href="#mémo-balises-html" id="mémo-balises-html">Mémo Balises HTML</a></h2>
 <blockquote>
 <p><strong>Remarque</strong>: ce mémo présente les principales balises HTML, notamment celles rencontrées lors de cette session de TP, mais n'est pas exhaustif - une liste plus complète accompagnée de sa description est consultable à l'adresse <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">developer.mozilla.org/fr/docs/Web/HTML/Element</a>.</p>
