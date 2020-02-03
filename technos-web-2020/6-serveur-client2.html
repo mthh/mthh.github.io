@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="6-serveur-client2.html" class="active"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">7.</strong> Javascript</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="6-serveur-client2.html" class="active"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">7.</strong> Interactions serveur/client (2)</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -194,7 +194,7 @@
 </ul>
 <p><img src="img/pa8.png" alt="" /></p>
 <ul>
-<li>Vous pouvez l'éditer (et le sauvegarder en faisant <code>ctrl</code> + <code>s</code> par exemple).</li>
+<li>Vous pouvez l'éditer (et le sauvegarder en faisant <kbd>ctrl</kbd> +  <kbd>s</kbd> par exemple).</li>
 </ul>
 <p><img src="img/pa9.png" alt="" /></p>
 <ul>
@@ -311,7 +311,8 @@ def review(ident):
     the_review = Review.query.get(ident)
     if the_review:
         return 'Rate: {} - Comment: {}'.format(the_review.rate, the_review.comment)
-    else: ''
+    else:
+        return ''
 
 # Ce morceau de code sert à créer la base de données avec les memes entrées
 # que celles utilisées dans le TP précédent.
@@ -421,10 +422,10 @@ def root():
 <p><strong>🚀 Modifiez le code l'application pour ajouter un champ <code>name_reviewer</code> au modèle <code>Review</code>. Cette modification doit également se refléter dans le formulaire affiché à l'utilisateur qui doit maintenant proposer un champ &quot;Nom&quot;.<br />
 Vous devrez modifier plusieurs éléments dans le fichier <code>flask_app.py</code> (le modèle, la création d'une nouvelle entrée, etc.) et dans le formulaire du fichier <code>index.html</code> (ajout d'un nouvel élément <code>&lt;input type=&quot;text&quot; /&gt;</code>, etc.).</strong></p>
 <p><strong>🚀 Que se passe-t-il lors de l'utilisation de la BD avec ce nouveau modèle ?</strong></p>
-<p>Lors de l'utilisation de ce nouveau modèle l'application génère un message d'erreur car la table qu'elle utilise dans la BD à laquelle nous sommes connectés ne comporte pas les champs nécessaires (la colonne <code>name</code> est manquante). Deux solutions sont possibles :</p>
+<p>→ Lors de l'utilisation de ce nouveau modèle l'application génère un message d'erreur car la table qu'elle utilise dans la BD à laquelle nous sommes connectés ne comporte pas les champs nécessaires (la colonne <code>name</code> est manquante). Deux solutions sont possibles :</p>
 <ul>
 <li>si l'on souhaite conserver les entrées présentes, nous pouvons utiliser un outil comme <a href="https://alembic.sqlalchemy.org/en/latest/index.html">Alembic</a> qui va se charger de la <em>migration</em> de notre table</li>
-<li>nous pouvons supprimer la BD SQLite et la recréer avec la fonctionnalité apprioriée de notre application <code>Flask</code>.
+<li>nous pouvons supprimer la BD SQLite et la recréer avec la fonctionnalité appropriée de notre application <code>Flask</code>.
 Suivez les instructions qui suivent et qui nécessitent d'utiliser une console système :</li>
 </ul>
 <p><strong>🚀 Ouvrir une console <code>Bash</code> depuis la page de l'éditeur de code. Cette console s'ouvre dans le dossier contenant le fichier <code>flask_app.py</code> - c'est ici que nous souhaitons travailler.</strong></p>
@@ -434,9 +435,9 @@ Suivez les instructions qui suivent et qui nécessitent d'utiliser une console s
 <p><img src="img/pa14.png" alt="" /></p>
 <p>Cette commande permet :</p>
 <ul>
-<li>De supprimer (<em><code>rm</code></em>, pour <em>remove</em>) le fichier (<em><code>app.db</code></em>) correspondant à votre base de données.</li>
-<li>De définir la <a href="">variable d'environnement</a> <em><code>FLASK_APP</code></em> avec la valeur <em><code>flask_app.py</code></em> : celà sert à indiquer à l'utilitaire CLI <code>flask</code> le fichier de l'application avec lequel on souhaite travailler.</li>
-<li>D'utiliser l'utilitaire CLI <em><code>flask</code></em> avec la commande <em><code>init_db</code></em> qui correspond à la commande permettant de créer et d'initialiser notre BD avec notre modèle <code>Review</code>, définit grâce au décorateur <code>@app.cli.command(&quot;init_db&quot;)</code> dans le fichier <code>flask_app.py</code>.</li>
+<li>De supprimer (<strong><code>rm</code></strong>, pour <em>remove</em>) le fichier (<strong><code>app.db</code></strong>) correspondant à votre base de données.</li>
+<li>De définir la <a href="https://fr.wikipedia.org/wiki/Variable_d&#x27;environnement">variable d'environnement</a> <strong><code>FLASK_APP</code></strong> avec la valeur <strong><code>flask_app.py</code></strong> : celà sert à indiquer à l'utilitaire CLI <code>flask</code> le fichier de l'application avec lequel on souhaite travailler.</li>
+<li>D'utiliser l'utilitaire CLI <strong><code>flask</code></strong> avec la commande <strong><code>init_db</code></strong> qui correspond à la commande permettant de créer et d'initialiser notre BD avec notre modèle <code>Review</code>, définit grâce au décorateur <code>@app.cli.command(&quot;init_db&quot;)</code> dans le fichier <code>flask_app.py</code>.</li>
 </ul>
 <p><strong>🚀 Rechargez la <em>web app</em> et tester l'ajout d'avis grâce à ce nouveau formulaire.</strong></p>
 <p><img src="img/pa10.png" alt="" /></p>
