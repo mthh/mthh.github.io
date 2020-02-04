@@ -2132,7 +2132,7 @@ Suivez les instructions qui suivent et qui nécessitent d'utiliser une console s
 <p><strong>Modifiez le code de la fonction Python <code>root</code></strong> : lorsqu'un formulaire est reçu (méthode <strong>POST</strong>), vous devez désormais aussi lire les champs <code>latitude</code> et <code>longitude</code> et utiliser leurs valeurs pour créer l'entrée qui va être ajoutée à la base de données. Cette étape est importante car les champs <code>latitude</code> et <code>longitude</code> ont été créés avec le paramètre <code>nullable=False</code> dans le modèle <code>Review</code>.</p>
 </li>
 <li>
-<p><strong>Modifiez le contenu du fichier <code>index.html</code> pour inclure le code javascript qui suit</strong>. Vous devrez l'inclure immédiatement à la suite du code JavaScript existant, au sein de la même balise <code>&lt;script&gt; &lt;/script&gt;</code>. Attention, vous devrez peut-être le modifier pour utilisez les <strong>identifiants des deux éléments <code>&lt;input&gt;</code></strong> que vous venez de créer.</p>
+<p><strong>Modifiez le contenu du fichier <code>index.html</code> pour inclure le code JavaScript qui suit</strong>. Vous devrez l'inclure immédiatement à la suite du code JavaScript existant, au sein de la même balise <code>&lt;script&gt; &lt;/script&gt;</code>. Attention, vous devrez peut-être le modifier pour utilisez les <strong>identifiants des deux éléments <code>&lt;input&gt;</code></strong> que vous venez de créer.</p>
 </li>
 </ol>
 <pre><code class="language-js">// Ici on définit une fonction Javascript dont le contenu sera exécuté
@@ -2234,7 +2234,6 @@ mymap.on('click', onMapClick);
 <ul>
 <li>&quot;habiller&quot; le formulaire autrement,</li>
 <li>changer/ajuster l'emplacement des éléments dans la page <em>(veillez à conserver une disposition agréable des éléments, aussi bien sur un grand écran que sur un écran type <em>smartphone</em>)</em>,</li>
-<li>changer le type de <em>markers</em> utilisés par Leaflet,</li>
 <li>pensez également à regarder la <a href="https://getbootstrap.com/docs/4.4/getting-started/introduction/">documentation de Bootstrap</a> si besoin <em>(couleur de la barre de navigation, etc.)</em>.</li>
 </ul>
 </li>
@@ -2251,8 +2250,10 @@ mymap.on('click', onMapClick);
 </blockquote>
 <p>Plusieurs éléments peuvent encore être améliorés dans la mise en forme et dans le comportement de votre site :</p>
 <ul>
+<li>Vos pages ont-elles toutes un titre ? Remédiez-y si ce n'est pas le cas !</li>
 <li>L'état de la barre de navigation : lorsque vous êtes sur la page <code>À propos</code>, est-ce bien ce lien là qui est définit comme étant &quot;actif&quot; ? <em>(vérifiez le comportement par rapport à la page <a href="http://mthh.pythonanywhere.com/about">http://mthh.pythonanywhere.com/about</a> si nécessaire)</em></li>
 <li>Que se passe-t-il lorsqu'un utilisateur est sur la version mobile de votre page et qu'il clique sur la carte ? Est-il possible de descendre automatiquement jusqu'au formulaire afin que l'utilisateur voit qu'il a été activé ? <em>(plusieurs options sont possibles)</em></li>
+<li>Peut-on changer le type de <em>marker</em> utilisés par Leaflet afin de personnaliser la page ? Comment pourrait-on afficher un <em>marker</em> différent en fonction du la note ?</li>
 </ul>
 <div class="center">
 <p><img src="img/scroll_to_form.gif" alt="" /></p>
