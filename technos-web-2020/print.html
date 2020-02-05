@@ -90,7 +90,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="6-serveur-client2.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="7-serveur-client3.html"><strong aria-hidden="true">7.</strong> Interactions serveur/client (suite)</a></li><li class="expanded "><a href="#.html"><strong aria-hidden="true">8.</strong> Javascript - Théorie et pratique</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="6-serveur-client2.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="7-serveur-client3.html"><strong aria-hidden="true">7.</strong> Interactions serveur/client (suite)</a></li><li class="expanded "><a href="8-javascript.html"><strong aria-hidden="true">8.</strong> Javascript - Théorie et pratique</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -2260,7 +2260,328 @@ mymap.on('click', onMapClick);
 <p><img src="img/scroll_to_form.gif" alt="" /></p>
 </div>
 <p><strong>Essayez de résoudre ces problèmes : regardez les liens proposés ci-dessus et/ou utilisez un moteur de recherche pour décrire ce que vous souhaitez atteindre afin d'évaluer les options qui s'offrent à vous. Faites des propositions à l'oral si vous n'êtes pas sûr ou si vous voulez de l'aide pour l'implémentation.</strong></p>
-<h1><a class="header" href="#interactions-serveurclient-formulaires-et-bd-1" id="interactions-serveurclient-formulaires-et-bd-1">Interactions serveur/client, formulaires et BD</a></h1>
+<h1><a class="header" href="#introduction-au-langage-javascript" id="introduction-au-langage-javascript">Introduction au langage Javascript</a></h1>
+<h2><a class="header" href="#1-préambule-2" id="1-préambule-2">1. Préambule</a></h2>
+<p>Le Javascript est aujourd'hui un langage incontournable du developpement Web.<br />
+C'est un langage de programmation <strong>multi-paradigme</strong> : orienté objet à prototype, impératif et fonctionnel <em>(il partage ces deux dernières caractéristiques avec Python par exemple)</em>.</p>
+<div class="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/200px-Unofficial_JavaScript_logo_2.svg.png" />
+</div>
+<p>Le langage a été créé <em>Netscape</em> (fin 1995) est standardisé sous le nom d'<a href="https://fr.wikipedia.org/wiki/ECMAScript">ECMAScript</a> (c'est peut-être un terme que vous rencontrerez - notamment sous sa forme abrégée pour désigner les différentes versions du standard : <em>ES5</em>, <em>ES6</em>, etc.).</p>
+<p>Sa syntaxe est dérivée de celle du C/C++.</p>
+<pre><code class="language-js">for (let i = 0; i &lt; 10; i++) {
+  console.log(&quot;Iteration n°&quot; + i);
+}
+
+var j = 0;
+while (j &lt; 10) {
+  console.log(&quot;...&quot;);
+  j++;
+}
+</code></pre>
+<p>Ses autres particularités sont les suivantes :</p>
+<ul>
+<li>Langage <strong>interprété</strong> (pas de compilation, exécution directe dans un interpréteur)</li>
+<li><strong>Typage dynamique</strong> (laisse l'ordinateur réaliser l'opération de typage à la volée)</li>
+<li>Modèle objet à base de <strong>prototypes</strong></li>
+<li>Langage <strong>fonctionnel</strong> (les <a href="https://en.wikipedia.org/wiki/First-class_function">fonctions sont des <em>objets de première classe</em></a> : on peut passer des fonctions en argument à des fonctions, les assigner à des variables, les stocker dans des structures de données, etc.)</li>
+</ul>
+<h4><a class="header" href="#pourquoi-le-javascript-" id="pourquoi-le-javascript-">Pourquoi le JavaScript ?</a></h4>
+<div class="center">
+<p><img src="https://mdn.mozillademos.org/files/13502/cake.png" alt="" /></p>
+<p><span class="source">Source: <a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/What_is_JavaScript">https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/What_is_JavaScript</a></p>
+</div>
+<ul>
+<li>Couche <strong>&quot;Comportement&quot;</strong> (JavaScript) qui s'ajoute naturellement à la couche <strong>&quot;Présentation&quot;</strong> (CSS) et à la couche <strong>&quot;Contenu structuré&quot;</strong> (HTML) des technologies web.</li>
+<li>Création de contenus complexes, dynamiques et interactifs dont la logique est exécutée coté client, le moment venu.</li>
+<li>Les navigateurs web disposent de plusieurs <strong>API</strong> <em>(Application Programming Interfaces)</em> qui permettent de manipuler le document (<em>API DOM</em>), de manipuler des contenues 2D ou 3D (<em>API Canvas</em> et <em>API WebGL</em>) ou les informations de géolocalisation (<em>API Geolocation</em>) par exemple ; ces API sont accessibles en JavaScript.</li>
+</ul>
+<h3><a class="header" href="#11-quelques-idées-fausses" id="11-quelques-idées-fausses">1.1 Quelques idées fausses</a></h3>
+<ul>
+<li>
+<p>Ce n'est toutefois pas <u><em>le</em></u> langage du Web. En effet d'autres solutions ont été developpées pour s'éxecuter coté client (c'est par exemple le cas de Adobe Flash ou des <em>applets</em> Java).
+En revanche, avec la normalisation du langage et un meilleur support par tous les navigateurs et avec l'introduction de HTML5 (et de ses nombreuses API JavaScript), le Javascript a effectué un retour en force dans l'écosystème Web coté client</p>
+</li>
+<li>
+<p>Le Javascript n'est pas seulement utilisé coté client mais également de plus en plus comme un langage de script à part entière, notamment depuis l'existence de <a href="https://nodejs.org">node.js</a>.</p>
+</li>
+</ul>
+<div class="center">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/320px-Node.js_logo.svg.png" alt="" /></p>
+</div>
+<h3><a class="header" href="#12-environnements-dexécution-javascript" id="12-environnements-dexécution-javascript">1.2 Environnements d'exécution JavaScript</a></h3>
+<p>Un environnement d'exécution Javascript est composé d'un <strong>moteur d'exécution</strong> JavaScript <em>(runtime)</em> et d'objets JavaScript spécifiques à l'environnement en question.</p>
+<p>Les principaux environnement d'exécutions sont les <strong>navigateurs Web</strong> (<em>Chrome</em> utilise le moteur <a href="https://v8.dev/"><em>V8</em></a>, <em>Firefox</em> utilise <a href="https://developer.mozilla.org/fr/docs/SpiderMonkey"><em>SpiderMonkey</em></a> et <em>Safari</em> utilise <em>WebKit</em>).</p>
+<p><strong>Node.js</strong> est un environnement d'éxecution célèbre (utilisant lui aussi le moteur <em>V8</em>) qui n'est lié à un aucun navigateur Web ; il permet ainsi l'exécution de code Javascript hors du contexte du navigateur.</p>
+<h3><a class="header" href="#13-intégration-dans-une-page-html" id="13-intégration-dans-une-page-html">1.3 Intégration dans une page HTML</a></h3>
+<ul>
+<li>
+<p>L'intégration de code JavaScript se fait au moyen de la balise <code>&lt;script&gt; &lt;/script&gt;</code>.</p>
+</li>
+<li>
+<p>Elle peut se faire à deux endroits de la page HTML : dans l'en-tête ou dans le corps de la page HTML.</p>
+</li>
+<li>
+<p>Le chargement et l'exécution de ces scripts respecte l'ordre d'apparition dans la page.</p>
+</li>
+</ul>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;script&gt;
+      // Code Javascript Ici
+    &lt;/script&gt;
+    &lt;script src=&quot;monScript.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;Contenu ...&lt;/header&gt;
+    &lt;main&gt;
+        Contenu de la page
+    &lt;/main&gt;
+    &lt;footer&gt;Contenu ...&lt;/footer&gt;
+    &lt;script&gt;
+      // Code Javascript Ici
+    &lt;/script&gt;
+    &lt;script src=&quot;unAutreScript.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<blockquote>
+<p><strong>Remarque</strong>:</p>
+<ul>
+<li>Les scripts placés dans l'en-tête (<code>&lt;head&gt;</code>) sont executés avant la contruction et l'affichage de la page.</li>
+<li>Les script placés dans le corps (<code>&lt;body&gt;</code>) sont exécutés au fur et à mesure que la page HTML est lue et que le DOM se construit.</li>
+</ul>
+</blockquote>
+<p>Comme pour l'ajout de règles CSS, il existe donc bien deux manières <em>(rédactions du code JavaScript dans la page HTML ou inclusion d'un fichier externe)</em> d'intégrer un script JavaScript.</p>
+<h3><a class="header" href="#14-votre-environnement-de-travail" id="14-votre-environnement-de-travail">1.4 Votre environnement de travail</a></h3>
+<p>Vous utiliserez les mêmes outils (éditeur de code de votre choix et navigateur Web) que lors des premières séance de TP.</p>
+<p>Comme lors des autres séances <strong>il est indispensable de travailler avec la fenêtre des outils pour développeurs (<em>DevTools</em> - accessible avec <kbd>F12</kbd>) de votre navigateur - celui-ci comprend en effet une console JavaScript</strong>.</p>
+<h2><a class="header" href="#2-les-base-du-langages" id="2-les-base-du-langages">2. Les base du langages</a></h2>
+<blockquote>
+<p><strong>Liens utiles sur le JavaScript:</strong></p>
+<ul>
+<li><strong>Mozilla Developpers Network - Premier pas en JavaScript</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps">https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps</a></li>
+<li><strong>W3schools Javascript Tutorial</strong> : <a href="https://www.w3schools.com/js/">https://www.w3schools.com/js/</a></li>
+<li><strong>Eloquent JavaScript</strong> - 3rd edition (online, PDF, E-PUB, etc.) : <a href="https://eloquentjavascript.net/">https://eloquentjavascript.net/</a></li>
+<li>Pour se faire la main en JavaScript il faut pratiquer... des <a href="https://www.w3schools.com/js/exercise_js.asp">exercices comme ceux de W3schools</a> puis des sites comme <a href="https://JavaScript30.com">JavaScript30</a> peuvent donner de bonnes occasions de pratiquer !</li>
+</ul>
+</blockquote>
+<h3><a class="header" href="#21-Éléments-de-base-pour-javascript-dans-le-navigateur" id="21-Éléments-de-base-pour-javascript-dans-le-navigateur">2.1 Éléments de base pour JavaScript dans le navigateur</a></h3>
+<p><strong>🚀 Ouvrez un navigateur et une console JavaScript et saisissez les commandes qui suivent une-à-une (validation avec <kbd>Enter</kbd>) et observez bien le résultat!</strong></p>
+<pre><code class="language-js">console.log(&quot;Contenu du message à afficher&quot;);
+</code></pre>
+<pre><code class="language-js">document // Pour manipuler des objets sur la page
+</code></pre>
+<pre><code class="language-js">// Ne va pas fonctionner si aucun élément de la page n'a cet id !
+// Trouver l'id d'un élément de la page et modifiez le de la manière suivante !
+document.getElementById('myElem').innerHTML = &quot;New content !&quot;
+</code></pre>
+<pre><code class="language-js">// Ne va pas fonctionner si aucun élément de la page n'a cet id !
+// Trouver l'id d'un élément de la page et modifiez le de la manière suivante !
+document.querySelector('#myElem').innerHTML = &quot;New content !&quot;
+</code></pre>
+<pre><code class="language-js">// Ne va pas fonctionner si aucun élément 'div' n'a cette classe !
+document.querySelector('div.myClass').innerHTML = &quot;New content too !&quot;
+</code></pre>
+<pre><code class="language-js">document.title
+</code></pre>
+<pre><code class="language-js">window // Objet relatif à la fenêtre
+</code></pre>
+<pre><code class="language-js">window.alert(&quot;Contenu de l'alerte !&quot;)
+</code></pre>
+<pre><code class="language-js">window.innerHeight // un entier
+</code></pre>
+<pre><code class="language-js">window.innerWidth // un entier
+</code></pre>
+<pre><code class="language-js">window.screen // un Object JavaScript
+</code></pre>
+<pre><code class="language-js"> // Un Object décrivant l'URL actuelle du document
+window.location
+</code></pre>
+<pre><code class="language-js"> // On accère à la propriété 'href' de cet objet
+ // ... c'est la chaine de caractère qui correspond à l'URL actuelle:
+window.location.href
+</code></pre>
+<h3><a class="header" href="#22-variables" id="22-variables">2.2 Variables</a></h3>
+<p>Elles sont utilisées pour stocker des données dans la mémoire de l'ordinateur <em>(on associe une valeur à un nom de variable)</em>.</p>
+<p>Vous rencontrerez deux type de variables :</p>
+<ul>
+<li>types primitifs : notations litérales (<code>2</code>, <code>3.14</code>, <code>&quot;Chaine de caractère&quot;</code>, <code>'une autre chaine'</code>) et valeurs natives <em>(built-ins)</em> (<code>true</code>, <code>false</code>, <code>undefined</code>, <code>null</code>, <code>NaN</code>, <code>Infinity</code>)</li>
+<li>objets JavaScript (par exemple <code>Array</code> pour un tableau)</li>
+</ul>
+<pre><code class="language-js">// On peut déclarer un variable sans lui affecter de valeur:
+var a; // équalivent à `var a = undefined;`
+var b, c;
+
+console.log(a); // undefined
+
+// Affectation avec la forme littérale
+// (chaine de caractère, entier, réel)
+a = &quot;Coucou&quot;;
+b = 1;
+c = 3.14;
+
+// On peut affecter une valeur lors de la déclaration
+var d = &quot;Hello&quot;;
+
+// On peut ensuite affecter une valeur d'un autre type
+a = 12;
+
+
+// Tableau d'entiers (forme littérale)
+var myTableau = [1, 2, 3, 4];
+
+// Objet JavaScript (forme littérale)
+var myObj = {
+  &quot;rate&quot;: 5,
+  &quot;comment&quot;: &quot;Awesome place ! Great Food !&quot;
+};
+</code></pre>
+<blockquote>
+<p><strong>Remarque:</strong> Historiquement la déclaration de variable se fait avec <code>var</code>. Depuis <strong>ES6</strong> la bonne pratique est d'utiliser <code>let</code> ou <code>const</code>. Cette fonctionnalité est maintenant supportée par les différents navigateurs Web.</p>
+</blockquote>
+<ul>
+<li><code>const</code> :</li>
+</ul>
+<pre><code class="language-js">const myConst = 12;
+
+// On ne peut pas faire :
+myConst = 15; // TypeError : invalid assignement to const 'myConst'
+</code></pre>
+<ul>
+<li><code>let</code> :</li>
+</ul>
+<pre><code class="language-js">let isValid = false;
+
+// later in your code :
+isValid = true;
+</code></pre>
+<h2><a class="header" href="#23-opérateur-arithmétiques-logiques-et-de-comparaison" id="23-opérateur-arithmétiques-logiques-et-de-comparaison">2.3 Opérateur arithmétiques, logiques et de comparaison</a></h2>
+<ul>
+<li>
+<p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
+</li>
+<li>
+<p><code>++</code>, <code>--</code></p>
+</li>
+<li>
+<p><code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></p>
+</li>
+<li>
+<p><code>||</code> (pensez à <code>or</code> en Python), <code>&amp;&amp;</code> (pensez à <code>and</code> en Python), <code>!</code> (pensez à <code>not</code> en Python)</p>
+</li>
+</ul>
+<h3><a class="header" href="#24-contrôle-du-flux-dexécution" id="24-contrôle-du-flux-dexécution">2.4 Contrôle du flux d'exécution</a></h3>
+<ul>
+<li>
+<p>Lorsque le navigateur web rencontre du code JavaScript il l'exécute dans l'ordre d'apparition (à quelques exceptions qui ne sont pas abordées).</p>
+</li>
+<li>
+<p>Contrairement au Python, l'indentation ne joue pas de rôle dans la logique du code <em>(celà ne veut pas dire qu'il ne faut pas respecter certaines règles! pensez à la lecture du code par vous ou d'autres développeurs!)</em></p>
+</li>
+<li>
+<p>Instructions conditionnelles : <code>if</code>, <code>else</code>, <code>else if</code> <code>switch</code></p>
+</li>
+<li>
+<p>Instructions itératives : <code>for</code>, <code>while</code></p>
+</li>
+</ul>
+<pre><code class="language-js">// Définition d'une fonction créant un paragraphe
+// et l'ajoutant à la fin de la page
+// (la fonction est définie, on pourra l'utiliser avec son nom 'createParagraph'
+// mais elle n'est pas exécutée lors de sa définition, seulement lorsqu'elle
+// sera invoquée par la suite).
+function createParagraph() {
+  let para = document.createElement('p');
+  para.textContent = 'You clicked the button!';
+  document.body.appendChild(para);
+}
+
+// Créé un tableau référencant tous les éléments 'button':
+let buttons = document.querySelectorAll('button');
+
+// Utilisation d'une boucle pour parcourir le tableau dans son ensemble
+for(let i = 0; i &lt; buttons.length ; i++) {
+
+  // Ajoute un &quot;click event listener&quot; sur chaque bouton
+  // lors du clic, la fonction 'createParagraph'
+  // sera appelée:
+  buttons[i].addEventListener('click', createParagraph);
+
+  // Un message est écrit dans la console en fonction de la valeur de &quot;i&quot;
+  if (i &lt; 12) {
+    console.log('La valeur de la variable &quot;i&quot; est actuellement inférieure à 12 !');
+  } else if (i &lt; 25) {
+    console.log('La valeur de la variable &quot;i&quot; est actuellement inférieure à 25 (mais supérieure ou égale à 12) !');
+  } else {
+    console.log('La variable &quot;i&quot; vaut au moins 25 maintenant !')
+  }
+}
+</code></pre>
+<h3><a class="header" href="#25-commentaires" id="25-commentaires">2.5 Commentaires</a></h3>
+<pre><code class="language-js">/*
+ Commentaire
+ multi lignes ...
+*/
+var a = 12;
+
+// Commentaire sur une seule ligne
+</code></pre>
+<h2><a class="header" href="#3-retour-commenté-sur-le-code-javascript-vu-précédemment" id="3-retour-commenté-sur-le-code-javascript-vu-précédemment">3. Retour commenté sur le code JavaScript vu précédemment</a></h2>
+<pre><code class="language-html">&lt;body&gt;
+  &lt;!--
+    Le reste du corps de notre page
+  --&gt;
+  &lt;script src=&quot;https://unpkg.com/leaflet@1.6.0/dist/leaflet.js&quot; integrity=&quot;sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==&quot; crossorigin=&quot;&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+    var mymap = L.map('mapid').setView([45.192, 5.768], 14);
+
+    var osmLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19
+    });
+
+    mymap.addLayer(osmLayer);
+
+    function onMapClick(e) {
+      // On affche les coordonnées dans la console:
+      console.log(&quot;You clicked the map at &quot; + e.latlng);
+      // Les 3 instructions suivantes permettent d'interagir avec le DOM
+      // lors de l'exécution de la fonction. On appelle ici les éléments
+      // grace à leur 'id'.
+      // On change la valeur des éléments du formulaire:
+      document.getElementById(&quot;inputLong&quot;).value = e.latlng.lng;
+      document.getElementById(&quot;inputLat&quot;).value = e.latlng.lat;
+      // On active le formulaire (en définissant la valeur de 'disabled' sur false)
+      document.getElementById(&quot;fieldsreview&quot;).disabled = false;
+      // On indique où va être laissé l'avis avec un tooltip.
+      // C'est un objet de la bibliothèque 'Leaflet':
+      var popup = L.popup();
+      popup
+          .setLatLng(e.latlng)
+          .setContent(&quot;Your review will appear here&quot;)
+          .openOn(mymap);
+      // On déplace le document jusqu'à l'élément qui a l'id &quot;topfieldset&quot;
+      // en 'scrollant' avec un effet de transition.
+      // Cela ne se produit que dans la version smartphone quand les éléments
+      // sont empilés.
+      // Dans la version desktop, l'élément est déjà en haut de la vue
+      // de l'utilisateur.
+      document.getElementById(&quot;topfieldset&quot;).scrollIntoView({behavior: &quot;smooth&quot;, block: &quot;start&quot;, inline: &quot;nearest&quot;});
+    }
+
+    mymap.on('click', onMapClick);
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<h2><a class="header" href="#4-mise-en-pratique" id="4-mise-en-pratique">4. Mise en pratique</a></h2>
+<p><strong>🚀 Rendez-vous sur la page <a href="https://www.w3schools.com/js/exercise_js.asp">https://www.w3schools.com/js/exercise_js.asp</a> et commencez les exercices dans l'ordre</strong>.</p>
+<p>Ces exercices simples mettent l'accent sur votre bonne compréhension du mécanisme de base de l'écriture du code JavaScript. Ils représentent également un bon moyen d'apprendre certaines de ces notions par la pratique.</p>
+<p><strong>Soyez attentif aux énoncés et suivez votre instinct ! N'hésitez pas à demander et/ou à vous rendre sur le tutoriel correspondant avant de cliquer sur <code>Show Answer</code> :)</strong></p>
+<div class="center">
+<p><img src="img/tp8_1.png" alt="" /></p>
+<p><strong>Nous ferons un point de cours à la fin de la séance</strong>.</p>
+</div>
 <h2><a class="header" href="#glossaire---termes-importants" id="glossaire---termes-importants">Glossaire - Termes importants</a></h2>
 <div class="glo">
 <ul>
@@ -2428,7 +2749,7 @@ mymap.on('click', onMapClick);
 <p><a href="./7-serveur-client3.pdf">7 - Interactions serveur/client (suite)</a></p>
 </li>
 <li>
-<p>8 - Javascript (éléments théoriques)</p>
+<p><a href="./8-javascript.pdf">8 - Javascript (éléments théoriques)</a></p>
 </li>
 </ul>
 <h2><a class="header" href="#données--corrections" id="données--corrections">Données &amp; corrections</a></h2>
