@@ -27,4 +27,4 @@
 
 - ["Environnement de dev. en JS" (20 décembre 2019)](https://mthh.github.io/environnement_dev_js_20191220/)  
 
-- ["Tour d'horizons des fonctionnalité de SHACL"](https://mthh.github.io/shacl_intro_20200117/)
+- ["Tour d'horizons des fonctionnalité de SHACL" (17 janvier 2020)](https://mthh.github.io/shacl_intro_20200117/)
