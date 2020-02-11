@@ -1,0 +1,1230 @@
+class: first
+
+# Outils de Communication territoriale
+
+<br>
+
+## M1 IDT2
+
+<br>
+
+### Partie 1 : Cartographie thématique / statistique
+### et mise en scéne de la carte
+
+<div style="width: 167px;position: absolute;bottom: -5px;left: 0px;">
+
+<img src="img/logo-uga.jpg" />
+
+</div>
+
+<div style="margin: auto; text-align: center; position: relative; bottom: -100px; left: 20px;">
+<p style="font-size: 20px;margin:auto; text-align: center">Matthieu Viry - LIG <em>(Laboratoire d'Informatique de Grenoble)</em></p>
+<p style="font-size: 20px;margin:5px auto; text-align: center">🖂 <a href="maito:matthieu.viry@univ-grenoble-alpes.fr">matthieu.viry@univ-grenoble-alpes.fr</a></p>
+</div>
+
+---
+class: t1
+
+## Contenu du cours
+
+
+- .bb[[Qu'est-ce qu'une carte ? ](#4)]
+
+  * Histoire et définition
+
+- .bb[[Les composantes de l'information géographique](#24)]
+
+  * ... et les formats manipulés dans cette séance de TP/cours
+
+- .bb[[Sémiologie graphique](#40)]
+
+  * Variables visuelles
+
+  * Discrétisation
+
+- .bb[[Mise en scène cartographique](#73)]
+
+  * De la carte à l'infographie...
+
+- .bb[[Synthèse et application avec Magrit](#113)]
+
+
+.center.source[(support élaboré avec l'[UMS RIATE](http://riate.cnrs.fr) dans le cadre des formations à [MAGRIT](http://magrit.cnrs.fr))]
+
+---
+
+## Objectifs
+
+<br><br><br>
+
+**🚀 Se familiariser avec les règles de sémiologie graphique**
+
+<br>
+**🚀 Connaître les règles de construction d'une carte**
+
+<br>
+**🚀 Savoir faire une carte esthétique et adaptée au message / au public**
+
+
+---
+class: section-change
+
+# Partie 1
+
+# Qu'est-ce qu'une carte ?
+
+---
+## Les cartes existent depuis longtemps...
+#### Cadastre de Belinda
+
+<div class="center"><img src="img/cadastre_belinda.png" style="width: 57%;" /></div>
+
+.small[*"Quatre périodes au moins de gravure se superposent, et cette mystérieuse topographie apparaît sur la deuxième couche, voisinant avec des représentations de cervidés. S'il s'agit bien d'un premier vocabulaire topographique, nous ne savons pas le lire."* (Source : [BNF](http://expositions.bnf.fr/cartes/grand/213.htm))]
+
+???
+Ces images gravées sur la roche dans le célèbre site de Val Camonina, en Italie du Nord, seraient-elles les traces du premier cadastre ?
+
+---
+## Les cartes existent depuis longtemps
+#### Eratosthènes (-200)
+
+![](img/eratosthenes_map.png)
+
+???
+
+Il est connu pour avoir mesuré géométriquement la circonférence de la Terre en comparant les angles des ombres formées par des rayons lumineux du Soleil à deux lieux différents espacés d'une distance connue.
+
+Ératosthène avait remarqué qu'au solstice d'été, le 21 juin, le soleil arrivait directement à la verticale dans un puits de la ville de Syène, située sur le tropique du Cancer : le puits était donc parfaitement éclairé. Or, au même moment, à Alexandrie, un obélisque formait une ombre : le soleil n'était donc pas à la verticale en ce lieu. Il en déduit par un calcul géométrique, la circonférence de la terre.
+
+On lui attribue le terme géographie. Il laissa une carte générale de l'écoumène qui fut longtemps l'unique base de la géographie (cf. reproduction au tableau)
+
+---
+## Les cartes existent depuis longtemps
+#### Ptolémée (-100) : naviguer, savoir se déplacer..
+
+.center.img85[![https://upload.wikimedia.org/wikipedia/commons/f/f0/Claudius_Ptolemy-_The_World.jpg](img/Claudius_Ptolemy-_The_World.jpg)]
+.center.source[Reproduction d'une carte de Ptolémée - Nicolaus Germanus - Source : [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Claudius_Ptolemy-_The_World.jpg)]
+
+???
+
+C'est un astronome et astrologue grec qui vécut à Alexandrie (Égypte). Il est également l’un des précurseurs de la géographie. Sa vie est mal connue.
+
+---
+## Les cartes existent depuis longtemps
+#### Les portulans (à partir de 1200)
+
+<div class="center"><img src="img/640px-Maggiolo_-_Portolankarte_-_1541.png" style="width: 630px" /></div>
+<span class="source center">Source: <a href="https://commons.wikimedia.org/wiki/File:Maggiolo_-_Portolankarte_-_1541.png?uselang=fr">Wikimedia Commons</a></span></div>
+
+???
+Un portulan, ou carte-portulan, (de l'italien portolano, livre d’instructions nautiques) est une sorte de carte de navigation, utilisée du xiiie siècle au xviiie siècle, servant essentiellement à repérer les ports et connaître les dangers qui peuvent les entourer : courants, hauts-fonds...
+
+Les portulans se distinguent par deux caractères graphiques spécifiques : **les lignes de vents** ou de rhumb qui colorent et quadrillent les surfaces marines, **l'alignement perpendiculaire au trait de côte des noms de lieux** (havres et ports colorés différemment selon leur importance). Des roses des vents permettent en outre de repérer la route et de déterminer le cap à suivre.
+
+---
+## Les cartes existent depuis longtemps
+#### Les cartes de Cassini (1760 - 1815)
+
+<div class="center"><img src="img/geoportail_cassini.jpg" style="width: 500px" /></div>
+<span class="source center">Source: <a href="https://www.geoportail.gouv.fr/carte?c=5.733755266610379,45.16648306236553&z=14&l0=GEOGRAPHICALGRIDSYSTEMS.CASSINI::GEOPORTAIL:OGC:WMTS(1)&permalink=yes">Geoportail</a></span></div>
+
+???
+La carte de Cassini ou carte de l'Académie est **la première carte topographique et géométrique établie à l'échelle du royaume de France dans son ensemble**. Il serait plus approprié de parler de carte des Cassini, car elle a été dressée par la famille Cassini, principalement César-François Cassini (Cassini III) et son fils Jean-Dominique Cassini (Cassini IV) au xviiie siècle.
+
+Cette carte constitue pour l'époque une véritable innovation et une avancée technique décisive. **Elle est la première carte à s'appuyer sur une triangulation géodésique dont l'établissement a pris plus de soixante ans**. Les quatre générations de Cassini se sont succédé pour réaliser ce travail. La carte ne localise pas précisément les habitations ou les limites des marais et forêts, mais le niveau de précision du réseau routier représenté est tel qu'en superposant des photos satellite orthorectifiées aux feuilles de la carte de la France, on obtient de spectaculaires résultats.
+
+---
+## _"La géographie, ça sert, d'abord, à faire la guerre"_ (Y. Lacoste)
+
+.center[
+![](https://www.wired.com/wp-content/uploads/2015/07/ff_sovietmaps_1_chicagocomparison2-1024x512.jpg)
+.source[<em>Unlike the 1984 US Geological Survey map of Chicago’s lakefront, the 1982 Soviet map shows individual buildings in the city and structures on Navy Pier.</em>]
+<br><br>
+.source[Source: KENT LEE/EAST VIEW GEOSPATIAL; USGS; <br> in [WIRED - Inside the Secret World of Russia’s Cold War Mapmakers](https://www.wired.com/2015/07/secret-cold-war-maps/)]
+]
+
+---
+## Apparition de la visualisation de données
+
+<br><br><br>
+
+**William Playfair** (1786)
+
+<img src="img/playfair1.png" style="position: absolute; top: 410px; width: 340px;" />
+<img src="img/playfair2.png" style="position: absolute; top: 100px; right: 100px; width: 345px;" />
+<img src="img/playfair3.png" style="position: absolute; top: 410px; right: 100px; width: 325px;" />
+
+???
+
+En 1786, l’écossais William Playfair invente trois types de conception graphique : la série statistique sous forme de courbes, le graphique à barres et le graphique à secteurs.
+
+---
+## Apparition de la visualisation de données
+
+![](img/nightingale_dataviz.png)
+
+**Florence Nightingale** (1858)
+
+???
+
+En 1858, Florence Nightingale, infirmière britannique, rend compte à la reine Victoria des causes de mortalité de ses soldats engagés en guerre de Crimée, à l'aide de ce graphique.
+
+---
+## Apparition des cartes *spéciales* ou *figuratives*
+
+[![](img/dupuis_map_fig.png)]
+
+<span style="position:absolute; top: 100px; right: 20px;"><strong>Charles Dupin (1826)</strong></span>
+
+???
+
+En 1826, le français Charles Dupin réalise la première carte thématique (dite carte spéciale ou carte figurative). Elle porte sur l’instruction populaire dans les départements français. En noir, l’obscurantisme, l’ignorance. En blanc, la lumière, le savoir.
+
+---
+## Apparition des cartes *spéciales* ou *figuratives*
+
+.center.img75[![](img/cheysson_map.png)]
+
+.center[**Emile Cheysson** (1886)]
+
+???
+
+Emile Cheysson est un ingénieur des ponts et chaussés. Il a produit plusieurs "Albums de statistique graphique" qui sont considérés comme des exemples de visualisation de données.
+
+---
+
+## Essor de la cartographie thématique
+
+![](img/minard_map_flow.png)
+
+---
+
+![](img/minard_flow.png)
+
+<span style="position:absolute; top: 450px;"><strong>Charles Joseph Minard (1812)</strong></span>
+
+???
+
+Minard fait œuvre de pionnier dans l’utilisation des graphiques appliqués au génie civil et aux statistiques. Il atteint la célébrité pour sa Carte figurative des pertes successives en hommes de l'armée française dans la campagne de Russie 1812-1813, une représentation graphique publiée en 1869 relative à la désastreuse campagne de Russie entreprise par Napoléon en 1812. Ce célèbre graphique présente plusieurs variables dans une simple image en deux dimensions :
+
+- localisation et itinéraire de l’armée indiquant les points de séparation et de regroupement des unités ;
+- pertes humaines de l’armée (particulièrement sensibles lors de la traversée de la Bérézina) ;
+- variations de la température de l’air au cours de la retraite.
+
+---
+## Depuis les années 60...
+
+<br><br>
+
+
+→ Développement des SIG dès le milieu des années 60 et essor dans les années 80-90.
+
+→ Application SIG utilisant internet depuis les années 90
+
+→ Changement des pratiques de _cartographie_ avec le Web, les dispositifs mobiles (*smartphones, etc.*), la recrudescence de sources d'informations et de données disponibles, etc.
+
+
+<p style="text-align:center;"><img src="img/esri_logo.png" style="margin: 12px; width: 120px;" alt=""> <img src="img/logo_leaflet.png" style="margin: 12px; width: 120px;" alt=""><img src="img/logo_mapbox.png" style="margin: 12px; width: 120px;" alt=""></p>
+
+
+---
+
+![](img/keplergl.png)
+
+.source.small.center[Source: [https://eng.uber.com/keplergl/](https://eng.uber.com/keplergl/)]
+
+???
+Lib. developpée par Uber que vous devriez utiliser dans les TP suivants.
+
+Kepler.gl is a data-agnostic, high-performance web-based application for visual exploration of large-scale geolocation data sets. Built on top of Mapbox GL and deck.gl, kepler.gl can render millions of points representing thousands of trips and perform spatial aggregations on the fly.
+
+---
+
+## .center[Cartes topographiques *vs* cartes thématiques]
+
+
+.left-column-45.align-right.small[
+<u>Carte topographique</u><br><br>
+Cartes sur lesquelles figurent essentiellement les **résultats des observations directes** : aspect descriptif de la physionomie du terrain, planimétrie et altimétrie, forme, dimensions et identification des éléments concrets, des **objets géographiques fixes et durables existant à la surface du sol, à un moment donné**.
+<br>
+![](img/topo_otm.png)
+]
+
+
+.right-column-45.align-left.small[
+<u>Carte thématique</u><br><br>
+Carte représentant sur un fond repère topographique, hydrographique, chorographique ou géographique, des **phénomènes localisables de toutes natures, qualitatifs ou quantitatifs**.
+
+Leur représentation s’effectue selon les règles de la **sémiologie graphique**.
+<br>
+![](img/riate02-potcinema.png)
+]
+
+---
+## À quoi servent les cartes ?
+
+<br><br>
+
+.left-column-45[
+### .center[Analyser]
+
+* .small[Pourquoi ici plutôt qu'ailleurs ?]
+
+* .small[Pourquoi ici plus qu'ailleurs ?]
+]
+
+.right-column-45[
+### .center[Communiquer]
+
+* .small[Montrer, démontrer]
+
+* .small[Expliquer, convaincre, ...]
+]
+
+---
+
+.center[*"... un point de vue sur le réel"*]
+
+![](img/point_de_vue_reel.png)
+
+---
+## Alors, qu'est-ce que la cartographie ? Définitions...
+
+<br>
+
+Définition : Une <u><b>carte</b></u> est une image simplifiée et codifiée de l’espace géographique, qui représente ses caractéristiques et/ou son organisation. Elle résulte de l’acte créateur et des choix de son auteur.
+
+<br>
+
+Définition : La <u><b>cartographie</b></u> est la discipline **artistique**, **scientifique** et **technique**, ayant pour objet la construction de cartes.
+
+<br>
+
+Définition : Le <u><b>cartographe</b></u> est l’individu qui maîtrise les méthodes, techniques et concepts de mise en image de l’information géographique.
+
+<br>
+
+.source[Lambert N. et Zanin C., Manuel de cartographie, Armand Colin, 2016]
+
+---
+
+### Discipline artistique, scientifique et technique ?
+
+<br>
+
+- _artistique_ → Ésthétique, recherche graphique
+
+<br>
+
+- _scientifique_ → Rigueur, de la recherche, de la théorie, mobilisation d'un savoir géographique
+
+<br>
+
+- _technique_  → Savoir-faire opérationel pointu : acquisition et traitement des données, outils informatiques
+
+<br>
+
+.center[**→ Une multitude de façon d'être cartographe**]
+
+<p style="text-align: center;"><img src="img/logo_qgis.png" style="width:110px;margin-bottom: 25px;" alt=""> <img src="img/logo_magrit.png" style="width:110px;margin-bottom: 25px;" alt=""> <img src="img/logo_r.png" style="width:80px;margin-bottom: 10px;" alt=""> <img src="img/logo_inkscape.png" style="width:80px;" alt=""> <img src="img/logo_ai.png" style="width:71px;margin-bottom:5px;" alt=""> <img src="img/logo_leaflet.png" style="width:110px;margin-bottom: 25px;" alt=""></p>
+
+???
+
+Parler cartographie reproductible / dev. web pour cartographie / cartographie d'édition
+
+
+---
+class: section-change
+
+
+# Partie 2
+
+# Les composantes de l'information géographique
+
+---
+## L'info. géo. et ses composantes dans MAGRIT
+
+<br><br>
+
+![](img/image1021.png)
+
+---
+
+### Les géométries
+
+<br>
+
+Elles définissent la **forme** et la **localisation** de l'objet à cartographier sur la surface terrestre.
+
+Les positions des géométries sont toujours exprimées en **latitude / longitude** ou en **coordonnées cartographiques** _(i.e. dans un système de coordonnées de référence)_.
+
+On parle aussi de **fond de carte géoréférencé.**
+
+.img35.center[![](img/fond_reg.png)]
+
+---
+
+### Les géométries
+
+![](img/vecteur_raster.png)
+
+---
+### Les géométries vectorielles
+
+<br><br>
+
+- Des points géoréférencés
+
+- Un ensemble de points pouvant constituer des lignes ou des surfaces
+
+- Ne pixellise jamais, chaque objet a un identifiant unique
+
+<br>
+
+.center[**→ C'est ce type de géométrie que nous allons mobiliser pour faire de la cartographie thémtique dans ce TP**]
+
+---
+### Les géométries : formats de données
+
+![](img/image8899.png)
+
+
+---
+### Les géométries : formats de données
+
+![](img/image900.png)
+
+
+---
+### Les géométries : fond de carte
+
+Le fond de carte est le contenant de l’information spatiale à représenter. Il contient l’ensemble des géométries utiles pour le projet cartographique.
+
+Pour être efficace et adaptée au projet cartographique, la recherche d’un “bon” fond de carte doit considérer a minima trois éléments d’importance :
+- **L’espace d’étude**
+- **Le/les objets géographiques qu’il contient**
+- **Le niveau de détail des géométries _(généralisation cartographique)_.**
+
+---
+### Les données (attributaires / alpha-numériques)
+
+<br>
+
+**Les données alphanumériques contiennent des informations, numériques ou toponymiques, que l'on rattache aux objets géographiques.**
+
+---
+### Les données (attributaires / alpha-numériques)
+
+
+Par example dans les fonds de cartes de référence IGN :
+
+- Identifiant géographique
+- Nom des communes
+- Statut de la commune
+- Superficie
+- Population
+
+.center[
+**... il va être nécessaire de les enrichir**
+
+**Comment collecter ces données ? Comment les organiser pour un projet cartographique ?**
+]
+
+---
+###  Les données (attributaires / alpha-numériques)
+
+![](img/image911.png)
+
+---
+###  Les données (attributaires / alpha-numériques)
+
+![](img/image922.png)
+---
+
+### Les données (attributaires / alpha-numériques)
+
+<br>
+
+**Exemples de sources de données pour cartographie statistique:**
+
+- France : INSEE, [data.gouv.fr](https://data.gouv.fr)
+
+<br>
+
+- Open data à échelle plus locale ([http://data.metropolegrenoble.fr/](http://data.metropolegrenoble.fr/), [https://opendata.cityofnewyork.us/data/](https://opendata.cityofnewyork.us/data/), etc.)
+
+<br>
+
+- Sites institutionnels correspondant aux échelles d'études : EuroStat pour l'Europe, Banque Mondiale pour le Monde, etc.
+
+---
+### Joindre les données et les géométries
+
+![](img/image955.png)
+
+---
+### Joindre les données et les géométries
+
+
+![](img/image966.png)
+
+---
+### Joindre les données et les géométries
+
+![](img/image977.png)
+
+---
+class: section-change
+
+
+# Partie 3
+
+# Les principes de la sémiologie graphique
+
+---
+
+### Jacques Bertin et la sémiologie graphique
+
+La **sémiologie graphique** est, de façon générale, l'**ensemble des règles** qui régissent la construction d'un **système de signes** ou **langage** permettant la traduction graphique d'une information.
+
+<div class="center"><img src="img/bertin_book.png" style="width: 225px;" /></div>
+
+Depuis la parution de *la Sémiologie graphique* de Jacques Bertin en 1967, elle désigne surtout un ensemble standardisé des règles et de pratiques inhérentes à la représentation cartographique au-delà des travaux réalisés par J. Bertin.
+
+---
+### Une approche pragmatique
+
+<br><br>
+
+Les **variables visuelles** (ou variables retiniennes) sont les moyens graphiques pour retranscrire visuellement une information.
+
+<br>
+
+*__"La graphique utilise les propriétés de l'image visuelle pour faire apparaître les relations de différence, d'ordre et de proportionnalité entre les données”__*
+(Jacques BERTIN)
+
+
+.center[_**→ simplifier la vie du lecteur de cartes**_]
+
+---
+### Une approche pragmatique
+
+<br>
+
+“La graphique utilise les propriétés de l'image visuelle pour faire apparaitre les relations de **différence**, d'ordre et de proportionnalité entre les données”
+(Jacques BERTIN)
+
+<br>
+
+.center[
+**Données qualitatives**
+
+**(CATEGORIES)**
+
+**A, B, C, D, F, Z**
+]
+
+---
+### Une approche pragmatique
+
+<br>
+
+“La graphique utilise les propriétés de l'image visuelle pour faire apparaitre les relations de **différence**, d'ordre et de proportionnalité entre les données”
+(Jacques BERTIN)
+
+<br>
+
+<div class="center">
+
+<img src="img/vvp_diff.png" />
+
+</div>
+
+---
+### Une approche pragmatique
+
+<br>
+
+“La graphique utilise les propriétés de l'image visuelle pour faire apparaitre les relations de différence, d'**ordre** et de proportionnalité entre les données”
+(Jacques BERTIN)
+
+<br>
+
+.center[
+**Données quantitatives relatives**
+
+**(RATIOS)**
+
+**1, 2, 34, 56.3, 17, 125.1**
+]
+
+---
+### Une approche pragmatique
+
+<br>
+
+“La graphique utilise les propriétés de l'image visuelle pour faire apparaitre les relations de différence, d'**ordre** et de proportionnalité entre les données”
+(Jacques BERTIN)
+
+<br>
+
+<div class="center">
+
+<img src="img/vvp_ordre.png" />
+
+</div>
+
+---
+### Une approche pragmatique
+
+<br>
+
+“La graphique utilise les propriétés de l'image visuelle pour faire apparaitre les relations de différence, d'ordre et de **proportionnalité** entre les données”
+(Jacques BERTIN)
+
+<br>
+
+.center[
+**Données quantitatives absolues**
+
+**(STOCKS)**
+
+**1, 2, 34, 56, 17, 125**
+]
+
+---
+### Une approche pragmatique
+
+<br>
+
+“La graphique utilise les propriétés de l'image visuelle pour faire apparaitre les relations de différence, d'ordre et de **proportionnalité** entre les données”
+(Jacques BERTIN)
+
+<br>
+
+<div class="center">
+
+<img src="img/vvp_prop.png" />
+
+</div>
+
+---
+
+<br><br><br>
+
+## .center[Comment se matérialisent les variables visuelles selon l'implantation ?]
+
+---
+
+### La VALEUR
+
+![](img/vv_valeur.png)
+
+### La VALEUR (associée à la couleur)
+
+![](img/vv_valeur_couleur.png)
+
+---
+### La TAILLE
+
+![](img/vv_taille.png)
+
+### Mais aussi la hauteur ou le volume...
+
+![](img/vv_hauteur.png)
+
+---
+
+### La FORME
+
+![](img/vv_forme.png)
+
+### La COULEUR
+
+![](img/vv_couleur.png)
+
+---
+
+### La TEXTURE/STRUCTURE
+
+![](img/vv_texture.png)
+
+### Le GRAIN
+
+![](img/vv_grain.png)
+
+---
+### L'ORIENTATION
+
+![](img/vv_orientation.png)
+
+<br>
+
+.center[
+**→ En tout, 7 variables visuelles (_forme_, _taille_, _couleur_, _valeur_, _grain_, _texture_, et _orientation_)**
+
+*Note : certains auteurs en ajoutent parfois d’autres (opacité, variables visuelles animées, etc.)*
+]
+---
+### Les propriétés des variables visuelles
+
+.img50[![](img/bertin_variable_retinienne.png)]
+
+<span class="source" style="position: absolute; top: 640px; right: 340px;">Source: Bertin J. (1967, p. 96)</span>
+---
+### Les propriétés des variables visuelles
+
+![](img/zanin_tremelo_recap.png)
+
+.center[→ Les choix des variables visuelles dépend du type d’objet géographique (point, ligne, surface) et de la nature des données (stock, ratio, catégorie).]
+
+---
+### Le langage cartographique
+
+<br><br>
+
+.center[
+La compréhension de l'image cartographique repose sur des **règles de construction de la symbolique** : la **sémiologie**.
+
+<br><br>
+
+**⚠ C'est le respect de ces règles qui permet de transmettre de manière <u>correcte</u> et <u>accessible</u> l'information à un lecteur	⚠**
+]
+
+???
+
+Nécessaire d’être à même d'expliquer les choix opérés (discrétisation, variable visuelle employée etc.)
+
+---
+### Le langage cartographique
+
+<br>
+
+.center[Une bonne représentation cartographique concilie ainsi **rigueur scientifique** et **efficacité visuelle** !]
+
+<br><br>
+
+* **Implantation de l'information** .small[*(ponctuelle, linéaire, surfacique)*]
+
+<br>
+
+* **Nature de l'information** .small[*(différentiel, ordonné, qualitatif)*]
+
+<br>
+
+* **Variables visuelles** .small[*(forme, taille, valeur, grain, couleur, orientation)*]
+
+---
+
+#### Exprimer des catégories .right[➡ COULEUR]
+
+.center.img70[![](img/map_categorical.png)]
+
+.center.source[Source: [https://www.ncl.ucar.edu/Applications/classification.shtml](https://www.ncl.ucar.edu/Applications/classification.shtml)]
+
+???
+On utilise des variables de différenciation !
+
+---
+
+#### Exprimer des catégories .right[➡ FORME]
+
+.center.img70[![](img/meteo.jpg)]
+
+---
+
+#### Exprimer des quantités .right[➡ TAILLE]
+
+.img70.center[![](http://magrit.cnrs.fr/static/book/img/propsymbol.png)]
+
+???
+On utilise des variables de proportionnalité !
+
+---
+
+#### Exprimer des quantités .right[➡ TAILLE]
+
+.img75.center[![](img/map_quantity.png)]
+
+---
+
+#### Exprimer des quantités .right[➡ TAILLE]
+
+.img75.center[![](img/dougenik.png)]
+
+---
+
+#### Exprimer des quantités .right[➡ TAILLE]
+
+.img80.center[![](img/minard_map_flow.png)]
+
+---
+
+#### Exprimer l'ordre .right[➡ VALEUR]
+
+.img75.center[![](img/dupuis_map_fig.png)]
+
+???
+On utilise des variables d'ordre !
+
+---
+
+#### Exprimer l'ordre .right[➡ VALEUR ET COULEUR]
+
+.img75.center[![](https://f.hypotheses.org/wp-content/blogs.dir/3495/files/2018/01/nuts3_cagr2-768x653.png)]
+
+---
+### Exprimer l'ordre....en discrétisant les valeurs
+
+
+.img75.center[![](https://f.hypotheses.org/wp-content/blogs.dir/3495/files/2018/01/nuts3_cagr2-768x653.png)]
+
+<div style="border: solid 7px red;width: 57px;position: absolute;top: 270px;right: 193px;height: 122px;"></div>
+
+---
+
+### Discrétisation
+
+.center[![](img/discr_illu1.png)]
+
+
+---
+
+### Discrétisation
+
+**➡ Dessiner un histogramme permet de caractériser la distribution des données à représenter**
+
+*➡ Voir notamment [http://mappemonde.mgm.fr/119geov1/](http://mappemonde.mgm.fr/119geov1/) pour l'importance du choix d'une discrétisation adaptée en cartographie.*
+
+.left-column[![](img/discr_magrit.png)]
+
+.right-column[![](img/discr_qgis.png)]
+
+.img50.center[![](http://magrit.cnrs.fr/static/book/img/box_plot.svg)]
+
+
+
+---
+### Discrétisation
+
+<br>
+
+**Transformer une série continue de valeurs en une série discrète, c'est à dire en un nombre fini de classes.**
+
+
+**Le nombre de classes ainsi que les valeurs limites de ces classes doivent être justifiées sémantiquement et/ou statistiquement.**
+
+
+**Les méthodes proposées par l'outil (QGIS, Magrit, R, ...) peuvent être utilisées telles quelles ou bien comme des guides de lecture et d'analyse préalables à la saisie manuelle des limites de classes souhaitées.**
+
+
+_Intervalles égaux, Quantiles, Q6, Seuils naturels (algorithme de Jenks), Moyenne et écart-type ou saisies manuelles des limites de classes..._
+
+.center[*Voir :* [http://magrit.cnrs.fr/docs/discretisation_fr.html](http://magrit.cnrs.fr/docs/discretisation_fr.html)]
+
+
+---
+
+### Combiner plusieurs variables / représentations...
+
+.img80.center[![](img/map_combinaison.png)]
+
+---
+
+### Combiner plusieurs variables / représentations...
+
+.img80.center[![](img/map_combinaison2.png)]
+
+---
+class: section-change
+
+# Partie 4
+
+# Mise en scène cartographique
+
+---
+### _Mettre en scène une carte_
+<span style="float: left;">Le contenu</span><span style="float: right;">Le contenu</span>
+<img src="img/image889.png" style="position: absolute;top: 44px;right: 15px;margin: auto;width: 97%;" />
+
+<span style="position: absolute; bottom: 12px; margin: auto;" class="small source">D'après Philippe Rekacewicz, 2014</span>
+
+---
+### Le fond de carte : les projections
+
+<br><br><br>
+
+**Peuvent déformer les formes, les surfaces, les angles ..**
+
+<br><br>
+
+*La question se pose moins lors d'un travail de carto à l'échelle locale...*
+
+
+---
+### Le fond de carte : les projections
+
+.img85.center[![](img/webmercator.png)]
+
+.center[**Projection Mercator** *(projection utilisée par défaut pour le Web-mapping)*]
+
+---
+### Le fond de carte : les projections
+
+.img85.center[![](img/natearth2.png)]
+
+.center[**Projection Natural Earth 2** *(une des projections qui tente de minimiser les déformations)*]
+
+
+---
+### Le fond de carte : les projections
+
+.img85.center[![](img/laea.png)]
+
+
+---
+### Le fond de carte : les projections
+
+.img85.center[![](img/gallpeters.png)]
+
+.center[**Projection Gall-Peters** *(parfois utilisée pour ses propriétés "égalitaires")*]
+
+???
+
+La projection de Peters est une projection équivalente (qui conserve les aires) qui maintient la proportion entre les surfaces sur la carte et les surfaces réelles. Ainsi, les rapports entre les surfaces des pays sur la carte correspondent au rapport de leurs surfaces réelles (l'Afrique apparaît bien 14 à 15 fois plus grande que le Groenland). Mais, localement, cette projection ne conserve pas les angles, ce qui se traduit par la déformation des continents au contraire de la carte de Mercator.
+
+---
+### Le fond de carte : les projections
+
+.center[![](img/logo_onu.png)]
+
+
+---
+### Le fond de carte : les projections
+
+.center[![](img/map_china.png)]
+
+---
+### Le fond de carte : les projections
+
+.center[![](img/map_palestine.jpg)]
+
+---
+### Le fond de carte : l'emprise spatiale
+
+.center[![](img/spatial_extent0.png)]
+
+---
+### Le fond de carte : l'emprise spatiale
+
+.center[![](img/spatial_extent.png)]
+
+.center[**→ _maximiser la taille de la carte et minimiser les blancs_**]
+
+---
+### Le fond de carte : l'emprise spatiale
+
+![](img/image834.png)
+
+---
+### Le fond de carte : l'emprise spatiale
+
+![](img/image823.png)
+
+---
+### Le fond de carte : l'emprise spatiale
+
+![](img/image845.png)
+
+---
+### Le fond de carte : l'emprise spatiale
+
+![](img/image856.png)
+
+---
+### Le fond de carte : l'emprise spatiale
+
+![](img/image867.png)
+
+---
+### La mise en page et les éléments d'habillage
+
+<br>
+![](img/asterix_layout.png)
+
+---
+### La mise en page et les éléments d'habillage
+
+<br><br>
+
+
+Une carte se doit de comporter :
+
+- Titre précis *(voir problématisé)*
+
+
+- Légende précise et organisée
+
+
+- Échelle graphique
+
+
+- Orientation
+
+
+- Sources des données
+
+
+- Auteur et date de réalisation
+
+
+---
+
+### Le titre
+
+<br>
+
+→ C'est l'**identifiant premier du sujet de la carte**.<br>
+Il est le plus souvent disposé en haut, sert d'entrée à la lecture du document, et assure son identification externe.<br>
+
+→ **_Il peut être bref, net, technique, polémique ou séducteur, mais toujours clair_**
+
+→ _Caractères suffisamment grands et épais mais pas disproportionnés par rapport à la carte._
+
+
+---
+### Le titre
+
+.img65[![](img/map_title_1.png)]
+
+<span style="text-align: left; position: absolute; top: 100px; right: 35px;width: 280px;"><strong>Quel est le titre de cette carte ?</strong></span>
+
+---
+### Le titre
+
+.img65[![](img/map_title_1.png)]
+
+<span style="text-align: left; position: absolute; top: 100px; right: 35px; display: block; width: 280px;"><strong>Les Roms, peuple européen</strong><br><br><em class="small">(source: Le monde diplomatique)</em></span>
+
+---
+### La légende
+
+→ **La légende explique l’ensemble des modes de représentation utilisés sur la carte**.
+
+→ C’est à la fois le **dictionnaire** et l’**index des symboles graphiques**, une aide pour la lecture et l’analyse du message présenté.
+
+→ Elle sert à l’**identification interne du message cartographique**.
+
+.withborder.center.img50[![](img/lgd_cat.png)]
+
+---
+
+### La légende
+
+.withborder.center[
+![](img/lgd_ratio1.png)
+
+![](img/lgd_stock1.png)
+]
+
+---
+### La légende
+
+.center.img75[![](img/map_example_good.png)]
+
+---
+### La légende
+
+.center.img75[![](img/map_example_good.png)]
+
+<div style="border: solid 2px red;width: 184px; position: absolute; top: 90px; left: 151px; height:95px"></div>
+---
+### La légende
+
+.center.img75[![](img/map_example_good.png)]
+
+<div style="border: solid 2px red;width: 184px; position: absolute; top: 90px; left: 151px; height:95px"></div>
+<div style="border: solid 2px red;width: 121px; position: absolute; top: 187px; left: 151px; height:155px"></div>
+
+*__Les légendes aussi ont un titre__ :<br> il décrit précisément les indicateurs cartographiés.*
+
+---
+
+### L'échelle
+
+.center.img85[![](img/structure_peuplement.png)]
+
+.source.center[Source : [https://magrit.hypotheses.org/galerie](https://magrit.hypotheses.org/galerie)<br>Auteur : Ronan YSEBAERT]
+
+<div style="border: solid 4px red;width: 46px; position: absolute; top: 496px; left: 151px; height:25px"></div>
+
+
+---
+### Les sources, dates, notes
+
+.center.img75[![](img/image878.png)]
+
+---
+### L'orientation / la présence d'un graticule
+
+.center.img45[![](img/graticule.png)]
+
+.center.img45[![](https://f.hypotheses.org/wp-content/blogs.dir/3495/files/2018/09/mediatheque_est_ensemble.png)]
+
+
+---
+### L'orientation / la présence d'un graticule
+
+.center.img45[![](img/orientation_sud.png)]
+
+
+---
+### Hiérarchisation de l'information
+
+<br>
+
+![](img/hierarchisation_info.png)
+
+---
+### Hiérarchisation de l'information
+
+<br>
+
+#### _"Mentir honnêtement ?"_
+
+<br><br>
+
+- .bb[Grossir] les éléments importants
+
+- .small[Dissimuler] les éléments inutiles
+
+???
+
+« Une bonne carte énonce une multitude de petits mensonges. Elle déforme la vérité pour aider l'utilisateur à voir ce qu'il a besoin de voir » cf. Monmonnier
+
+---
+### De la carte à l'infographie...
+
+.img75.center[![](https://f.hypotheses.org/wp-content/blogs.dir/3495/files/2018/09/mediatheque_est_ensemble.png)]
+
+.source.center[Source : [https://magrit.hypotheses.org/galerie](https://magrit.hypotheses.org/galerie)]
+
+---
+
+<img src="https://pbs.twimg.com/media/EKh4QNnXkAAhIEZ?format=jpg&name=4096x4096" />
+
+.source.center[Source : [https://twitter.com/E_Sigat/status/1200341526360023040](https://twitter.com/E_Sigat/status/1200341526360023040)]
+
+---
+
+<img src="https://pbs.twimg.com/media/ELrWUUYX0AAqBhx?format=jpg&name=large" />
+
+.source.center[Source : [https://twitter.com/E_Sigat/status/1200341750562381824](https://twitter.com/E_Sigat/status/1200341750562381824)]
+
+---
+
+<img src="https://pbs.twimg.com/media/EKh4dPuXkAA11-3?format=jpg&name=4096x4096" />
+
+.source.center[Source : [https://twitter.com/E_Sigat/status/1205511500745584640](https://twitter.com/E_Sigat/status/1205511500745584640)]
+
+
+---
+### De la carte à l'infographie...
+
+<br>
+
+- **Avoir les bons outils** (dessin vectoriel, etc.)
+
+<br>
+
+- **Soigner l'esthétique** (police d'écriture, emplacement des éléments, contours, bordures de l'image, etc.) **sans renoncer à la rigueur scientifique**
+
+<br>
+
+- **Problématiser la carte**
+
+<br>
+
+- **Donner des clés de lecture**
+
+---
+## Références (1)
+
+- **Manuel de cartographie - Principes, méthodes, applications**. LAMBERT N., ZANIN C. (2016)
+
+- **La représentation des données géographique - Statitique et cartographie**. 4ème édition. BÉGUIN M., PUMAIN D. (2017)
+
+- **Cartography visualization of spatial data**. 3rd edition. KRAAK M.J., ORMELING F. (2011)
+
+![](img/lambert_zanin.jpg) ![](img/beguin_pumain.jpg) ![](img/kraak_ormeling.jpg)
+
+
+---
+## Références (2)
+
+- **Mad maps - l'atlas qui va changer votre vision du monde**. LAMBERT N., ZANIN C. (2019)
+
+- **How to Lie with Maps**. 3rd edition. MONMONIER M. (2018)
+
+<br><br>
+
+.center[<img src="https://images-na.ssl-images-amazon.com/images/I/61MJcEThyhL._SX329_BO1,204,203,200_.jpg" style="width:184px;" /> ![](img/lambert_zanin_madmaps.jpeg)]
+---
+class: section-change
+
+# Synthèse !
+
+---
+class: section-change
+
+![](img/image1032.png)
+
+---
+class: section-change
+
+![](img/image1043.png)
+
+---
+class: section-change
+
+![](img/image1054.png)
+
+---
+class: section-change
+
+![](img/image1065.png)
+
+---
+class: section-change
+
+![](img/image1076.png)
+
+---
+class: section-change
+
+![](img/image1164.png)
+
+---
+class: section-change, white-color
+
+### .center[6/6 Réflexion]
+
+<br>
+
+La carte est-elle efficace ?
+
+<br>
+
+Comment l'améliorer ?
+
+---
+class: section-change
+
+# À vous de jouer !
+
+# 🚀
+
+---
+class: section-change
+
+![](img/magrit.png)
