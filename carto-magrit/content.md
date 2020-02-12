@@ -1220,11 +1220,14 @@ Comment l'améliorer ?
 ---
 class: section-change
 
-# À vous de jouer !
-
-# 🚀
+![](img/magrit.png)
 
 ---
 class: section-change
 
-![](img/magrit.png)
+# À vous de jouer !
+
+# 🚀
+
+[Exercice session 2](./2.html)
+---
