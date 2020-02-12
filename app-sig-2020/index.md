@@ -1,6 +1,6 @@
 # Documents pour APP SIG - Master 1 Urbanisme
 
-**[Livret en version PDF](Livret_APP_SIG_2020.pdf)**
+### [Livret en version PDF](Livret_APP_SIG_2020.pdf)
 
 ---
 
@@ -24,7 +24,6 @@ Sources :
 
 ...
 
----
 
 
 <br><br>
