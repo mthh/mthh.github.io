@@ -1,12 +1,12 @@
 # Documents pour APP SIG - Master 1 Urbanisme
 
-[Livret en version PDF](Livret_APP_SIG_2020.pdf)
+**[Livret en version PDF](Livret_APP_SIG_2020.pdf)**
 
 ---
 
-### Séance 1
+## Séance 1
 
-[Documents](https://cloud.univ-grenoble-alpes.fr/index.php/s/9YEDampH6TYtHgJ)
+**[Documents à consulter](https://cloud.univ-grenoble-alpes.fr/index.php/s/9YEDampH6TYtHgJ)**
 
 Sources :
   - [Capture d'écran OpenStreetMap](https://www.openstreetmap.org/#map=16/45.1926/5.7682)
@@ -20,12 +20,17 @@ Sources :
 
 ---
 
-### Séance 2
+## Séance 2
 
-
+...
 
 ---
 
+
+<br><br>
+
+---
+---
 
 ### Autres ressources utiles *(également listées dans le livret)*
 
