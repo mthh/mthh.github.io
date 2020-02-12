@@ -61,6 +61,24 @@ Cette représentation est particulièrement pertinente lorsqu'elle peut être co
 ![](img/discont.png)
 
 ---
+class: center, middle
+
+## Rendre comparables deux cartes
+
+---
+
+.center.img65[![](img/biblio09.png)]
+
+---
+
+.center.img65[![](img/biblio16.png)]
+
+---
+class: center, middle
+
+<img src="img/ui_prop_symbol.png" style="width: 100%;" />
+
+---
 
 ## Exercice 2
 
