@@ -24,13 +24,15 @@ Sources :
 
 ## Séance 2
 
-...
+**[Données à télécharger](https://cloud.univ-grenoble-alpes.fr/index.php/s/DGEWQeCQmB2bNqs)** (un fichier les décrivant se situe à l'intérieur de l'archive)
 
 
 
 <br><br>
 
 ---
+
+
 ---
 
 ### Autres ressources utiles *(également listées dans le livret)*
