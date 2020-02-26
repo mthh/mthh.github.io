@@ -283,7 +283,7 @@ class: section-change
     * adresse numérique composée de 4 entiers entre 0 et 255
     * exemple : `129.88.38.11`
 - Rôle
-    * permettre la .red[communication] entre ordinateurs d'un réseau
+    * permettre la <span class="red">communication</span> entre ordinateurs d'un réseau
     * chaque ordinateur d'un réseau possède une adresse IP unique sur ce réseau
     * c'est la base du système d'acheminement (routage) des paquets de données sur Internet
 
@@ -295,10 +295,10 @@ class: section-change
 
 - Déchiffrement d'une adresse IP : deux parties
   * Une partie des nombres à gauche désigne le réseau
-      - Elle est appelée .red[ID de réseau] (*netID*),
+      - Elle est appelée <span class="red">ID de réseau</span> (*netID*),
 
   * Les nombres de droite désignent les ordinateurs de ce réseau
-      - On parle d'.red[ID d'hôte] (*host-ID*).
+      - On parle d' <span class="red">ID d'hôte</span> (*host-ID*).
 - Plus le nombre de bits réservés à la partie gauche (donc au réseau) est petit, plus le réseau peut contenir d'ordinateurs:
   * .light[Le réseau `102.0.0.0` peut contenir des ordinateurs d'adresses IP variant de `102.0.0.1` à `102.255.255.254` (soit 16 777 214 possibilités)]
   * .light[le réseau `194.26.0.0` ne peut contenir "que" des ordinateurs d'adresses IP comprises entre `194.26.0.1` et `194.26.255.254` (soit 65 534 possibilités)]
