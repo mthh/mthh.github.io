@@ -20,6 +20,8 @@ Sources :
 
 [Tableau à remplir pour la séance 2](https://cloud.univ-grenoble-alpes.fr/index.php/s/dTFcf5QPKE3N8LS)
 
+<br>
+
 ---
 
 ## Séance 2
