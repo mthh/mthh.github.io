@@ -26,12 +26,21 @@ Sources :
 
 **[Données à télécharger](https://cloud.univ-grenoble-alpes.fr/index.php/s/DGEWQeCQmB2bNqs)** (un fichier les décrivant se situe à l'intérieur de l'archive)
 
+**[Slides vues en cours](TP2/index.html)**
 
-
-<br><br>
+<br>
 
 ---
 
+## Séance 3
+
+
+**[Slides vues en cours](TP3/index.html)**
+
+<br>
+
+
+---
 
 ---
 
