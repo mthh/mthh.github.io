@@ -136,7 +136,7 @@ Nous disposons des différentes zones à éviter pour la construction du bâtime
 
 1. En **fusionnant** les couches correspondant aux contraintes *(pensez d'abord à créer les couches qui correspondent à l'emprise spatiale des routes et des voies férrées - la couche des routes contient un champ "largeur" !)*
 
-2. En calculant la **différence** entre la zone d'étude et la couche issue de la fusion.
+2. Et en calculant la **différence** entre la zone d'étude et la couche issue de la fusion.
 ---
 ## Combinaison des contraintes (2/7)
 
@@ -210,7 +210,7 @@ Ces critères nécessitent de s'intéresser à localisation d'éléments existan
 
 <br>
 
-Afin de calculer ces valeurs, nous allons utiliser une approche *raster*. Pensez à utiliser la même <u>unité</u> (*"unités géoréférencées"*), les mêmes <u>résolutions horizontales/verticales</u> (*par exemple* `1` *mètre*), et la même <u>emprise</u> de résultat (*par exemple l'emprise de la zone d'étude*) lors de la création des différentes couches *raster* qui vont suivre.
+Afin de calculer ces valeurs, nous allons utiliser une approche *raster*. Pensez à utiliser : le bon <u><b>système de coordonnées de référence</b></u> (`RGF 93 / Lambert 93 (EPSG:2154)` dans notre cas), la même <u><b>unité</b></u> (*"unités géoréférencées"*), les mêmes <u><b>résolutions horizontales/verticales</b></u> (*par exemple* `1` *mètre*), et la même <u><b>emprise</b></u> de résultat (*par exemple l'emprise de la zone d'étude*) lors de la création des différentes couches *raster* qui vont suivre.
 
 ---
 ## Modéliser des critères d'ordre subjectif
@@ -263,7 +263,7 @@ Exemple de résultat :
 ## Modéliser des critères d'ordre subjectif
 ### 3 - La densité d'arbres isolés
 
-En utilisant la *méthode d'estimation par noyau* pour calculer une valeur de densité en tout point de l'espace (ici dans un rayon de 250m)
+En utilisant la *méthode d'estimation par noyau* pour calculer une valeur de densité en tout point de l'espace (ici dans un <u>rayon de 250m</u>, toujours avec une <u>résolution spatiale de 1 mètre</u>).
 
 [Détails dans la documentation de QGIS](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/interpolation.html#qgisheatmapkerneldensityestimation) / Voir également la page [Wikipedia](https://fr.wikipedia.org/wiki/Estimation_par_noyau)
 
