@@ -4,6 +4,7 @@
 
 ### [Livret en version PDF](Livret_APP_SIG_2020.pdf)
 
+### [Autres ressources spécifiques au TP](divers.md) *vidéos et explication pas-à-pas, exemple de données après les traitements des TP1-3, etc.)*
 ---
 
 ## Séance 1
@@ -43,6 +44,25 @@ Sources :
 
 
 ---
+
+## Séance 4
+
+
+**[Slides](TP4/index.html)**
+
+<br>
+
+---
+
+## Séance 5
+
+
+**Slides**
+
+<br>
+
+---
+
 
 ---
 
