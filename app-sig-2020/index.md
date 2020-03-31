@@ -4,7 +4,7 @@
 
 ### [Livret en version PDF](Livret_APP_SIG_2020.pdf)
 
-### [Ressources spécifiques au TP et à la nouvelle organisation "à distance"](divers.md) *(vidéos et explication pas-à-pas, exemple de données après les traitements des TP1-3, etc.)*
+### [Ressources spécifiques au TP et à la nouvelle organisation "à distance"](divers.md) *(vidéos et explications pas-à-pas, exemple de données après les traitements des TP1-3, etc.)*
 ---
 
 ## Séance 1
