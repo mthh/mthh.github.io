@@ -81,7 +81,7 @@ Par exemple, l’analyse multicritère va permettre d’établir des priorités 
 
 - d'une couche, au format vecteur, représentant la zone d'étude
 
-- de couches représentant des contraintes (binaires) au format vecteur *(par exemple : emprise actuelle des bâtiments, des voies de communications et des terrains de sports + zone non-constructible au regard du PLU)*
+- de couches représentant des contraintes (binaires) au format vecteur *(par exemple : emprise actuelle des bâtiments, des voies de communications et des terrains de sports + zone non-constructible au regard du PLU + bande de précaution du risque inondation)*
 
 - de couches représentant des critères (appelées "facteur" dans les images précédentes) subjectifs d'installation du bâtiment (par exemple *l'éloignement à la ligne de tramway* et la *proximité à un terrain de sport*) ainsi que des facteurs d'installation au regard du PLU (*zone d'autorisation sous prescriptions* vs *zone sans demande d'autorisation*)
 
@@ -179,13 +179,63 @@ Puisque chacune des couches raster utilise la valeur 0 pour indiquer une zone no
 .center.img80[![](img/fusion_contrainte.png)]
 
 ---
-## 2. Rasteriser les couches qui correspondent à des critères (non-binaires)
+## 2. Rasteriser les couches qui correspondent à des critères (non-binaires) (1)
 
 Il est possible, lors de la **rastérisation** de ne pas seulement écrire une valeur fixe dans le raster,
 mais d'écrire une valeur qui dépend d'un attribut de la couche à rastériser. C'est ce que nous allons faire pour les zones inondables par exemple :
 celles-ci se divisent en 3 catégories : la première interdit la construction *(bande précaution)* et a été intégrée dans les contraintes, les deux autres permettent la construction à des niveaux différents *(zone d'autorisation sous prescriptions)*.
 
 Nous allons donc affecter un score de 100 aux surfaces qui ne sont pas inondables *(le meilleur score)*, et un score de 50 ou de 10 en fonction du type de zone d'autorisation sous prescriptions.
+
+---
+## 2. Rasteriser les couches qui correspondent à des critères (non-binaires) (2)
+
+On souhaite passer d'une couche vecteur contenant deux types de zones *(zone d'autorisation sous prescriptions)* et des trous *(rien de spécial au niveau des inondations)* à une couche raster décrivant également ces informations (il est nécessaire que le type de zone soit stocké en attribut sous forme d'un nombre entier).
+
+.center.img65[![](img/vecteur_type_inondation.png)]
+
+---
+## 2. Rasteriser les couches qui correspondent à des critères (non-binaires) (3)
+
+Dans QGIS :  
+**`Raster` > `Conversion` > `Rastérisation (vecteur vers raster)...`**
+
+.center.img85[![](img/rasterise_value.png)]
+
+---
+
+## 2. Rasteriser les couches qui correspondent à des critères (non-binaires) (4)
+
+Le résultat reflète la transformation effectuée (ne pas hésiter à changer la symbologie):
+
+.center.img80[![](img/raster_type_inondation.png)]
+
+---
+
+## 2. Rasteriser les couches qui correspondent à des critères (non-binaires) (5)
+
+<br><br>
+
+On souhaite ensuite désormais **affecter un score aux différentes zones**. Cette opération est possible en utilisant la **calcultatrice raster**.
+Nous allons utiliser les scores suivants :
+- 100 (meilleur score) si la zone ne présente pas de risque inondation
+- 50 pour les *zones d'autorisation sous prescriptions* de type Bi1
+- 10 pour les *zones d'autorisation sous prescriptions* de type Bi2
+
+<br>
+
+*Note : la "bande de précaution" a été intégrée précédemment dans les contraintes binaires.*
+---
+
+## 2. Rasteriser les couches qui correspondent à des critères (non-binaires) (6)
+
+.center.img85[![](img/rast_calc4.png)]
+
+---
+
+## 2. Rasteriser les couches qui correspondent à des critères (non-binaires) (7)
+
+.center.img80[![](img/score_inondation.png)]
 
 ---
 ## 3. Reclasser les couches raster correspondant à des critères (déjà au format rasters)
@@ -248,6 +298,25 @@ Ce calcul se réalise lui aussi dans la **calculatrice raster** de QGIS et mobil
 
 .center.img65[![](img/amc_fusion2.png)]
 
+---
+class: section-change
+
+# À vous de jouer !
+
+---
+## À vous de jouer ! - Recommandations
+
+<br>
+
+**⚠ Attention à ne pas seulement utiliser les critères utilisés ici en exemple, plusieurs aspects ont été laissé de coté : présence de chemins piétons, présence d'espaces verts (hors bois-classés), etc.**
+
+
+**⚠ Pensez à donner des noms explicites à vos couches** (pas *Rastérisé* par exemple) **de façon à pouvoir les re-mobiliser facilement pour relancer l'analyse.**
+
+
+**⚠ Pensez à sauvegarder votre projet QGIS et à documenter** (au moins de manière succinte) **dans un document ce que vous essayer d'effectuer** (liste des contraintes, liste des critères, coefficient affecté à chaque critère, etc.).
+
+**N'hésitez pas à chercher sur le Web ni à poser des questions** (préparez une description du problème que vous rencontré : traitement que vous essayez de réaliser, couches et paramètres d'entré, message d'erreur le cas échéant ou une description de la raison pour laquelle le résultat ne correspond pas à vos attente)
 ---
 class: section-change
 
