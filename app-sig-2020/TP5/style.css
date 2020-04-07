@@ -1,0 +1,250 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i|Permanent+Marker&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+body {
+  font-family: 'Lato', sans-serif;
+
+}
+.remark-slide-content h1 {
+  font-family: 'Permanent Marker', cursive;
+  color: #413e3e;
+  letter-spacing: 0.05em;
+  margin-block-start: 0.15em;
+  margin-block-end: 0.25em;
+}
+.remark-slide-content.first > h2 {
+  font-family: 'Permanent Marker', cursive;
+  text-decoration: underline;
+}
+
+.remark-slide-content h2 {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  color: #413e3e;
+  margin-block-start: 0.15em;
+  margin-block-end: 0.25em;
+  font-size: 40px;
+}
+.remark-slide-content h3 {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  margin-block-start: 0.15em;
+  margin-block-end: 1em;
+}
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+.remark-slide-container { transition: opacity 0.25s ease-out;opacity: 0; }
+.remark-visible { transition: opacity 0.25s ease-out;opacity: 1; }
+.remark-fading {z-index: 9;}
+
+.small { font-size: 0.85em; }
+
+h2 + h4 {
+  margin-block-start: 0.30em;
+  margin-block-end: 0.8em;
+}
+p {
+  margin-block-start: 0.8em;
+  margin-block-end: 0.8em;
+}
+/* .left-column {
+  width: 48%;
+  float: left;
+}
+
+.right-column {
+  width: 48%;
+  float: right;
+  padding-top: 0em;
+  margin-top: 0em;
+  text-align: left;
+} */
+
+/* Two-column layouts */
+.left-column  { width: 49%; float: left; }
+.right-column { width: 49%; float: right; }
+
+.left-column-45  { width: 45%; float: left; }
+.right-column-45 { width: 45%; float: right; }
+
+.left-column-33  { width: 33%; float: left; }
+.right-column-66 { width: 66%; float: right; }
+
+.left-column-66  { width: 66%; float: left; }
+.right-column-33 { width: 33%; float: right; }
+
+.right-column ~ p { clear: both; }
+.right-column ~ ul { clear: both; }
+
+.align-left, .align-left p { text-align: left; }
+.align-right, .align-right p { text-align: right; }
+
+.remark-slide-scaler {
+  overflow: hidden;
+}
+
+.remark-slide-content {
+  padding: 0em 2em 0em 2em;
+  letter-spacing: 0.025em;
+  font-size: 26px;
+  background: #f7f2d3;
+  background: -moz-radial-gradient(center, circle cover, white 58%, #f7f2d3 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(58%, white), color-stop(100%, #f7f2d3));
+  background: -webkit-radial-gradient(center, circle cover, white 58%, #f7f2d3 100%);
+  background: -o-radial-gradient(center, circle cover, white 58%, #f7f2d3 100%);
+  background: -ms-radial-gradient(center, circle cover, white 58%, #f7f2d3 100%);
+  background: radial-gradient(center, circle cover, white 58%, #f7f2d3 100%);
+  background-color: #f7f3de;
+}
+.white-color {
+  color: white !important;
+}
+p, ol, ul {
+  /* font-weight: 600; */
+  text-align: justify;
+}
+.remark-slide-content img { max-width: 100%; }
+.remark-slide-content .img100 > img  { width: 100%; }
+.remark-slide-content .img85 > img { width: 85%; }
+.remark-slide-content .img80 > img { width: 80%; }
+.remark-slide-content .img75 > img { width: 75%; }
+.remark-slide-content .img70 > img { width: 70%; }
+.remark-slide-content .img65 > img { width: 65%; }
+.remark-slide-content .img60 > img { width: 60%; }
+.remark-slide-content .img55 > img { width: 55%; }
+.remark-slide-content .img50 > img { width: 50%; }
+.remark-slide-content .img45 > img { width: 45%; }
+.remark-slide-content .img42 > img { width: 42%; }
+.remark-slide-content .img40 > img { width: 40%; }
+.remark-slide-content .img35 > img { width: 35%; }
+.remark-slide-content .img30 > img { width: 30%; }
+.remark-slide-content .img20 > img { width: 20%; }
+
+.remark-code,.remark-inline-code {
+  font-family: 'Ubuntu Mono';
+}
+.note {
+  margin: 50px 0px 10px 10px;
+  background: #fff3d4;
+  border-color: #f6b73c;
+  padding: 12px 12px 12px 26px;
+  border-left-width: 5px;
+  border-left-style: solid;
+  list-style: unset;
+}
+.note li::before {
+  content: none;
+}
+.ml40 {
+  margin-left: 40%;
+}
+.withborderdb > img {
+  border: 1.5px solid brown;
+  border-radius: 2px;
+}
+
+.withborder > p > img {
+  height: 130px;
+  border: 1px solid darkblue;
+  width: auto;
+}
+.source {
+  font-weight: 400;
+  font-size:0.65em;
+}
+.section-change .source {
+  color: antiquewhite;
+}
+.first { text-align: center; }
+
+div.center > p {
+  text-align: center;
+}
+
+.inlineblock {
+  display: inline-block;
+}
+/* For quick highlightling */
+span.red { color : #b50606; }
+/* For slightly lighter chunks of text */
+span.light { font-weight: 400; }
+/* For slightly heavier chunks of text */
+.bb { font-weight: 900; }
+
+.underline {
+  text-decoration: underline;
+}
+
+.btn-svg > img {
+  width: 30px;
+  border: solid 0.4px darkslategray;
+  padding: 3px;
+}
+
+blockquote {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: 20px;
+  margin-inline-end: 20px;
+  /* margin: 20px 20px; */
+  padding: 10px 10px;
+  background-color: var(--search-mark-bg);
+  border-top: .1em solid var(--quote-border);
+  border-bottom: .1em solid var(--quote-border);
+  text-align: center;
+  background: #d6e8e861;
+  border-radius: 4%;
+}
+/* For the black page between each big section of the presentation */
+.section-change {
+  background: #272822;
+  color: #777872;
+  text-shadow: 0 0 20px #333;
+  text-align: center;
+  vertical-align: middle;
+}
+.section-change h1, .section-change h2 {
+  color: #f3f3f3;
+  line-height: 1em;
+  font-size: 3em;
+}
+
+div.remark-slide-content > h2:first-child,
+div.remark-slide-content > h3:first-child,
+div.remark-slide-content > h4:first-child  {
+  margin-block-start: 0.55em;
+}
+
+a { text-decoration: none;color: #0e6baf; }
+a:visited { color: #0e6baf; }
+a:hover { color: #33AA99; }
+a:active, a#active { color: #FF9700; }
+.section-change a { color:#77b6e5; }
+.section-change a:visited { color:#77b6e5; }
+
+@page { size: 1024px 768px; margin: 0; }
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    font-size: 1.1rem;
+}
+
+.alert-danger a {
+  font-size: 1.3rem;
+}
+
+.alert {
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
