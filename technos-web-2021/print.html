@@ -90,7 +90,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">7.</strong> Interactions serveur/client (suite)</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">8.</strong> Javascript - Théorie et pratique</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">9.</strong> Technos Web... quoi d'autre ?</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">7.</strong> Interactions serveur/client (suite)</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">8.</strong> Javascript - Théorie et pratique</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">9.</strong> Technos Web... quoi d'autre ?</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li><li class="expanded affix "><a href="exam.html">Précédents sujets d'examen</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -184,6 +184,735 @@
 <div style="text-align: center;"><h4>
 Voir le <a target="blank" href="1-Intro-Internet-web/index.html">cours sous forme de slides<img src="img/magnify-clip-ltr.svg" /></a></h4>
 </div>
+<h1><a class="header" href="#cours--tp" id="cours--tp">Cours / TP</a></h1>
+<h1><a class="header" href="#introduction-à-la-création-de-pages-web-en-html-5--css-3" id="introduction-à-la-création-de-pages-web-en-html-5--css-3">Introduction à la création de pages Web en HTML 5 / CSS 3</a></h1>
+<p>HTML est l’abréviation de <em>HyperText Markup Language</em>. Il s'agit d'un langage qui formalise l'écriture d'un document web à l’aide de balises.<br />
+Une page HTML est un fichier texte contenant des balises permettant de structurer le contenu de la page (titres, paragraphes, images, liens, etc.).<br />
+La mise en forme du contenu est prise en charge par un autre fichier codé dans le langage <em>Cascasding Style Sheet</em> (appelé une feuille de style en cascade). L'expression de « cascade » permet ici de désigner la possibilité, pour un document HTML, d'avoir un style hérité de plusieurs de ces feuilles de style.</p>
+<p>Ce TP est une brève introduction à ces 2 langages complémentaires.</p>
+<h2><a class="header" href="#1-environnement-de-travail" id="1-environnement-de-travail">1. Environnement de travail</a></h2>
+<p>L’environnement dans lequel nous allons travailler comprend :</p>
+<ul>
+<li>un éditeur de texte, par exemple <code>NotePad++</code> ou <code>Brackets</code>, pour créer et modifier du code,</li>
+<li>le navigateur de votre choix (Firefox de préférence, Chrome, Microsoft Edge, etc.) pour visualiser les pages créées et naviguer d’une page à l’autre.</li>
+</ul>
+<h2><a class="header" href="#2-html--principe-général-des-balises" id="2-html--principe-général-des-balises">2. HTML : principe général des balises</a></h2>
+<div class="img-center">
+<p><img src="img/logo_html5.png" alt=" " /></p>
+</div>
+<h3><a class="header" href="#21-balises-html" id="21-balises-html">2.1 Balises HTML</a></h3>
+<p>Les <strong>balises</strong> structurent le contenu en délimitant les différentes parties du document HTML (titre, paragraphe, ...). Elles fonctionnent par paire: une balise ouvrante <code>&lt;nom_balise&gt;</code>, une balise fermante <code>&lt;/nom_balise&gt;</code> délimitant ensemble une partie du contenu, représenté par une chaine de caractères. Exemple d’une balise délimitant un paragraphe :</p>
+<pre><code class="language-html">&lt;p&gt;ici le texte du paragraphe&lt;/p&gt;
+</code></pre>
+<p>L’exemple suivant montre la syntaxe permettant de placer une image dans la page Web. Dans la balise ouvrante, on trouve des paires attribut/valeur :</p>
+<pre><code class="language-html">&lt;img src=&quot;smiley.gif&quot; alt=&quot;Smiley face&quot; height=&quot;42&quot; width=&quot;42&quot;&gt;&lt;/img&gt;
+</code></pre>
+<ul>
+<li><code>src</code> permet d’indiquer le chemin vers le fichier image</li>
+<li><code>alt</code> définit le texte de substitution à afficher éventuellement</li>
+<li><code>height</code> et <code>width</code> donnent les dimensions de l’image.</li>
+</ul>
+<p>Dans certain cas, une seule balise – à la fois ouvrante et fermante – est utilisée : <code>&lt;nom_balise /&gt;</code>, celà ne l'empêche pas de contenir des attributs ; en réalité on l'utilise notamment pour la balise <code>&lt;img&gt;</code> et on écrira donc plus souvent :</p>
+<pre><code class="language-html">&lt;img src=&quot;smiley.gif&quot; alt=&quot;Smiley face&quot; height=&quot;42&quot; width=&quot;42&quot; /&gt;
+</code></pre>
+<p>Les jeux de balises peuvent être imbriquées entre elles :</p>
+<pre><code class="language-html">&lt;body&gt;
+	&lt;h1&gt;du texte&lt;/h1&gt;
+	&lt;p&gt;du texte encore, avec une image
+	&lt;img …&gt;&lt;/img&gt;
+	et la fin du texte
+	&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+<blockquote>
+<p><strong>Remarque</strong> : Lorsque plusieurs balises sont imbriquées, une règle simple s'applique : une balise ouverte à l'intérieur d'une autre doit obligatoirement être refermée avant la fermeture de sa balise mère.</p>
+</blockquote>
+<h3><a class="header" href="#22-structure-générale-dun-document-html" id="22-structure-générale-dun-document-html">2.2 Structure générale d’un document HTML</a></h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset=&quot;utf-8&quot;/&gt;
+		&lt;meta name=&quot;Language&quot; content=&quot;fr&quot; /&gt;
+		&lt;meta name=&quot;Description&quot; content=&quot;cette page…&quot; /&gt;
+		&lt;title&gt;Titre de la page&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		Corps de la page, ce qui est visible...
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>La première ligne du document est indispensable : elle indique qu'il s'agit d'une page HTML. En HTML5 on écrit simplement <code>&lt;!DOCTYPE html&gt;</code> (vous pouvez rencontrer des fichiers HTML de versions antérieures avec un doctype beaucoup plus compliqué...).</p>
+<p>Ensuite, la balise <code>&lt;html&gt;  &lt;/html&gt;</code> englobera l’ensemble des autres balises de la page. Elle contient deux paires de balises:</p>
+<ul>
+<li>La balise <code>&lt;head&gt;  &lt;/head&gt;</code> délimitant l’entête du document et contenant diverses informations sur le document lui-même (métadonnées). Son contenu n’est pas visible dans la page interprétée par le navigateur. À noter :
+<ul>
+<li>l’encodage du texte <code>&lt;meta charset=&quot;utf-8&quot;/&gt;</code> pour éviter les problèmes d’affichages des caractères spéciaux</li>
+<li>La balise <code>&lt;title&gt;Titre de la page&lt;/title&gt;</code> qui contient le titre (assez court) qui s’affiche dans l’onglet de la fenêtre du navigateur.</li>
+</ul>
+</li>
+<li>La balise <code>&lt;body&gt; &lt;/body&gt;</code> délimitant le corps du document. Cette portion contient la partie visible du document HTML. C’est ici qu’on trouvera les autres balises (de différents types) structurant le document.</li>
+</ul>
+<h4><a class="header" href="#exercice-1--création-dune-page--une-introduction-au-langage-html" id="exercice-1--création-dune-page--une-introduction-au-langage-html">Exercice 1 : Création d’une page – une introduction au langage HTML</a></h4>
+<p>La page qui va nous servir d’exemple est la page d’accueil du site web d’un centre commercial. La page <code>accueil.html</code> est à récupérer à l'emplacement suivant : <a href="data/TP2.zip">TP2.zip</a>, puis nous allons :</p>
+<ul>
+<li>la visualiser dans l’éditeur de texte (lancez l’éditeur, puis ouvrez le fichier depuis le menu) : vous voyez le code HTML</li>
+<li>la visualiser dans le navigateur : vous voyez le code interprété par le navigateur (« la page web »)</li>
+</ul>
+<p><strong>🚀 <em>Nous allons compléter le code du fichier <code>accueil.html</code> en suivant les instructions données en commentaires. Attention, une erreur de syntaxe s'est également glissée dans ce fichier, il faut la corriger !</em></strong></p>
+<blockquote>
+<p><strong>Remarque</strong> : Vous passerez d’un outil à l’autre pour modifier et visualiser ce code (i.e. de l’éditeur au navigateur), sans fermer ces logiciels mais en enregistrant vos modifications dans l’éditeur et en actualisant la page dans le navigateur pour que le code soit réinterprété.</p>
+</blockquote>
+<h4><a class="header" href="#exercice-2--introduction-à-lutilisation-des-hyperliens" id="exercice-2--introduction-à-lutilisation-des-hyperliens">Exercice 2 : introduction à l’utilisation des hyperliens</a></h4>
+<p>Plusieurs types de liens existent. Pour l’instant nous allons voir les liens envoyant vers une autre page (du web ou que vous avez créée).</p>
+<p>Pour pointer vers une page du web, on utilisera :</p>
+<pre><code class="language-html">&lt;a href=&quot;https://www.stid-grenoble.fr/&quot;&gt;Lien vers le site de STID&lt;/a&gt;
+</code></pre>
+<p>ce qui affiche : <a href="https://www.stid-grenoble.fr/">Lien vers le site de STID</a>.</p>
+<p>Pour pointer vers une de ses propres pages, il suffit de donner le chemin vers le fichier comme valeur pour l’attribut <code>href</code>.</p>
+<blockquote>
+<p><strong>Remarque</strong> : Un mécanisme existe pour demander au navigateur d'ouvrir la cible du lien si possible dans un nouvel onglet ou sinon dans une nouvelle fenêtre. Il faut pour celà utiliser l'attribut <code>target</code> et lui donner la valeur <code>_blank</code> :</p>
+</blockquote>
+<pre><code class="language-html">&lt;a href=&quot;https://fr.wikipedia.org/&quot; target=&quot;_blank&quot;&gt;Wikipedia&lt;/a&gt;
+</code></pre>
+<p>🚀 <strong>Consignes</strong>:</p>
+<ul>
+<li>Créez une nouvelle page appelée <code>partenaires.html</code> et placez-la au même endroit que le fichier <code>accueil.html</code>.</li>
+<li>Éditez le document <code>partenaires.html</code> pour ajouter un lien vers le site du département STID <em>(/!\ attention, la cible de ce lien doit s'ouvrir dans un nouvel onglet car on ne veut pas que les visiteurs quittent notre site !)</em>.</li>
+<li>Insérez un lien vers la page <code>partenaires.html</code> dans le fichier <code>accueil.html</code>.</li>
+<li>En plus (ou à la place) d'utiliser un morceau de texte, on souhaite que l'utilisateur puisse accéder à la page  <code>partenaires.html</code> en cliquant sur l'image ajoutée précédemment. Comment devez-vous vous-y prendre ?</li>
+</ul>
+<h2><a class="header" href="#3-css--objectifs-et-avantage" id="3-css--objectifs-et-avantage">3. CSS : Objectifs et avantage</a></h2>
+<div class="img-center">
+<p><img src="img/logo_css3.png" alt=" " /></p>
+</div>
+<p>Une feuille de style est un document associé à un document HTML et qui indique comment devra être affiché tel ou tel élément de la page.</p>
+<p>Par exemple, une feuille de style permettra de présenter :</p>
+<ul>
+<li>tous les liens en italique, soulignés et en bleu</li>
+<li>tous les liens cliqués en italique, soulignés et en vert</li>
+<li>tous les paragraphes de cours à connaître en police Comic, de taille 11, en noir, surlignés en gris et centrés</li>
+</ul>
+<p>Le but recherché est de mettre en place une <strong>indépendance entre le contenu d’une page web et sa présentation</strong>, et ce pour garantir :</p>
+<ul>
+<li>une meilleure lisibilité du code source puisque les 2 aspects (contenu et style) sont séparés</li>
+<li>un gain de temps quand il s’agit de procéder à des modifications : pour changer, pour tous les titres, la taille de police, il suffit de changer une valeur à un seul endroit et la modification sera répercutée partout.</li>
+<li>une réutilisation aisée d’un contenu (pour lui appliquer d’autres styles) ou d’une présentation (qu’on appliquera à d’autres contenus).</li>
+</ul>
+<h3><a class="header" href="#31-syntaxe" id="31-syntaxe">3.1 Syntaxe</a></h3>
+<p>Il existe 3 façons de définir le style d'éléments en utilisant la syntaxe des CSS. Par exemple, pour que la couleur de fond d’un document HTML soit rouge, on pourra :</p>
+<ol>
+<li>Utiliser l'attribut « style » des balises HTML. Exemples :</li>
+</ol>
+<ul>
+<li><code>&lt;body style=&quot;background-color: red;&quot;&gt;</code></li>
+<li><code>&lt;p style=&quot;font-family: cursive&quot;&gt;Contenu du paragraphe en police manuscrite&lt;/p&gt;</code></li>
+</ul>
+<ol start="2">
+<li>Utiliser la balise HTML « style » (dans l'en-tête de la page XHTML, entre <code>&lt;head&gt;</code> et <code>&lt;/head&gt;</code>). Exemple :</li>
+</ol>
+<pre><code class="language-xml">&lt;style type=&quot;text/css&quot;&gt;
+	body { background-color: red; }
+&lt;/style&gt;
+</code></pre>
+<ol start="3">
+<li>Utiliser une feuille de style externe et placer un lien vers la feuille de style dans l'en-tête de la page HTML.
+Les instructions de style sont placées dans un fichier texte dont l’extension est <code>.css</code> alors que le contenu est dans le fichier HTML appelant. Nous privilégierons cette 3ème solution pour coder le style à appliquer à nos pages HTML.
+Une feuille de style externe est ainsi constituée d’une série de blocs d’instructions composés chacun:
+<ul>
+<li>d’un sélecteur,</li>
+<li>d’une accolade ouvrante,</li>
+<li>d’une série de couples propriété/valeur séparés par des points virgules,</li>
+<li>et d’une accolade fermante.</li>
+</ul>
+</li>
+</ol>
+<div class="center">
+<p><img src="img/tmp_css_selector.png" alt="Sélecteur et déclaration de la règle (propriété / valeur)" title="Sélecteur et déclaration (propriété / valeur)" /></p>
+</div>
+<p>Pour revenir à l’exemple, on écrira ainsi un fichier texte contenant l’instruction <code>body { background-color: red; }</code> et on associera ce fichier à un document HTML : pour établir le lien avec la feuille de style (supposons qu’elle soit nommée <code>mafeuille.css</code>), on écrira dans l’entête du fichier HTML (i.e. entre les balises <code>&lt;head&gt; &lt;/head&gt;</code>) :</p>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mafeuille.css&quot; /&gt;
+</code></pre>
+<h4><a class="header" href="#exercice-3--découverte-des-css" id="exercice-3--découverte-des-css">Exercice 3 : Découverte des CSS</a></h4>
+<p>Nous allons laisser de côté l'exemple de la page web du site commercial le temps d'un exercice.
+Rendez-vous sur la page <a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_default">https://www.w3schools.com/css/tryit.asp?filename=trycss_default</a> du site w3schools pour découvrir les CSS de manière interactive.</p>
+<p>Prenez connaissance du document HTML qui vous est présenté (à gauche).</p>
+<blockquote>
+<p><strong>Remarque</strong> : dans cet outil, la balise <code>&lt;style&gt;</code> est utilisée (cf. 2ème syntaxe présentée).</p>
+</blockquote>
+<p><strong>🚀 Consignes</strong> :</p>
+<p>Modifiez les instructions comme indiqué :</p>
+<ul>
+<li>pour <code>body</code>, changer la couleur par #550066 (cliquez sur le bouton ‘Run’ pour visualiser le résultat après chaque modification)</li>
+<li>pour <code>h1</code>,  utilisez la couleur jaune et alignez le texte à gauche</li>
+<li>pour <code>p</code>, passez en Arial 16 pixels, écrit en blanc (<code>color: white;</code>)</li>
+<li>ajouter d’autres textes encadrés par des balises <code>&lt;h1&gt;&lt;/h1&gt;</code> et <code>&lt;p&gt;&lt;/p&gt;</code></li>
+<li>modifier à nouveau les caractéristiques de style applicables aux balises <code>&lt;h1&gt;&lt;/h1&gt;</code> et <code>&lt;p&gt;&lt;/p&gt;</code></li>
+</ul>
+<h4><a class="header" href="#exercice-4--liaison-entre-un-fichier-html-et-un-fichier-css" id="exercice-4--liaison-entre-un-fichier-html-et-un-fichier-css">Exercice 4 : Liaison entre un fichier HTML et un fichier CSS</a></h4>
+<p><em>Retour à l'exemple des exercices 1 et 2...</em></p>
+<p><strong>🚀 Consignes</strong> :</p>
+<ol>
+<li>Dans l’entête du fichier <code>accueil.html</code> (celui de la page d’accueil du site web du centre commercial), établissez le lien vers la feuille de style fournie (<code>styleAccueil.css</code>).</li>
+<li>Visualisez le fichier HTML dans le navigateur.</li>
+<li>Ouvrez ensuite le fichier <code>styleAccueil.css</code> avec l’éditeur de texte.</li>
+<li>Modifiez et/ou ajoutez d’autres propriétés et/ou d’autres sélecteurs et visualisez le résultat :
+<ul>
+<li>Changez la taille de l'image afin qu'elle n'occupe que 100px de la largeur de la page,</li>
+<li>Changez le style du titre <code>h1</code> pour quelque chose de plus sobre,</li>
+<li>Essayer de trouver sur quel(s) élément(s) il est possible de jouer pour éloigner le titre <code>h1</code> du sous-titre <code>h2</code>.</li>
+</ul>
+</li>
+</ol>
+<h3><a class="header" href="#32-pour-aller-plus-loin-avec-les-css" id="32-pour-aller-plus-loin-avec-les-css">3.2 Pour aller plus loin avec les CSS</a></h3>
+<p>Jusqu’ici, vous avez écrit des instructions de style qui s’appliquent à une balise (les mêmes balises ex. <code>&lt;h1&gt;</code> ont un seul et même style). Nous allons voir deux mécanismes supplémentaires portés par les attributs HTML <code>class</code> et <code>id</code> qui permettent d’appliquer des styles différents aux différentes occurrences d’une même balise.</p>
+<p>Les classes. On définit autant de classes que nécessaires pour la balise concernée et on associe un style à chacune des classes. La notation suivante est adoptée :</p>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">p.typeA { color: blue; }
+p.typeB { color: red; }
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;p&gt;Un paragraphe sans style particulier&lt;p&gt;
+&lt;p class=&quot;typeA&quot;&gt;Un paragraphe qui utilise le style défini par p.typeA dans la CSS&lt;/p&gt;
+&lt;p class=&quot;typeB&quot;&gt;Un autre qui utilise le style défini par p.typeB dans la CSS&lt;/p&gt;
+&lt;p class=&quot;typeA&quot;&gt;De nouveau un paragraphe qui utilise le style défini par p.typeA&lt;/p&gt;
+&lt;p class=&quot;typeB&quot;&gt;et un paragraphe qui utilise également le style défini par p.typeB&lt;/p&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res"><p>Un paragraphe sans style particulier<p><p style="color: blue;">Un paragraphe qui utilise le style défini par p.typeA dans la CSS</p><p style="color: red;">Un autre qui utilise le style défini par p.typeB dans la CSS</p><p style="color: blue;">De nouveau un paragraphe qui utilise le style défini par p.typeA</p><p style="color: red;">et un paragraphe qui utilise également le style défini par p.typeB</p></div>
+<p>Il existe une autre façon de procéder pour permettre l’application de styles différents à une même balise. Il s’agit d’utiliser non pas une classe (attribut <code>class</code>) mais un identifiant (attribut <code>id</code>).</p>
+<p>Le principe est le même dans les deux cas mais la différence est qu’on utilisera l’attribut <code>class</code> lorsque le style est applicable à plusieurs endroits dans le document alors qu’on utilisera l’attribut <code>id</code> quand le style est spécifique à un endroit particulier dans le document.</p>
+<p>En conséquence, la valeur d’un <code>id</code> est unique dans le document.</p>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">p#abc {
+	color: blue;
+	text-align: center;
+}
+
+p#ident1 { color: green; }
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;p&gt;Un paragraphe sans style particulier&lt;p&gt;
+&lt;p id=&quot;abc&quot;&gt;Seul paragraphe utilisant le style défini par p#abc dans la CSS&lt;/p&gt;
+&lt;p id=&quot;ident1&quot;&gt;Seul qui utilise le style défini par p#ident1 dans la CSS&lt;/p&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res">	<p>Un paragraphe sans style particulier<p>	<p style="color: blue;text-align: center;">Seul paragraphe utilisant le style défini par p#abc dans la CSS</p>	<p style="color: green;">Seul qui utilise le style défini par p#ident1 dans la CSS</p></div>
+<h3><a class="header" href="#33-quelques-autres-sélecteurs-css-que-vous-pourrez-rencontrer" id="33-quelques-autres-sélecteurs-css-que-vous-pourrez-rencontrer">3.3 Quelques autres sélecteurs CSS que vous pourrez rencontrer...</a></h3>
+<h4><a class="header" href="#la-sélection-de-plusieurs-éléments-séparés-par-une-virgule--" id="la-sélection-de-plusieurs-éléments-séparés-par-une-virgule--"><strong>La sélection de plusieurs éléments</strong> séparés par une virgule <code>,</code> :</a></h4>
+<pre><code class="language-css">h1, h2, h3 {
+	color: green;
+}
+</code></pre>
+<p>Ici plusieurs types d'éléments (<code>h1</code>, <code>h2</code> et <code>h3</code>) sont sélectionnés pour appliquer à tous une même règle.</p>
+<h4><a class="header" href="#le-sélecteur-dattributs-avec-la-notation-entre-crochets-" id="le-sélecteur-dattributs-avec-la-notation-entre-crochets-"><strong>Le sélecteur d'attributs</strong> avec la notation entre crochets :</a></h4>
+<pre><code class="language-css">img[src] {
+	border: solid 1px gray;
+}
+</code></pre>
+<p>Ce sélecteur sélection les éléments qui possèdent l'attribut donné entre crochet. Ici la règle ne sera appliquée qu'aux  images qui ont un attribut <code>src</code>.</p>
+<h4><a class="header" href="#le-sélecteur-déléments-enfants-directs-avec-le-combinateur--" id="le-sélecteur-déléments-enfants-directs-avec-le-combinateur--"><strong>Le sélecteur d'éléments enfants</strong> directs avec le <strong>combinateur</strong> <code>&gt;</code> :</a></h4>
+<pre><code class="language-css">ul.type-A &gt; li {
+	margin: 2em;
+}
+</code></pre>
+<p>Ici la règle de style va s'appliquer seulement aux éléments de type <code>li</code> qui sont enfants directs d'un élément <code>ul</code> avec la classe <code>type-A</code> .</p>
+<h4><a class="header" href="#le-sélecteur-déléments-descendants-avec-le-combinateur---espace-" id="le-sélecteur-déléments-descendants-avec-le-combinateur---espace-"><strong>Le sélecteur d'éléments descendants</strong> avec le <strong>combinateur</strong> <code> </code> (espace) :</a></h4>
+<pre><code class="language-css">div span {
+	color: red;
+}
+</code></pre>
+<p>Ici la règle de style va s'appliquer à tous les éléments de type <code>span</code> qui sont enfants (pas nécessairement directs) d'un élément <code>div</code>.</p>
+<h4><a class="header" href="#des-sélections-encores-plus-fines-avec-les-sélecteur-de-pseudo-classe" id="des-sélections-encores-plus-fines-avec-les-sélecteur-de-pseudo-classe">Des sélections encores plus fines avec les sélecteur de pseudo-classe</a></h4>
+<p>Nous verrons qu'il existe encore plusieurs manières de manipuler les sélecteurs CSS. Il est par exemple possible de cibler un élément seulement lorsque il est dans un état particulier : on parle alors de <strong>sélecteur de pseudo-classe</strong>.
+Par exemple il est possible d'appliquer un style particulier aux liens (éléments <code>&lt;a&gt;</code>) qui ont déjà été cliqués par l'utilisateur en ciblant les liens appropriés avec la pseudo-classe <code>:visited</code> :</p>
+<pre><code class="language-css">a:visited {
+	color: darkblue;
+}
+</code></pre>
+<p>Cette possibilité va permettre d'étendre de manière puissante le mécanisme de sélection vu jusqu'ici grâce à l'existence de pseudo-classes telles que : <code>:hover</code> (spécification de l'apparence d'un élément lors du survole avec le pointeur), <code>:disabled</code> (pour cibler un élément désactivé), <code>:only-child</code> (sélection d'un élément qui est le seul enfant de son parent), etc.</p>
+<p>Ainsi, la pseudo-classe <code>:nth-child</code> va rendre possible de cibler chaque élément qui est le <code>n</code>ième enfant, quel que soit sont type, de son parent. Si nous avons 5 paragraphes dans un même élément de type <code>div</code> il est possible de sélectionner le second de la manière suivante :</p>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">p:nth-child(2) {
+	color: red;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;div&gt;
+	&lt;p&gt;The first paragraph.&lt;/p&gt;
+	&lt;p&gt;The second paragraph.&lt;/p&gt;
+	&lt;p&gt;The third paragraph.&lt;/p&gt;
+	&lt;p&gt;The fourth paragraph.&lt;/p&gt;
+	&lt;p&gt;The fifth paragraph.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res">
+	<p>The first paragraph.</p>
+	<p style="color: red;">The second paragraph.</p>
+	<p>The third paragraph.</p>
+	<p>The fourth paragraph.</p>
+	<p>The fifth paragraph.</p>
+</div>
+<p>C'est également avec cet élément <code>:nth-child</code> qu'il va être possible de sélectionner tous les enfants dont l'indice est paire ou impaire en utilisant les mots-clés <code>even</code> ou <code>odd</code>.</p>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">p:nth-child(even) {
+	background: green;
+}
+p:nth-child(odd) {
+	background: gray;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;div&gt;
+	&lt;p&gt;The first paragraph.&lt;/p&gt;
+	&lt;p&gt;The second paragraph.&lt;/p&gt;
+	&lt;p&gt;The third paragraph.&lt;/p&gt;
+	&lt;p&gt;The fourth paragraph.&lt;/p&gt;
+	&lt;p&gt;The fifth paragraph.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res">
+	<p style="background: gray;">The first paragraph.</p>
+	<p style="background: green;">The second paragraph.</p>
+	<p style="background: gray;">The third paragraph.</p>
+	<p style="background: green;">The fourth paragraph.</p>
+	<p style="background: gray;">The fifth paragraph.</p>
+</div>
+<h1><a class="header" href="#structurer-et-styler-un-document-html" id="structurer-et-styler-un-document-html">Structurer et styler un document HTML</a></h1>
+<p>Lors de ce TP vous allez manipuler plusieurs nouvelles balises HTML.<br />
+Dans un premier temps nous allons découvrir rapidement leurs usages.<br />
+Dans un second temps vous devrez les utiliser pour compléter et mettre en forme une page web.</p>
+<h2><a class="header" href="#1-le-modèle-de-boite-css" id="1-le-modèle-de-boite-css">1. Le &quot;modèle de boite CSS&quot;</a></h2>
+<p>En CSS, tous les éléments sont inclus dans une &quot;boite&quot;. Il existe deux types de boites :</p>
+<ul>
+<li>
+<p><strong>en ligne</strong> <em>(inline)</em> :</p>
+<ul>
+<li>la boite ne créé pas de retour à la ligne et s'insère dans le flux du contenu ;</li>
+<li>les propriétés <code>width</code> et <code>height</code> ne s'appliquent pas ;</li>
+<li>les propriétés <code>padding</code>, <code>margin</code> peuvent être appliquées mais ne vont pas déplacer les éléments voisins sur l'axe vertical (top / bottom) et peuvent créer un chevauchement ;</li>
+<li><strong>sert surtout à associer un style à une partie d'un texte (au sein d'un bloc de texte ou d'un paragraphe)</strong> ;</li>
+<li>le conteneur générique de ce type est l'élément <code>&lt;span&gt;</code> ;</li>
+<li>d'autres éléments <em>en ligne</em> : <code>&lt;a&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;strong&gt;</code> par exemple.</li>
+</ul>
+</li>
+<li>
+<p><strong>en bloc</strong> <em>(block)</em> :</p>
+<ul>
+<li>la boite s'étend en largeur pour remplir tout l'espace de son conteneur ;</li>
+<li>elle se positionne sur une nouvelle ligne et va engendrer un retour à la ligne avant l'élément qui la suite ;</li>
+<li>les propriétés <code>width</code> et <code>height</code> s'appliquent ;</li>
+<li>les propriétés <code>padding</code>, <code>margin</code> et <code>border</code> vont repousser les éléments voisins ;</li>
+<li><strong>sert à agencer le contenu de la page et à regrouper des éléments ensemble</strong> ;</li>
+<li>le conteneur générique de ce type est l'élément <code>&lt;div&gt;</code> ;</li>
+<li>d'autres éléments <em>en bloc</em> : <code>&lt;p&gt;</code> ou les titres <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, et d'autres éléments de sectionnement comme <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, etc.</li>
+</ul>
+</li>
+</ul>
+<p>Ce modèle de boite CSS prend la forme suivante :</p>
+<div class="img-center">
+<p><img src="img/dessin_css_box.png" alt="Le modèle de boite CSS" /></p>
+</div>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">.styled {
+  margin: 5px;
+  border: solid 2px black;
+  padding: 22px;
+  background-color: cornsilk;
+  box-shadow: 10px 5px red;
+}
+
+.keyword {
+  color: red;
+  font-style: italic;
+  /* La propriété suivante ne sera pas appliquée car
+   elle ne s'applique pas aux éléments en ligne :  */
+  height: 300px;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;styled&quot;&gt;
+ &lt;p&gt;Some &lt;span class=&quot;keyword&quot;&gt;interesting&lt;/span&gt; content in a paragraph.&lt;/p&gt;
+ &lt;p&gt;Another paragraph with more &lt;span class=&quot;keyword&quot;&gt;highlighted&lt;/span&gt; keywords.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div style="margin: 5px; border: solid 2px black; padding: 22px; background-color: cornsilk; box-shadow: 10px 5px red;">
+ <p>Some <span style="color: red; font-style: italic; height: 300px;">interesting</span> content in a paragraph.</p>
+ <p>Another paragraph with more <span style="color: red; font-style: italic; height: 300px;">highlighted</span> keywords.</p>
+</div>
+<h2><a class="header" href="#2-formats-et-unités-de-valeurs-css" id="2-formats-et-unités-de-valeurs-css">2. Formats et unités de valeurs CSS</a></h2>
+<h3><a class="header" href="#21-quelques-unités-acceptées-par-les-propriétés-margin-padding-width-height-et-font-size" id="21-quelques-unités-acceptées-par-les-propriétés-margin-padding-width-height-et-font-size">2.1 Quelques unités acceptées par les propriétés <code>margin</code>, <code>padding</code>, <code>width</code>, <code>height</code> et <code>font-size</code></a></h3>
+<p>Ces propriétés CSS (ce ne sont pas les seules) acceptent des valeurs sous forme d'une &quot;longueur&quot;.<br />
+Cette longueur peut-être spécifiée de manière relative ou absolue.</p>
+<table><thead><tr><th>Unités absolues</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>px</code></td><td>Pixel</td></tr>
+<tr><td><code>cm</code>, <code>in</code>, <code>mm</code></td><td>Centimètre, Pouce, Millimètre</td></tr>
+<tr><td><code>pt</code>, <code>pc</code></td><td>Point, Pica</td></tr>
+</tbody></table>
+<br>
+<table><thead><tr><th>Unité relative</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>%</code></td><td>Taille relative à l'élément parent</td></tr>
+<tr><td><code>em</code></td><td>Relative à la taille de police de l'élément</td></tr>
+<tr><td><code>rem</code></td><td>Relative à la taille de police de l'élément racine</td></tr>
+</tbody></table>
+<blockquote>
+<p><strong>Remarque</strong>: Lors de l'utilisation de la valeur 0 il n'est pas nécessaire de spécifier d'unité.</p>
+</blockquote>
+<h3><a class="header" href="#22-les-formats-de-valeurs-acceptés-par-les-propriétés-margin-et-padding" id="22-les-formats-de-valeurs-acceptés-par-les-propriétés-margin-et-padding">2.2 Les formats de valeurs acceptés par les propriétés <code>margin</code> et <code>padding</code></a></h3>
+<ul>
+<li>
+<p><code>padding: 10px 5px 15px 20px;</code></p>
+<ul>
+<li>lecture dans le sens des aiguilles d'une montre</li>
+<li>signifie : top -&gt; 10px, right -&gt; 5px, bottom -&gt; 15px, left -&gt; 20px</li>
+</ul>
+</li>
+<li>
+<p><code>padding: 10px 5px 15px;</code></p>
+<ul>
+<li>signifie : top -&gt; 10px, right and left -&gt; 5px bottom -&gt; 15px</li>
+</ul>
+</li>
+<li>
+<p><code>padding: 10px 5px;</code></p>
+<ul>
+<li>signifie : top and bottom -&gt; 10px, right and left -&gt; 5px</li>
+</ul>
+</li>
+<li>
+<p><code>padding: 10px;</code></p>
+<ul>
+<li>signifie : top, right, left and bottom -&gt; 10px</li>
+</ul>
+</li>
+<li>
+<p>Il est possible d'utiliser les autres unités existantes (<code>%</code>, <code>em</code>, etc.).</p>
+</li>
+<li>
+<p>Il est possible de les spécifier une à une (en utilisant les propriétés <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, <code>padding-left</code>).</p>
+</li>
+</ul>
+<h3><a class="header" href="#23-la-valeur-spéciale-auto" id="23-la-valeur-spéciale-auto">2.3 La valeur spéciale &quot;auto&quot;</a></h3>
+<p>Lors de l'utilisation de la valeur <code>auto</code>, la valeur calculée pour la propriété en question est ajustée automatiquement en fonction du contenu et/ou du contexte de l'élément concerné.</p>
+<p>Cette fonctionnalité peut être très pratique dans certains cas puisqu'elle va permettre :</p>
+<ul>
+<li>de centrer horizontalement les éléments <em>en bloc</em> avec l'utilisation de la déclaration <code>margin: auto;</code> (les marges, étirées au maximum et de mêmes longueurs de chaque coté de l'élément vont avoir pour effet de le centrer)</li>
+<li>d'ajouter une barre de défilement lorsque cela sera nécessaire pour garder le contenu dans l'élément contenant avec l'utilisation de la déclaration <code>overflow: auto;</code></li>
+<li>d'afficher correctement des images dont la largeur auraient été définie de manière relative au conteneur avec la déclaration <code>height: auto;</code></li>
+</ul>
+<blockquote>
+<p><strong>Remarque</strong>: seul un petit nombre de propriétés supporte l'utilisation de cette valeur.</p>
+</blockquote>
+<h2><a class="header" href="#3-tableaux-html" id="3-tableaux-html">3. Tableaux HTML</a></h2>
+<p>La construction d'un tableau HTML nécessite l'utilisation de plusieurs balises :</p>
+<ul>
+<li><code>&lt;table&gt; &lt;/table&gt;</code> pour délimiter l'ensemble du tableau</li>
+<li><code>&lt;thead&gt; &lt;/thead&gt;</code> pour désigner <strong>les lignes constituant l'en-tête</strong> du tableau</li>
+<li><code>&lt;tbody&gt; &lt;/tbody&gt;</code> pour désigner <strong>les lignes constituant le corps</strong> du tableau</li>
+<li><code>&lt;th&gt; &lt;/th&gt;</code> pour désigner <strong>une cellule</strong> de <strong>l'en-tête</strong> du tableau</li>
+<li><code>&lt;td&gt; &lt;/td&gt;</code> pour désigner <strong>une cellule</strong> du <strong>corps</strong> du tableau</li>
+<li><code>&lt;tr&gt; &lt;/tr&gt;</code> pour désigner <strong>une ligne de cellules</strong> (aussi bien dans l'en-tête que dans le corps du tableau, elle contient donc des éléments <code>td</code> ou des éléments <code>th</code>)</li>
+</ul>
+<p>Ainsi le code d'un tableau simple contenant 2 colonnes et 3 lignes (dont celle de l'en-tête) prendra la forme suivante :</p>
+<pre><code class="language-html">&lt;table&gt;
+  &lt;thead&gt;  &lt;!-- Début de l'en-tête --&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nom colonne 1&lt;/th&gt;
+      &lt;th&gt;Nom colonne 2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt; &lt;!-- Fin de l'en-tête --&gt;
+  &lt;tbody&gt;  &lt;!-- Début du corps du tableau --&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Data ligne 1 - colonne 1&lt;/td&gt;
+      &lt;td&gt;Data ligne 1 - colonne 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Data ligne 2 - colonne 1&lt;/td&gt;
+      &lt;td&gt;Data ligne 2 - colonne 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt; &lt;!-- Fin du corps du tableau --&gt;
+&lt;/table&gt;
+</code></pre>
+<h2><a class="header" href="#4-listes-ordonnées-ou-non-en-html" id="4-listes-ordonnées-ou-non-en-html">4. Listes (ordonnées ou non) en HTML</a></h2>
+<p>Il existe deux éléments HTML qui permettent de désigner un liste :</p>
+<ul>
+<li>les balises <code>&lt;ol&gt; &lt;/ol&gt;</code> désignent une liste ordonnée (<u>o</u>rdered <u>l</u>ist)</li>
+<li>les balises <code>&lt;ul&gt; &lt;/ul&gt;</code> désignent une liste non-ordonnée (<u>u</u>nordered <u>l</u>ist)</li>
+</ul>
+<p>Ces balises délimitent <em>la liste</em> (i.e. l'élément qui contient les items de la liste). Chaque item d'une liste est représenté par la balises <code>&lt;li&gt; &lt;/li&gt;</code>.</p>
+<p>Ainsi une liste non ordonnée (liste de course par exemple) prendra la forme suivante :</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;Avocat&lt;/li&gt;
+  &lt;li&gt;Citron&lt;/li&gt;
+  &lt;li&gt;Tomate&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>Une liste ordonnée (instructions de directions par exemple) prendra la forme suivante :</p>
+<pre><code class="language-html">&lt;ol&gt;
+  &lt;li&gt;Tournez à gauche&lt;/li&gt;
+  &lt;li&gt;Continuez 500m puis prendre la contre-allée&lt;/li&gt;
+  &lt;li&gt;Vous êtes arrivé chez le vendeur de fruits et légumes&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<p>Vous pouvez remarquer que les listes disposent d'un style par défaut. Ce style est modifiable avec la propriété CSS <a href="https://developer.mozilla.org/fr/docs/Web/CSS/list-style"><code>list-style</code></a></p>
+<h2><a class="header" href="#5-groupage-des-éléments-et-organisation-générale-dune-page" id="5-groupage-des-éléments-et-organisation-générale-dune-page">5. Groupage des éléments et organisation générale d'une page</a></h2>
+<p><img src="img/layout_web_page.png" alt="Exemple d'organisation de page Web" title="Exemple d'organisation de page Web" /></p>
+<h2><a class="header" href="#6-autres-propriétés-css-utiles-pour-ajuster-lorganisation-de-votre-page" id="6-autres-propriétés-css-utiles-pour-ajuster-lorganisation-de-votre-page">6. Autres propriétés CSS utiles pour ajuster l'organisation de votre page</a></h2>
+<ul>
+<li>
+<p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/position"><code>position</code></a> : permet de spécifier le type de positionnement pour un élément (les valeurs possibles sont : <code>static</code> (par défaut), <code>relative</code>, <code>absolute</code>, <code>sticky</code>, <code>fixed</code>)</p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/fr/docs/Web/CSS/display"><code>display</code></a> ; permet de spécifier le type de rendu pour un élement (en ligne ou en bloc) et la disposition utilisé pour ses enfants (valeurs utiles : <code>inline</code> et <code>block</code> pour définir comment l'élément participe au flux des éléments ; <code>flow</code>, <code>table</code>, <code>flex</code> pour définir comment les éléments s'organisent à l'intérieur ; <code>inline-block</code> pour obtenir des blocs en ligne à l'intérieur de l'élément ; <code>none</code> pour ne pas afficher l'élément).</p>
+</li>
+</ul>
+<h2><a class="header" href="#6-mise-en-pratique-1" id="6-mise-en-pratique-1">6. Mise en pratique (1)</a></h2>
+<p><strong>🚀 Consignes</strong>:</p>
+<ol>
+<li>
+<p>Récupérer les données du jour : <a href="data/TP3.zip">TP3.zip</a> et extraire le contenu de l'archive sur votre ordinateur</p>
+</li>
+<li>
+<p>Ouvrir la page <code>index.html</code> (dans votre navigateur et dans votre éditeur de code). Cette page contient déjà plusieurs blocs de texte formattés sous la forme de paragraphes.</p>
+</li>
+<li>
+<p>Éditer cette page pour insérer l'image (<code>prog.png</code>) de l'évolution de la fréquentation de notre centre commercial.</p>
+</li>
+<li>
+<p>Éditer cette page pour intégrer le tableau correspondant aux données du fichier <code>data.csv</code> en utilisant l'élément HTML <code>table</code> (cette table devra être agréable à lire, vous veillerez donc à l'espacement dans les cellules ainsi qu'à son style : bordure, couleur de la ligne d'en-tête et couleur des lignes qui contiennent les données, etc.)</p>
+</li>
+<li>
+<p>Effectuer le reste de la mise en page :</p>
+<ul>
+<li>barre / menu de navigation plus agréable à utiliser (utilisation de règles CSS pour changer l'apparence du lien au survol, pour faire disparaître les 'puces' qui correspondent à chaque item de la liste, etc.)</li>
+<li>pied-de-page contenant votre nom et les mentions légales éventuelles (<em>copyright</em>, etc.)</li>
+</ul>
+</li>
+<li>
+<p>Si le contenu de votre page dépasse la taille de votre écran, vous devrez veiller à ce que votre page ait un comportement approprié (présence de barre de défilement sur le coté, <em>quid</em> du positionnement du menu de navigation, etc.)</p>
+</li>
+</ol>
+<p><strong>🚀 Faire valider l'apparence de votre page Web</strong></p>
+<p><strong>🚀 Vous pouvez également valider votre code HTML et votre code CSS en ligne : <a href="https://validator.w3.org/">https://validator.w3.org/</a></strong></p>
+<blockquote>
+<p><strong>Remarque</strong> : Vous trouverez ci-dessous plusieurs captures d'écran de styles appliqués au même contenu HTML, celui qui vous êtes censé créer.<br />
+Vous pouvez vous en inspirer lors de la réalisation de votre page, mais n'hésitez pas à faire preuve d'imagination !</p>
+</blockquote>
+<h2><a class="header" href="#7-mise-en-pratique-2" id="7-mise-en-pratique-2">7. Mise en pratique (2)</a></h2>
+<p><em>À réaliser après avoir valider la partie précédente</em></p>
+<p><strong>🚀 Consignes</strong>:</p>
+<ol>
+<li>
+<p>Vous voulez intégrer un encart contenant une carte permettant de localiser l'emplacement de notre centre commercial. Une des manières les plus simples consiste à utiliser la fonctionnalité appropriée du projet OpenStreetMap. Rendez-vous sur le site www.openstreetmap.org et utilisez la fonctionnalité &quot;Partager&quot; qui permet d'obtenir un code HTML que vous pourrez intégrer à votre page. Ce code HTML contient notamment une balise <code>&lt;iframe&gt;</code>.</p>
+<ul>
+<li>Vous veillerez à ce que l'export inclue le <em>marker</em> indiquant la position de notre centre commercial.</li>
+<li>Vous veillerez à ce que la carte s'insère de manière harmonieuse au reste de la page.</li>
+</ul>
+</li>
+<li>
+<p>Il est maintenant nécessaire d'ajouter une barre de recherche à notre page. Nous n'avons pas encore abordé les éléments HTML permettant de faire saisir des informations à l'utilisateur. Le principal d'entre-eux est l'élément <code>&lt;input&gt;</code>. Prenez connaissance des différents types de champs qu'il permet de créer en lisant la documentation en ligne : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input">https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input</a> puis ajouter un élément <code>&lt;input&gt;</code> à votre page.</p>
+<ul>
+<li>Vous veillerez à ce que cet élément s'insère de manière harmonieuse au reste de la page (localisation dans la barre de navigation, ou dans un panneau latéral par exemple).</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4><a class="header" href="#exemples" id="exemples">Exemples</a></h4>
+<div class="center">
+<p><img src="img/tp3_style1.png" alt="Exemple de style (1)" /></p>
+<p><img src="img/tp3_style2.png" alt="Exemple de style (2)" /></p>
+<p><img src="img/tp3_style_table.png" alt="Exemple de style pour le tableau" /></p>
+</div>
+<hr />
+<h2><a class="header" href="#8-retour-sur-quelques-aspects-du-positionnement-des-éléments" id="8-retour-sur-quelques-aspects-du-positionnement-des-éléments">8. Retour sur quelques aspects du positionnement des éléments</a></h2>
+<h3><a class="header" href="#81-le-centrage-dun-élément-dans-la-page-dans-son-conteneur-" id="81-le-centrage-dun-élément-dans-la-page-dans-son-conteneur-">8.1 Le centrage d'un élément (dans la page, dans son conteneur, ...)</a></h3>
+<p>Ici en définissant une largeur (<code>width</code>) et des marges automatiques (<code>margin: auto</code>) sur un élément en bloc ; puis en demandant à centrer le texte autour de l'axe vertical au sein de cet élément (<code>text-align: center</code>).</p>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">.a {
+  width: 50%;
+  padding: 3px;
+  background-color: lightgreen;
+  border: solid 1px gray;
+}
+
+.b {
+  margin: auto;
+}
+
+.c {
+  text-align: center;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;section&gt;
+   &lt;div class=&quot;a&quot;&gt;Bloc utilisant la propriété 'width', non centré&lt;/div&gt;
+&lt;/section&gt;
+&lt;hr&gt;
+&lt;section&gt;
+   &lt;div class=&quot;a b&quot;&gt;Bloc utilisant la propriété 'width', centré ('margin:auto')&lt;/div&gt;
+&lt;/section&gt;
+&lt;hr&gt;
+&lt;section&gt;
+   &lt;div class=&quot;a b c&quot;&gt;Bloc utilisant la propriété 'width', centré ('margin:auto') et texte aligné au centre&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res">
+  <section>
+     <section style="padding: 3px; border: solid 1px gray; width: 50%; background-color: lightgreen;">Bloc utilisant la propriété 'width', non centré</section>
+  </section>
+  <hr>
+  <section>
+     <section style="padding: 3px; border: solid 1px gray; width: 50%; margin: auto; background-color: lightgreen;">Bloc utilisant la propriété 'width', centré ('margin:auto')</section>
+  </section>
+  <hr>
+  <section>
+     <section style="padding: 3px; border: solid 1px gray; width: 50%; margin: auto; background-color: lightgreen;text-align: center;">Bloc utilisant la propriété 'width', centré ('margin:auto') et texte aligné au centre</section>
+  </section>
+</div>
+<h3><a class="header" href="#82-utilisation-de-display-inline-block-pour-avoir-des-blocs-en-ligne-" id="82-utilisation-de-display-inline-block-pour-avoir-des-blocs-en-ligne-">8.2 Utilisation de <code>display: inline-block;</code> pour avoir des blocs en ligne :</a></h3>
+<p>Les blocs qui utilisent cette propriété vont se comporter comme des éléments en bloc (respect des propriétés <code>width</code>, <code>height</code>, etc.) mais ne vont pas créer de retour à la ligne avant / après l'élément, lui permettant de s'afficher à coté de ses éléments frères.</p>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">.a {
+  background-color: cornsilk;
+  border: solid 1px gray;
+  padding: 4px;
+  width: 30%;
+}
+
+.b {
+  display: inline-block;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;div&gt;
+ &lt;div class=&quot;a&quot;&gt;Bloc 1&lt;/div&gt;
+ &lt;div class=&quot;a&quot;&gt;Bloc 2&lt;/div&gt;
+ &lt;div class=&quot;a&quot;&gt;Bloc 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;div&gt;
+ &lt;div class=&quot;a b&quot;&gt;Bloc 1&lt;/div&gt;
+ &lt;div class=&quot;a b&quot;&gt;Bloc 2&lt;/div&gt;
+ &lt;div class=&quot;a b&quot;&gt;Bloc 3&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div>
+  <section>
+   <section style="background-color: cornsilk;border: solid 1px gray;padding: 4px; width: 30%;">Bloc 1</section>
+   <section style="background-color: cornsilk;border: solid 1px gray;padding: 4px; width: 30%;">Bloc 2</section>
+   <section style="background-color: cornsilk;border: solid 1px gray;padding: 4px; width: 30%;">Bloc 3</section>
+  </section>
+  <hr>
+  <section>
+   <section style="background-color: cornsilk;border: solid 1px gray;padding: 4px; display: inline-block; width: 30%;">Bloc 1</section>
+   <section style="background-color: cornsilk;border: solid 1px gray;padding: 4px; display: inline-block; width: 30%;">Bloc 2</section>
+   <section style="background-color: cornsilk;border: solid 1px gray;padding: 4px; display: inline-block; width: 30%;">Bloc 3</section>
+  </section>
+</div>
+<h3><a class="header" href="#83-lutilisation-de-la-propriété-position-pour-changer-le-type-de-positionnement-dun-élément" id="83-lutilisation-de-la-propriété-position-pour-changer-le-type-de-positionnement-dun-élément">8.3 L'utilisation de la propriété <code>position</code> pour changer le type de positionnement d'un élément</a></h3>
+<p><em>(voir la démonstration sur <a href="https://developer.mozilla.org/fr/docs/Web/CSS/position">https://developer.mozilla.org/fr/docs/Web/CSS/position</a>)</em></p>
+<ul>
+<li>
+<p>positionnement relatif avec <code>position: relative</code> :</p>
+<ul>
+<li>l'élément est décalé à l'aide des propriétés <code>top</code>, <code>right</code>, <code>left</code>, <code>bottom</code> par rapport à sa position normale dans le flux du document</li>
+<li>celà n'affecte pas les boites voisines mais l'élément peut prendre place au dessus de ses éléments frères</li>
+</ul>
+</li>
+<li>
+<p>positionnement absolu avec <code>position: absolute</code> :</p>
+<ul>
+<li>l'élément est positionné à l'aide des propriétés <code>top</code>, <code>right</code>, <code>left</code>, <code>bottom</code></li>
+<li>l'élément est sorti du flux et ne participe plus au positionnement de ses éléments frères</li>
+</ul>
+</li>
+<li>
+<p>positionnement fixe avec <code>position: fixed</code> :</p>
+<ul>
+<li>l'élément reste fixe dans la page : il n'est pas affecté par le défillement de la page</li>
+<li>il s'agit d'un positionnement absolu : l'élément est sorti du flux et ne participe plus au positionnement de ses éléments frères</li>
+</ul>
+</li>
+<li>
+<p>positionnement en adhérence avec <code>position: sticky</code> :</p>
+<ul>
+<li>il s'agit d'un positionnement relatif jusqu'à un seuil donné puis l'élément se comporte ensuite comme un élément fixe</li>
+</ul>
+</li>
+</ul>
+<p><em>La différence de participation au flux des éléments entre <code>sticky</code> et <code>fixed</code> est la raison pour laquelle il pouvait être plus judicieux d'utiliser <code>sticky</code> pour positionner de manière fixe l'élément <code>header</code> ou l'élément <code>footer</code> tout en permettant sa contribution au flux des éléments lors des exercices du TP3.</em></p>
+<h3><a class="header" href="#84-la-possibilité-de-faire-flotter-des-éléments" id="84-la-possibilité-de-faire-flotter-des-éléments">8.4 La possibilité de faire &quot;flotter&quot; des éléments</a></h3>
+<p>La propriété <code>float</code> permet de faire sortir l'élément du flux et de le pousser dans la direction indiquée par la valeur de la propriété (<code>float:right</code> ou <code>float:left</code>).<br />
+Ses éléments frères vont venir prendre place autour de lui.<br />
+Lorsque l'on souhaite interdire le voisinage avec un élément flottant et reprendre le flux normal du document, on utilise la propriété <code>clear</code> (avec la valeur <code>right</code>, <code>left</code> ou <code>both</code> selon le besoin).</p>
+<h4><a class="header" href="#-pour-les-répartir-sur-la-page-1" id="-pour-les-répartir-sur-la-page-1">... pour les répartir sur la page (1)</a></h4>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">.s {
+  text-align: center;
+  background: lightgreen;
+  padding: 4px;
+}
+
+.left {
+  float: left;
+  width: 48%;
+}
+
+.right {
+  float: right;
+  width: 48%;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;left s&quot;&gt;Bloc de gauche&lt;/div&gt;
+&lt;div class=&quot;right s&quot;&gt;Bloc de droite&lt;/div&gt;
+&lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt; &lt;!-- Cela va permettre au titre
+            en dessous des blocs verts de ne pas venir se coller à eux --&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div>
+  <section style="float: left;width: 48%; text-align: center; background: lightgreen; padding: 4px;">Bloc de gauche</section>
+  <section style="float: right;width: 48%; text-align: center; background: lightgreen; padding: 4px;">Bloc de droite</section>
+  <div style="clear: both;"></div> <!-- Cela va permettre à mon titre en dessous de ne pas venir se coller aux deux blocs verts -->
+</div>
+<h4><a class="header" href="#-pour-les-répartir-sur-la-page-2" id="-pour-les-répartir-sur-la-page-2">... pour les répartir sur la page (2)</a></h4>
+<p><u>Code CSS:</u></p>
+<pre><code class="language-css">.s {
+  text-align: center;
+  background: lightgreen;
+  padding: 4px;
+  margin: 4px;
+  border: solid 1px black;
+}
+
+.floatbox {
+  float: left;
+  width: 22%;
+}
+</code></pre>
+<p><u>Code XHTML:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;floatbox s&quot;&gt;1&lt;/div&gt;
+&lt;div class=&quot;floatbox s&quot;&gt;2&lt;/div&gt;
+&lt;div class=&quot;floatbox s&quot;&gt;3&lt;/div&gt;
+&lt;div class=&quot;floatbox s&quot;&gt;4&lt;/div&gt;
+&lt;div class=&quot;floatbox s&quot;&gt;5&lt;/div&gt;
+&lt;div class=&quot;floatbox s&quot;&gt;6&lt;/div&gt;
+&lt;div class=&quot;floatbox s&quot;&gt;7&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div>
+<section style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">1</section>
+<section style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">2</section>
+<section style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">3</section>
+<section style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">4</section>
+<section style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">5</section>
+<section style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">6</section>
+<section style="float: left;width: 22%;text-align: center;background: lightgreen;padding: 4px;margin: 4px;border: solid 1px black;">7</section>
+</div>
 <div style="text-align: center">
 <h1><a class="header" href="#cours-technologies-web-1" id="cours-technologies-web-1">Cours Technologies Web</a></h1>
 <h1><a class="header" href="#lp-essig---université-grenoble-alpes-1" id="lp-essig---université-grenoble-alpes-1">LP ESSIG - Université Grenoble Alpes</a></h1>
@@ -217,18 +946,6 @@ Voir le <a target="blank" href="1-Intro-Internet-web/index.html">cours sous form
 <div style="text-align: center">
 <h1><a class="header" href="#cours-technologies-web-6" id="cours-technologies-web-6">Cours Technologies Web</a></h1>
 <h1><a class="header" href="#lp-essig---université-grenoble-alpes-6" id="lp-essig---université-grenoble-alpes-6">LP ESSIG - Université Grenoble Alpes</a></h1>
-<p><br><br><br></p>
-<p><em>Contenu à venir...</em></p>
-</div>
-<div style="text-align: center">
-<h1><a class="header" href="#cours-technologies-web-7" id="cours-technologies-web-7">Cours Technologies Web</a></h1>
-<h1><a class="header" href="#lp-essig---université-grenoble-alpes-7" id="lp-essig---université-grenoble-alpes-7">LP ESSIG - Université Grenoble Alpes</a></h1>
-<p><br><br><br></p>
-<p><em>Contenu à venir...</em></p>
-</div>
-<div style="text-align: center">
-<h1><a class="header" href="#cours-technologies-web-8" id="cours-technologies-web-8">Cours Technologies Web</a></h1>
-<h1><a class="header" href="#lp-essig---université-grenoble-alpes-8" id="lp-essig---université-grenoble-alpes-8">LP ESSIG - Université Grenoble Alpes</a></h1>
 <p><br><br><br></p>
 <p><em>Contenu à venir...</em></p>
 </div>
@@ -278,7 +995,7 @@ Voir le <a target="blank" href="1-Intro-Internet-web/index.html">cours sous form
 <p><a name="URL">URL</a>: <em>Uniform Resource Locator</em> - c'est une chaîne de caractères qui désigne une ressource du <a href="glossaire.html#WWW">WWW</a>. Les URL sont parfois appelées <em>adresses Web</em> et composent un sous-ensemble des <a href="glossaire.html#URI">URI</a>.</p>
 </li>
 <li>
-<p><a name="WWW">WWW</a>: <em>World Wide Web</em> - décrit le système d'information, utilisant le réseau Internet, dans lequel les ressources (documents, etc.) sont identifiées par une <a href="glossaire.html#URL">URL</a> et reliées entre elles par des liens hypertextes. Les ressources du WWW sont consultables par des <em>clients Web</em> (généralement des navigateurs Web), publiées des <em>serveurs Web</em> et transférées en utilisant le protocole <a href="glossaire.html#HTTP">HTTP</a>.</p>
+<p><a name="WWW">WWW</a>: <em>World Wide Web</em> - décrit le système d'information, utilisant le réseau Internet, dans lequel les ressources (documents, etc.) sont identifiées par une <a href="glossaire.html#URL">URL</a> et reliées entre elles par des liens hypertextes. Les ressources du WWW sont consultables par des <em>clients Web</em> (généralement des navigateurs Web), publiées par des <em>serveurs Web</em> et transférées en utilisant le protocole <a href="glossaire.html#HTTP">HTTP</a>.</p>
 </li>
 </ul>
 </div>
@@ -383,12 +1100,14 @@ Voir le <a target="blank" href="1-Intro-Internet-web/index.html">cours sous form
 <li>
 <p><a href="./1-Intro-Internet-web/1-Intro-slides.pdf">1 - Éléments théoriques</a></p>
 </li>
+<li>
+<p><a href="./2-HTML_CSS.pdf">2 - Intro HTML 5 / CSS 3</a></p>
+</li>
+<li>
+<p><a href="./3-structure-style.pdf">3 - Structurer et styler un document HTML</a></p>
+</li>
 </ul>
 <!--
-- [2 - Intro HTML 5 / CSS 3](./2-HTML_CSS.pdf)
-
-- [3 - Structurer et styler un document HTML](./3-structure-style.pdf)
-
 - [4 - Le framework `Bootstrap`](./4-css-bootstrap.pdf)
 
 - [5 - Programmation Web coté serveur en Python](./5-serveur-client1.pdf)
@@ -401,7 +1120,17 @@ Voir le <a target="blank" href="1-Intro-Internet-web/index.html">cours sous form
 
  -->
 <h2><a class="header" href="#données--corrections" id="données--corrections">Données &amp; corrections</a></h2>
-<p>...</p>
+<ul>
+<li>
+<p><a href="data/TP2.zip">Données TP2</a></p>
+</li>
+<li>
+<p><a href="data/TP3.zip">Données TP3</a></p>
+</li>
+</ul>
+<h2><a class="header" href="#sujets-dexamen-précédents" id="sujets-dexamen-précédents">Sujets d'examen précédents</a></h2>
+<p><a href="./data/Test_TechnoWEB_2020_1.pdf">Example 1</a></p>
+<p><a href="./data/Test_TechnoWEB_2020_v2.pdf">Example 2</a></p>
 
                     </main>
 
