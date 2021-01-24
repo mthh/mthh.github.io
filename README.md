@@ -1,7 +1,7 @@
 # mthh.github.io
 
 
-#### Présentations :
+### Présentations :
 
 - ["Présentation de Magrit" - *Midi du Pôle Image* (Paris - 21 mars 2017)](https://mthh.github.io/carto/)  
 
@@ -28,3 +28,19 @@
 - ["Environnement de dev. en JS" (20 décembre 2019)](https://mthh.github.io/environnement_dev_js_20191220/)  
 
 - ["Tour d'horizons des fonctionnalité de SHACL" (17 janvier 2020)](https://mthh.github.io/shacl_intro_20200117/)
+
+
+### Cours :
+
+- Technologies Web ([2019-2020](), [2020-2021]())
+
+- Python pour QGIS (2018-2019, 2019-2020, 2020-2021)
+
+- Outils de Communication Territoriale (2019-2020, [2020-2021]())
+
+
+### Autres :
+
+- Portfolio datavisualisation / géovisualisation
+
+- [Mes publications (sur HAL)](https://hal.archives-ouvertes.fr/search/index/?q=%2A&authIdHal_s=matthieu-viry)
