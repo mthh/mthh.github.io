@@ -32,15 +32,18 @@
 
 ### Cours :
 
-- Technologies Web ([2019-2020](), [2020-2021]())
+- Technologies Web ([2019-2020](), [2020-2021]()) - LP ESSIG (IUT2 / Université Grenoble Alpes)
 
-- Python pour QGIS (2018-2019, 2019-2020, 2020-2021)
+- Python pour QGIS (2018-2019, 2019-2020, 2020-2021) - LP ESSIG (IUT2 / Université Grenoble Alpes)
 
-- Outils de Communication Territoriale (2019-2020, [2020-2021]())
+- Outils de Communication Territoriale / cartographie thématique ([2019-2020](), [2020-2021]()) - M1 IDT2 (IUGA / Université Grenoble Alpes)
+
+- Introduction aux SIG (2018-2019, 2019-2020) - M1 Urbanisme (IUGA / Université Grenoble Alpes)
+
+- Introduction aux SIG (2020-2021) - 3ème année ISI et Mastere BigData (ENSIMAG / Grenoble INP)
+
 
 
 ### Autres :
-
-- Portfolio datavisualisation / géovisualisation
 
 - [Mes publications (sur HAL)](https://hal.archives-ouvertes.fr/search/index/?q=%2A&authIdHal_s=matthieu-viry)
