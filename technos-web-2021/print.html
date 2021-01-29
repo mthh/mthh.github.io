@@ -90,7 +90,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">7.</strong> Interactions serveur/client (suite)</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">8.</strong> Javascript - Théorie et pratique</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">9.</strong> Technos Web... quoi d'autre ?</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li><li class="expanded affix "><a href="exam.html">Précédents sujets d'examen</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="6-serveur-client2.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">7.</strong> Interactions serveur/client (suite)</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">8.</strong> Javascript - Théorie et pratique</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">9.</strong> Technos Web... quoi d'autre ?</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li><li class="expanded affix "><a href="exam.html">Précédents sujets d'examen</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -1375,6 +1375,624 @@ Vous pouvez également chercher dans la documentation comment faire en sorte que
 <ol start="5">
 <li>Si vous avez réussi avec succès les questions précédentes c'est que vous maitrisez déjà bien la documentation de Bootstrap. Essayer d'ajouter à la page en cours une <a href="https://getbootstrap.com/docs/5.0/components/modal/">fenêtre modale</a> dont l'ouverture serait déclanchée par un clic sur un <a href="https://getbootstrap.com/docs/5.0/components/buttons/">bouton</a>. L'ensemble des informations sont présentes dans la documentation. Vous êtes libre de choisir le contenu de la fenêtre modale ainsi que la manière dont le lien entre le boutton et la fenêtre modale est défini dans votre code.</li>
 </ol>
+<h1><a class="header" href="#programmation-web-coté-serveur-en-python" id="programmation-web-coté-serveur-en-python">Programmation Web coté serveur en Python</a></h1>
+<h2><a class="header" href="#1-préambule" id="1-préambule">1. Préambule</a></h2>
+<h3><a class="header" href="#11-langages-coté-client-et-langages-coté-serveur-" id="11-langages-coté-client-et-langages-coté-serveur-">1.1 Langages coté client et langages coté serveur ...</a></h3>
+<p>HTML <em>(HyperText Markup Language)</em> et CSS <em>(Cascading Style Sheet)</em>, sont deux langages de simple affichage statique de contenus (statique car rien ne change, le contenu est toujours le même).</p>
+<p>Les langages de script permettent de produire des pages web non statiques, c’est-à-dire dont le contenu peut varier en fonction de différentes conditions (et notamment des actions de l'utilisateur).</p>
+<p>Il existe des langages côté client (le principal actuellement est Javascript) et des langages côté serveur.</p>
+<p><strong>PHP</strong> est un célèbre exemple de langage de programmation qui s’exécute côté serveur. Ce langage permet de produire du code, visualisable par le client, qui peut différer en fonction de circonstances définies, ce qui introduit donc un certain dynamisme. Ce dynamisme peut être accru grâce à une connexion avec une base de données (PostGreSQL, MySQL, SQLite, etc.).</p>
+<div class="center" style="border: solid 3px black; border-radius: 10px;">
+<p><img src="1-Intro-Internet-web/img/traitement_page_serveur.png" alt="" /></p>
+<p class="source center" style="font-size: 0.85em;">Source: Marlène Villanova-Oliver</p>
+</div>
+<p>La figure ci-dessus (également présentée dans les slides du 1er cours) présente l’architecture couplant un langage de programmation et une base de données afin de générer, sur le serveur, du contenu dynamique lors d'une requête en provenance d'un client (navigateur Web) : c'est ce que nous allons implémenter dans les 2 prochains TP.<br />
+<strong>Nous n'utiliserons pas le langage PHP mais le langage Python avec le <em>micro-framework</em> <code>Flask</code>.</strong></p>
+<p>Il existe de nombreux <em>frameworks</em> de programmation de <strong>serveur</strong> Web dans un multitude de langages, par exemple :</p>
+<ul>
+<li>en PHP : <code>laravel</code>, <code>Symphony</code>,</li>
+<li>en Python : <code>Django</code>, <code>Flask</code>, <code>cherry.py</code></li>
+<li>en JavaScript avec node.js : <code>Express.js</code>,</li>
+<li>en Java : <code>Spring</code>, ...</li>
+<li>en Ruby : <code>Ruby on Rails</code>, ...</li>
+</ul>
+<p>Les logiciels <a href="https://fr.wikipedia.org/wiki/Apache_HTTP_Server"><code>Apache HTTP server</code></a> et <a href="https://fr.wikipedia.org/wiki/NGINX"><code>NGINX</code></a> sont également des serveurs HTTP.</p>
+<p>Au même titre, il existe différents <strong>clients</strong>, que vous utilisez ou connaissez déjà pour certains puisqu'il s'agit notamment des navigateurs Web :</p>
+<ul>
+<li><code>Chrome</code>, <code>Firefox</code>, <code>Microsoft Edge</code>, etc.</li>
+<li>En ligne de commande : <a href="https://fr.wikipedia.org/wiki/CURL"><code>cURL</code></a>, <a href="https://fr.wikipedia.org/wiki/GNU_Wget"><code>Wget</code></a></li>
+<li>Des bibliothèques proposent d'effectuer des requêtes HTTP dans la plupart des langages de programmation (<a href="https://requests.readthedocs.io/en/master/"><code>requests</code></a> et <a href="https://www.python-httpx.org/"><code>httpx</code></a> en Python par exemple)</li>
+</ul>
+<h3><a class="header" href="#12-le-protocole-http" id="12-le-protocole-http">1.2 Le protocole HTTP</a></h3>
+<p>Dans le 1er cours, nous avons évoqué le protocole HTTP (pour <em>Hypertext Transfer Protocol</em>, littéralement &quot;protocole de transfert hypertexte&quot;). Il s'agit d'un <strong>protocole de communication client-serveur</strong> (se situant au niveau &quot;application&quot; du modèle en couches présenté à cette occasion et dont l'illustration est rappelée ci-dessous).</p>
+<div class="center">
+<p><img src="1-Intro-Internet-web/img/dataflow_ips_wikipedia.png" alt="" /></p>
+<p class="source center" style="font-size: 0.85em;">Source: <a href="https://commons.wikimedia.org/wiki/File:Data_Flow_of_the_Internet_Protocol_Suite.PNG">Wikimedia Commons - user: renepick</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a></p>
+</div>
+<div class="center">
+<p><img src="1-Intro-Internet-web/img/client-server-mdn.png" alt="" /></p>
+<p><span class="source" style="display: block;padding-right: 86px;font-size: 0.85em;">Source: <a href="https://developer.mozilla.org/files/4291/client-server.png">Mozilla Developpers Network</a></span></p>
+</div>
+<p>Le protocole HTTP définie plusieurs <strong>méthodes</strong>. Une méthode est une commande spécifiant au serveur un <strong>type de requête</strong>, lui demandant d'effectuer une action particulière sur la ressource désignée par l'URL qui accompagne cette méthode.</p>
+<p>Les méthodes qui seront utilisées dans cette série de TP sont les suivantes (il s'agit également des plus utilisées):</p>
+<ul>
+<li><strong><code>GET</code></strong> : méthode pour demander une ressource (une requête <code>GET</code> est sans effet sur la ressource, on peut la répéter et obtenir le même résultat), c'est la méthode utilisée lors de la récupération d'une page Web par exemple.</li>
+<li><strong><code>POST</code></strong> : méthode pour transmettre des données en vue de leur traitement (par exemple depuis un formulaire HTML)</li>
+</ul>
+<p><strong>→ Concrêtement, lorsqu'une page HTML est consultée, la première étape consiste à la récupérer : une requête HTTP de type <code>GET</code> sur l'url de la page est effectuée</strong>.</p>
+<p><strong>→ De même, lorsque vous validez un formulaire, une requête HTTP de type <code>POST</code> est effectuée sur une url du serveur permettant de valider et de traiter le formulaire</strong>.</p>
+<p>Ces autres méthodes sont parfois utilisées (notamment lors de l'utilisation d'une API de type REST pour les 3 dernières), gardez leur nom en tête pour savoir qu'il s'agit de méthodes HTTP si vous les rencontrez :</p>
+<ul>
+<li><code>HEAD</code> : méthode pour demander des informations sur la ressource, sans récupérer la ressource.</li>
+<li><code>PUT</code> : méthode pour remplacer ou ajouter une ressource.</li>
+<li><code>DELETE</code> : méthode pour supprimer une ressource.</li>
+<li><code>PATCH</code> : méthode pour faire une modification partielle (contrairement à <code>PUT</code> qui la remplacerait) d'une ressource.</li>
+</ul>
+<h3><a class="header" href="#13-le-fil-rouge-de-ce-tp-et-des-suivants-" id="13-le-fil-rouge-de-ce-tp-et-des-suivants-">1.3 Le fil rouge de ce TP et des suivants ...</a></h3>
+<p>Nous souhaitons construire <strong>une plate-forme collaborative permettant de noter et de donner un avis sur les bâtiments du campus</strong>. Cette tâche complexe peut-être décomposée en plusieurs sous-tâches:</p>
+<ul>
+<li>créer une base de données permettant de stocker cette information</li>
+<li>donner à l'utilisateur la possibilité de consulter l'information (localisation des bâtiments notés et détails des notes/avis)</li>
+<li>donner à l'utilisateur la possibilité de saisir une nouvelle information (ajout d'une note/avis à une localisation en ayant déjà où non)</li>
+</ul>
+<p>Aujourd'hui (<strong>TP5</strong>), nous verrons comment organiser le code coté serveur pour que différentes actions puissent être effectuées en fonction du type de requête ou du chemin de la requête <em>(i.e. comment passer d'un contenu statique à un contenu dynamique)</em> et nous verrons comment utiliser des <em>templates</em> HTML.</p>
+<p>Le <strong>TP6</strong> servira à créer un formulaire dans la page HTML et à le traiter coté serveur pour ajouter son contenu dans une base de données <a href="https://www.sqlite.org/">SQLite</a>. Les informations présentes dans la base de données seront mobilisées pour être affichées coté client ; elles pourront également être mises à jour.</p>
+<p>Le <strong>TP7</strong> servira à ajouter une carte interactive dans la page HTML. C'est cette carte qui sera utilisée comme interface pour l'ajout d'avis (lors du clic de l'utilisateur par exemple) ainsi que pour l'affichage de la localisation des avis présents dans la base de données (sous forme de <em>markers</em>). Cette carte fera appel à du code Javascript, exécuté directement dans le navigateur web du client. L'application construite pourra être déployée individuellement sur la plate-forme <a href="https://www.pythonanywhere.com/">PythonAnywhere</a>.</p>
+<p>Le <strong>TP8</strong>, sera consacré au langage Javascript (aspects théoriques et pratiques) afin d'ajouter de l'interactivité et des fonctionnalités supplémentaire à l'application créée.</p>
+<h2><a class="header" href="#2-la-bibliothèque-flask" id="2-la-bibliothèque-flask">2. La bibliothèque <code>Flask</code></a></h2>
+<p>Il s'agit d'un <em>micro-framework</em> conçu pour développer une application Web coté serveur. À ce titre il va fournir des outils génériques pour créer ce type d'application tout en favorisant la mise en oeuvre de bonnes pratiques et en limitant l'écriture de code inutile. Le qualificatif <em>micro</em> décrit ici plusieurs réalités :</p>
+<ul>
+<li>vise à garder le code de base simple mais extensible,</li>
+<li>n'est pas opiniâtre dans le choix d'une base de données,</li>
+<li>au final, <code>Flask</code> s'occupe de l'essentiel (gérer les routes et les requêtes HTTP et permettre l'utilisation de <em>templates</em>) mais les autres tâches &quot;optionnelles&quot; (connexion à une DB, authentification, formulaires, etc.) sont laissées à des extensions.</li>
+</ul>
+<p><strong><code>Flask</code></strong> repose notamment sur deux bibliothèques dont il est utile d'avoir connaissance : <code>Werkzeug</code> (une boite à outils WSGI) et <code>Jinja2</code> (un moteur de <em>template</em>).</p>
+<div class="center smallcontent">
+<p><img src="https://flask.palletsprojects.com/en/1.1.x/_images/flask-logo.png" alt="" /></p>
+</div>
+<p><strong>Liens utiles:</strong></p>
+<ul>
+<li>Documentation officielle de <code>Flask</code>: <a href="https://flask.palletsprojects.com/en/1.1.x/">https://flask.palletsprojects.com/en/1.1.x/</a></li>
+<li>Documentation officielle de <code>Jinja2</code>: <a href="https://jinja.palletsprojects.com/en/2.11.x/">https://jinja.palletsprojects.com/en/2.11.x/</a></li>
+<li>Documentation officielle de <code>Werkzeug</code> : <a href="https://werkzeug.palletsprojects.com/en/0.16.x/">https://werkzeug.palletsprojects.com/en/0.16.x/</a></li>
+<li>Liste de <em>plugins</em> et de ressources pour <code>Flask</code>: <a href="https://github.com/humiaozuzu/awesome-flask">https://github.com/humiaozuzu/awesome-flask</a></li>
+</ul>
+<h3><a class="header" href="#21-premier-pas-avec-flask---application-et-routes" id="21-premier-pas-avec-flask---application-et-routes">2.1 Premier pas avec Flask - Application et routes</a></h3>
+<h4><a class="header" href="#application" id="application">Application</a></h4>
+<p><u>Code :</u></p>
+<pre><code class="language-python">from flask import Flask
+
+app = Flask(__name__)
+
+@app.route(&quot;/route1&quot;)
+def root():
+    return &quot;Hello from Flask!&quot;
+</code></pre>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/route1">http://mthh.pythonanywhere.com/route1</a></p>
+<p><u>Explications :</u></p>
+<ul>
+<li><code>app</code> désigne une application Flask;</li>
+<li>la fonction <code>root</code> est appelée une <strong>vue</strong>. Elle retourne une chaîne de caractères, qui sera le contenu de la réponse. Par défaut, le statut de la réponse est 200, et le type de contenu est HTML, encodé en UTF-8;</li>
+<li>la ligne qui précède la fonction <code>root</code> est un <strong><a href="https://www.python.org/dev/peps/pep-0318/">décorateur</a></strong>, il sert ici à spécifier l’URL pour laquelle cette vue doit être utilisée (sa <em><strong>route</strong></em>). Ce décorateur est une méthode de l'objet <code>app</code>, l'application Flask, créée au-dessus, dans laquelle s'inscrit cette route.</li>
+</ul>
+<h4><a class="header" href="#routes" id="routes">Routes</a></h4>
+<p>En développement Web, on appelle <strong>route</strong> une URL ou un ensemble d’URLs conduisant à l’exécution d’une fonction donnée.</p>
+<p>Dans Flask, les routes sont déclarées via le décorateur <code>@app.route</code>, comme dans l’exemple ci-dessus.
+Une route peut être paramétrée, auquel cas le paramêtre sera passé à la fonction vue :</p>
+<pre><code class="language-python">@app.route(&quot;/hello/&lt;name&gt;&quot;)
+def hello(name):
+    return &quot;Hello {}&quot;.format(name)
+</code></pre>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/hello/John">http://mthh.pythonanywhere.com/hello/John</a></p>
+<p>Les exemples ci-dessus vous permettent de personnaliser la réponse en fonction de la demande de l'utilisateur ou de faire effectuer des calculs coté serveur en bénéficiant de la puissance et de l'étendue des fonctionnalités offertes par python et son écosystème.</p>
+<ul>
+<li>Il est également possible de spécifier plusieurs paramètres lors de la définition d'une route en utilisant la forme <code>/hello/&lt;a&gt;/&lt;b&gt;</code> :</li>
+</ul>
+<pre><code class="language-python">@app.route(&quot;/add/&lt;a&gt;/&lt;b&gt;&quot;)
+def add(a, b):
+    return &quot;Result: {}&quot;.format(int(a) + int(b))
+</code></pre>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/add/3/12">http://mthh.pythonanywhere.com/add/3/12</a></p>
+<ul>
+<li>Il est possible de spécifier le type attendu pour les paramètres de la route ; s'ils ne sont pas satisfaits, une réponse de type <code>404 - NOT FOUND</code> sera renvoyé par défaut :</li>
+</ul>
+<pre><code class="language-python">@app.route(&quot;/add/&lt;int:a&gt;/&lt;int:b&gt;&quot;)
+def add(a, b):
+    return &quot;Result: {}&quot;.format(a + b)
+</code></pre>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/add/12/abc">http://mthh.pythonanywhere.com/add/12/abc</a></p>
+<p>Un réponse <code>404 - NOT FOUND</code> sera également renvoyée si vous essayer d'accéder à une route qui n'est pas définie (ici <code>abdef</code>) :</p>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/abdef">http://mthh.pythonanywhere.com/abdef</a></p>
+<ul>
+<li>Par commoditée il est également possible de spécifier plusieurs routes conduisant à l'exécution d'une fonction :</li>
+</ul>
+<pre><code class="language-python">@app.route(&quot;/greetings&quot;)
+@app.route(&quot;/greetings/&lt;name&gt;&quot;)
+def greetings(name=None):
+    return &quot;Hello {} !&quot;.format(name or 'world')
+</code></pre>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/greetings">http://mthh.pythonanywhere.com/greetings</a>
+<br>
+<span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/greetings/Paul">http://mthh.pythonanywhere.com/greetings/Paul</a></p>
+<h4><a class="header" href="#méthodes-http" id="méthodes-http">Méthodes HTTP</a></h4>
+<p>Lors de la création d'une route, il est possible de spécifier la ou les méthodes par laquelle elle est accessible. Dans les exemples précédents, comme aucune méthode n'était spécifiée explicitement, il s'agissait de la méthode <strong>GET</strong>. Ainsi notre première fonction aurait pu être écrite de la manière qui suit :</p>
+<pre><code class="language-python">@app.route(&quot;/&quot;, methods=['GET'])
+def root():
+    return &quot;Hello from Flask!&quot;
+</code></pre>
+<p>Une route qui accepte seulement une méthode <strong>POST</strong> sera donc déclarée de la manière suivante :</p>
+<pre><code class="language-python">@app.route('/valid-form', methods=['POST'])
+</code></pre>
+<p>Il pourra parfois être nécessaire de créer des routes qui acceptent les deux méthodes. Prenons l'exemple du code ci-dessous. La route <code>/update</code> est créée pour accepter les méthodes <strong>GET</strong> et <strong>POST</strong> :</p>
+<pre><code class="language-python">from flask import request, render_template
+
+@app.route('/update', methods=['GET', 'POST'])
+def example():
+    if request.method == 'GET':
+        return render_template('update.html')
+    elif request.method == 'POST':
+        # traitement des données envoyées ...
+        return 'Entry updated' !
+
+</code></pre>
+<ul>
+<li>S'il s'agit d'une requête de type <strong>GET</strong>, la page qui correspond au <em>template</em> <code>update.html</code> sera retournée au client <em>(on s'imagine qu'elle contient notamment un formulaire permettant de mettre à jour une entrée dans la BD)</em>.</li>
+<li>S'il s'agit d'une requête de type <strong>POST</strong>, les données envoyées sont traitées pour mettre à jour l'entrée <em>(cette action correspond à la validation et à l'envoi, par le client, du formulaire contenu dans la page auquel il a accedé précédement par la route <code>/update</code>)</em> :</li>
+</ul>
+<h3><a class="header" href="#22-templates" id="22-templates">2.2 <em>Templates</em></a></h3>
+<p><strong><code>Flask</code></strong> dispose d'un mécanisme qui permet d'utiliser un <strong>modèle</strong> <em>(template)</em> de document dont certaines parties seront remplacées dynamiquement à l'exécution, avant d'être envoyé au client.</p>
+<p>Les exemples présentés jusqu'ici ne renvoient que des chaînes de caractères. Comme indiqué plus haut, il s'agit en réalité de contenu HTML ; vous pouvez ainsi écrire des routes renvoyant du contenu HTML correctement formatté et généré de manière dynamique:</p>
+<pre><code class="language-python">from datetime import date
+
+@app.route(&quot;/pretty-add/&lt;int:a&gt;/&lt;int:b&gt;&quot;)
+def pretty_add(a, b):
+    current_date = date.today().isoformat()
+    result = a + b
+    return &quot;&quot;&quot;
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot; /&gt;
+        &lt;title&gt;Addition result page&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body style=&quot;text-align:center;&quot;&gt;
+        &lt;h1&gt;Result page&lt;/h1&gt;
+        &lt;p&gt;{} + {} = &lt;strong&gt;{}&lt;/strong&gt;&lt;/p&gt;
+        &lt;hr/&gt;
+        &lt;p&gt;&lt;em&gt;Computed on {}&lt;/em&gt;&lt;/p&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;&quot;&quot;&quot;.format(a, b, result, current_date)
+</code></pre>
+<p><span class="tryit">Pour tester</span> : <a href="http://mthh.pythonanywhere.com/pretty-add/12/20">http://mthh.pythonanywhere.com/pretty-add/12/20</a></p>
+<p>Si cette méthode est utilisable, elle va toutefois vite rendre votre code difficilement compréhensible et elle ne facilite pas la réutilisation de morceau de code qui pourraient l'être.</p>
+<p>C'est ici que l'intérêt du <strong>moteur de <em>templates</em></strong> rentre en jeu. Ce dernier va permettre de stocker dans des fichiers séparés le <strong>modèle</strong> de nos pages HTML. Lors de l'exécution (avec la fonction <code>render_template</code> présentée ensuite), le modèle va être complété avec les paramètres fournis pour produire un document HTML utilisable par le client.</p>
+<h4><a class="header" href="#syntaxe-utilisée-par-jinja2" id="syntaxe-utilisée-par-jinja2">Syntaxe utilisée par <code>Jinja2</code></a></h4>
+<p>Reprenons l'exemple de notre route <code>pretty-add</code> définit ci-dessus ; il est possible de définir (dans un fichier <code>template/pretty-add.html</code> par exemple) le <em>template</em> suivant:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;Addition result page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body style=&quot;text-align:center;&quot;&gt;
+    &lt;h1&gt;Result page&lt;/h1&gt;
+    &lt;p&gt;{{ a }} + {{ b }} = &lt;strong&gt;{{ result }}&lt;/strong&gt;&lt;/p&gt;
+    &lt;hr/&gt;
+    &lt;p&gt;&lt;em&gt;Computed on {{ current_date }}&lt;/em&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>... et de réécrire la fonction de la manière suivante :</p>
+<pre><code class="language-python">from Flask import render_template
+
+@app.route(&quot;/pretty-add/&lt;int:a&gt;/&lt;int:b&gt;&quot;)
+def pretty_add(a, b):
+    date_now = date.today().isoformat()
+    result = a + b
+    return render_template('pretty-add.html',
+                           a=a,
+                           b=b,
+                           result=result,
+                           current_date=date_now)
+</code></pre>
+<p>Dans cet exemple nous avons utilisé:</p>
+<ul>
+<li>des <strong>expressions</strong>, délimitées par les symboles <code>{{ ... }}</code> ; elles peuvent contenir des expressions Python et ici, lorsqu'on écrit <code>{{ result }}</code> on cherche donc à utiliser le contenu de la variable <code>result</code> pour l'afficher dans la page HTML qui sera renvoyée.</li>
+</ul>
+<p>D'autres constructions peuvent être utilisées:</p>
+<ul>
+<li>des <strong>déclarations</strong> <em>(statements)</em>, délimités avec les symboles <code>{% ... %}</code> (conditions, boucles, etc.),</li>
+<li>des <strong>commentaires</strong>, délimités avec les symboles <code>{# ... #}</code>.</li>
+</ul>
+<blockquote>
+<p><strong>Remarque:</strong> La fonction <code>render_template</code> accepte les variables attendues par le <em>template</em> (son premier argument) en tant qu'arguments optionnels nommés : on utilise le nom de la variable attendue dans le <em>template</em> comme clé et le nom de la variable dans le code actuel comme valeur (<code>current_date=date_now</code> dans l'exemple précédent).</p>
+</blockquote>
+<h4><a class="header" href="#exemple-avec-une-boucle" id="exemple-avec-une-boucle">Exemple avec une boucle</a></h4>
+<p>Il va ainsi être possible d'utiliser, dans les <em>templates</em> des déclarations Python complexes ainsi que différents éléments utilisés habituellement pour le contrôle du flux d'exécution du programme. Regardez le code de ce <em>template</em> :</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Webpage&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;ul id=&quot;navigation&quot;&gt;
+    {% for item in navigation %}
+        &lt;li&gt;&lt;a href=&quot;{{ item['href'] }}&quot;&gt;{{ item['caption'] }}&lt;/a&gt;&lt;/li&gt;
+    {% endfor %}
+    &lt;/ul&gt;
+
+    &lt;h1&gt;My Webpage&lt;/h1&gt;
+    &lt;p&gt;Hello {{ name }}&lt;/p&gt;
+
+    {#
+      A multi
+          -line
+        comment
+    #}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><u>Explications :</u></p>
+<ul>
+<li>La variable <code>navigation</code> est ici une <code>list</code> de <code>dict</code>, de la forme
+<pre><code class="language-python">navigation = [
+    {&quot;href&quot;: &quot;index.html&quot;, &quot;caption&quot;: &quot;Accueil&quot;},
+    {&quot;href&quot;: &quot;partenaires.html&quot;, &quot;caption&quot;: &quot;Partenaires&quot;}
+]
+</code></pre>
+il est possible d'utiliser la déclaration <strong><code>{% for item in navigation %}</code></strong> qui a le même effet qu'une boucle utilisant <code>for</code> en Python - la syntaxe utilisée ici nécessite toutefois de fermer le bloc correspondant à cette boucle avec la déclaration <strong><code>{% endfor %}</code></strong>.</li>
+<li>La variable <code>name</code> est de type <code>str</code> et on l'affiche telle-quelle.</li>
+<li>La dernier bloc <code>{# ... #}</code> correspond à un commentaire ; comme dans les autres langages, servez-vous en si nécessaire !</li>
+<li>Les variables attendues (ici <code>navigation</code> et <code>name</code>) dans le <em>template</em> sont à donner en arguments optionnels et nommés de la fonction <code>render_template</code>.</li>
+</ul>
+<h4><a class="header" href="#réutilisation-de-templates" id="réutilisation-de-templates">Réutilisation de <em>templates</em></a></h4>
+<p>Reprenons l'exemple des pages que nous avons créées dans les TP précédents : elles contenaient une barre de navigation et un <em>footer</em> qui avaient tous deux vocation à être les mêmes pour chacune des pages du site.</p>
+<p>Grâce au <strong>mécanisme permettant d'inclure</strong> des <em>templates</em>, nous allons par exemple pouvoir définir dans des fichiers séparés les éléments réutilisables de notre site, pour les inclure depuis le <em>template</em> contenant le contenu principal de la page :</p>
+<pre><code class="language-html">{% include 'header.html' %}
+    Contenu principal de la page ici...
+{% include 'footer.html' %}
+</code></pre>
+<p>Les <em>templates</em> appelés de cette manière ont accès aux mêmes variables que le <em>template</em> qui les a inclus.</p>
+<h2><a class="header" href="#3---mise-en-pratique--exercice-1--inscription-à-pythonanywhere-et-démarrage-dun-projet-flask" id="3---mise-en-pratique--exercice-1--inscription-à-pythonanywhere-et-démarrage-dun-projet-flask">3 - Mise en pratique 🚀 Exercice 1 🚀 Inscription à PythonAnywhere et démarrage d'un projet <code>Flask</code></a></h2>
+<h3><a class="header" href="#31-inscription-à-pythonanywhere" id="31-inscription-à-pythonanywhere">3.1 Inscription à PythonAnywhere</a></h3>
+<p>L'inscription se passe à l'URL suivante : <a href="https://www.pythonanywhere.com/registration/register/beginner/">https://www.pythonanywhere.com/registration/register/beginner/</a>.</p>
+<p>Cette plateforme va vous permettre d'éxecuter du code Python sur un serveur distant. Cette solution peut être utile si vous voulez vous libérer des contraintes liées à la plateforme sur laquelle vous travaillez (système d'exploitation, droits administrateurs, etc.).</p>
+<p>Dans notre cas, elle va être utile car elle permet d'héberger une application Web (créee avec <code>Flask</code> mais aussi avec <code>Web2py</code> ou <code>Django</code>) et d'y accéder à une URL de la forme <strong><code>http://{pseudonyme}.pythonanywhere.com</code></strong>.</p>
+<p>Suivez les indications suivantes pour y créer une application <code>Flask</code> vide.</p>
+<ul>
+<li>Après vous être enregistré et loggé sur la plateforme, cliquez sur le bouton <strong>&quot;Web&quot;</strong> :</li>
+</ul>
+<p><img src="img/pa1.png" alt="" /></p>
+<ul>
+<li>Cliquez sur le bouton &quot;Add a new web app&quot; :</li>
+</ul>
+<p><img src="img/pa2.png" alt="" /></p>
+<ul>
+<li>Une fenetre s'ouvre, cliquez sur &quot;next&quot; :</li>
+</ul>
+<p><img src="img/pa3.png" alt="" /></p>
+<ul>
+<li>Choisissez d'utiliser le <em>framework</em> <strong>Flask</strong> :</li>
+</ul>
+<p><img src="img/pa4.png" alt="" /></p>
+<ul>
+<li>Sélectionnez la version de Python avec laquelle vous avez l'habitude de travailler :</li>
+</ul>
+<p><img src="img/pa5.png" alt="" /></p>
+<ul>
+<li>Ne modifiez pas le chemin du fichier <code>flask_app.py</code> et cliquez sur &quot;next&quot; :</li>
+</ul>
+<p><img src="img/pa6.png" alt="" /></p>
+<ul>
+<li>L'application est créée et accessible à l'URL <strong><code>https://{pseudonyme}.pythonanywhere.com</code></strong>. Cliquez sur le bouton &quot;Files&quot; pour éditer le code de votre serveur :</li>
+</ul>
+<p><img src="img/pa7.png" alt="" /></p>
+<ul>
+<li>Naviguez dans l'arborescence jusqu'à trouver ce fichier. Cliquez pour l'ouvrir :</li>
+</ul>
+<p><img src="img/pa8.png" alt="" /></p>
+<ul>
+<li>Vous pouvez l'éditer (et le sauvegarder en faisant <kbd>ctrl</kbd> +  <kbd>s</kbd> par exemple).</li>
+</ul>
+<p><img src="img/pa9.png" alt="" /></p>
+<ul>
+<li>Après l'avoir édité, vous devez recharger votre <em>web app</em>. Cela peut se faire directement depuis la page de l'éditeur de code (image ci-dessous) ou depuis la section <strong>Web</strong> de votre espace <em>PythonAnywhere</em>.</li>
+</ul>
+<p><img src="img/pa10.png" alt="" /></p>
+<p><strong>🚀 Rechargez votre application et vérifiez que tout fonctionne correctement</strong>, l'URL à utiliser est <strong><code>https://{pseudonyme}.pythonanywhere.com</code></strong>.</p>
+<p><img src="img/pa10.png" alt="" /></p>
+<blockquote>
+<p><strong>Remarque:</strong> Vous pouvez consulter les logs d'erreur de l'application à l'adresse <small>https://www.pythonanywhere.com/user/{pseudonyme}/files/var/log/{pseudonyme}.pythonanywhere.com.error.log</small></p>
+</blockquote>
+<h3><a class="header" href="#32-premiers-pas-avec-flask-et-structure-du-projet" id="32-premiers-pas-avec-flask-et-structure-du-projet">3.2 Premiers pas avec Flask et structure du projet</a></h3>
+<p>Dans le dossier <code>mysite</code> vous disposez dorénavant d'un fichier <code>flask_app.py</code>.</p>
+<p>Il est également nécessaire de créer un dossier que vous nommerez <code>templates</code>. Dans le dossier <code>templates</code> vous décompresserez les données du jour : <a href="data/TP5.zip">données TP5</a> - il s'agit de 2 fichiers de <em>templates</em> utilisant <code>Jinja2</code>.</p>
+<p>Vous devez donc avoir la structure de projet suivante:</p>
+<pre><code>mysite
+├── templates           &lt;--- Le dossier contenant nos modèles de documents HTML
+│   ├── index.html
+│   └── header.html     
+└── flask_app.py        &lt;--- Le code de l'appli Web à réaliser
+</code></pre>
+<h2><a class="header" href="#4-mise-en-pratique--exercice-2--modification-de-lapplication" id="4-mise-en-pratique--exercice-2--modification-de-lapplication">4. Mise en pratique 🚀 Exercice 2 🚀 Modification de l'application</a></h2>
+<ol>
+<li>Ajoutez le morceau de code suivant dans le fichier <code>app.py</code>, il s'agit des premiers avis fictifs à utiliser avant que nous ne constituions la base de données dans le TP suivant:</li>
+</ol>
+<pre><code class="language-python">entries = [
+ {&quot;id_review&quot;: 1, &quot;id_batiment&quot;: 26, &quot;rate&quot;: 5, &quot;comment&quot;: &quot;Mattis molestie a iaculis at erat pellentesque adipiscing commodo.&quot;},
+ {&quot;id_review&quot;: 2, &quot;id_batiment&quot;: 18, &quot;rate&quot;: 4, &quot;comment&quot;: &quot;Amet massa vitae tortor condimentum lacinia.&quot;},
+ {&quot;id_review&quot;: 3, &quot;id_batiment&quot;: 31, &quot;rate&quot;: 3, &quot;comment&quot;: &quot;Imperdiet sed euismod nisi porta lorem mollis aliquam.&quot;},
+ {&quot;id_review&quot;: 4, &quot;id_batiment&quot;: 22, &quot;rate&quot;: 1, &quot;comment&quot;: &quot;Dignissim enim sit amet venenatis. Urna cursus eget nunc scelerisque.&quot;},
+ {&quot;id_review&quot;: 5, &quot;id_batiment&quot;: 26, &quot;rate&quot;: 4, &quot;comment&quot;: &quot;A pellentesque sit amet porttitor eget dolor morbi.&quot;},
+ {&quot;id_review&quot;: 6, &quot;id_batiment&quot;: 18, &quot;rate&quot;: 3, &quot;comment&quot;: &quot;Consequat nisl vel pretium lectus quam id leo in vitae.&quot;},
+]
+</code></pre>
+<ol start="2">
+<li>
+<p>Vous devez modifier la route existante afin que la route <code>/</code> et la route <code>/index</code> appellent toutes deux la fonction <code>root</code>. Cette fonction devra utiliser le <em>template</em> <code>index.html</code>. Vous devrez également ouvrir ce fichier de <em>template</em> pour voir les variables qui sont attendues et que vous devrez donner en argument à la fonction <code>render_template</code>.</p>
+</li>
+<li>
+<p>Vous devez créer une nouvelle route du nom de <code>/review</code> doit accepter un argument de type <code>int</code>, l'identifiant de l'avis que l'utilisateur souhaite obtenir. Vous devez également écrire la fonction correspondante : pour un identifiant donné, elle doit renvoyer la note et l'avis sous forme d'un bloc de texte formatté de manière simple <em>(par exemple: &quot;Note X - Commentaire : xxxxx&quot;)</em>. Si aucun avis ne correspond à l'identifiant, elle retourne une chaîne de caractères vide.</p>
+</li>
+<li>
+<p>Dans votre navigateur, vérifiez les points suivants avant de passer à l'exercice qui suit:</p>
+</li>
+</ol>
+<ul>
+<li>les routes <code>/</code> et <code>/index</code> fonctionnent et renvoient le même contenu (cf. image).</li>
+<li>la route <code>/review</code> retourne une erreur <code>404 - NOT FOUND</code> alors que la route <code>/review/2</code> retourne bien le contenu de l'avis correspondant.</li>
+</ul>
+<div class="center">
+<p><img src="img/tp5_ex2_index.png" alt="Capture d'écran de la route &quot;/index&quot;" />
+<img src="img/tp5_ex2_review.png" alt="Capture d'écran de la route &quot;/review/2&quot;" /></p>
+</div>
+<h2><a class="header" href="#5-mise-en-pratique--exercice-3--utilisation-des-templates" id="5-mise-en-pratique--exercice-3--utilisation-des-templates">5. Mise en pratique 🚀 Exercice 3 🚀 Utilisation des <em>templates</em></a></h2>
+<ol>
+<li>En plus d'afficher le nombre d'avis présents dans la base, nous souhaitons afficher la totalité de la liste des avis sur la page d'accueil. Vous devez modifier le <em>template</em> <code>index.html</code> pour créer dynamiquement une liste HTML où chaque item correspondra à un avis de la <code>list</code> Python appellée <code>entries</code>. Un exemple similaire a été donné <a href="5-serveur-client1.html#exemple-avec-une-boucle">ici</a>.</li>
+</ol>
+<div class="center">
+<p><img src="img/tp5_ex3_resultat.png" alt="Capture d'écran de la route &quot;/index&quot;" /></p>
+</div>
+<h1><a class="header" href="#interactions-serveurclient-formulaires-et-bd" id="interactions-serveurclient-formulaires-et-bd">Interactions serveur/client, formulaires et BD</a></h1>
+<h2><a class="header" href="#1-préambule-1" id="1-préambule-1">1. Préambule</a></h2>
+<p>Les objectifs de ce TP sont:</p>
+<ul>
+<li>de connecter l'application <strong><code>Flask</code></strong> à une base de données <strong>SQLite</strong>.</li>
+<li>de créer un formulaire permettant d'ajouter une nouvelle entrée à cette base de données.</li>
+</ul>
+<p>Pour mobiliser les données de cette BD, nous n'aurons pas à saisir de requêtes SQL ; en effet nous allons utiliser un <strong>ORM</strong> (un <em>Object Relational Mapping</em> / un <em>Mapping</em> objet-relationnel) du nom de <a href="https://www.sqlalchemy.org/">SQLAlchemy</a>.</p>
+<p><em>Il n'y a pas de code à saisir avant la fin cette partie où vous recontrerez à nouveau le symbole '🚀'.</em></p>
+<h3><a class="header" href="#installation-et-création-de-la-base-de-données" id="installation-et-création-de-la-base-de-données">Installation et création de la base de données</a></h3>
+<p>En utilisant <em>PythonAnywhere</em> cette bibliothèque est déjà installée, vous n'avez rien de particulier à faire.</p>
+<p>Sinon il est possible d'installer SQLAlchemy et l'extension <code>flask_sqlalchemy</code> que nous allons utiliser avec Flask comme les autres packages Python. Si vous avez utilisé un environnement virtuel, veillez à ce qu'il soit activé avant d'effectuer la commande suivante :</p>
+<pre><code class="language-bash"> pip install flask_sqlalchemy
+</code></pre>
+<h3><a class="header" href="#localisation-de-la-base-de-données" id="localisation-de-la-base-de-données">Localisation de la base de données</a></h3>
+<p>Il est nécessaire d'indiquer à l'ORM où se situe la BD à laquelle se connecter, en l'occurence, dans le même dossier que le code de l'application, avec le nom <code>app.db</code>:</p>
+<pre><code class="language-python">from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+# On stocke le chemin absolu du dossier qui contient le fichier
+# qui s'éxecute :
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+app = Flask(__name__)
+
+# app.config est un dictionnaire :
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.db')
+db = SQLAlchemy(app)
+</code></pre>
+<h3><a class="header" href="#créer-un-modèle-correspondant-au-type-dentrées-que-nous-souhaitons" id="créer-un-modèle-correspondant-au-type-dentrées-que-nous-souhaitons">Créer un modèle correspondant au type d'entrées que nous souhaitons</a></h3>
+<p>Nous souhaitons stocker nos notes et avis dans une table <code>Review</code>.
+Celle-ci va pour l'instant n'avoir que trois colonnes :</p>
+<ul>
+<li><code>id_review</code> (l'identifiant unique de l'avis),</li>
+<li><code>rate</code> (une note, de 1 à 5, où 5 représente la plus forte note),</li>
+<li><code>comment</code> (un champ de texte libre, limité à 255 caractères mais qui peut être laissé vide).</li>
+</ul>
+<pre><code class="language-python">class Review(db.Model):
+    id_review = db.Column(db.Integer, primary_key=True)
+    rate = db.Column(db.Integer, nullable=False)
+    comment = db.Column(db.String(255))
+</code></pre>
+<p>Ce code va permettre de modifier la base de données sans écrire de requêtes SQL mais en manipulant des objets Python.<br />
+Notez que nous avons spécifié le type attendu (<code>db.Integer</code>, <code>db.String</code>, ..) pour chaque colonne (<code>db.Column</code>) de la table (ici <code>Review</code>) que vous allons manipuler à travers ce modèle.</p>
+<h3><a class="header" href="#utiliser-le-modèle-pour-communiquer-avec-la-bd-dans-un-style-orienté-objet-1" id="utiliser-le-modèle-pour-communiquer-avec-la-bd-dans-un-style-orienté-objet-1">Utiliser le modèle pour communiquer avec la BD dans un style orienté-objet (1)</a></h3>
+<p>On pourra par exemple créer une <em>review</em> et l'ajouter à la base de données avec le code suivant :</p>
+<pre><code class="language-python">new_review = Review(
+    rate=5,
+    comment=&quot;Mattis molestie a iaculis at erat pellentesque adipiscing commodo.&quot;,
+)
+
+db.session.add(new_review)
+db.session.commit()
+</code></pre>
+<p>Il n'est pas nécessaire d'indiquer l'identifiant de la <em>review</em> à créer : comme il s'agit d'une clé primaire, elle sera renseignée automatiquement lors de l'appel de la méthode <code>db.session.commit()</code> en fonction des entrées déjà présentes dans la table.</p>
+<h3><a class="header" href="#utiliser-le-modèle-pour-communiquer-avec-la-bd-dans-un-style-orienté-objet-2" id="utiliser-le-modèle-pour-communiquer-avec-la-bd-dans-un-style-orienté-objet-2">Utiliser le modèle pour communiquer avec la BD dans un style orienté-objet (2)</a></h3>
+<p>C'est également avec ce modèle <code>Review</code> qu'on pourra faire des requêtes sur la table correspondante :</p>
+<pre><code class="language-python"># Renvoie toute les entrées de la table `Review`
+all_review = Review.query.all()
+
+# Effectue une requete sur la table `Review`
+# en utilisant la clé primaire (ici id_review):
+review2 = Review.query.get(2)
+</code></pre>
+<p>Il est possible d'accéder aux valeurs qui correspondent à chacun des champs de la table <code>Review</code> pour une entrée donnée :</p>
+<pre><code class="language-python">print(review2.rate) # --&gt; 4
+print(review2.comment) # --&gt; &quot;Amet massa vitae tortor condimentum lacinia.&quot;
+</code></pre>
+<h3><a class="header" href="#putting-it-all-together" id="putting-it-all-together">Putting it all together...</a></h3>
+<p>Ce code correspond à l'adaptation du code obtenu à la fin du TP précédent, en se connectant cette fois à une base de données avec SQLAlchemy comme présenté ci-dessus.</p>
+<p><strong>🚀 Prenez-en connaissance attentivement et copiez-le dans le fichier <code>flask_app.py</code> dans votre espace <em>PythonAnywhere</em></strong>.</p>
+<p><strong>🚀 Récupérez le fichier <a href="data/TP6/app.db"><code>app.db</code></a>, il s'agit de votre base de données SQLite. Copiez le dans votre espace <em>PythonAnywhere</em> dans le même dossier que le fichier <code>flask_app.py</code></strong>.</p>
+<pre><code class="language-python">from flask import Flask, render_template, request, url_for, redirect
+from flask_sqlalchemy import SQLAlchemy
+from datetime import date
+import os
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.db')
+db = SQLAlchemy(app)
+
+
+class Review(db.Model):
+    id_review = db.Column(db.Integer, primary_key=True)
+    rate = db.Column(db.Integer, nullable=False)
+    comment = db.Column(db.String(255))
+
+
+@app.route(&quot;/&quot;)
+@app.route('/index')
+def root():
+    all_reviews = Review.query.all()
+    return render_template('index.html',
+                            list_reviews=all_reviews,
+                            nb_reviews = len(all_reviews),
+                            current_date=date.today().isoformat())
+
+@app.route('/review/&lt;int:ident&gt;')
+def review(ident):
+    the_review = Review.query.get(ident)
+    if the_review:
+        return 'Rate: {} - Comment: {}'.format(the_review.rate, the_review.comment)
+    else:
+        return ''
+
+# Ce morceau de code sert à créer la base de données avec les memes entrées
+# que celles utilisées dans le TP précédent.
+# Il sert à créer le fichier `app.db` que je vous ai fournis,
+# il ne sera donc pas éxécuté.
+# Pour l'exécuter, il faut saisir `flask init_db` dans le dossier avant le 1er
+# démarage de l'application, dans le dossier où vous vous apprêtez
+# à saisir `flask run` pour démarrer l'application
+@app.cli.command(&quot;init_db&quot;)
+def init_db():
+    db.create_all()
+    entries = [
+     {&quot;id_review&quot;: 1, &quot;rate&quot;: 5, &quot;comment&quot;: &quot;Mattis molestie a iaculis at erat pellentesque adipiscing commodo.&quot;},
+     {&quot;id_review&quot;: 2, &quot;rate&quot;: 4, &quot;comment&quot;: &quot;Amet massa vitae tortor condimentum lacinia.&quot;},
+     {&quot;id_review&quot;: 3, &quot;rate&quot;: 3, &quot;comment&quot;: &quot;Imperdiet sed euismod nisi porta lorem mollis aliquam.&quot;},
+     {&quot;id_review&quot;: 4, &quot;rate&quot;: 1, &quot;comment&quot;: &quot;Dignissim enim sit amet venenatis. Urna cursus eget nunc scelerisque.&quot;},
+     {&quot;id_review&quot;: 5, &quot;rate&quot;: 4, &quot;comment&quot;: &quot;A pellentesque sit amet porttitor eget dolor morbi.&quot;},
+     {&quot;id_review&quot;: 6, &quot;rate&quot;: 3, &quot;comment&quot;: &quot;Consequat nisl vel pretium lectus quam id leo in vitae.&quot;},
+    ]
+
+    for e in entries:
+        a = Review(id_review = e['id_review'], rate = e['rate'], comment = e['comment'])
+        db.session.add(a)
+    db.session.commit()
+</code></pre>
+<h2><a class="header" href="#2-création-dun-formulaire-html-et-traitement-coté-serveur" id="2-création-dun-formulaire-html-et-traitement-coté-serveur">2. Création d'un formulaire HTML et traitement coté serveur</a></h2>
+<p>Notre page d'accueil ne va plus se contenter de lister les avis déjà présents ; il va désormais être possible d'en ajouter de nouveaux grâce à un formulaire HTML.</p>
+<p>Ce formulaire HTML sera remplit par le client, dans son navigateur Web puis envoyé (méthode HTTP <strong>POST</strong>) au serveur qui l'ajoutera à la base de données.</p>
+<pre><code class="language-html">  &lt;!-- le début
+              de votre fichier ici
+    --&gt;
+    &lt;div class=&quot;row&quot;&gt;                 &lt;!-- On utilise les lignes/colonnes Bootstrap ... --&gt;
+      &lt;div class=&quot;col-md-4 mx-auto&quot;&gt;  &lt;!-- .. pour obtenir rapidement une disposition agréable --&gt;
+
+        &lt;h3&gt;Ajout d'un nouvel avis&lt;/h3&gt;
+
+        &lt;form action=&quot;{{ request.path }}&quot; method=&quot;post&quot;&gt;
+          &lt;label for=&quot;rate&quot;&gt;Rate: &lt;/label&gt;
+          &lt;output name=&quot;rateOutput&quot; id=&quot;ageOutputId&quot;&gt;5&lt;/output&gt;&lt;br&gt;&lt;br&gt;
+          &lt;input type=&quot;range&quot; name=&quot;rate&quot; id=&quot;rateInput&quot; min=&quot;1&quot; max=&quot;5&quot; value=&quot;5&quot; class=&quot;form-control&quot; oninput=&quot;rateOutput.value = rateInput.value&quot;/&gt;
+          &lt;label for=&quot;comment&quot;&gt;Comment&lt;/label&gt;&lt;br&gt;
+          &lt;textarea name=&quot;comment&quot; maxlength=&quot;255&quot; placeholder=&quot;Laissez votre avis ici !&quot; class=&quot;form-control&quot;&gt;&lt;/textarea&gt;&lt;br&gt;
+          &lt;input type=&quot;submit&quot; value=&quot;Envoyer&quot; class=&quot;btn btn-primary&quot; /&gt;
+        &lt;/form&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;!-- le reste de votre fichier ici, normalement :
+
+  &lt;hr /&gt;
+  &lt;p&gt;Page générée le {{ current_date }}&lt;/p&gt;
+&lt;/div&gt;
+
+...etc..  --&gt;
+</code></pre>
+<p><u>Explications :</u></p>
+<ul>
+<li>Ce formulaire, définit par l'élément HTML <code>&lt;form&gt; &lt;/form&gt;</code> va être envoyé au chemin définit dans l'attribut <code>action</code> (ici la route actuelle à laquelle la page a été appelée, en utilisant le mécanisme de <em>template</em> vu précédemment), avec la méthode HTTP <code>post</code>.</li>
+<li>Il contient un champ <code>&lt;input&gt;</code> de type <code>range</code> : c'est un <em>slider</em> numérique dont on peut définir les valeurs min et max attendues ; il va servir à renseigner la note, de 1 à 5, donnée par l'utilisateur.</li>
+<li>Il contient un champ <code>&lt;textarea&gt;</code> : c'est un zone de saisie de texte qui peut s'étendre sur plusieurs lignes.</li>
+<li>Il contient un élément <code>&lt;input&gt;</code> de type <code>submit</code> : celà créé un bouton qui a pour vocation à appeler l'action définit pour ce formulaire (cf. 1er point de cette liste). L'attribut <code>class</code> qu'il utilise lui permet d'utiliser un style de Bootstrap.</li>
+</ul>
+<p><strong>🚀 Ajoutez le code de ce formulaire au fichier <code>templates/index.html</code></strong>.</p>
+<p>Lorsque l'utilisateur clique sur &quot;Envoyer&quot;, le formulaire est donc transmis au serveur avec la méthode <strong>POST</strong>.</p>
+<p>Il est donc nécessaire d'adapter le code de notre application <code>Flask</code> pour gérer ce type de requête. Nous allons modifier le code de la route qui génère actuellement cette page:</p>
+<pre><code class="language-python">from flask import request, url_for, redirect
+#                 ^ À ajouter avec les autres imports
+
+
+@app.route(&quot;/&quot;, methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
+def root():
+    if request.method == 'GET':
+        all_reviews = Review.query.all()
+        return render_template('index.html',
+                                list_reviews=all_reviews,
+                                nb_reviews = len(all_reviews),
+                                current_date=date.today().isoformat())
+    elif request.method == 'POST':
+        new_review = Review(
+            rate=request.form['rate'],
+            comment=request.form['comment'])
+        db.session.add(new_review)
+        db.session.commit()
+        return redirect(url_for('root'))
+</code></pre>
+<p><u>Explications :</u></p>
+<ul>
+<li>Lorsqu'une requête HTTP de type <strong>GET</strong> à lieu sur cette route, l'application récupère l'ensemble des entrées de la table <code>Review</code> (avec <code>Review.query.all()</code>) puis elle appelle le <em>template</em> <code>index.html</code> en utilisant les arguments appropriées et vus précédemment.</li>
+<li>Lorsqu'une requête HTTP de type <strong>POST</strong> à lieu sur cette route, l'application:
+<ul>
+<li>lit le formulaire (<code>request.form</code>) en accédant à la valeur des champs avec la notation entre crochets (<code>request.form['rate']</code> et <code>request.form['comment']</code>)</li>
+<li>créée un objet correspondant à une nouvelle entrée (<code>new_review = Review(rate=data['rate'], comment=data['comment'])</code>)</li>
+<li>ajoute cette entrée à la table <code>Review</code> avec <code>db.session.add(new_review)</code> et <code>db.session.commit()</code></li>
+<li>renvoie la page actuelle (<code>redirect(url_for('root'))</code>), celà a pour effet de rafraichir la page dans le navigateur du client et de faire apparaître l'avis qu'il vient de laisser</li>
+</ul>
+</li>
+</ul>
+<p><strong>🚀 Lisez attentivement ce morceau de code, il mobilise le modèle <code>Review</code> présenté précedemment ainsi que les fonctionnalités d'ajout à la base de données.</strong></p>
+<p><strong>🚀 Ajoutez-le à votre fichier <code>flask_app.py</code> en remplacement de la fonction <code>root</code> actuelle.</strong></p>
+<p><strong>🚀 Après avoir sauvegardé votre code, recharger votre <em>web app</em>. Testez l'ajout de nouveaux avis grâce au formulaire qui vient d'être créé.</strong></p>
+<p><img src="img/pa10.png" alt="" /></p>
+<ul>
+<li>Le résultat attendu est le suivant :</li>
+</ul>
+<p><img src="img/pa11.png" alt="" /></p>
+<p><strong>🚀 Modifiez le code l'application pour ajouter un champ <code>name_reviewer</code> au modèle <code>Review</code>. Cette modification doit également se refléter dans le formulaire affiché à l'utilisateur qui doit maintenant proposer un champ &quot;Nom&quot;.<br />
+Vous devrez modifier plusieurs éléments dans le fichier <code>flask_app.py</code> (le modèle, la création d'une nouvelle entrée, etc.) et dans le formulaire du fichier <code>index.html</code> (ajout d'un nouvel élément <code>&lt;input type=&quot;text&quot; /&gt;</code>, etc.).</strong></p>
+<p><strong>🚀 Que se passe-t-il lors de l'utilisation de la BD avec ce nouveau modèle ?</strong></p>
+<p>→ Lors de l'utilisation de ce nouveau modèle l'application génère un message d'erreur car la table qu'elle utilise dans la BD à laquelle nous sommes connectés ne comporte pas les champs nécessaires (la colonne <code>name</code> est manquante). Deux solutions sont possibles :</p>
+<ul>
+<li>si l'on souhaite conserver les entrées présentes, nous pouvons utiliser un outil comme <a href="https://alembic.sqlalchemy.org/en/latest/index.html">Alembic</a> qui va se charger de la <em>migration</em> de notre table</li>
+<li>nous pouvons supprimer la BD SQLite et la recréer avec la fonctionnalité appropriée de notre application <code>Flask</code>.
+Suivez les instructions qui suivent et qui nécessitent d'utiliser une console système :</li>
+</ul>
+<p><strong>🚀 Ouvrir une console <code>Bash</code> depuis la page de l'éditeur de code. Cette console s'ouvre dans le dossier contenant le fichier <code>flask_app.py</code> - c'est ici que nous souhaitons travailler.</strong></p>
+<p><img src="img/pa13.png" alt="" /></p>
+<p><strong>🚀 Saisir la commande qui suit :</strong>
+<strong><code>rm app.db &amp;&amp; export FLASK_APP=flask_app.py &amp;&amp; flask init_db</code>.</strong></p>
+<p><img src="img/pa14.png" alt="" /></p>
+<p>Cette commande permet :</p>
+<ul>
+<li>De supprimer (<strong><code>rm</code></strong>, pour <em>remove</em>) le fichier (<strong><code>app.db</code></strong>) correspondant à votre base de données.</li>
+<li>De définir la <a href="https://fr.wikipedia.org/wiki/Variable_d&#x27;environnement">variable d'environnement</a> <strong><code>FLASK_APP</code></strong> avec la valeur <strong><code>flask_app.py</code></strong> : celà sert à indiquer à l'utilitaire CLI <code>flask</code> le fichier de l'application avec lequel on souhaite travailler.</li>
+<li>D'utiliser l'utilitaire CLI <strong><code>flask</code></strong> avec la commande <strong><code>init_db</code></strong> qui correspond à la commande permettant de créer et d'initialiser notre BD avec notre modèle <code>Review</code>, définit grâce au décorateur <code>@app.cli.command(&quot;init_db&quot;)</code> dans le fichier <code>flask_app.py</code>.</li>
+</ul>
+<p><strong>🚀 Rechargez la <em>web app</em> et tester l'ajout d'avis grâce à ce nouveau formulaire.</strong></p>
+<p><img src="img/pa10.png" alt="" /></p>
+<ul>
+<li>Le résultat attendu est le suivant :</li>
+</ul>
+<div class="center">
+<p><img src="img/pa12.png" alt="" /></p>
+</div>
 <div style="text-align: center">
 <h1><a class="header" href="#cours-technologies-web-1" id="cours-technologies-web-1">Cours Technologies Web</a></h1>
 <h1><a class="header" href="#lp-essig---université-grenoble-alpes-1" id="lp-essig---université-grenoble-alpes-1">LP ESSIG - Université Grenoble Alpes</a></h1>
@@ -1390,18 +2008,6 @@ Vous pouvez également chercher dans la documentation comment faire en sorte que
 <div style="text-align: center">
 <h1><a class="header" href="#cours-technologies-web-3" id="cours-technologies-web-3">Cours Technologies Web</a></h1>
 <h1><a class="header" href="#lp-essig---université-grenoble-alpes-3" id="lp-essig---université-grenoble-alpes-3">LP ESSIG - Université Grenoble Alpes</a></h1>
-<p><br><br><br></p>
-<p><em>Contenu à venir...</em></p>
-</div>
-<div style="text-align: center">
-<h1><a class="header" href="#cours-technologies-web-4" id="cours-technologies-web-4">Cours Technologies Web</a></h1>
-<h1><a class="header" href="#lp-essig---université-grenoble-alpes-4" id="lp-essig---université-grenoble-alpes-4">LP ESSIG - Université Grenoble Alpes</a></h1>
-<p><br><br><br></p>
-<p><em>Contenu à venir...</em></p>
-</div>
-<div style="text-align: center">
-<h1><a class="header" href="#cours-technologies-web-5" id="cours-technologies-web-5">Cours Technologies Web</a></h1>
-<h1><a class="header" href="#lp-essig---université-grenoble-alpes-5" id="lp-essig---université-grenoble-alpes-5">LP ESSIG - Université Grenoble Alpes</a></h1>
 <p><br><br><br></p>
 <p><em>Contenu à venir...</em></p>
 </div>
@@ -1562,14 +2168,17 @@ Vous pouvez également chercher dans la documentation comment faire en sorte que
 <li>
 <p><a href="./3-structure-style.pdf">3 - Structurer et styler un document HTML</a></p>
 </li>
+<li>
+<p><a href="./4-css-bootstrap.pdf">4 - Le framework <code>Bootstrap</code></a></p>
+</li>
+<li>
+<p><a href="./5-serveur-client1.pdf">5 - Programmation Web coté serveur en Python</a></p>
+</li>
+<li>
+<p><a href="./6-serveur-client2.pdf">6 - Interactions serveur/client, formulaires et BD</a></p>
+</li>
 </ul>
 <!--
-- [4 - Le framework `Bootstrap`](./4-css-bootstrap.pdf)
-
-- [5 - Programmation Web coté serveur en Python](./5-serveur-client1.pdf)
-
-- [6 - Interactions serveur/client, formulaires et BD](./6-serveur-client2.pdf)
-
 - [7 - Interactions serveur/client (suite)](./7-serveur-client3.pdf)
 
 - [8 - Javascript (éléments théoriques)](./8-javascript.pdf)
@@ -1584,7 +2193,10 @@ Vous pouvez également chercher dans la documentation comment faire en sorte que
 <p><a href="data/TP3.zip">Données TP3</a> - <a href="data/TP3_correction.zip">Exemple / correction (.zip)</a> - <a href="data/TP3/index_example.html">Exemple / correction (interactif)</a></p>
 </li>
 <li>
-<p><a href="data/TP4.zip">Données TP4</a></p>
+<p><a href="data/TP4.zip">Données TP4</a> - <a href="data/TP4_correction.zip">Correction TP4</a></p>
+</li>
+<li>
+<p><a href="data/TP5.zip">Données TP5</a></p>
 </li>
 </ul>
 <h2><a class="header" href="#sujets-dexamen-précédents" id="sujets-dexamen-précédents">Sujets d'examen précédents</a></h2>
