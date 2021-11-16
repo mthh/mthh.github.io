@@ -1,5 +1,5 @@
 # Technologies Web
-### LP ESSIG 2020-2021
+### LP ESSIG 2021-2022
 
 <br><br>
 <div class="center"><h2>Cours 1 : Éléments théoriques</h2></div>
@@ -98,10 +98,21 @@ En réalité, le .red[*web est une des applications d'Internet*], comme le sont 
 <li>permettre la communication entre n’importe quels points du réseau</li>
 <li>ne pas avoir à se préoccuper des différents types d’ordinateurs et de systèmes d’exploitation, etc.</li>
 </div>
+
+???
+
+Arpanet : Ancêtre d'internet - premier "réseau à transfert de paquets", développé par l'Agence pour les projets de recherche avancée de défense américaine (la DARPA),
+ En 1969 des paquets de donnée ont transité avec succès entre l'université de Californie à Los Angeles (UCLA) et l'Institut de recherche de Stanford !!
+
 ---
 class: center, middle
 
 <img src="img/arpanet_evolution.png">
+
+???
+
+Arpanet se raccorde rapidement à de nouvelles universités : on compte 23 "nœuds" en 1971, puis 111 en 1977. Au vu de la démocratisation du réseau Arpanet, la DARPA se sépare de sa gestion en créant un réseau propre aux forces armées américaines, le Military network, MILNet.
+
 
 ---
 class: center, middle
@@ -127,6 +138,10 @@ class: center, middle
 
 </div>
 
+???
+
+- C'est la National Science Foundation qui prend en charge la transition vers une utilisation tout public : l'adoption d'un nouveau protocole, TCP/IP, a permis de faciliter le transfert des données et peu à peu "internet" se substitue à "Arpanet".
+
 ---
 
 ## Historique
@@ -138,6 +153,12 @@ class: center, middle
       - https://timeline-fr.web.cern.ch/timelines/
       - http://info.cern.ch/hypertext/WWW/TheProject.html <br> (1er site web)
 - Avril 2017 : Tim Berners-Lee reçoit le prix Alan Turing de l'ACM (*Association for Computing Machinery*). Ce prestigieux prix est pour les informaticiens l'équivalent du Nobel
+
+???
+
+- Mais ce qui n'existait pas à l'époque (et représente probablement l'une des principales différences entre Arpanet et Internet), c’est le World Wide Web. Ce système hypertexte a été développé par Tim Berners-Lee en 1989, peu avant que le projet Arpanet ne soit abandonné.
+
+- Auparavant, l'information n'était pas accessible dans le réseau des serveurs disponibles et devait être demandée individuellement aux hôtes. Aussi, en 1969, les premiers navigateurs Web étaient bien loin de voir le jour.
 
 ---
 
@@ -152,6 +173,14 @@ class: center, middle
       - un réseau constitué par un ensemble de documents informatiques liés entre eux
       - dont la principale propriété est de ne pas imposer un parcours séquentiel (ou linéaire), par opposition à un discours ou aux pages d'un livre.
 
+???
+
+- **Memex** ordinateur analogique fictif, relié à une bibliothèque capable d'afficher des livres et de projeter des films. Cet outil est aussi capable de créer automatiquement des références entre les différents médias.
+
+
+- **Nelson** "... le mot "hypertexte" pour désigner un ensemble de documents écrits ou d'images interconnectés d'une manière si complexe qu'il ne peut être présenté ou représenté sur papier"
+
+- le parcours de ces liens n'impose pas un parcours séquentiel / linéaire (par opposition aux page d'un livre)
 ---
 
 ## Historique
@@ -188,6 +217,10 @@ protocoles, ...
 
   * Le courant Open Data
       - [Le web des données ouvertes et liées. Qu'est-ce que c'est ?](https://www.youtube.com/watch?v=oEuDaJjEFos) .source[(EuropeanaEU collections)]
+
+???
+
+« J'ai un rêve pour le Web [dans lequel les ordinateurs] deviennent capables d'analyser toutes les données sur le Web - le contenu, les liens et les transactions entre les personnes et les ordinateurs. Un "Web sémantique", qui devrait rendre cela possible, n'a pas encore vu le jour, mais lorsqu'il le fera, les mécanismes quotidiens du commerce, de la bureaucratie et de notre vie quotidienne seront gérés par des machines qui parlent à des machines. Les "agents intelligents" dont les gens parlent depuis des lustres se matérialiseront enfin. »
 
 ---
 
@@ -241,6 +274,14 @@ class: section-change
 
 ## Internet et le Web : comment ça marche ?
 
+
+???
+
+- Le but de la partie est de voir les principaux concepts d'Internet et du Web pour en comprendre le fonctionnement.
+
+- On va donc commencer par voir quels sont les protocoles utilisés pour le transfert des données sur Internet et comment ils s'organisent entre eux.
+
+
 ---
 ## Fonctionnement d'Internet
 ### Un modèle en "couches"
@@ -280,6 +321,19 @@ class: center, middle
 
 <img src="img/dataflow_ips_wikipedia.png">
 <span class="source center" style="font-size: 0.5em;">Source: <a href="https://commons.wikimedia.org/wiki/File:Data_Flow_of_the_Internet_Protocol_Suite.PNG">Wikimedia Commons - user: renepick</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a></span>
+
+???
+
+- La couche **Lien** décrit les caractéristiques physiques de la communication, comme les conventions à propos de la nature du média utilisé pour les communications (les câbles, les liens par fibre optique ou par radio), et tous les détails associés comme les connecteurs, les types de codage ou de modulation, le niveau des signaux, les longueurs d'onde, la synchronisation et les distances maximales. Elle décrit également comment les paquets sont transportés.
+
+- Dans la suite de protocoles Internet, couche **réseau** / **internet**,  IP assure l'acheminement des paquets depuis une source vers une destination, et supporte aussi d'autres protocoles, comme ICMP (utilisé pour transférer des messages de diagnostic liés aux transmissions IP) et IGMP (utilisé pour gérer les données multicast).
+
+- Les protocoles de la couche de **transport** peuvent résoudre des problèmes comme la fiabilité des échanges (« est-ce que les données sont arrivées à destination ? ») et assurer que les données arrivent dans l'ordre correct. Dans la suite de protocoles TCP/IP, les protocoles de transport déterminent aussi à quelle application chaque paquet de données doit être délivré. Deux principaux protocole de transport à connaitre TCP et UDP.
+
+- C'est dans la couche **application** que se situent la plupart des programmes réseau.
+Ces programmes et les protocoles qu'ils utilisent incluent HTTP (World Wide Web), FTP (transfert de fichiers), SMTP (messagerie), SSH (connexion à distance sécurisée), DNS (recherche de correspondance entre noms et adresses IP) et beaucoup d'autres.
+
+Le Web est donc une des applications d'Internet...
 
 
 ---
@@ -520,7 +574,7 @@ class: section-change
 ## Sites Web
 ### Avant-propos
 
-- Objectifs
+- Objectifs :
   * Diffuser des informations et/ou
   * Permettre le traitement de ces informations
   * En fonction de la complexité, on distingue:
@@ -531,6 +585,12 @@ class: section-change
   * Publiées par un propriétaire
   * Les pages sont hébergées sur un serveur web
   * Et sont donc accessibles en ligne (URL associé)
+
+???
+
+- Une **page web statique** est une page web dont le contenu ne varie pas en fonction des caractéristiques de la demande, c'est-à-dire qu'à un moment donné tous les internautes qui demandent la page reçoivent le même contenu.
+
+- À l'inverse, une page **web dynamique** est générée à la demande et son contenu varie en fonction des caractéristiques de la demande (heure, adresse IP de l'ordinateur du demandeur, formulaire rempli par le demandeur, etc.) qui ne sont connues qu'au moment de sa consultation.
 
 ---
 ## Sites Web
