@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+footer {
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  background-color: darkgray;
+  color: white;
+  text-align: center;
+  padding: 1px;
+}
+
+.header {
+  background-color: #333;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.nav-title-wrapper {
+  width: 70%;
+  margin: auto;
+  display: flex;
+}
+
+img.logo {
+  float: left;
+}
+
+nav {
+  text-align: center;
+  position: sticky;
+  width: 70%;
+  margin: auto;
+}
+
+nav ul {
+  display: flex;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  padding-inline-start: 0px;
+  text-align: center;
+  margin: auto;
+}
+
+nav li {
+  list-style-type: none;
+  margin: auto;
+}
+
+nav a {
+  float: left;
+  color: #f2f2f2;
+  padding: 18px 30px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.main-wrapper {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.main-wrapper p {
+  text-align: justify;
+}
+
+table {
+  margin: auto;
+}
+
+table caption {
+  font-style: italic;
+}
+
+thead > tr {
+  background: lightgreen;
+}
+
+td, th {
+  padding: 8px 12px;
+}
+
+tbody > tr:nth-child(odd) {
+  background: #fdf4f4;
+}
+
+tbody > tr:nth-child(even) {
+  background: lightgray;
+}
+
+.comeseeus {
+  background: beige;
+  position: fixed;
+  top: 33%;
+  right: 0;
+  width: 18%;
+  padding: 3px 0px 3px 5px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+iframe {
+  width: 99%;
+  height: 320px;
+  margin: 0;
+  border: 0;
+}
+
+.comeseeus > p {
+  text-align: center;
+  margin: 2px;
+}
+
+.header input {
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 10px;
+}
