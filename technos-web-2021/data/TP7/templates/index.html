@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="Description" content="Page d'accueil">
+    <title></title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+        crossorigin="anonymous">
+    <!--
+        Le fichier CSS requis par Leaflet a été inclus :
+    -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <style>
+    .container > h1 {
+      margin-top: 0.25em;
+      margin-bottom: 1em;
+    }
+    form input[type="range"] {
+      display: block;
+      width: 80%;
+      margin: auto;
+    }
+    form input + output {
+      vertical-align: top;
+      margin-left: 10px;
+    }
+    /* On définit la hauteur et la hauteur minimum de la carte, grace à
+        bootstrap, la carte va remplir tout son conteneur parent en hauteur
+        quand elle sera à coté du formulaire ou faire 360px de haut sinon. */
+    #mapid {
+      height: 100%;
+      min-height: 360px;
+      cursor: crosshair;
+    }
+    </style>
+  </head>
+  <body>
+    {% include "header.html" %}
+    <div class="container">
+      <h1>Projet_flask : plateforme de dépot de notes et d'avis</h1>
+      <h3>{{ nb_reviews }} avis présents dans la base actuellement</h3>
+      <div class="row">
+        <div class="col-lg-8">
+             <!-- Un élément 'div' que nous allons utiliser pour la carte interactive : -->
+            <div id="mapid"></div>
+        </div>
+        <div class="col-lg-4 mx-auto">
+            <h4>Cliquez sur la carte pour laisser un avis !</h4>
+            <!-- Le formulaire créé précédemment : -->
+            <form action="{{ request.path }}" method="post">
+                <label for="rate">Rate: </label>
+                <output name="rateOutput" id="ageOutputId">5</output>
+                <!--
+                    ^^^ On utilise un élément 'output' ci-dessus pour afficher la valeur du slider ci-dessous
+                    grace au code qui figure dans l'attribut 'oninput' : il s'agit de code JavaScript
+                    qui reporte la valeur du slider sur l'element 'output' à chaque changement.
+                    Ils sont tous les deux initialiser avec la meme valeur : 5.
+                -->
+                <input type="range" name="rate" id="rateInput" min="1" max="5" value="5" class="form-range" oninput="rateOutput.value = rateInput.value"/>
+                <label for="comment">Comment</label><br>
+                <!-- maxlenght="255" pour correspondre à la longueur du champ définit dans notre modèle `Review` : -->
+                <textarea name="comment" maxlength="255" placeholder="Laissez votre avis ici !" class="form-control"></textarea><br>
+                <label for="name">Name</label><br>
+                <input type="text" name="name" maxlength="255" class="form-control" placeholder="Saisir votre nom !" /><br>
+                <input type="submit" value="Envoyer" class="btn btn-primary" />
+            </form>
+        </div>
+        <div class="col-12">
+            <hr />
+            <ul id="reviews">
+              {% for item in list_reviews %}
+                  <li>Rate : {{ item.rate }} - Review : {{ item.comment }}
+                      {% if item.name %}
+                        (review from <em> {{ item.name }}</em>)
+                     {% endif %}
+                  </li>
+              {% endfor %}
+            </ul>
+          </div>
+      </div>
+      <hr />
+        <p>Page générée le {{ current_date }}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!--
+        Deux nouvelles balises 'script' ont été ajoutées,
+        une pour inclure un fichier distant et l'autre pour inclure directement du code
+        JavaScript (avec l'attribut type="text/javascript").
+    -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script type="text/javascript">
+var mymap = L.map('mapid').setView([45.192, 5.768], 14);
+
+var osmLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 19
+});
+
+mymap.addLayer(osmLayer);
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

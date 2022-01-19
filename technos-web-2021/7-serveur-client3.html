@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <title>Interactions serveur/client (suite) - Cours Technologies Web - LP ESSIG - 2021/2022</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="src/custom.css">
+        
+        <link rel="stylesheet" href="src/bootstrap-scoped.min.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try {
+                  sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch(e) {
+                  sidebar = 'visible';
+                }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="6-serveur-client2.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="7-serveur-client3.html" class="active"><strong aria-hidden="true">7.</strong> Interactions serveur/client (suite)</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">8.</strong> Javascript - Théorie et pratique</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">9.</strong> Technos Web... quoi d'autre ?</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li><li class="expanded affix "><a href="exam.html">Précédents sujets d'examen</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Cours Technologies Web - LP ESSIG - 2021/2022</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#interactions-serveurclient-suite" id="interactions-serveurclient-suite">Interactions serveur/client (suite)</a></h1>
+<p>Le but de ce TP est de continuer notre plateforme interactive de dépôt d'avis en lui ajoutant plusieurs fonctionnalités :</p>
+<ul>
+<li>les avis vont désormais avoir des coordonnées,</li>
+<li>il va ainsi être possible de les localiser sur une carte,</li>
+<li>et il va être possible d'utiliser la carte pour pré-remplir le formulaire.</li>
+</ul>
+<p><img src="img/tp7_1.png" alt="Capture d'écran de la page d'accueil du site" /></p>
+<div class="center">
+<p><strong>🚀 Regarder l'exemple sur le lien suivant: <a href="https://mthh.pythonanywhere.com/">https://mthh.pythonanywhere.com/</a> et relevez les nouvelles interactions qui ont été ajoutées <em>(que se passe-t-il lors d'un clic sur la carte, que se passe-t-il lors du clic sur l'un des autres éléments du menu de navigation, etc. ?)</em></strong></p>
+<p><strong>Les différentes étapes de ce TP vont vous guider afin de reproduire et de personnaliser votre page d'une manière similaire.</strong></p>
+</div>
+<h2><a class="header" href="#1-préambule-et-nouveaux-éléments" id="1-préambule-et-nouveaux-éléments">1. Préambule et nouveaux éléments</a></h2>
+<h3><a class="header" href="#la-bd" id="la-bd">La BD</a></h3>
+<ul>
+<li>Deux nouveaux champs doivent être ajoutés à notre modèle <code>Review</code>. Il est ainsi définit par le code Python suivant :</li>
+</ul>
+<pre><code class="language-python">class Review(db.Model):
+    id_review = db.Column(db.Integer, primary_key=True)
+    rate = db.Column(db.Integer, nullable=False)
+    comment = db.Column(db.String(255))
+    name = db.Column(db.String(), nullable=False)
+    latitude = db.Column(db.Float(precision=10), nullable=False) # &lt;- New !
+    longitude = db.Column(db.Float(precision=10), nullable=False) # &lt;- New !
+</code></pre>
+<ul>
+<li>L'utilisation du modèle <code>Review</code> revient donc maintenant à mobiliser la table suivante:</li>
+</ul>
+<table><thead><tr><th>id_review</th><th>name</th><th>comment</th><th>rate</th><th>latitude</th><th>longitude</th></tr></thead><tbody>
+<tr><td>1</td><td>Cameran Duran</td><td><small>Mattis molestie a iaculis at erat pellentesque adipiscing commodo.</small></td><td>5</td><td>45.1913376954</td><td>5.7700002193</td></tr>
+<tr><td>2</td><td>Nasim Erickson</td><td><small>Amet massa vitae tortor condimentum lacinia.</small></td><td>4</td><td>45.1915115994</td><td>5.7732725143</td></tr>
+<tr><td>3</td><td>Guy Richardson</td><td><small>Imperdiet sed euismod nisi porta lorem mollis aliquam.</small></td><td>3</td><td>45.1922903805</td><td>5.7727360725</td></tr>
+<tr><td>4</td><td>Veda Lott</td><td><small>Dignissim enim sit amet venenatis. Urna cursus eget nunc scelerisque.</small></td><td>1</td><td>45.1929812805</td><td>5.7674560725</td></tr>
+<tr><td>5</td><td>Flavia Klein</td><td><small>A pellentesque sit amet porttitor eget dolor morbi.</small></td><td>4</td><td>45.1934789176</td><td>5.7725615994</td></tr>
+</tbody></table>
+<h3><a class="header" href="#javascript" id="javascript">Javascript</a></h3>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/200px-Unofficial_JavaScript_logo_2.svg.png" />
+<p>Un langage de programmation multi-paradigme : orienté objet à prototype, impératif et fonctionnel <em>(il partage ces deux dernières caractéristiques avec Python par exemple)</em>.</p>
+<p>Le langage est standardisé sous le nom d'<a href="https://fr.wikipedia.org/wiki/ECMAScript">ECMAScript</a> (c'est peut-être un terme que vous rencontrerez - notamment sous sa forme abrégée pour désigner les différentes versions du standard : <em>ES5</em>, <em>ES6</em>, etc.).</p>
+<h4><a class="header" href="#leafletjs---javascript-library-for-mobile-friendly-interactive-maps" id="leafletjs---javascript-library-for-mobile-friendly-interactive-maps">Leaflet.js - <em>JavaScript library for mobile-friendly interactive maps</em></a></h4>
+<p>Il s'agit d'une bibliothèque permettant de créer des cartes interactives. La bibliothèque est <em>mobile-friendly</em> par défaut et dispose de l'ensemble des fonctionnalités requise pour créer des cartes interactives personnalisées et avec vos propres données.</p>
+<p><img src="img/tp7_leaflet_features.png" alt="Capture d'écran du site Web de Leaflet.js" /></p>
+<p>Pour l'utiliser il est nécessaire d'inclure deux fichiers dans le document HTML correspondant :</p>
+<ul>
+<li>Un fichier CSS (extension <code>.css</code>) contenant des règles de styles</li>
+<li>Un fichier JavaScript (extension <code>.js</code>) contenant le code source de la bibliothèque</li>
+</ul>
+<blockquote>
+<p><strong>Remarques</strong>: D'autres bibliothèques permettent de créer des cartes interactives en JavaScript, les plus connues sont <a href="https://openlayers.org/">OpenLayers</a> et <a href="https://docs.mapbox.com/mapbox-gl-js/api/">Mapbox GL JS</a>.</p>
+</blockquote>
+<h4><a class="header" href="#popperjs-et-bootstrapjs" id="popperjs-et-bootstrapjs">Popper.js et Bootstrap.js</a></h4>
+<p>Ce sont les autres bibliothèques déjà importées dans notre page. Elles sont utiles pour obtenir le comportement <em>responsive</em> de la barre de navigation.</p>
+<ul>
+<li><a href="https://popper.js.org/"><code>Popper.js</code></a> est une biliothèque qui se spécialise dans la création et le positionnement d'info-bulles et de petites fenêtres d'informations.</li>
+<li><code>Bootstrap.js</code> désigne la partie JavaScript du <em>framework</em> Bootstrap ; elle utilise les deux biliothèques citées précédemment et c'est la raison pour la quelle on les a inclus.</li>
+</ul>
+<blockquote>
+<p><strong>Liens utiles sur le JavaScript:</strong></p>
+<ul>
+<li>Mozilla Developpers Network - Premier pas en JavaScript : <a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps">https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps</a></li>
+<li>W3schools Javascript Tutorial : <a href="https://www.w3schools.com/js/">https://www.w3schools.com/js/</a></li>
+<li>Eloquent JavaScript - 3rd edition (online, PDF, E-PUB, etc.) : <a href="https://eloquentjavascript.net/">https://eloquentjavascript.net/</a></li>
+<li>Pour se faire la main en JavaScript il faut pratiquer... des <a href="https://www.w3schools.com/js/exercise_js.asp">exercices comme ceux de W3schools</a> puis des sites comme <a href="https://JavaScript30.com">JavaScript30</a> peuvent donner de bonnes occasions de pratiquer !</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Liens utiles sur les fonctionnalités utilisées aujourd'hui:</strong></p>
+<ul>
+<li>Élément HTML <code>&lt;input&gt;</code> et ses attributs : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/input">https://developer.mozilla.org/fr/docs/Web/HTML/Element/input</a></li>
+<li>Élément HTML <code>&lt;a&gt;</code> et ses attributs : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a">https://developer.mozilla.org/fr/docs/Web/HTML/Element/a</a></li>
+<li>Élément HTML <code>&lt;fieldset&gt;</code> : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Fieldset">https://developer.mozilla.org/fr/docs/Web/HTML/Element/Fieldset</a></li>
+<li>Documentation officielle de <code>Leaflet</code>: <a href="https://leafletjs.com/reference-1.6.0.html">https://leafletjs.com/reference-1.6.0.html</a></li>
+<li>Liste de <em>plugins</em> et de ressources pour <code>Leaflet</code>: <a href="https://leafletjs.com/plugins.html">https://leafletjs.com/plugins.html</a></li>
+</ul>
+</blockquote>
+<h2><a class="header" href="#2-découverte-des-nouveaux-morceaux-de-code" id="2-découverte-des-nouveaux-morceaux-de-code">2. Découverte des nouveaux morceaux de code</a></h2>
+<p><strong>🚀 Récupérez les fichiers nécessaires à l'exercice d'aujourd'hui : <a href="data/TP7.zip">TP7</a> et ajoutez les en remplacement des fichier de l'exercice précédent dans votre espace <em>PythonAnywhere</em></strong>. Il s'agit de :</p>
+<ul>
+<li>
+<p>la base de données SQLite (fichier <code>app.db</code>), dont la table <code>Review</code> a été mise à jour pour contenir les colonnes <code>latitude</code> et <code>longitude</code>.</p>
+</li>
+<li>
+<p>le fichier <code>template/index.html</code> qui a été modifié pour ajouter une carte interactive (créée avec la bibliothèque Leaflet) - il n'est pas nécessaire de modifier le fichier <code>header.html</code></p>
+</li>
+<li>
+<p>le ficher <code>flask_app.py</code> modifié de manière à inclure le nouveau modèle <code>Review</code> présenté plus haut.</p>
+</li>
+</ul>
+<p><strong>🚀 Prenez connaissance des éléments nouveaux, notamment ceux qui ont été ajoutés au fichier <code>index.html</code>:</strong></p>
+<ul>
+<li>
+<p>un élément HTML <code>&lt;div&gt;</code> a été ajouté avec l'identifiant <code>mymap</code></p>
+</li>
+<li>
+<p>un quatrième fichier JavaScript a été importé (balises <code>&lt;script&gt;</code>) : il s'agit de la bibliothèque <code>Leaflet</code></p>
+</li>
+<li>
+<p>du code JavaScript a été saisi (également entre les balises <code>&lt;script&gt;</code>) : c'est avec ces quelques lignes de codes que nous utilisons la bibliothèque <code>Leaflet</code> pour instancier un objet <code>L.map</code> (en lui indiquant l'identifiant du conteneur à utiliser pour la carte : <code>mymap</code>) et pour ajouter une première couche d'informations (une couche tuilée avec l'objet <code>L.tileLayer</code>). <em>Ce code vous sera expliqué plus en détail oralement.</em></p>
+</li>
+</ul>
+<h2><a class="header" href="#-permettre-lenvoi-des-coordonnées-dans-le-formulaire-et-réparer-linsertion-dans-la-bd" id="-permettre-lenvoi-des-coordonnées-dans-le-formulaire-et-réparer-linsertion-dans-la-bd">🚀 Permettre l'envoi des coordonnées dans le formulaire et réparer l'insertion dans la BD</a></h2>
+<blockquote>
+<p><strong>Documentation utile</strong>:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/input">https://developer.mozilla.org/fr/docs/Web/HTML/Element/input</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p><strong>Ajoutez 2 éléments <code>&lt;input&gt;</code> à notre formulaire</strong>. Choisissez le bon type d'élément (attribut <code>type</code>). Ils vont seulement servir à contenir les valeurs des coordonées du point cliqué mais ne seront pas éditables, vous utiliserez l'attribut <code>readonly</code> sur ces deux éléments HTML (avec l'utilisation de cet attribut ils seront bien envoyés avec le reste du formulaire sans pour autant être éditables par l'utilisateur). Vous devez donner un identifiant unique (attribut <code>id</code>) à chacun. Vous utiliserez également l'attribut <code>step</code> avec la valeur <code>any</code> (ceci à pour effet de désactiver la validation du champ basée sur l'intervalle autorisé entre les valeurs acceptées).</p>
+</li>
+<li>
+<p><strong>Modifiez le code de la fonction Python <code>root</code></strong> : lorsqu'un formulaire est reçu (méthode <strong>POST</strong>), vous devez désormais aussi lire les champs <code>latitude</code> et <code>longitude</code> et utiliser leurs valeurs pour créer l'entrée qui va être ajoutée à la base de données. Cette étape est importante car les champs <code>latitude</code> et <code>longitude</code> ont été créés avec le paramètre <code>nullable=False</code> dans le modèle <code>Review</code>.</p>
+</li>
+<li>
+<p><strong>Modifiez le contenu du fichier <code>index.html</code> pour inclure le code JavaScript qui suit</strong>. Vous devrez l'inclure immédiatement à la suite du code JavaScript existant, au sein de la même balise <code>&lt;script&gt; &lt;/script&gt;</code>. Attention, vous devrez peut-être le modifier pour utilisez les <strong>identifiants des deux éléments <code>&lt;input&gt;</code></strong> que vous venez de créer.</p>
+</li>
+</ol>
+<pre><code class="language-js">// Ici on définit une fonction Javascript dont le contenu sera exécuté
+// lors d'un clic sur la carte...
+// Le 'e' correspond au nom de variable de l'argument de la fonction onMapClick
+// Lorsque la fonction s'exécute (après un clic sur la carte donc)
+// cette variable contient un objet de type
+// [mouseevent](https://leafletjs.com/reference-1.6.0.html#mouseevent)
+function onMapClick(e) {
+    console.log(&quot;You clicked the map at &quot; + e.latlng);
+    document.getElementById(&quot;inputLong&quot;).value = e.latlng.lng;
+    document.getElementById(&quot;inputLat&quot;).value = e.latlng.lat;
+}
+
+// On associe la fonction créée au dessus à l'évenement &quot;click&quot;
+// de l'objet mymap (notre carte interactive leaflet)
+mymap.on('click', onMapClick);
+</code></pre>
+<ol start="4">
+<li>
+<p><strong>Rechargez la <em>web app</em> et testez que tout fonctionne correctement avant de passer à la suite:</strong></p>
+<ul>
+<li><strong>Lors d'un clic sur la carte, les deux éléments <code>&lt;input&gt;</code> doivent se remplir. Leur valeur ne doit pas être modifiable.</strong></li>
+<li><strong>Lorsque vous envoyez le formulaire, la page doit se recharger correctement et lister le nouvel avis.</strong></li>
+</ul>
+</li>
+</ol>
+<h2><a class="header" href="#-donner-vie-aux-liens-À-propos-et-contact-de-la-barre-de-navigation" id="-donner-vie-aux-liens-À-propos-et-contact-de-la-barre-de-navigation">🚀 Donner vie aux liens <code>À propos</code> et <code>Contact</code> de la barre de navigation</a></h2>
+<blockquote>
+<p><strong>Documentation utile</strong>:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a">https://developer.mozilla.org/fr/docs/Web/HTML/Element/a</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p><strong>Inspirez-vous de la page <a href="http://mthh.pythonanywhere.com/about">http://mthh.pythonanywhere.com/about</a> pour ajouter une page de ce type à votre site Web. Celà nécessite de créer un nouveau <em>template</em> et une nouvelle route dans l'application Python <code>flask_app.py</code>.</strong></p>
+</li>
+<li>
+<p><strong>L'utilisateur doit pouvoir se rendre sur cette page en cliquant sur <code>À propos</code>. Il doit pouvoir revenir sur la page d'accueil en cliquant sur <code>Accueil</code>.</strong></p>
+</li>
+<li>
+<p><strong>Le lien <code>Contact</code> doit également être modifié afin d'y associer une adresse email.</strong></p>
+</li>
+<li>
+<p><strong>Rechargez la <em>web app</em> et testez que tout fonctionne correctement avant de passer à la suite.</strong></p>
+</li>
+</ol>
+<h2><a class="header" href="#-afficher-des-markers-et-des-info-bulles-correspondant-à-la-localisation-des-avis" id="-afficher-des-markers-et-des-info-bulles-correspondant-à-la-localisation-des-avis">🚀 Afficher des <em>markers</em> et des info-bulles correspondant à la localisation des avis</a></h2>
+<blockquote>
+<p><strong>Documentation utile</strong>:</p>
+<ul>
+<li><a href="https://jinja.palletsprojects.com/en/2.11.x/">https://jinja.palletsprojects.com/en/2.11.x/</a></li>
+<li><a href="https://leafletjs.com/">https://leafletjs.com/</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p><strong>Regardez le morceau de code présent en bas de la page <a href="https://leafletjs.com/">https://leafletjs.com/</a></strong> : les 3 dernières lignes montrent la création d'un <em>marker</em> et de l'info-bulle qui lui est associée, avec la bibliothèque Leaflet.</p>
+</li>
+<li>
+<p><strong>Modifier le code du fichier <code>index.html</code> afin de créer un <em>marker</em> pour chaque avis.</strong> Vous allez utiliser la même fonctionnalité de <code>Jinja2</code> que celle qui nous permet de parcourir l'ensemble des avis (actuellement pour les afficher sous forme d'une liste HTML) afin de mobiliser le code vu dans le point précédent.</p>
+</li>
+<li>
+<p><strong>Rechargez la <em>web app</em> et testez que tout fonctionne correctement avant de passer à la suite :</strong></p>
+<ul>
+<li><strong>Lorsque vous envoyez le formulaire, la page doit se recharger correctement et le nouvel avis doit apparaître sur la carte.</strong></li>
+<li><strong>Lorsque vous cliquez sur un marker, la note et le commentaire doivent s'afficher dans une info-bulle.</strong></li>
+</ul>
+</li>
+</ol>
+<h2><a class="header" href="#-aller-plus-loin-dans-la-prise-en-compte-de-lutilisateur-1" id="-aller-plus-loin-dans-la-prise-en-compte-de-lutilisateur-1">🚀 Aller plus loin dans la prise en compte de l'utilisateur... (1)</a></h2>
+<blockquote>
+<p><strong>Documentation utile</strong>:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Fieldset">https://developer.mozilla.org/fr/docs/Web/HTML/Element/Fieldset</a></li>
+<li><a href="https://leafletjs.com/">https://leafletjs.com/</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p><strong>Le formulaire pourrait être désactivé par défaut avant que l'utilisateur ne clique une première fois sur la carte... Quel attribut devez vous utilisez pour ça ?</strong> <em>(n'hésitez pas à chercher sur le Web, à grouper tous vos champs dans un élément HTML <code>&lt;fieldset&gt;</code> si nécessaire, etc. !)</em></p>
+</li>
+<li>
+<p><strong>Une fois les champs désactivés...il est nécessaire de les activer lors du clic de l'utilisateur. L'idée générale est la suivante :</strong></p>
+<ul>
+<li><strong>ce comportement devra être défini dans la fonction <code>onMapClick</code> dans le code Javascript, puisqu'elle est appellée lors d'un clic sur la carte</strong></li>
+<li><strong>il vous faut récupérer l'élément HTML qui a été désactivé (avec <code>document.getElementById('...')</code>) et changer la valeur de l'attribut approprié.</strong> <em>(inspirez-vous du code JavaScript existant)</em></li>
+</ul>
+</li>
+</ol>
+<h2><a class="header" href="#-personnaliser-le-rendu" id="-personnaliser-le-rendu">🚀 Personnaliser le rendu...</a></h2>
+<ol>
+<li>
+<p><strong>Utiliser des règles CSS (cf. <a href="2-HTML_CSS.html">TP2</a> et <a href="3-structure-style.html">TP3</a>) pour personnaliser l'apparence de votre site Web selon vos goûts (type de police différent pour une partie du document, couleurs des différents éléments, etc.).</strong></p>
+</li>
+<li>
+<p><strong>Quelques idées...</strong></p>
+<ul>
+<li>&quot;habiller&quot; le formulaire autrement,</li>
+<li>changer/ajuster l'emplacement des éléments dans la page <em>(veillez à conserver une disposition agréable des éléments, aussi bien sur un grand écran que sur un écran type <em>smartphone</em>)</em>,</li>
+<li>des polices utilisables gratuitement sont disponibles sur <a href="https://fonts.google.com/">https://fonts.google.com/</a> <em>(des instructions sont fournis sur la démarche à suivre pour inclure puis utiliser ces polices)</em>,</li>
+<li>pensez également à regarder la <a href="https://getbootstrap.com/docs/5.1/getting-started/introduction/">documentation de Bootstrap</a> si besoin <em>(couleur de la barre de navigation, etc.)</em>.</li>
+</ul>
+</li>
+</ol>
+<h2><a class="header" href="#-aller-plus-loin-dans-la-prise-en-compte-de-lutilisateur-2" id="-aller-plus-loin-dans-la-prise-en-compte-de-lutilisateur-2">🚀 Aller plus loin dans la prise en compte de l'utilisateur... (2)</a></h2>
+<blockquote>
+<p><strong>Documentation utile</strong>:</p>
+<ul>
+<li><a href="https://jinja.palletsprojects.com/en/2.11.x/templates/#assignments">https://jinja.palletsprojects.com/en/2.11.x/templates/#assignments</a></li>
+<li><a href="https://jinja.palletsprojects.com/en/2.11.x/tricks/#highlighting-active-menu-items">https://jinja.palletsprojects.com/en/2.11.x/tricks/#highlighting-active-menu-items</a></li>
+<li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a">https://developer.mozilla.org/fr/docs/Web/HTML/Element/a</a></li>
+<li><a href="https://www.the-art-of-web.com/javascript/remove-anchor-links/">https://www.the-art-of-web.com/javascript/remove-anchor-links/</a></li>
+</ul>
+</blockquote>
+<p>Plusieurs éléments peuvent encore être améliorés dans la mise en forme et dans le comportement de votre site :</p>
+<ul>
+<li>Vos pages ont-elles toutes un titre ? Remédiez-y si ce n'est pas le cas !</li>
+<li>L'état de la barre de navigation : lorsque vous êtes sur la page <code>À propos</code>, est-ce bien ce lien là qui est définit comme étant &quot;actif&quot; ? <em>(vérifiez le comportement par rapport à la page <a href="http://mthh.pythonanywhere.com/about">http://mthh.pythonanywhere.com/about</a> si nécessaire)</em></li>
+<li>Que se passe-t-il lorsqu'un utilisateur est sur la version mobile de votre page et qu'il clique sur la carte ? Est-il possible de descendre automatiquement jusqu'au formulaire afin que l'utilisateur voit qu'il a été activé ? <em>(plusieurs options sont possibles)</em></li>
+<li>Peut-on changer le type de <em>marker</em> utilisés par Leaflet afin de personnaliser la page ? Comment pourrait-on afficher un <em>marker</em> différent en fonction du la note ?</li>
+</ul>
+<div class="center">
+<p><img src="img/scroll_to_form.gif" alt="" /></p>
+</div>
+<p><strong>Essayez de résoudre ces problèmes : regardez les liens proposés ci-dessus et/ou utilisez un moteur de recherche pour décrire ce que vous souhaitez atteindre afin d'évaluer les options qui s'offrent à vous. Faites des propositions à l'oral si vous n'êtes pas sûr ou si vous voulez de l'aide pour l'implémentation.</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="6-serveur-client2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="tbd.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="6-serveur-client2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="tbd.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="src/custom.js"></script>
+        
+
+        
+
+    </body>
+</html>

@@ -90,7 +90,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">7.</strong> Interactions serveur/client (suite)</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">8.</strong> Javascript - Théorie et pratique</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">9.</strong> Technos Web... quoi d'autre ?</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li><li class="expanded affix "><a href="exam.html">Précédents sujets d'examen</a></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="0.html">Accueil</a></li><li class="expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="expanded "><a href="5-serveur-client1.html"><strong aria-hidden="true">5.</strong> Programmation Web coté serveur en Python</a></li><li class="expanded "><a href="6-serveur-client2.html"><strong aria-hidden="true">6.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="expanded "><a href="7-serveur-client3.html"><strong aria-hidden="true">7.</strong> Interactions serveur/client (suite)</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">8.</strong> Javascript - Théorie et pratique</a></li><li class="expanded "><a href="tbd.html"><strong aria-hidden="true">9.</strong> Technos Web... quoi d'autre ?</a></li><li class="spacer"></li><li class="expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="expanded affix "><a href="page_pdf.html">Version PDF des TP</a></li><li class="expanded affix "><a href="tp_data.html">Données TP &amp; Corrections</a></li><li class="expanded affix "><a href="exam.html">Précédents sujets d'examen</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -1825,6 +1825,455 @@ il est possible d'utiliser la déclaration <strong><code>{% for item in navigati
 <div class="center">
 <p><img src="img/tp5_ex3_resultat.png" alt="Capture d'écran de la route &quot;/index&quot;" /></p>
 </div>
+<h1><a class="header" href="#interactions-serveurclient-formulaires-et-bd" id="interactions-serveurclient-formulaires-et-bd">Interactions serveur/client, formulaires et BD</a></h1>
+<h2><a class="header" href="#1-préambule-1" id="1-préambule-1">1. Préambule</a></h2>
+<p>Les objectifs de ce TP sont:</p>
+<ul>
+<li>de connecter l'application <strong><code>Flask</code></strong> à une base de données <strong>SQLite</strong>.</li>
+<li>de créer un formulaire permettant d'ajouter une nouvelle entrée à cette base de données.</li>
+</ul>
+<p>Pour mobiliser les données de cette BD, nous n'aurons pas à saisir de requêtes SQL ; en effet nous allons utiliser un <strong>ORM</strong> (un <em>Object Relational Mapping</em> / un <em>Mapping</em> objet-relationnel) du nom de <a href="https://www.sqlalchemy.org/">SQLAlchemy</a>.</p>
+<p><em>Il n'y a pas de code à saisir avant la fin cette partie où vous recontrerez à nouveau le symbole '🚀'.</em></p>
+<h3><a class="header" href="#installation-et-création-de-la-base-de-données" id="installation-et-création-de-la-base-de-données">Installation et création de la base de données</a></h3>
+<p>En utilisant <em>PythonAnywhere</em> cette bibliothèque est déjà installée, vous n'avez rien de particulier à faire.</p>
+<p>Sinon il est possible d'installer SQLAlchemy et l'extension <code>flask_sqlalchemy</code> que nous allons utiliser avec Flask comme les autres packages Python. Si vous avez utilisé un environnement virtuel, veillez à ce qu'il soit activé avant d'effectuer la commande suivante :</p>
+<pre><code class="language-bash"> pip install flask_sqlalchemy
+</code></pre>
+<h3><a class="header" href="#localisation-de-la-base-de-données" id="localisation-de-la-base-de-données">Localisation de la base de données</a></h3>
+<p>Il est nécessaire d'indiquer à l'ORM où se situe la BD à laquelle se connecter, en l'occurence, dans le même dossier que le code de l'application, avec le nom <code>app.db</code>:</p>
+<pre><code class="language-python">from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+# On stocke le chemin absolu du dossier qui contient le fichier
+# qui s'éxecute :
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+app = Flask(__name__)
+
+# app.config est un dictionnaire :
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.db')
+db = SQLAlchemy(app)
+</code></pre>
+<h3><a class="header" href="#créer-un-modèle-correspondant-au-type-dentrées-que-nous-souhaitons" id="créer-un-modèle-correspondant-au-type-dentrées-que-nous-souhaitons">Créer un modèle correspondant au type d'entrées que nous souhaitons</a></h3>
+<p>Nous souhaitons stocker nos notes et avis dans une table <code>Review</code>.
+Celle-ci va pour l'instant n'avoir que trois colonnes :</p>
+<ul>
+<li><code>id_review</code> (l'identifiant unique de l'avis),</li>
+<li><code>rate</code> (une note, de 1 à 5, où 5 représente la plus forte note),</li>
+<li><code>comment</code> (un champ de texte libre, limité à 255 caractères mais qui peut être laissé vide).</li>
+</ul>
+<pre><code class="language-python">class Review(db.Model):
+    id_review = db.Column(db.Integer, primary_key=True)
+    rate = db.Column(db.Integer, nullable=False)
+    comment = db.Column(db.String(255))
+</code></pre>
+<p>Ce code va permettre de modifier la base de données sans écrire de requêtes SQL mais en manipulant des objets Python.<br />
+Notez que nous avons spécifié le type attendu (<code>db.Integer</code>, <code>db.String</code>, ..) pour chaque colonne (<code>db.Column</code>) de la table (ici <code>Review</code>) que vous allons manipuler à travers ce modèle.</p>
+<h3><a class="header" href="#utiliser-le-modèle-pour-communiquer-avec-la-bd-dans-un-style-orienté-objet-1" id="utiliser-le-modèle-pour-communiquer-avec-la-bd-dans-un-style-orienté-objet-1">Utiliser le modèle pour communiquer avec la BD dans un style orienté-objet (1)</a></h3>
+<p>On pourra par exemple créer une <em>review</em> et l'ajouter à la base de données avec le code suivant :</p>
+<pre><code class="language-python">new_review = Review(
+    rate=5,
+    comment=&quot;Mattis molestie a iaculis at erat pellentesque adipiscing commodo.&quot;,
+)
+
+db.session.add(new_review)
+db.session.commit()
+</code></pre>
+<p>Il n'est pas nécessaire d'indiquer l'identifiant de la <em>review</em> à créer : comme il s'agit d'une clé primaire, elle sera renseignée automatiquement lors de l'appel de la méthode <code>db.session.commit()</code> en fonction des entrées déjà présentes dans la table.</p>
+<h3><a class="header" href="#utiliser-le-modèle-pour-communiquer-avec-la-bd-dans-un-style-orienté-objet-2" id="utiliser-le-modèle-pour-communiquer-avec-la-bd-dans-un-style-orienté-objet-2">Utiliser le modèle pour communiquer avec la BD dans un style orienté-objet (2)</a></h3>
+<p>C'est également avec ce modèle <code>Review</code> qu'on pourra faire des requêtes sur la table correspondante :</p>
+<pre><code class="language-python"># Renvoie toute les entrées de la table `Review` sous forme de `list` python
+all_review = Review.query.all()
+
+# Effectue une requete sur la table `Review`
+# en utilisant la clé primaire (ici id_review):
+review2 = Review.query.get(2)
+</code></pre>
+<p>Il est possible d'accéder aux valeurs qui correspondent à chacun des champs de la table <code>Review</code> pour une entrée donnée :</p>
+<pre><code class="language-python">review2 = Review.query.get(2)
+print(review2.rate) # --&gt; 4
+print(review2.comment) # --&gt; &quot;Amet massa vitae tortor condimentum lacinia.&quot;
+</code></pre>
+<h3><a class="header" href="#putting-it-all-together" id="putting-it-all-together">Putting it all together...</a></h3>
+<p>Ce code correspond à l'adaptation du code obtenu à la fin du TP précédent, en se connectant cette fois à une base de données avec SQLAlchemy comme présenté ci-dessus.</p>
+<p><strong>🚀 Prenez-en connaissance attentivement et copiez-le dans le fichier <code>flask_app.py</code> dans votre espace <em>PythonAnywhere</em></strong>.</p>
+<p><strong>🚀 Récupérez le fichier <a href="data/TP6/v1/app.db"><code>app.db</code></a>, il s'agit de votre base de données SQLite. Copiez le dans votre espace <em>PythonAnywhere</em> dans le même dossier que le fichier <code>flask_app.py</code></strong>.</p>
+<pre><code class="language-python">from flask import Flask, render_template, request, url_for, redirect
+from flask_sqlalchemy import SQLAlchemy
+from datetime import date
+import os
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.db')
+db = SQLAlchemy(app)
+
+
+class Review(db.Model):
+    id_review = db.Column(db.Integer, primary_key=True)
+    rate = db.Column(db.Integer, nullable=False)
+    comment = db.Column(db.String(255))
+
+
+@app.route(&quot;/&quot;)
+@app.route('/index')
+def root():
+    all_reviews = Review.query.all()
+    return render_template('index.html',
+                            list_reviews=all_reviews,
+                            nb_reviews = len(all_reviews),
+                            current_date=date.today().isoformat())
+
+@app.route('/review/&lt;int:ident&gt;')
+def review(ident):
+    the_review = Review.query.get(ident)
+    if the_review:
+        return 'Rate: {} - Comment: {}'.format(the_review.rate, the_review.comment)
+    else:
+        return ''
+</code></pre>
+<h2><a class="header" href="#2-création-dun-formulaire-html-et-traitement-coté-serveur" id="2-création-dun-formulaire-html-et-traitement-coté-serveur">2. Création d'un formulaire HTML et traitement coté serveur</a></h2>
+<p>Notre page d'accueil ne va plus se contenter de lister les avis déjà présents ; il va désormais être possible d'en ajouter de nouveaux grâce à un formulaire HTML.</p>
+<p>Ce formulaire HTML sera remplit par le client, dans son navigateur Web puis envoyé (méthode HTTP <strong>POST</strong>) au serveur qui l'ajoutera à la base de données.</p>
+<pre><code class="language-html">  &lt;!-- le début
+              de votre fichier ici
+    --&gt;
+    &lt;div class=&quot;row&quot;&gt;                 &lt;!-- On utilise les lignes/colonnes Bootstrap ... --&gt;
+      &lt;div class=&quot;col-md-4 mx-auto&quot;&gt;  &lt;!-- .. pour obtenir rapidement une disposition agréable --&gt;
+
+        &lt;h3&gt;Ajout d'un nouvel avis&lt;/h3&gt;
+
+        &lt;form action=&quot;{{ request.path }}&quot; method=&quot;post&quot;&gt;
+          &lt;label for=&quot;rate&quot;&gt;Rate: &lt;/label&gt;
+          &lt;output name=&quot;rateOutput&quot; id=&quot;ageOutputId&quot;&gt;5&lt;/output&gt;&lt;br&gt;&lt;br&gt;
+          &lt;input type=&quot;range&quot; name=&quot;rate&quot; id=&quot;rateInput&quot; min=&quot;1&quot; max=&quot;5&quot; value=&quot;5&quot; class=&quot;form-range&quot; oninput=&quot;rateOutput.value = rateInput.value&quot;/&gt;
+          &lt;label for=&quot;comment&quot;&gt;Comment&lt;/label&gt;&lt;br&gt;
+          &lt;textarea name=&quot;comment&quot; maxlength=&quot;255&quot; placeholder=&quot;Laissez votre avis ici !&quot; class=&quot;form-control&quot;&gt;&lt;/textarea&gt;&lt;br&gt;
+          &lt;input type=&quot;submit&quot; value=&quot;Envoyer&quot; class=&quot;btn btn-primary&quot; /&gt;
+        &lt;/form&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;!-- le reste de votre fichier ici, normalement :
+
+  &lt;hr /&gt;
+  &lt;p&gt;Page générée le {{ current_date }}&lt;/p&gt;
+&lt;/div&gt;
+
+...etc..  --&gt;
+</code></pre>
+<p><u>Explications :</u></p>
+<ul>
+<li>Ce formulaire, définit par l'élément HTML <code>&lt;form&gt; &lt;/form&gt;</code> va être envoyé au chemin définit dans l'attribut <code>action</code> (ici la route actuelle à laquelle la page a été appelée, en utilisant le mécanisme de <em>template</em> vu précédemment), avec la méthode HTTP <code>post</code>.</li>
+<li>Il contient un champ <code>&lt;input&gt;</code> de type <code>range</code> : c'est un <em>slider</em> numérique dont on peut définir les valeurs min et max attendues ; il va servir à renseigner la note, de 1 à 5, donnée par l'utilisateur.</li>
+<li>Il contient un champ <code>&lt;textarea&gt;</code> : c'est un zone de saisie de texte qui peut s'étendre sur plusieurs lignes.</li>
+<li>Il contient un élément <code>&lt;input&gt;</code> de type <code>submit</code> : celà créé un bouton qui a pour vocation à appeler l'action définit pour ce formulaire (cf. 1er point de cette liste). L'attribut <code>class</code> qu'il utilise lui permet d'utiliser un style de Bootstrap.</li>
+</ul>
+<p><strong>🚀 Ajoutez le code de ce formulaire au fichier <code>templates/index.html</code></strong>.</p>
+<p>Lorsque l'utilisateur clique sur &quot;Envoyer&quot;, le formulaire est donc transmis au serveur avec la méthode <strong>POST</strong>.</p>
+<p>Il est donc nécessaire d'adapter le code de notre application <code>Flask</code> pour gérer ce type de requête. Nous allons modifier le code de la route qui génère actuellement cette page:</p>
+<pre><code class="language-python">from flask import request, url_for, redirect
+#                 ^ À ajouter avec les autres imports
+
+
+@app.route(&quot;/&quot;, methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
+def root():
+    if request.method == 'GET':
+        all_reviews = Review.query.all()
+        return render_template('index.html',
+                                list_reviews=all_reviews,
+                                nb_reviews = len(all_reviews),
+                                current_date=date.today().isoformat())
+    elif request.method == 'POST':
+        new_review = Review(
+            rate=request.form['rate'],
+            comment=request.form['comment'])
+        db.session.add(new_review)
+        db.session.commit()
+        return redirect(url_for('root'))
+</code></pre>
+<p><u>Explications :</u></p>
+<ul>
+<li>Lorsqu'une requête HTTP de type <strong>GET</strong> à lieu sur cette route, l'application récupère l'ensemble des entrées de la table <code>Review</code> (avec <code>Review.query.all()</code>) puis elle appelle le <em>template</em> <code>index.html</code> en utilisant les arguments appropriées et vus précédemment.</li>
+<li>Lorsqu'une requête HTTP de type <strong>POST</strong> à lieu sur cette route, l'application:
+<ul>
+<li>lit le formulaire (<code>request.form</code>) en accédant à la valeur des champs avec la notation entre crochets (<code>request.form['rate']</code> et <code>request.form['comment']</code>)</li>
+<li>créée un objet correspondant à une nouvelle entrée (<code>new_review = Review(rate=data['rate'], comment=data['comment'])</code>)</li>
+<li>ajoute cette entrée à la table <code>Review</code> avec <code>db.session.add(new_review)</code> et <code>db.session.commit()</code></li>
+<li>renvoie la page actuelle (<code>redirect(url_for('root'))</code>), celà a pour effet de rafraichir la page dans le navigateur du client et de faire apparaître l'avis qu'il vient de laisser</li>
+</ul>
+</li>
+</ul>
+<p><strong>🚀 Lisez attentivement ce morceau de code, il mobilise le modèle <code>Review</code> présenté précedemment ainsi que les fonctionnalités d'ajout à la base de données.</strong></p>
+<p><strong>🚀 Ajoutez-le à votre fichier <code>flask_app.py</code> en remplacement de la fonction <code>root</code> actuelle.</strong></p>
+<p><strong>🚀 Après avoir sauvegardé votre code, recharger votre <em>web app</em>. Testez l'ajout de nouveaux avis grâce au formulaire qui vient d'être créé.</strong></p>
+<p><img src="img/pa10.png" alt="" /></p>
+<ul>
+<li>Le résultat attendu est le suivant :</li>
+</ul>
+<p><img src="img/pa11.png" alt="" /></p>
+<p><strong>🚀 Modifiez le code l'application pour ajouter un champ <code>name</code> au modèle <code>Review</code>.
+Ce champ doit être de type &quot;chaine de caractères&quot; et ne doit pas permettre d'utiliser de valeurs nulles : <code>db.Column(db.String(255), nullable=False)</code>.
+Cette modification doit également se refléter dans le formulaire affiché à l'utilisateur qui doit maintenant proposer un champ &quot;Nom&quot;.<br />
+Vous devrez donc modifier plusieurs éléments dans le fichier <code>flask_app.py</code> et dans le formulaire du fichier <code>index.html</code> (ajout d'un nouvel élément <code>&lt;input type=&quot;text&quot; /&gt;</code>, etc.).</strong></p>
+<p><strong>🚀 Que se passe-t-il lors de l'utilisation de la BD avec ce nouveau modèle ?</strong></p>
+<p>→ Lors de l'utilisation de ce nouveau modèle l'application génère un message d'erreur car la table qu'elle utilise dans la BD à laquelle nous sommes connectés ne comporte pas les champs nécessaires (la colonne <code>name</code> est manquante).</p>
+<p>Si l'on souhaite conserver les entrées présentes, nous pouvons utiliser un outil comme <a href="https://alembic.sqlalchemy.org/en/latest/index.html">Alembic</a> qui va se charger de la <em>migration</em> de notre table.</p>
+<p>Dans le cadre de ce TP, je vous fournis la version modifiée de la BD : <strong><a href="data/TP6/v2/app.db"><code>app.db</code></a></strong>.
+Veuillez la télécharger et remplacer le fichier <code>app.db</code> sur PythonAnywhere.</p>
+<p><strong>🚀 Rechargez la <em>web app</em> et tester l'ajout d'avis grâce à ce nouveau formulaire.</strong></p>
+<p><img src="img/pa10.png" alt="" /></p>
+<ul>
+<li>Le résultat attendu est le suivant :</li>
+</ul>
+<div class="center">
+<p><img src="img/pa12.png" alt="" /></p>
+</div>
+<h1><a class="header" href="#interactions-serveurclient-suite" id="interactions-serveurclient-suite">Interactions serveur/client (suite)</a></h1>
+<p>Le but de ce TP est de continuer notre plateforme interactive de dépôt d'avis en lui ajoutant plusieurs fonctionnalités :</p>
+<ul>
+<li>les avis vont désormais avoir des coordonnées,</li>
+<li>il va ainsi être possible de les localiser sur une carte,</li>
+<li>et il va être possible d'utiliser la carte pour pré-remplir le formulaire.</li>
+</ul>
+<p><img src="img/tp7_1.png" alt="Capture d'écran de la page d'accueil du site" /></p>
+<div class="center">
+<p><strong>🚀 Regarder l'exemple sur le lien suivant: <a href="https://mthh.pythonanywhere.com/">https://mthh.pythonanywhere.com/</a> et relevez les nouvelles interactions qui ont été ajoutées <em>(que se passe-t-il lors d'un clic sur la carte, que se passe-t-il lors du clic sur l'un des autres éléments du menu de navigation, etc. ?)</em></strong></p>
+<p><strong>Les différentes étapes de ce TP vont vous guider afin de reproduire et de personnaliser votre page d'une manière similaire.</strong></p>
+</div>
+<h2><a class="header" href="#1-préambule-et-nouveaux-éléments" id="1-préambule-et-nouveaux-éléments">1. Préambule et nouveaux éléments</a></h2>
+<h3><a class="header" href="#la-bd" id="la-bd">La BD</a></h3>
+<ul>
+<li>Deux nouveaux champs doivent être ajoutés à notre modèle <code>Review</code>. Il est ainsi définit par le code Python suivant :</li>
+</ul>
+<pre><code class="language-python">class Review(db.Model):
+    id_review = db.Column(db.Integer, primary_key=True)
+    rate = db.Column(db.Integer, nullable=False)
+    comment = db.Column(db.String(255))
+    name = db.Column(db.String(), nullable=False)
+    latitude = db.Column(db.Float(precision=10), nullable=False) # &lt;- New !
+    longitude = db.Column(db.Float(precision=10), nullable=False) # &lt;- New !
+</code></pre>
+<ul>
+<li>L'utilisation du modèle <code>Review</code> revient donc maintenant à mobiliser la table suivante:</li>
+</ul>
+<table><thead><tr><th>id_review</th><th>name</th><th>comment</th><th>rate</th><th>latitude</th><th>longitude</th></tr></thead><tbody>
+<tr><td>1</td><td>Cameran Duran</td><td><small>Mattis molestie a iaculis at erat pellentesque adipiscing commodo.</small></td><td>5</td><td>45.1913376954</td><td>5.7700002193</td></tr>
+<tr><td>2</td><td>Nasim Erickson</td><td><small>Amet massa vitae tortor condimentum lacinia.</small></td><td>4</td><td>45.1915115994</td><td>5.7732725143</td></tr>
+<tr><td>3</td><td>Guy Richardson</td><td><small>Imperdiet sed euismod nisi porta lorem mollis aliquam.</small></td><td>3</td><td>45.1922903805</td><td>5.7727360725</td></tr>
+<tr><td>4</td><td>Veda Lott</td><td><small>Dignissim enim sit amet venenatis. Urna cursus eget nunc scelerisque.</small></td><td>1</td><td>45.1929812805</td><td>5.7674560725</td></tr>
+<tr><td>5</td><td>Flavia Klein</td><td><small>A pellentesque sit amet porttitor eget dolor morbi.</small></td><td>4</td><td>45.1934789176</td><td>5.7725615994</td></tr>
+</tbody></table>
+<h3><a class="header" href="#javascript" id="javascript">Javascript</a></h3>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/200px-Unofficial_JavaScript_logo_2.svg.png" />
+<p>Un langage de programmation multi-paradigme : orienté objet à prototype, impératif et fonctionnel <em>(il partage ces deux dernières caractéristiques avec Python par exemple)</em>.</p>
+<p>Le langage est standardisé sous le nom d'<a href="https://fr.wikipedia.org/wiki/ECMAScript">ECMAScript</a> (c'est peut-être un terme que vous rencontrerez - notamment sous sa forme abrégée pour désigner les différentes versions du standard : <em>ES5</em>, <em>ES6</em>, etc.).</p>
+<h4><a class="header" href="#leafletjs---javascript-library-for-mobile-friendly-interactive-maps" id="leafletjs---javascript-library-for-mobile-friendly-interactive-maps">Leaflet.js - <em>JavaScript library for mobile-friendly interactive maps</em></a></h4>
+<p>Il s'agit d'une bibliothèque permettant de créer des cartes interactives. La bibliothèque est <em>mobile-friendly</em> par défaut et dispose de l'ensemble des fonctionnalités requise pour créer des cartes interactives personnalisées et avec vos propres données.</p>
+<p><img src="img/tp7_leaflet_features.png" alt="Capture d'écran du site Web de Leaflet.js" /></p>
+<p>Pour l'utiliser il est nécessaire d'inclure deux fichiers dans le document HTML correspondant :</p>
+<ul>
+<li>Un fichier CSS (extension <code>.css</code>) contenant des règles de styles</li>
+<li>Un fichier JavaScript (extension <code>.js</code>) contenant le code source de la bibliothèque</li>
+</ul>
+<blockquote>
+<p><strong>Remarques</strong>: D'autres bibliothèques permettent de créer des cartes interactives en JavaScript, les plus connues sont <a href="https://openlayers.org/">OpenLayers</a> et <a href="https://docs.mapbox.com/mapbox-gl-js/api/">Mapbox GL JS</a>.</p>
+</blockquote>
+<h4><a class="header" href="#popperjs-et-bootstrapjs" id="popperjs-et-bootstrapjs">Popper.js et Bootstrap.js</a></h4>
+<p>Ce sont les autres bibliothèques déjà importées dans notre page. Elles sont utiles pour obtenir le comportement <em>responsive</em> de la barre de navigation.</p>
+<ul>
+<li><a href="https://popper.js.org/"><code>Popper.js</code></a> est une biliothèque qui se spécialise dans la création et le positionnement d'info-bulles et de petites fenêtres d'informations.</li>
+<li><code>Bootstrap.js</code> désigne la partie JavaScript du <em>framework</em> Bootstrap ; elle utilise les deux biliothèques citées précédemment et c'est la raison pour la quelle on les a inclus.</li>
+</ul>
+<blockquote>
+<p><strong>Liens utiles sur le JavaScript:</strong></p>
+<ul>
+<li>Mozilla Developpers Network - Premier pas en JavaScript : <a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps">https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps</a></li>
+<li>W3schools Javascript Tutorial : <a href="https://www.w3schools.com/js/">https://www.w3schools.com/js/</a></li>
+<li>Eloquent JavaScript - 3rd edition (online, PDF, E-PUB, etc.) : <a href="https://eloquentjavascript.net/">https://eloquentjavascript.net/</a></li>
+<li>Pour se faire la main en JavaScript il faut pratiquer... des <a href="https://www.w3schools.com/js/exercise_js.asp">exercices comme ceux de W3schools</a> puis des sites comme <a href="https://JavaScript30.com">JavaScript30</a> peuvent donner de bonnes occasions de pratiquer !</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Liens utiles sur les fonctionnalités utilisées aujourd'hui:</strong></p>
+<ul>
+<li>Élément HTML <code>&lt;input&gt;</code> et ses attributs : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/input">https://developer.mozilla.org/fr/docs/Web/HTML/Element/input</a></li>
+<li>Élément HTML <code>&lt;a&gt;</code> et ses attributs : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a">https://developer.mozilla.org/fr/docs/Web/HTML/Element/a</a></li>
+<li>Élément HTML <code>&lt;fieldset&gt;</code> : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Fieldset">https://developer.mozilla.org/fr/docs/Web/HTML/Element/Fieldset</a></li>
+<li>Documentation officielle de <code>Leaflet</code>: <a href="https://leafletjs.com/reference-1.6.0.html">https://leafletjs.com/reference-1.6.0.html</a></li>
+<li>Liste de <em>plugins</em> et de ressources pour <code>Leaflet</code>: <a href="https://leafletjs.com/plugins.html">https://leafletjs.com/plugins.html</a></li>
+</ul>
+</blockquote>
+<h2><a class="header" href="#2-découverte-des-nouveaux-morceaux-de-code" id="2-découverte-des-nouveaux-morceaux-de-code">2. Découverte des nouveaux morceaux de code</a></h2>
+<p><strong>🚀 Récupérez les fichiers nécessaires à l'exercice d'aujourd'hui : <a href="data/TP7.zip">TP7</a> et ajoutez les en remplacement des fichier de l'exercice précédent dans votre espace <em>PythonAnywhere</em></strong>. Il s'agit de :</p>
+<ul>
+<li>
+<p>la base de données SQLite (fichier <code>app.db</code>), dont la table <code>Review</code> a été mise à jour pour contenir les colonnes <code>latitude</code> et <code>longitude</code>.</p>
+</li>
+<li>
+<p>le fichier <code>template/index.html</code> qui a été modifié pour ajouter une carte interactive (créée avec la bibliothèque Leaflet) - il n'est pas nécessaire de modifier le fichier <code>header.html</code></p>
+</li>
+<li>
+<p>le ficher <code>flask_app.py</code> modifié de manière à inclure le nouveau modèle <code>Review</code> présenté plus haut.</p>
+</li>
+</ul>
+<p><strong>🚀 Prenez connaissance des éléments nouveaux, notamment ceux qui ont été ajoutés au fichier <code>index.html</code>:</strong></p>
+<ul>
+<li>
+<p>un élément HTML <code>&lt;div&gt;</code> a été ajouté avec l'identifiant <code>mymap</code></p>
+</li>
+<li>
+<p>un quatrième fichier JavaScript a été importé (balises <code>&lt;script&gt;</code>) : il s'agit de la bibliothèque <code>Leaflet</code></p>
+</li>
+<li>
+<p>du code JavaScript a été saisi (également entre les balises <code>&lt;script&gt;</code>) : c'est avec ces quelques lignes de codes que nous utilisons la bibliothèque <code>Leaflet</code> pour instancier un objet <code>L.map</code> (en lui indiquant l'identifiant du conteneur à utiliser pour la carte : <code>mymap</code>) et pour ajouter une première couche d'informations (une couche tuilée avec l'objet <code>L.tileLayer</code>). <em>Ce code vous sera expliqué plus en détail oralement.</em></p>
+</li>
+</ul>
+<h2><a class="header" href="#-permettre-lenvoi-des-coordonnées-dans-le-formulaire-et-réparer-linsertion-dans-la-bd" id="-permettre-lenvoi-des-coordonnées-dans-le-formulaire-et-réparer-linsertion-dans-la-bd">🚀 Permettre l'envoi des coordonnées dans le formulaire et réparer l'insertion dans la BD</a></h2>
+<blockquote>
+<p><strong>Documentation utile</strong>:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/input">https://developer.mozilla.org/fr/docs/Web/HTML/Element/input</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p><strong>Ajoutez 2 éléments <code>&lt;input&gt;</code> à notre formulaire</strong>. Choisissez le bon type d'élément (attribut <code>type</code>). Ils vont seulement servir à contenir les valeurs des coordonées du point cliqué mais ne seront pas éditables, vous utiliserez l'attribut <code>readonly</code> sur ces deux éléments HTML (avec l'utilisation de cet attribut ils seront bien envoyés avec le reste du formulaire sans pour autant être éditables par l'utilisateur). Vous devez donner un identifiant unique (attribut <code>id</code>) à chacun. Vous utiliserez également l'attribut <code>step</code> avec la valeur <code>any</code> (ceci à pour effet de désactiver la validation du champ basée sur l'intervalle autorisé entre les valeurs acceptées).</p>
+</li>
+<li>
+<p><strong>Modifiez le code de la fonction Python <code>root</code></strong> : lorsqu'un formulaire est reçu (méthode <strong>POST</strong>), vous devez désormais aussi lire les champs <code>latitude</code> et <code>longitude</code> et utiliser leurs valeurs pour créer l'entrée qui va être ajoutée à la base de données. Cette étape est importante car les champs <code>latitude</code> et <code>longitude</code> ont été créés avec le paramètre <code>nullable=False</code> dans le modèle <code>Review</code>.</p>
+</li>
+<li>
+<p><strong>Modifiez le contenu du fichier <code>index.html</code> pour inclure le code JavaScript qui suit</strong>. Vous devrez l'inclure immédiatement à la suite du code JavaScript existant, au sein de la même balise <code>&lt;script&gt; &lt;/script&gt;</code>. Attention, vous devrez peut-être le modifier pour utilisez les <strong>identifiants des deux éléments <code>&lt;input&gt;</code></strong> que vous venez de créer.</p>
+</li>
+</ol>
+<pre><code class="language-js">// Ici on définit une fonction Javascript dont le contenu sera exécuté
+// lors d'un clic sur la carte...
+// Le 'e' correspond au nom de variable de l'argument de la fonction onMapClick
+// Lorsque la fonction s'exécute (après un clic sur la carte donc)
+// cette variable contient un objet de type
+// [mouseevent](https://leafletjs.com/reference-1.6.0.html#mouseevent)
+function onMapClick(e) {
+    console.log(&quot;You clicked the map at &quot; + e.latlng);
+    document.getElementById(&quot;inputLong&quot;).value = e.latlng.lng;
+    document.getElementById(&quot;inputLat&quot;).value = e.latlng.lat;
+}
+
+// On associe la fonction créée au dessus à l'évenement &quot;click&quot;
+// de l'objet mymap (notre carte interactive leaflet)
+mymap.on('click', onMapClick);
+</code></pre>
+<ol start="4">
+<li>
+<p><strong>Rechargez la <em>web app</em> et testez que tout fonctionne correctement avant de passer à la suite:</strong></p>
+<ul>
+<li><strong>Lors d'un clic sur la carte, les deux éléments <code>&lt;input&gt;</code> doivent se remplir. Leur valeur ne doit pas être modifiable.</strong></li>
+<li><strong>Lorsque vous envoyez le formulaire, la page doit se recharger correctement et lister le nouvel avis.</strong></li>
+</ul>
+</li>
+</ol>
+<h2><a class="header" href="#-donner-vie-aux-liens-À-propos-et-contact-de-la-barre-de-navigation" id="-donner-vie-aux-liens-À-propos-et-contact-de-la-barre-de-navigation">🚀 Donner vie aux liens <code>À propos</code> et <code>Contact</code> de la barre de navigation</a></h2>
+<blockquote>
+<p><strong>Documentation utile</strong>:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a">https://developer.mozilla.org/fr/docs/Web/HTML/Element/a</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p><strong>Inspirez-vous de la page <a href="http://mthh.pythonanywhere.com/about">http://mthh.pythonanywhere.com/about</a> pour ajouter une page de ce type à votre site Web. Celà nécessite de créer un nouveau <em>template</em> et une nouvelle route dans l'application Python <code>flask_app.py</code>.</strong></p>
+</li>
+<li>
+<p><strong>L'utilisateur doit pouvoir se rendre sur cette page en cliquant sur <code>À propos</code>. Il doit pouvoir revenir sur la page d'accueil en cliquant sur <code>Accueil</code>.</strong></p>
+</li>
+<li>
+<p><strong>Le lien <code>Contact</code> doit également être modifié afin d'y associer une adresse email.</strong></p>
+</li>
+<li>
+<p><strong>Rechargez la <em>web app</em> et testez que tout fonctionne correctement avant de passer à la suite.</strong></p>
+</li>
+</ol>
+<h2><a class="header" href="#-afficher-des-markers-et-des-info-bulles-correspondant-à-la-localisation-des-avis" id="-afficher-des-markers-et-des-info-bulles-correspondant-à-la-localisation-des-avis">🚀 Afficher des <em>markers</em> et des info-bulles correspondant à la localisation des avis</a></h2>
+<blockquote>
+<p><strong>Documentation utile</strong>:</p>
+<ul>
+<li><a href="https://jinja.palletsprojects.com/en/2.11.x/">https://jinja.palletsprojects.com/en/2.11.x/</a></li>
+<li><a href="https://leafletjs.com/">https://leafletjs.com/</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p><strong>Regardez le morceau de code présent en bas de la page <a href="https://leafletjs.com/">https://leafletjs.com/</a></strong> : les 3 dernières lignes montrent la création d'un <em>marker</em> et de l'info-bulle qui lui est associée, avec la bibliothèque Leaflet.</p>
+</li>
+<li>
+<p><strong>Modifier le code du fichier <code>index.html</code> afin de créer un <em>marker</em> pour chaque avis.</strong> Vous allez utiliser la même fonctionnalité de <code>Jinja2</code> que celle qui nous permet de parcourir l'ensemble des avis (actuellement pour les afficher sous forme d'une liste HTML) afin de mobiliser le code vu dans le point précédent.</p>
+</li>
+<li>
+<p><strong>Rechargez la <em>web app</em> et testez que tout fonctionne correctement avant de passer à la suite :</strong></p>
+<ul>
+<li><strong>Lorsque vous envoyez le formulaire, la page doit se recharger correctement et le nouvel avis doit apparaître sur la carte.</strong></li>
+<li><strong>Lorsque vous cliquez sur un marker, la note et le commentaire doivent s'afficher dans une info-bulle.</strong></li>
+</ul>
+</li>
+</ol>
+<h2><a class="header" href="#-aller-plus-loin-dans-la-prise-en-compte-de-lutilisateur-1" id="-aller-plus-loin-dans-la-prise-en-compte-de-lutilisateur-1">🚀 Aller plus loin dans la prise en compte de l'utilisateur... (1)</a></h2>
+<blockquote>
+<p><strong>Documentation utile</strong>:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Fieldset">https://developer.mozilla.org/fr/docs/Web/HTML/Element/Fieldset</a></li>
+<li><a href="https://leafletjs.com/">https://leafletjs.com/</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p><strong>Le formulaire pourrait être désactivé par défaut avant que l'utilisateur ne clique une première fois sur la carte... Quel attribut devez vous utilisez pour ça ?</strong> <em>(n'hésitez pas à chercher sur le Web, à grouper tous vos champs dans un élément HTML <code>&lt;fieldset&gt;</code> si nécessaire, etc. !)</em></p>
+</li>
+<li>
+<p><strong>Une fois les champs désactivés...il est nécessaire de les activer lors du clic de l'utilisateur. L'idée générale est la suivante :</strong></p>
+<ul>
+<li><strong>ce comportement devra être défini dans la fonction <code>onMapClick</code> dans le code Javascript, puisqu'elle est appellée lors d'un clic sur la carte</strong></li>
+<li><strong>il vous faut récupérer l'élément HTML qui a été désactivé (avec <code>document.getElementById('...')</code>) et changer la valeur de l'attribut approprié.</strong> <em>(inspirez-vous du code JavaScript existant)</em></li>
+</ul>
+</li>
+</ol>
+<h2><a class="header" href="#-personnaliser-le-rendu" id="-personnaliser-le-rendu">🚀 Personnaliser le rendu...</a></h2>
+<ol>
+<li>
+<p><strong>Utiliser des règles CSS (cf. <a href="2-HTML_CSS.html">TP2</a> et <a href="3-structure-style.html">TP3</a>) pour personnaliser l'apparence de votre site Web selon vos goûts (type de police différent pour une partie du document, couleurs des différents éléments, etc.).</strong></p>
+</li>
+<li>
+<p><strong>Quelques idées...</strong></p>
+<ul>
+<li>&quot;habiller&quot; le formulaire autrement,</li>
+<li>changer/ajuster l'emplacement des éléments dans la page <em>(veillez à conserver une disposition agréable des éléments, aussi bien sur un grand écran que sur un écran type <em>smartphone</em>)</em>,</li>
+<li>des polices utilisables gratuitement sont disponibles sur <a href="https://fonts.google.com/">https://fonts.google.com/</a> <em>(des instructions sont fournis sur la démarche à suivre pour inclure puis utiliser ces polices)</em>,</li>
+<li>pensez également à regarder la <a href="https://getbootstrap.com/docs/5.1/getting-started/introduction/">documentation de Bootstrap</a> si besoin <em>(couleur de la barre de navigation, etc.)</em>.</li>
+</ul>
+</li>
+</ol>
+<h2><a class="header" href="#-aller-plus-loin-dans-la-prise-en-compte-de-lutilisateur-2" id="-aller-plus-loin-dans-la-prise-en-compte-de-lutilisateur-2">🚀 Aller plus loin dans la prise en compte de l'utilisateur... (2)</a></h2>
+<blockquote>
+<p><strong>Documentation utile</strong>:</p>
+<ul>
+<li><a href="https://jinja.palletsprojects.com/en/2.11.x/templates/#assignments">https://jinja.palletsprojects.com/en/2.11.x/templates/#assignments</a></li>
+<li><a href="https://jinja.palletsprojects.com/en/2.11.x/tricks/#highlighting-active-menu-items">https://jinja.palletsprojects.com/en/2.11.x/tricks/#highlighting-active-menu-items</a></li>
+<li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a">https://developer.mozilla.org/fr/docs/Web/HTML/Element/a</a></li>
+<li><a href="https://www.the-art-of-web.com/javascript/remove-anchor-links/">https://www.the-art-of-web.com/javascript/remove-anchor-links/</a></li>
+</ul>
+</blockquote>
+<p>Plusieurs éléments peuvent encore être améliorés dans la mise en forme et dans le comportement de votre site :</p>
+<ul>
+<li>Vos pages ont-elles toutes un titre ? Remédiez-y si ce n'est pas le cas !</li>
+<li>L'état de la barre de navigation : lorsque vous êtes sur la page <code>À propos</code>, est-ce bien ce lien là qui est définit comme étant &quot;actif&quot; ? <em>(vérifiez le comportement par rapport à la page <a href="http://mthh.pythonanywhere.com/about">http://mthh.pythonanywhere.com/about</a> si nécessaire)</em></li>
+<li>Que se passe-t-il lorsqu'un utilisateur est sur la version mobile de votre page et qu'il clique sur la carte ? Est-il possible de descendre automatiquement jusqu'au formulaire afin que l'utilisateur voit qu'il a été activé ? <em>(plusieurs options sont possibles)</em></li>
+<li>Peut-on changer le type de <em>marker</em> utilisés par Leaflet afin de personnaliser la page ? Comment pourrait-on afficher un <em>marker</em> différent en fonction du la note ?</li>
+</ul>
+<div class="center">
+<p><img src="img/scroll_to_form.gif" alt="" /></p>
+</div>
+<p><strong>Essayez de résoudre ces problèmes : regardez les liens proposés ci-dessus et/ou utilisez un moteur de recherche pour décrire ce que vous souhaitez atteindre afin d'évaluer les options qui s'offrent à vous. Faites des propositions à l'oral si vous n'êtes pas sûr ou si vous voulez de l'aide pour l'implémentation.</strong></p>
 <div style="text-align: center">
 <h1><a class="header" href="#cours-technologies-web-1" id="cours-technologies-web-1">Cours Technologies Web</a></h1>
 <h1><a class="header" href="#lp-essig---université-grenoble-alpes-1" id="lp-essig---université-grenoble-alpes-1">LP ESSIG - Université Grenoble Alpes</a></h1>
@@ -1834,18 +2283,6 @@ il est possible d'utiliser la déclaration <strong><code>{% for item in navigati
 <div style="text-align: center">
 <h1><a class="header" href="#cours-technologies-web-2" id="cours-technologies-web-2">Cours Technologies Web</a></h1>
 <h1><a class="header" href="#lp-essig---université-grenoble-alpes-2" id="lp-essig---université-grenoble-alpes-2">LP ESSIG - Université Grenoble Alpes</a></h1>
-<p><br><br><br></p>
-<p><em>Contenu à venir...</em></p>
-</div>
-<div style="text-align: center">
-<h1><a class="header" href="#cours-technologies-web-3" id="cours-technologies-web-3">Cours Technologies Web</a></h1>
-<h1><a class="header" href="#lp-essig---université-grenoble-alpes-3" id="lp-essig---université-grenoble-alpes-3">LP ESSIG - Université Grenoble Alpes</a></h1>
-<p><br><br><br></p>
-<p><em>Contenu à venir...</em></p>
-</div>
-<div style="text-align: center">
-<h1><a class="header" href="#cours-technologies-web-4" id="cours-technologies-web-4">Cours Technologies Web</a></h1>
-<h1><a class="header" href="#lp-essig---université-grenoble-alpes-4" id="lp-essig---université-grenoble-alpes-4">LP ESSIG - Université Grenoble Alpes</a></h1>
 <p><br><br><br></p>
 <p><em>Contenu à venir...</em></p>
 </div>
@@ -2012,9 +2449,11 @@ il est possible d'utiliser la déclaration <strong><code>{% for item in navigati
 <li>
 <p><a href="./5-serveur-client1.pdf">5 - Programmation Web coté serveur en Python</a></p>
 </li>
+<li>
+<p><a href="./6-serveur-client2.pdf">6 - Interactions serveur/client, formulaires et BD</a></p>
+</li>
 </ul>
 <!--
-- [6 - Interactions serveur/client, formulaires et BD](./6-serveur-client2.pdf)
 - [7 - Interactions serveur/client (suite)](./7-serveur-client3.pdf)
 - [8 - Javascript (éléments théoriques)](./8-javascript.pdf)
 - [9 - Technos Web... quoi d'autre ?](./9-whatelse.pdf)
@@ -2031,7 +2470,10 @@ il est possible d'utiliser la déclaration <strong><code>{% for item in navigati
 <p><a href="data/TP4.zip">Données TP4</a> - <a href="data/TP4_correction.zip">Correction (.zip)</a></p>
 </li>
 <li>
-<p><a href="data/TP5.zip">Données TP5</a></p>
+<p><a href="data/TP5.zip">Données TP5</a> - <a href="data/TP5_correction.zip">Correction (.zip)</a></p>
+</li>
+<li>
+<p><a href="data/TP6/v1/app.db">Données TP6 (fichier SQLite <code>app.db</code> v1)</a> - <a href="data/TP6/v2/app.db">Données TP6 (fichier SQLite <code>app.db</code> v2)</a></p>
 </li>
 </ul>
 <!--
