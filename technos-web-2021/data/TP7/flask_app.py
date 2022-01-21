@@ -35,7 +35,11 @@ def root():
             rate=request.form['rate'],
             comment=request.form['comment'],
             name=request.form['name'],
+            latitude=request.form['latitude'],
+            longitude=request.form['longitude'],
         )
         db.session.add(new_review)
         db.session.commit()
         return redirect(url_for('root'))
+
+app.run(debug=True)

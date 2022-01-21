@@ -65,6 +65,8 @@
                 <textarea name="comment" maxlength="255" placeholder="Laissez votre avis ici !" class="form-control"></textarea><br>
                 <label for="name">Name</label><br>
                 <input type="text" name="name" maxlength="255" class="form-control" placeholder="Saisir votre nom !" /><br>
+                <input type="number" id="inputLong" name="longitude" step="any" readonly />
+                <input type="number" id="inputLat" name="latitude" step="any" readonly />
                 <input type="submit" value="Envoyer" class="btn btn-primary" />
             </form>
         </div>
@@ -101,6 +103,22 @@ var osmLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 });
 
 mymap.addLayer(osmLayer);
+
+// Ici on définit une fonction Javascript dont le contenu sera exécuté
+// lors d'un clic sur la carte...
+// Le 'e' correspond au nom de variable de l'argument de la fonction onMapClick
+// Lorsque la fonction s'exécute (après un clic sur la carte donc)
+// cette variable contient un objet de type
+// [mouseevent](https://leafletjs.com/reference-1.6.0.html#mouseevent)
+function onMapClick(e) {
+    console.log("You clicked the map at " + e.latlng);
+    document.getElementById("inputLong").value = e.latlng.lng;
+    document.getElementById("inputLat").value = e.latlng.lat;
+}
+
+// On associe la fonction créée au dessus à l'évenement "click"
+// de l'objet mymap (notre carte interactive leaflet)
+mymap.on('click', onMapClick);
     </script>
   </body>
 </html>
