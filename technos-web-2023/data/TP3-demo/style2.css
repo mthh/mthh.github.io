@@ -1,0 +1,120 @@
+footer {
+  left: 0;
+  bottom: 0;
+  background-color: #438000;
+  color: white;
+  text-align: center;
+  padding: 1px;
+  margin: auto auto auto 15%;
+}
+body { margin: 0; }
+
+.header {
+  background-color: #fafafb;
+  position: fixed;
+  top: 0;
+  width: 15%;
+  min-width: 150px;
+  height: 100%;
+  border-right: 1px solid darkgray;
+}
+
+img.logo {
+  position: relative;
+  left 20px;
+}
+
+nav {
+  text-align: left;
+}
+
+nav ul {
+  display: block;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  padding-inline-start: 0px;
+}
+
+nav li {
+  list-style-type: none;
+  display: inline;
+}
+
+nav a {
+  color: #191a4a;
+  display: block;
+  font-size: 17px;
+  padding: 20px 0;
+  text-decoration: none;
+  text-indent: 2em;
+  width: 100%;
+}
+
+nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+nav a:active {
+  background-color: #4CAF50;
+  color: white;
+}
+.nav-title-wrapper {
+  text-align: center;
+}
+
+.main-wrapper {
+  width: 60%;
+  text-align: left;
+  margin: auto;
+  left: 85px;
+  position: relative;
+}
+
+
+.comeseeus {
+  border-top: solid 1px gray;
+  width: 60%;
+  margin: auto;
+  left: 85px;
+  position: relative;
+  text-align: right;
+}
+
+.header input {
+  border-radius: 10px;
+  margin-top: 25px;
+  padding: 8px;
+  width: 80%;
+}
+
+table {
+  margin: auto;
+}
+
+thead > tr {
+  background: lightgreen;
+}
+
+td, th {
+  padding: 8px 12px;
+}
+
+tbody > tr:nth-child(odd) {
+  background: #fdf4f4;
+}
+
+tbody > tr:nth-child(even) {
+  background: lightgray;
+}
+
+section h1 {
+  text-align: center;
+}
+
+iframe {
+  width: 99%;
+  height: 320px;
+  margin: 0;
+  border: 0;
+}
