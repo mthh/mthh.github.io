@@ -56,7 +56,16 @@ class: section-change
       - sans fil - hertzienne, satellitaire, etc.
   * permettant la .red[communication] entre eux grâce à des .red[protocoles] (ou langages de communication)
 
+???
+
+Particularité d’Internet : il ne s’agit pas exactement d’un réseau unique, mais d’un réseau de réseaux (network of networks). C’est d’ailleurs un surnom que l’on croise de temps en temps, parce qu’il s’agit en fait de relier entre eux différents réseaux informatiques, de toutes tailles, avec leurs propres règles, qui se trouvent sur tous les continents.
+
+Internet est un réseau informatique mondial accessible au public. Il s'agit d'un réseau de réseaux sans centre névralgique composé de millions de réseaux aussi bien publics que privés, universitaires, commerciaux et gouvernementaux, eux-mêmes regroupés en réseaux autonomes.
+
+Un protocole (informatique) est un ensemble de règles qui régissent les échanges de données ou le comportement collectif d'ordinateurs en réseaux ou d'objets connectés. Un protocole a pour but de réaliser une ou plusieurs tâches concourant à un fonctionnement harmonieux d'une entité générale.
+
 ---
+
 ## Qu'est-ce que le Web ?
 
 <br>
@@ -71,6 +80,15 @@ class: section-change
   * reliées les unes aux autres par des .red[liens]
   * permettant de .red[naviguer] entre ces ressources et d'y .red[accéder]
   * en .red[utilisant l'infrastructure Internet]
+
+
+???
+
+Littéralement la « toile (d’araignée) mondiale »
+
+Le Web est un système hypertexte public fonctionnant sur Internet. Le Web permet de consulter, notamment avec un navigateur, un très grand ensemble de ressources (et notamment des pages web).
+
+L’image de la toile d’araignée vient des hyperliens qui lient ces différentes ressources entre elles.
 
 ---
 
@@ -150,7 +168,7 @@ class: center, middle
   * À l'origine, l'acronyme correspondait à « Conseil Européen pour la Recherche Nucléaire », désormais « Organisation Européenne pour la Recherche Nucléaire »
   * Apparition du web que l'on doit à Tim Berners-Lee
   * Le projet, baptisé « World Wide Web », a été conçu et développé pour que des scientifiques travaillant dans les universités et les instituts du monde entier puissent s'échanger des informations instantanément
-      - https://timeline-fr.web.cern.ch/timelines/
+      - https://timeline.web.cern.ch/timeline-header/90
       - http://info.cern.ch/hypertext/WWW/TheProject.html <br> (1er site web)
 - Avril 2017 : Tim Berners-Lee reçoit le prix Alan Turing de l'ACM (*Association for Computing Machinery*). Ce prestigieux prix est pour les informaticiens l'équivalent du Nobel
 
@@ -222,6 +240,15 @@ protocoles, ...
 
 « J'ai un rêve pour le Web [dans lequel les ordinateurs] deviennent capables d'analyser toutes les données sur le Web - le contenu, les liens et les transactions entre les personnes et les ordinateurs. Un "Web sémantique", qui devrait rendre cela possible, n'a pas encore vu le jour, mais lorsqu'il le fera, les mécanismes quotidiens du commerce, de la bureaucratie et de notre vie quotidienne seront gérés par des machines qui parlent à des machines. Les "agents intelligents" dont les gens parlent depuis des lustres se matérialiseront enfin. »
 
+
+Le Web sémantique (parfois qualifiée de Web 3.0) est une extension du Web standardisée par le World Wide Web Consortium (W3C) via des standards qui encouragent l'utilisation de formats de données et de protocoles d'échange normés sur le Web, en s'appuyant sur le modèle Resource Description Framework (RDF)..
+
+Selon le W3C, « le Web sémantique fournit un modèle qui permet aux données d'être partagées et réutilisées entre plusieurs applications, entreprises et groupes d'utilisateurs ». L'expression a été inventée par Tim Berners-Lee qui le définit comme « une toile de données qui peuvent être traitées directement et indirectement par des machines pour aider leurs utilisateurs à créer de nouvelles connaissances ». Pour y parvenir, le Web sémantique met en œuvre le Web des données qui consiste à lier et structurer l'information sur Internet pour accéder simplement à la connaissance qu'elle contient déjà.
+
+Open data = données numériques dont l'accès et l'usage sont laissés libres aux usagers, qui peuvent être d'origine privée mais surtout publique, produites notamment par une collectivité ou un établissement public. Elles sont diffusées de manière structurée selon une méthode et une licence ouverte garantissant leur libre accès et leur réutilisation par tous, sans restriction technique, juridique ou financière.
+
+Open data qui vise à partager de manière massive les données publiques pour accélérer la recherche et le commerce.
+
 ---
 
 ## Historique
@@ -267,6 +294,7 @@ protocoles, ...
 .source.center[Source: https://www.journaldunet.com/ebusiness/le-net/1071414-le-profil-des-internautes-francais/]
 
 ---
+
 class: section-change
 
 
