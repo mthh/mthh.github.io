@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="fr" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <title>Javascript - Notions Théoriques - Cours Technologies Web - LP ESSIG - 2022/2023</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="src/custom.css">
+        <link rel="stylesheet" href="src/bootstrap-scoped.min.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try {
+                  sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch(e) {
+                  sidebar = 'visible';
+                }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="0.html">Accueil</a></li><li class="chapter-item expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="chapter-item expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="chapter-item expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="chapter-item expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="chapter-item expanded "><a href="5-javascript.html" class="active"><strong aria-hidden="true">5.</strong> Javascript - Notions Théoriques</a></li><li class="chapter-item expanded "><a href="6-javascript-suite.html"><strong aria-hidden="true">6.</strong> Javascript - Mise en pratique</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">7.</strong> Programmation Web coté serveur en Python</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">8.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">9.</strong> Technos Web... quoi d'autre ?</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="chapter-item expanded affix "><a href="tp_data.html">Données TP & Corrections</a></li><li class="chapter-item expanded affix "><a href="exam.html">Précédents sujets d'examen</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+
+                        <h1 class="menu-title">Cours Technologies Web - LP ESSIG - 2022/2023</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction-au-langage-javascript"><a class="header" href="#introduction-au-langage-javascript">Introduction au langage Javascript</a></h1>
+<h2 id="1-préambule"><a class="header" href="#1-préambule">1. Préambule</a></h2>
+<p>Le Javascript est aujourd’hui un langage incontournable du développement Web.<br />
+C'est un langage de programmation <strong>multi-paradigme</strong> : orienté objet à prototype, impératif et fonctionnel <em>(il partage ces deux dernières caractéristiques avec Python par exemple)</em>.</p>
+<div class="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/200px-Unofficial_JavaScript_logo_2.svg.png" />
+</div>
+<p>Le langage a été créé <em>Netscape</em> (fin 1995) est standardisé sous le nom d'<a href="https://fr.wikipedia.org/wiki/ECMAScript">ECMAScript</a> (c'est peut-être un terme que vous rencontrerez - notamment sous sa forme abrégée pour désigner les différentes versions du standard : <em>ES5</em>, <em>ES6</em>, etc.).</p>
+<p>Sa syntaxe est dérivée de celle du C/C++.</p>
+<pre><code class="language-js">for (let i = 0; i &lt; 10; i++) {
+  console.log(&quot;Iteration n°&quot; + i);
+}
+
+var j = 0;
+while (j &lt; 10) {
+  console.log(&quot;...&quot;);
+  j++;
+}
+</code></pre>
+<p>Ses autres particularités sont les suivantes :</p>
+<ul>
+<li>Langage <strong>interprété</strong> (pas de compilation, exécution directe dans un interpréteur)</li>
+<li><strong>Typage dynamique</strong> (laisse l'ordinateur réaliser l'opération de typage à la volée)</li>
+<li>Modèle objet à base de <strong>prototypes</strong></li>
+<li>Langage <strong>fonctionnel</strong> (les <a href="https://en.wikipedia.org/wiki/First-class_function">fonctions sont des <em>objets de première classe</em></a> : on peut passer des fonctions en argument à des fonctions, les assigner à des variables, les stocker dans des structures de données, etc.)</li>
+</ul>
+<h4 id="pourquoi-le-javascript-"><a class="header" href="#pourquoi-le-javascript-">Pourquoi le JavaScript ?</a></h4>
+<div class="center">
+<p><img src="https://mdn.mozillademos.org/files/13502/cake.png" alt="" /></p>
+<p><span class="source">Source: <a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/What_is_JavaScript">https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/What_is_JavaScript</a></p>
+</div>
+<ul>
+<li>Couche <strong>&quot;Comportement&quot;</strong> (JavaScript) qui s'ajoute naturellement à la couche <strong>&quot;Présentation&quot;</strong> (CSS) et à la couche <strong>&quot;Contenu structuré&quot;</strong> (HTML) des technologies web.</li>
+<li>Création de contenus complexes, dynamiques et interactifs dont la logique est exécutée coté client, le moment venu.</li>
+<li>Les navigateurs web disposent de plusieurs <strong>API</strong> <em>(Application Programming Interfaces)</em> qui permettent de manipuler le document (<em>API DOM</em>), de manipuler des contenues 2D ou 3D (<em>API Canvas</em> et <em>API WebGL</em>) ou les informations de géolocalisation (<em>API Geolocation</em>) par exemple ; ces API sont accessibles en JavaScript.</li>
+</ul>
+<h3 id="11-quelques-idées-reçues"><a class="header" href="#11-quelques-idées-reçues">1.1 Quelques idées reçues</a></h3>
+<ul>
+<li>
+<p>JavaScript n'est pas à proprement parlé le seul langage du Web. En effet d'autres solutions ont été développées pour s’exécuter coté client (c'est par exemple le cas de Adobe Flash ou des <em>applets</em> Java - désormais tombés en désuétude).
+En revanche, avec la normalisation du langage et un meilleur support par tous les navigateurs et avec l'introduction de HTML5 (et de ses nombreuses API JavaScript), le Javascript a effectué un retour en force dans l'écosystème Web coté client. Il existe également un language de bas niveau développé pour le Web et standardisé en 2019, nommé <a href="https://fr.wikipedia.org/wiki/WebAssembly">WebAssembly</a>.</p>
+</li>
+<li>
+<p>Le Javascript n'est pas seulement utilisé coté client mais également de plus en plus comme un langage de script à part entière, notamment depuis l'existence de <a href="https://nodejs.org">node.js</a> (vers 2009), ou, plus récemment de <a href="https://deno.land/">Deno</a> (2018). Il est ainsi désormais possible de l'utiliser également pour écrire du code côté serveur. Ce point ne sera pas abordé dans ce cours.</p>
+</li>
+</ul>
+<div class="center">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/320px-Node.js_logo.svg.png" alt="" style="
+    width: 200px;
+    margin: 0 40px;
+">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Deno_2021.svg" alt="" style="
+    width: 180px;
+    margin: 0 40px;
+"></p>
+</div>
+<h3 id="12-environnements-dexécution-javascript"><a class="header" href="#12-environnements-dexécution-javascript">1.2 Environnements d'exécution JavaScript</a></h3>
+<p>Un environnement d'exécution Javascript est composé d'un <strong>moteur d'exécution</strong> JavaScript <em>(runtime)</em> et d'objets JavaScript spécifiques à l'environnement en question.</p>
+<p>Les principaux environnement d'exécutions sont les <strong>navigateurs Web</strong> (<em>Chrome</em> utilise le moteur <a href="https://v8.dev/"><em>V8</em></a>, <em>Firefox</em> utilise <a href="https://developer.mozilla.org/fr/docs/SpiderMonkey"><em>SpiderMonkey</em></a> et <em>Safari</em> utilise <em>WebKit</em>).</p>
+<p><strong>Node.js</strong> est un environnement d’exécution célèbre (utilisant lui aussi le moteur <em>V8</em>) qui n'est lié à un aucun navigateur Web ; il permet ainsi l'exécution de code Javascript hors du contexte du navigateur.</p>
+<h3 id="13-intégration-dans-une-page-html"><a class="header" href="#13-intégration-dans-une-page-html">1.3 Intégration dans une page HTML</a></h3>
+<ul>
+<li>
+<p>L'intégration de code JavaScript se fait au moyen de la balise <code>&lt;script&gt; &lt;/script&gt;</code>.</p>
+</li>
+<li>
+<p>Elle peut se faire à deux endroits de la page HTML : dans l'en-tête ou dans le corps de la page HTML.</p>
+</li>
+<li>
+<p>Le chargement et l'exécution de ces scripts respecte l'ordre d'apparition dans la page.</p>
+</li>
+</ul>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;script&gt;
+      // Code Javascript Ici
+    &lt;/script&gt;
+    &lt;script src=&quot;monScript.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;Contenu ...&lt;/header&gt;
+    &lt;main&gt;
+        Contenu de la page
+    &lt;/main&gt;
+    &lt;footer&gt;Contenu ...&lt;/footer&gt;
+    &lt;script&gt;
+      // Code Javascript Ici
+    &lt;/script&gt;
+    &lt;script src=&quot;unAutreScript.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<blockquote>
+<p><strong>Remarque</strong>:</p>
+<ul>
+<li>Les scripts placés dans l'en-tête (<code>&lt;head&gt;</code>) sont exécutés avant la construction et l'affichage de la page.</li>
+<li>Les script placés dans le corps (<code>&lt;body&gt;</code>) sont exécutés au fur et à mesure que la page HTML est lue et que le DOM se construit.</li>
+</ul>
+</blockquote>
+<p>Comme pour l'ajout de règles CSS, il existe donc bien deux manières <em>(rédactions du code JavaScript dans la page HTML ou inclusion d'un fichier externe)</em> d'intégrer un script JavaScript.</p>
+<h3 id="14-la-manière-dont-ça-fonctionne-"><a class="header" href="#14-la-manière-dont-ça-fonctionne-">1.4 La manière dont ça fonctionne ?</a></h3>
+<ol>
+<li><strong>Écriture</strong> : Vous créez vos pages HTML et votre code JavaScript (que vous mettez dans le fichier HTML et/ou dans un ou plusieurs fichiers)</li>
+<li><strong>Chargement</strong> : Le navigateur retrouve et charge la page en analysant <em>(parsing)</em> son contenu de haut en bas.
+Lorsque le navigateur rencontre du code  JavaScript il l'analyse, vérifie sa correction puis l'exécute. Le navigateur construit un modèle interne de la page HTML : le DOM</li>
+<li><strong>Exécution</strong> :  Le navigateur affiche la page. JavaScript continue à s'exécuter, en utilisant le DOM  pour examiner la page, la modifier, recevoir des événements depuis celle-ci, ou pour demander au navigateur d'aller chercher d'autres données sur le serveur web.</li>
+</ol>
+<h3 id="15-quel-intérêt-dutiliser-de-la-programmation-côté-client-avec-javascript-"><a class="header" href="#15-quel-intérêt-dutiliser-de-la-programmation-côté-client-avec-javascript-">1.5 Quel intérêt d'utiliser de la programmation côté client avec JavaScript ?</a></h3>
+<ul>
+<li>
+<p>Vérification des données saisies (-&gt; n'envoyer au serveur que les valeurs correctes)</p>
+</li>
+<li>
+<p>Réduire les traitements sur le serveur (pour diminuer sa charge par exemple)</p>
+</li>
+<li>
+<p>Réduire les coûts de communication</p>
+</li>
+<li>
+<p>Pouvoir modifier la présentation (animation, etc.) sans avoir recours au serveur</p>
+</li>
+</ul>
+<p>De manière générale : <strong>améliorer l'interactivité</strong> et <strong>diminuer les temps de réponse</strong>.</p>
+<h3 id="16-votre-environnement-de-travail"><a class="header" href="#16-votre-environnement-de-travail">1.6 Votre environnement de travail</a></h3>
+<p>Vous utiliserez les mêmes outils (éditeur de code de votre choix et navigateur Web) que lors des premières séance de TP.</p>
+<p>Comme lors des autres séances <strong>il est indispensable de travailler avec la fenêtre des outils pour développeurs (<em>DevTools</em> - accessible avec <kbd>F12</kbd>) de votre navigateur - celui-ci comprend en effet une console JavaScript</strong>.</p>
+<h2 id="2-les-base-du-langages"><a class="header" href="#2-les-base-du-langages">2. Les base du langages</a></h2>
+<blockquote>
+<p><strong>Liens utiles sur le JavaScript:</strong></p>
+<ul>
+<li><strong>Mozilla Developpers Network - Premier pas en JavaScript</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps">https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps</a></li>
+<li><strong>W3schools Javascript Tutorial</strong> : <a href="https://www.w3schools.com/js/">https://www.w3schools.com/js/</a></li>
+<li><strong>Eloquent JavaScript</strong> - 3rd edition (online, PDF, E-PUB, etc.) : <a href="https://eloquentjavascript.net/">https://eloquentjavascript.net/</a></li>
+<li>Pour se faire la main en JavaScript il faut pratiquer... des <a href="https://www.w3schools.com/js/exercise_js.asp">exercices comme ceux de W3schools</a> puis des sites comme <a href="https://JavaScript30.com">JavaScript30</a> peuvent donner de bonnes occasions de pratiquer !</li>
+</ul>
+</blockquote>
+<p>De manière générale, si vous cherchez sur le Web en décrivant explicitement votre problème (et optionnellement en anglais), vous devrez trouver facilement la solution (<em>StackOverflow</em>, <em>Mozilla Developpers Network</em>, <em>W3schools</em>, etc.).</p>
+<p><img src="img/screenshot-google-js.png" alt="" /></p>
+<h3 id="21-Éléments-de-base-pour-javascript-dans-le-navigateur"><a class="header" href="#21-Éléments-de-base-pour-javascript-dans-le-navigateur">2.1 Éléments de base pour JavaScript dans le navigateur</a></h3>
+<p><strong>🚀 Ouvrez un navigateur et une console JavaScript et saisissez les commandes qui suivent une-à-une (validation avec <kbd>Enter</kbd>) et observez bien le résultat!</strong> (nous verrons plus tard à quoi correspondent <code>document</code> et <code>window</code>)</p>
+<pre><code class="language-js">console.log(&quot;Contenu du message à afficher&quot;);
+</code></pre>
+<pre><code class="language-js">document // Pour manipuler des objets sur la page
+</code></pre>
+<pre><code class="language-js">// Ne va pas fonctionner si aucun élément de la page n'a cet id !
+// Trouver l'id d'un élément de la page et modifiez le de la manière suivante !
+document.getElementById('myElem').innerHTML = &quot;New content !&quot;
+</code></pre>
+<pre><code class="language-js">// Ne va pas fonctionner si aucun élément de la page n'a cet id !
+// Trouver l'id d'un élément de la page et modifiez le de la manière suivante !
+document.querySelector('#myElem').innerHTML = &quot;New content !&quot;
+</code></pre>
+<pre><code class="language-js">// Ne va pas fonctionner si aucun élément 'div' n'a cette classe !
+// Trouver la classe d'un élément sur la page pour modifier son contenu.
+document.querySelector('div.myClass').innerHTML = &quot;New content too !&quot;
+</code></pre>
+<pre><code class="language-js">document.title // Le titre de la page (celui que vous écrivez dans &lt;head&gt;&lt;title&gt;)
+</code></pre>
+<pre><code class="language-js">window // Objet relatif à la fenêtre
+</code></pre>
+<pre><code class="language-js">window.alert(&quot;Contenu de l'alerte !&quot;) // ouvre une fenêtre d'alerte
+</code></pre>
+<pre><code class="language-js">window.innerHeight // renvoie un entier, la hauteur de la fenêtre
+</code></pre>
+<pre><code class="language-js">window.innerWidth // renvoie un entier, la largeur de la fenêtre
+</code></pre>
+<pre><code class="language-js">window.screen // renvoie un Object JavaScript contenant des informations sur l'écran
+</code></pre>
+<pre><code class="language-js">// Un Object décrivant l'URL actuelle du document
+window.location
+</code></pre>
+<pre><code class="language-js">// On accède à la propriété 'href' de cet objet
+// ... c'est la chaîne de caractère qui correspond à l'URL actuelle:
+window.location.href
+</code></pre>
+<h3 id="22-variables"><a class="header" href="#22-variables">2.2 Variables</a></h3>
+<h4 id="221-définition"><a class="header" href="#221-définition">2.2.1 Définition</a></h4>
+<blockquote>
+<p><strong>En informatique, les variables sont des symboles qui associent un nom (l'identifiant) à une valeur.</strong></p>
+</blockquote>
+<p>Elles sont utilisées pour stocker des données dans la mémoire de l'ordinateur <em>(on associe une valeur à un nom de variable)</em>.</p>
+<h4 id="222-types"><a class="header" href="#222-types">2.2.2 Types</a></h4>
+<p>Vous rencontrerez deux types de variables :</p>
+<ul>
+<li>
+<p>types primitifs :</p>
+<ul>
+<li><code>Boolean</code> : deux valeurs littérales <code>true</code> et <code>false</code></li>
+<li><code>Number</code> : nombres entiers ou flottants (<code>1</code>, <code>3.14</code>, etc.) et des valeurs particulières (<code>Infinity</code>, <code>-Infinity</code>, <code>NaN</code>)</li>
+<li><code>String</code> : chaînes de caractères (<code>&quot;Salut !&quot;</code>, <code>'Hello'</code>)</li>
+</ul>
+</li>
+<li>
+<p>variables de type objet (par exemple <code>Array</code> pour un tableau ou <code>Object</code> pour stocker des paires de clés/valeurs)</p>
+</li>
+<li>
+<p>types spéciaux :</p>
+<ul>
+<li><code>undefined</code> (possède une unique valeur, <code>undefined</code> et décrit une variable dont le contenu n'a jamais été initialisé)</li>
+<li><code>null</code> (possède une unique valeur, <code>null</code> et spécifie qu'une variable a bien été initialisée mais qu'elle ne point sur aucun objet)</li>
+</ul>
+</li>
+</ul>
+<p>Regardons en détails comment cela fonctionne.</p>
+<h4 id="223-déclaration-dune-variable"><a class="header" href="#223-déclaration-dune-variable">2.2.3 Déclaration d'une variable</a></h4>
+<p>Les instructions qui suivent peuvent être saisies dans la console JavaScript de votre navigateur :</p>
+<pre><code class="language-js">// On peut déclarer un variable sans lui affecter de valeur:
+var a; // équivalent à `var a = undefined;`
+var b, c;
+
+console.log(a); // undefined
+
+// Affectation avec la forme littérale
+// (chaîne de caractère, entier, réel)
+a = &quot;Coucou&quot;;
+b = 1;
+c = 3.14;
+
+// On peut affecter une valeur lors de la déclaration
+var d = &quot;Hello&quot;;
+
+// On peut ensuite affecter une valeur d'un autre type
+d = 12;
+
+
+// Tableau d'entiers (forme littérale)
+var myTableau = [1, 2, 3, 4];
+
+var tableauVide = [];
+var tableauVide = new Array(); // Identique à l'écriture précédente
+
+// Un tableau peut contenir 
+
+// Objet JavaScript (forme littérale)
+var myObj = {
+  &quot;rate&quot;: 5,
+  &quot;comment&quot;: &quot;Awesome place ! Great Food !&quot;
+};
+
+var autreObj = {};
+var autreObj = new Object(); // Identique à l'écriture précédente
+
+// Ces objets ont des méthodes :
+var nb = 12;
+var txt = nb.toString(); // Renvoie &quot;12&quot;
+console.log(txt.length); // 2
+</code></pre>
+<p>On accède ainsi aux propriétés (attributs, méthodes) d'un object en utilisant un <strong>accesseurs de propriété</strong>. Cela permet de fournir un accès aux propriétés d'un objet en utilisant <em>une notation avec un point</em> ou une <em>notation avec des crochets</em>.</p>
+<blockquote>
+<p><strong>Remarque:</strong> Historiquement la déclaration de variable se fait avec <code>var</code>. Depuis <strong>ES6</strong> la bonne pratique est d'utiliser <code>let</code> ou <code>const</code>. Cette fonctionnalité est maintenant supportée par les différents navigateurs Web.</p>
+</blockquote>
+<ul>
+<li><code>const</code> :</li>
+</ul>
+<pre><code class="language-js">const myConst = 12;
+
+// On ne peut pas faire :
+myConst = 15; // TypeError : invalid assignement to const 'myConst'
+</code></pre>
+<ul>
+<li><code>let</code> :</li>
+</ul>
+<pre><code class="language-js">let isValid = false;
+
+// later in your code :
+isValid = true;
+</code></pre>
+<p>Par ailleurs, il est possible de déterminer le type d'une variable en utilisant l'opérateur <code>typeof</code> :</p>
+<pre><code class="language-js">var v0;
+console.log(typeof v0); // undefined
+
+var v1 = 12;
+console.log(typeof v1); // number
+
+var v2 = &quot;Hello&quot;;
+console.log(typeof v2); // string
+
+var v3 = [1, 2, 3];
+console.log(typeof v3); // object
+
+var v4 = {&quot;clé&quot;: &quot;valeur&quot;};
+console.log(typeof v4); // object
+
+var v5 = null;
+console.log(typeof v5); // object
+</code></pre>
+<h4 id="224-règles-de-nommage-des-variables"><a class="header" href="#224-règles-de-nommage-des-variables">2.2.4 Règles de nommage des variables</a></h4>
+<ul>
+<li>Pas d'espace, d’opérateurs arithmétiques (<code>+</code> , <code>-</code>, <code>/</code>, <code>*</code>) ou de caractère de ponctuation (<code>.</code>, <code>,</code>, <code>;</code>)</li>
+<li>Des lettres, des chiffres, <code>_</code> ou <code>$</code></li>
+<li>Ne peuvent pas commencer par un chiffre</li>
+<li>Noms sensibles à la casse <code>nomUtilisateur</code> ≠ <code>nomutilisateur</code></li>
+<li>Interdiction d’utiliser des mots clés réservés JS (ex., if, then, else)</li>
+<li>Choisir des noms descriptifs (par exemple pour une variable correspondant au prix unitaire d'un produit, utiliser <code>prixUnitaire</code> plutôt que <code>u</code>)</li>
+<li>utiliser <em>camelCase</em> pour joindre des mots multiples dans un nom de variable (première lettre du premier mot en minuscule, première lettre des mots suivants en
+majuscule : <code>nomUtilisateur</code> plutôt que <code>nom_utilisateur</code>)</li>
+</ul>
+<h3 id="23-opérateur-arithmétiques-logiques-et-de-comparaison"><a class="header" href="#23-opérateur-arithmétiques-logiques-et-de-comparaison">2.3 Opérateur arithmétiques, logiques et de comparaison</a></h3>
+<ul>
+<li>
+<p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
+</li>
+<li>
+<p><code>++</code>, <code>--</code></p>
+</li>
+<li>
+<p><code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code> ... mais aussi <code>===</code> et <code>!==</code></p>
+</li>
+<li>
+<p><code>||</code> (pensez à <code>or</code> en Python), <code>&amp;&amp;</code> (pensez à <code>and</code> en Python), <code>!</code> (pensez à <code>not</code> en Python)</p>
+</li>
+</ul>
+<p>Attention à la différence entre <code>==</code> et <code>!=</code> d'une part et <code>===</code> et <code>!==</code> d'autre part...!</p>
+<ul>
+<li>
+<p><code>==</code> égalité</p>
+</li>
+<li>
+<p><code>!=</code> différence</p>
+</li>
+<li>
+<p><code>===</code> égalité de valeur et de type</p>
+</li>
+<li>
+<p><code>!==</code> différence de valeur ou de type</p>
+</li>
+</ul>
+<p>Ainsi :</p>
+<pre><code class="language-js">'0' == 0 // true
+'0' === 0 // false
+
+null == undefined // true
+null === undefined // false
+</code></pre>
+<p>On voit que l'opérateur <code>==</code> effectue des conversions de type avant de tester l'égalité / la différence. De manière générale, utilisez <code>===</code> et <code>!==</code> plutôt que <code>==</code> et <code>!=</code>, car c'est généralement ce que vous voulez.</p>
+<h3 id="24-contrôle-du-flux-dexécution"><a class="header" href="#24-contrôle-du-flux-dexécution">2.4 Contrôle du flux d'exécution</a></h3>
+<ul>
+<li>
+<p>Lorsque le navigateur web rencontre du code JavaScript il l'exécute dans l'ordre d'apparition (à quelques exceptions qui ne sont pas abordées).</p>
+</li>
+<li>
+<p>Contrairement au Python, l'indentation ne joue pas de rôle dans la logique du code <em>(cela ne veut pas dire qu'il ne faut pas respecter certaines règles! pensez à la lecture du code par vous ou d'autres développeurs!)</em></p>
+</li>
+<li>
+<p>Instructions conditionnelles : <code>if</code>, <code>else</code>, <code>else if</code> <code>switch</code></p>
+</li>
+<li>
+<p>Instructions itératives : <code>for</code>, <code>while</code></p>
+</li>
+</ul>
+<p><strong>Exemple 1</strong>:</p>
+<pre><code class="language-js">// Pour i=0, tant que i inférieur à 35, et sachant qu'on incrémente i après chaque exécution du bloc ...
+for (let i = 0; i &lt; 35; i++) {
+
+  // Un message est écrit dans la console en fonction de la valeur de &quot;i&quot;
+  if (i &lt; 12) {
+    console.log('La valeur de la variable &quot;i&quot; est actuellement inférieure à 12 !');
+  } else if (i &lt; 25) {
+    console.log('La valeur de la variable &quot;i&quot; est actuellement inférieure à 25 (mais supérieure ou égale à 12) !');
+  } else {
+    console.log('La variable &quot;i&quot; vaut au moins 25 maintenant !')
+  }
+}
+</code></pre>
+<p><strong>Exemple 2</strong></p>
+<pre><code class="language-js">var i = 0; // On déclare la variable utilisée dans le test
+
+// Le contenu du bloc va s'exécuter tant que la condition est valide
+while (i &lt; 5) {
+    console.log('Je suis dans l\'itération n' + i);
+    // On incrémente (i.e. on ajoute 1 à) la variable 'i' 
+    i++;
+}
+</code></pre>
+<p><strong>Exemple 3</strong></p>
+<pre><code class="language-js">// Définition d'une fonction créant un paragraphe
+// et l'ajoutant à la fin de la page
+// (la fonction est définie, on pourra l'utiliser avec son nom 'createParagraph'
+// mais elle n'est pas exécutée lors de sa définition, seulement lorsqu'elle
+// sera invoquée par la suite).
+function createParagraph() {
+  let para = document.createElement('p');
+  para.textContent = 'You clicked the button!';
+  document.body.appendChild(para);
+}
+
+// Créé un tableau référençant tous les éléments 'button':
+let buttons = document.querySelectorAll('button');
+
+// Utilisation d'une boucle pour parcourir le tableau dans son ensemble
+for(let i = 0; i &lt; buttons.length ; i++) {
+
+  // Ajoute un &quot;click event listener&quot; sur chaque bouton
+  // lors du clic, la fonction 'createParagraph'
+  // sera appelée:
+  buttons[i].addEventListener('click', createParagraph);
+}
+</code></pre>
+<h3 id="25-commentaires"><a class="header" href="#25-commentaires">2.5 Commentaires</a></h3>
+<pre><code class="language-js">/*
+ Commentaire
+ multi lignes ...
+*/
+var a = 12;
+
+// Commentaire sur une seule ligne
+</code></pre>
+<h3 id="26-fonctions"><a class="header" href="#26-fonctions">2.6 Fonctions</a></h3>
+<p>On a vu un exemple de fonction dans la partie 2.4. Il existe plusieurs syntaxe pour définir une fonction appelée <code>addition</code>, par exemple :</p>
+<pre><code class="language-js">function addition(a, b) {
+  return a + b;
+}
+</code></pre>
+<p>et</p>
+<pre><code class="language-js">var addition = function (a, b) {
+  return a + b;
+}
+</code></pre>
+<p>On pourra ensuite <em>appeler</em> cette fonction (ici elle attend donc 2 arguments) et stocker la valeur de retour dans une variable :</p>
+<pre><code class="language-js">var resultat = addition(30, 20);
+console.log(resultat); // 50
+</code></pre>
+<p>On notera qu'une fonction peut être donnée en argument à une autre fonction.</p>
+<pre><code class="language-js">function multAdd(a, b, c, addFunction) {
+  return addFunction(a * b, c);
+}
+
+multAdd(2, 3, 4, addition); // 10
+</code></pre>
+<h3 id="27-portée-scope-des-variables"><a class="header" href="#27-portée-scope-des-variables">2.7 Portée (<em>scope</em>) des variables</a></h3>
+<ul>
+<li>
+<p>Les variables peuvent avoir une portée <strong>globale</strong> ou <strong>locale</strong>. </p>
+</li>
+<li>
+<p>En JavaScript, la portée d'une variable est définie par son emplacement dans le code source (elle apparaît de façon lexicale).</p>
+</li>
+<li>
+<p>Une variable globale est définie partout dans le script. Elle a une portée globale.</p>
+</li>
+<li>
+<p>Une variable déclarée à l'intérieur d'une fonction n'est définie que dans le corps de ceIe fonction. Elle est une variable locale et elle a une portée locale. C'est cela qu'on appelle &quot;portée de fonction&quot;. On note toutefois qu'avec <code>let</code> et <code>const</code> il est aussi possible d'avoir une <code>portée de bloc</code>.</p>
+</li>
+<li>
+<p>Les paramètres d'une fonction sont aussi des variables locales et elles ne sont définis que dans le corps de la fonction.</p>
+</li>
+<li>
+<p>Une variable affectée mais non déclarée est considérée comme une variable globale. Par conséquent, même si on peut éviter d'utiliser <code>var</code> quand on écrit du code dans la portée globale, pour déclarer les variables locales, il faudra toujours utiliser <code>var</code>, <code>let</code> ou <code>const</code>.</p>
+</li>
+</ul>
+<p><strong>Exemple</strong> : portée de fonction</p>
+<pre><code class="language-js">function addition(a, b) {
+  // 'a' et 'b' sont des variables locales,
+  // elles n'existent qu'au sein de la fonction 'addition'
+  return a + b;
+}
+
+console.log(a); // undefined
+
+var resultat = addition(12, 13);
+
+console.log(a); // undefined
+</code></pre>
+<p><strong>Exemple</strong> : portée de bloc</p>
+<pre><code class="language-js">function mult(a, b) {
+  // 'res' est une variable locale, elle n'est valable que
+  // dans le bloc définit par la fonction 'mult'
+  let res = 0;
+  for (let i = 0; i &lt; b; i++) {
+    res += a;
+    // Ici la variable 'i' est définie
+  }
+  // Ici on a quitté le bloc, la variable 'i' est 'undefined'
+  return res;
+}
+</code></pre>
+<p><strong>Exemple</strong> : variable globale</p>
+<pre><code class="language-js">var monNom = 'Matthieu';
+// On pourra utiliser cette variable au sein de n'importe quelle fonction
+// ou de n'importe quel bloc du script, elle est globale ...
+
+function mult(a, b) {
+  // ... alors que 'a' et 'b' sont des variables locales
+  let res = 0;
+  for (let i = 0; i &lt; b; i++) {
+    res += a;
+  }
+  return monNom + &quot; a calculé que &quot; + a + &quot; * &quot; + b + &quot; est égal à &quot; + res;
+}
+
+mult(12, 12) // 'Matthieu a calculé que 12 * 12 est égal à 144'
+</code></pre>
+<h2 id="3-manipulation-du-dom"><a class="header" href="#3-manipulation-du-dom">3. Manipulation du DOM</a></h2>
+<h3 id="31-la-variable-document"><a class="header" href="#31-la-variable-document">3.1 La variable <code>document</code></a></h3>
+<p>Nous avons utilisé précédemment la variable nommée <code>document</code> : il s'agit d'un objet JavaScript qui représente un document HTML (le contenu de la fenêtre).</p>
+<p>Cet object dispose de plusieurs propriétés intéressantes :</p>
+<ul>
+<li><code>body</code> (l'élément <code>&lt;body&gt;</code>)</li>
+<li><code>documentElement</code> (l'élément <code>&lt;html</code>)</li>
+<li><code>cookie</code> (permet de lire / écrire des cookies)</li>
+<li>etc.</li>
+</ul>
+<p>Comme avec les autres objects JavaScript, on accède à ses propriétés en utilisant un accesseur de propriétés, par exemple avec la notation avec un point :</p>
+<pre><code class="language-js">document.body
+</code></pre>
+<p>La variable <code>document</code> dispose également de propriétés très intéressantes permettant de sélectionner un (<code>querySelector</code>) ou plusieurs (<code>querySelectorAll</code>) éléments HTML en utilisant un sélecteur CSS (notation similaire à celles apprise dans le TP CSS) :</p>
+<ul>
+<li>sélection d'un élément par sa classe : <code>var navbar = document.querySelector('.navbar');</code></li>
+<li>sélection d'un élément par son type et sa classe : <code>var maDiv = document.querySelector('div.blue');</code></li>
+<li>sélection d'un élément par son id : <code>var menu = document.querySelector('#menu');</code></li>
+<li>sélection de toutes les 'div' du document : <code>var tableauDeDiv = document.querySelectorAll('div');</code> (retourne un tableau)</li>
+</ul>
+<p>La variable <code>document</code> dispose également d'une méthode pour sélectionner un élément par son identifiant seulement : <code>document.getElementById('menu')</code> (équivalent à <code>document.querySelector('#menu')</code>).</p>
+<p>Ces méthodes pour sélectionner un ou plusieurs éléments seront indispensables dans la suite de ce cours.</p>
+<p>Une fois une référence obtenue à un élément, il sera possible de modifier le contenu de cet élément, de modifier son style, de lui attacher un gestionnaire d'événement, etc.</p>
+<h3 id="32-les-principales-méthodes-des-éléments-html"><a class="header" href="#32-les-principales-méthodes-des-éléments-html">3.2 Les principales méthodes des éléments HTML</a></h3>
+<p>Changer le contenu d'un élément HTML avec <code>innerHTML</code>:</p>
+<pre><code class="language-js">// On sélectionne la div avec la classe 'test'
+const target = document.querySelector('div.test');
+// On remplace l'ensemble du contenu de cette div par un nouveau texte
+target.innerHTML = 'Hello hello !';
+</code></pre>
+<p>Changer une propriété de style avec <code>style</code>:</p>
+<pre><code class="language-js">// On sélectionne la div avec la classe 'test'
+const target = document.querySelector('div.test');
+// On change la valeur de la propriété CSS 'background-color':
+// (notez que les noms de propriétés CSS avec tirets sont transformés en camelCase)
+target.style.backgroundColor = 'red';
+</code></pre>
+<p>Enlever un élément HTML du DOM:</p>
+<pre><code class="language-js">// On sélectionne la div avec la classe 'test'
+const target = document.querySelector('div.test');
+// On supprime l'élément (il est enlevé du DOM / de la page)
+target.remove();
+</code></pre>
+<h3 id="33-création-déléments-html-en-javascript"><a class="header" href="#33-création-déléments-html-en-javascript">3.3 Création d'éléments HTML en JavaScript</a></h3>
+<p>On a vu qu'il était possible de modifier un élément HTML existant ou de le supprimer avec JavaScript.</p>
+<p>Il est également possible de créer un nouvel élément HTML avec JavaScript :</p>
+<pre><code class="language-js">// On créé un élément de type paragraphe
+// Attention, il a été créé en mémoire mais n'est pas encore ajouté au document !
+const monParagraphe = document.createElement('p');
+
+// On peut dès maintenant définir le contenu de l'élément et éventuellement son style
+monParagraphe.innerHTML = 'Hey there !';
+monParagraphe.style.color = 'red';
+
+// On ajoute cet élément, par exemple après le dernier élément de la page :
+document.body.appendChild(monParagraphe);
+</code></pre>
+<p>Il est aussi possible de choisir d'insérer un élément à un endroit particulier du document :</p>
+<pre><code class="language-js">// On créé un élément de type paragraphe
+// Attention, il a été créé en mémoire mais n'est pas encore ajouté au document !
+const monParagraphe = document.createElement('p');
+
+// On peut dès maintenant définir le contenu de l'élément et éventuellement son style
+monParagraphe.innerHTML = 'Hey there !';
+monParagraphe.style.color = 'red';
+
+// On sélectionne l'élément parent
+const parent = document.querySelector('#menu'):
+
+// On sélectionne l'élément, enfant du parent, avant lequel insérer le nouvel élément
+// (ici le dernier paragraphe)
+const otherChild = parent.querySelector('p:last-child');
+
+// On ajoute cet élément juste avant 'otherChild'
+parent.insertBefore(monParagraphe, otherChild);
+</code></pre>
+<h2 id="4-Événements"><a class="header" href="#4-Événements">4. Événements</a></h2>
+<ul>
+<li>
+<p>Les interactions de l'utilisateur avec la page peuvent provoquer l'exécution de code JavaScript:</p>
+<ul>
+<li>clic sur un bouton ou sur tout autre élément HTML</li>
+<li>survol de la souris au dessus d'un élément HTML</li>
+<li>modification d'une zone de saisie</li>
+<li>appui sur une touche de clavier</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>
+<p>Ces interactions sont gérées via des <strong>événements</strong> (<em>Event</em>)</p>
+</li>
+</ul>
+<h3 id="41-exemple-dévénements"><a class="header" href="#41-exemple-dévénements">4.1 Exemple d'événements</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>nom</th><th>événement</th><th>s'applique à</th></tr></thead><tbody>
+<tr><td>blur</td><td>perte du focus</td><td>champ de saisie, window</td></tr>
+<tr><td>focus</td><td>attribution du focus</td><td>champ de saisie, window</td></tr>
+<tr><td>click</td><td>clic sur un objet</td><td></td></tr>
+<tr><td>change</td><td>changement dans un champ de saisie</td><td></td></tr>
+<tr><td>contextmenu</td><td>clic droit sur un objet</td><td></td></tr>
+<tr><td>dblclick</td><td>double clic sur un objet</td><td></td></tr>
+<tr><td>load</td><td>la page  ou l'image est chargée</td><td>window, image</td></tr>
+<tr><td>keydown</td><td>touche enfoncée</td><td> </td></tr>
+<tr><td>keyup</td><td> l'utilisateur a appuyé sur une touche</td><td> </td></tr>
+<tr><td>keypress</td><td>touche relâchée </td><td> </td></tr>
+<tr><td> mousedown</td><td>un bouton de la souris est enfoncée </td><td> </td></tr>
+<tr><td>mouseup</td><td>le bouton de la souris est relâché </td><td> </td></tr>
+<tr><td>mousemove</td><td>déplacement de la souris </td><td> </td></tr>
+<tr><td>mouseout</td><td>le souris vient de quitter une zone </td><td> </td></tr>
+<tr><td>mouseover</td><td>la souris entre sur une zone </td><td> </td></tr>
+</tbody></table>
+</div>
+<h3 id="42-définir-un-gestionnaire-dévénement-event-handler"><a class="header" href="#42-définir-un-gestionnaire-dévénement-event-handler">4.2 Définir un gestionnaire d'événement (<em>event handler</em>)</a></h3>
+<p>Il existe 2 méthodes pour attacher / détacher un gestionnaire d'événement d'un élément HTML.
+Toutes les 2 nécessitent de connaître le nom de l'événement ciblé :</p>
+<ol>
+<li>Avec <code>addEventListener</code> et <code>removeEventListener</code> :</li>
+</ol>
+<pre><code class="language-js">// Création de la fonction qui sera appelée lorsque l'événement se produit
+function displayAlertOnClick() {
+  alert('clicked !');
+}
+
+// Sélection de la cible de l'événement, ici l'élément HTML body
+const target = document.querySelector('body');
+
+// Attache le gestionnaire d'événement à la cible
+target.addEventListener('click', displayAlertOnClick);
+
+// Essayez ensuite de cliquer n'importe où sur la page
+// ...
+
+// On peut ensuite enlever ce gestionnaire d'événement
+target.removeEventListener('click', displayAlertOnClick);
+
+// Essayez à nouveau de cliquer sur la page, il ne se passe plus rien.
+// ....
+</code></pre>
+<ol start="2">
+<li>Avec la propriété 'on' + nom de l'événement de la cible (<code>onclick</code>, <code>onload</code>, etc.):</li>
+</ol>
+<pre><code class="language-js">// Création de la fonction qui sera appelée lorsque l'événement se produit
+function displayAlertOnClick() {
+  alert('clicked !');
+}
+
+// Sélection de la cible de l'événement, ici l'élément HTML body
+const target = document.querySelector('body');
+
+// Attache le gestionnaire d'événement à la cible
+target.onclick = displayAlertOnClick
+
+// Essayez ensuite de cliquer n'importe où sur la page
+// ...
+
+// On peut ensuite enlever ce gestionnaire d'événement
+// (ou plutôt le remplacer par null ou undefined)
+target.onclick = null;
+
+// Essayez à nouveau de cliquer sur la page, il ne se passe plus rien.
+// ....
+</code></pre>
+<p>Cette méthode ne permet pas d'ajouter plusieurs gestionnaires d'événements du même type à un élément HTML (contrairement à la première méthode).</p>
+<h2 id="5-mise-en-pratique"><a class="header" href="#5-mise-en-pratique">5. Mise en pratique</a></h2>
+<p><strong>🚀 Rendez-vous sur la page <a href="https://www.w3schools.com/js/exercise_js.asp">https://www.w3schools.com/js/exercise_js.asp</a> et commencez les exercices dans l'ordre : faites les 15 premiers</strong> (<em>JS Variables</em>, <em>JS Operators</em>, <em>JS Data Types</em> et <em>JS Functions</em>).</p>
+<p>Ces exercices simples mettent l'accent sur votre bonne compréhension du mécanisme de base de l'écriture du code JavaScript. Ils représentent également un bon moyen d'apprendre certaines de ces notions par la pratique.</p>
+<p><strong>Soyez attentif aux énoncés et suivez votre instinct ! N'hésitez pas à demander et/ou à vous rendre sur le tutoriel correspondant avant de cliquer sur <code>Show Answer</code> :)</strong></p>
+<div class="center">
+<p><img src="img/tp8_1.png" alt="" /></p>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="4-css-bootstrap.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="6-javascript-suite.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a href="4-css-bootstrap.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a href="6-javascript-suite.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="src/custom.js"></script>
+
+
+    </body>
+</html>

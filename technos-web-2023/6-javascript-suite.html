@@ -2,7 +2,7 @@
 <html lang="fr" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
-        <title>Éléments théoriques - Cours Technologies Web - LP ESSIG - 2022/2023</title>
+        <title>Javascript - Mise en pratique - Cours Technologies Web - LP ESSIG - 2022/2023</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="0.html">Accueil</a></li><li class="chapter-item expanded "><a href="1-Intro.html" class="active"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="chapter-item expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="chapter-item expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="chapter-item expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="chapter-item expanded "><a href="5-javascript.html"><strong aria-hidden="true">5.</strong> Javascript - Notions Théoriques</a></li><li class="chapter-item expanded "><a href="6-javascript-suite.html"><strong aria-hidden="true">6.</strong> Javascript - Mise en pratique</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">7.</strong> Programmation Web coté serveur en Python</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">8.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">9.</strong> Technos Web... quoi d'autre ?</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="chapter-item expanded affix "><a href="tp_data.html">Données TP & Corrections</a></li><li class="chapter-item expanded affix "><a href="exam.html">Précédents sujets d'examen</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="0.html">Accueil</a></li><li class="chapter-item expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="chapter-item expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="chapter-item expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="chapter-item expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="chapter-item expanded "><a href="5-javascript.html"><strong aria-hidden="true">5.</strong> Javascript - Notions Théoriques</a></li><li class="chapter-item expanded "><a href="6-javascript-suite.html" class="active"><strong aria-hidden="true">6.</strong> Javascript - Mise en pratique</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">7.</strong> Programmation Web coté serveur en Python</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">8.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">9.</strong> Technos Web... quoi d'autre ?</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="chapter-item expanded affix "><a href="tp_data.html">Données TP & Corrections</a></li><li class="chapter-item expanded affix "><a href="exam.html">Précédents sujets d'examen</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,23 +144,69 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="cours-dintroduction-aux-technos-web"><a class="header" href="#cours-dintroduction-aux-technos-web">Cours d'introduction aux Technos Web</a></h1>
-<h1 id="Éléments-théoriques"><a class="header" href="#Éléments-théoriques">Éléments théoriques</a></h1>
-<br>
-<br>
-<div style="text-align: center;"><h4>
-Voir le <a target="blank" href="1-Intro-Internet-web/index.html">cours sous forme de slides<img src="img/magnify-clip-ltr.svg" /></a></h4>
+                        <h1 id="javascript---mise-en-pratique"><a class="header" href="#javascript---mise-en-pratique">Javascript - Mise en pratique</a></h1>
+<div class="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/200px-Unofficial_JavaScript_logo_2.svg.png" />
 </div>
+<h2 id="1-améliorer-la-page-précédemment-créée-avec-du-javascript"><a class="header" href="#1-améliorer-la-page-précédemment-créée-avec-du-javascript">1. Améliorer la page précédemment créée avec du JavaScript</a></h2>
+<p>Nous allons reprendre la page créée lors du TP4.
+Vous pouvez prendre le résultat que vous avez obtenus si vous êtes allé jusqu'au bout de l'exercice ou celui fourni en guise de correction (conseillé).</p>
+<p>Nous souhaitons implémenter plusieurs fonctionnalités :</p>
+<ul>
+<li>
+<p>un message (de type <code>alert</code>) lors de l'ouverture de la page disant 'Bienvenue sur ma page Web !'.</p>
+</li>
+<li>
+<p>la couleur du texte de chacun des 3 articles doit changer afin que le texte apparaisse en rouge lors du clic, lors du clic suivant, il doit revenir noir.</p>
+</li>
+<li>
+<p>la couleur du fond de chacune des 2 sections doit changer afin que le fond apparaisse en gris lors du survol (cf. image ci-dessous).</p>
+</li>
+<li>
+<p>lors de l'appui sur le bouton 'search', si le contenu du champ est vide, une alerte sera affichée ; s'il n'est pas vide alors le contenu sera recherché sur google.fr (cf. image ci-dessous).</p>
+</li>
+</ul>
+<p><img src="img/section_mouseover.gif" alt="" /></p>
+<p><img src="img/search_google.gif" alt="" /></p>
+<h2 id="2-créer-un-carrousel"><a class="header" href="#2-créer-un-carrousel">2. Créer un carrousel</a></h2>
+<p>Nous souhaitons ensuite implémenter un &quot;carrousel&quot;. Il s'agit d'un composant rencontré très fréquemment sur web, permettant de faire défiler (automatiquement et/ou au clic de l'utilisateur) des images.</p>
+<p>Votre carrousel sera composé d'un espace image et de deux boutons sous cet espace permettant de changer l’image pour l'image précédente et pour l'image suivante.</p>
+<p>Vous devrez mettre en place un tableau JavaScript contenant 5 images, et faire défiler ces 5 images au clic sur les boutons &quot;précédent&quot; et &quot;suivant&quot; (en pensant à
+revenir à la première image en fin de parcours de la collection).</p>
+<p>Vous placerez ce carrousel en haut de la page HTML sur laquelle vous travaillez, sous le titre et avant les premiers articles. Vous utiliserez les images suivantes :</p>
+<ul>
+<li>https://pixnio.com/free-images/2017/08/06/2017-08-06-08-58-39-1000x526.jpg</li>
+<li>https://pixnio.com/free-images/2017/08/04/2017-08-04-13-34-03-1000x667.jpg</li>
+<li>https://pixnio.com/free-images/2017/08/04/2017-08-04-13-32-41-1000x690.jpg</li>
+<li>https://pixnio.com/free-images/2017/08/04/2017-08-04-13-34-27-1000x667.jpg</li>
+<li>https://pixnio.com/free-images/2017/08/04/2017-08-04-13-34-55-850x850.jpg</li>
+</ul>
+<p><img src="img/carrousel.gif" alt="" /></p>
+<h2 id="3-pour-aller-plus-loin-lajout-dune-carte-interactive"><a class="header" href="#3-pour-aller-plus-loin-lajout-dune-carte-interactive">3. Pour aller plus loin... l'ajout d'une carte interactive</a></h2>
+<p>Nous souhaitons désormais ajouter une carte interactive créée avec la bibliothèque <a href="https://leafletjs.com/"><em>leaflet</em></a> et y ajouter des épingles permettant de localiser nos lieux préférés.</p>
+<h3 id="31-leaflet"><a class="header" href="#31-leaflet">3.1 Leaflet</a></h3>
+<p>Il s'agit d'une bibliothèque permettant de créer des cartes interactives. La bibliothèque est <em>mobile-friendly</em> par défaut et dispose de l'ensemble des fonctionnalités requise pour créer des cartes interactives personnalisées et avec vos propres données.</p>
+<p><img src="img/tp7_leaflet_features.png" alt="Capture d'écran du site Web de Leaflet.js" /></p>
+<h3 id="32-ajout-dune-carte-et-de-plusieurs-épingles"><a class="header" href="#32-ajout-dune-carte-et-de-plusieurs-épingles">3.2 Ajout d'une carte et de plusieurs épingles.</a></h3>
+<p>Suivez le <a href="https://leafletjs.com/examples/quick-start/">tutoriel présent sur le site de <em>leaflet</em></a> (jusqu'à la partie &quot;Working with popups&quot; inclus) afin d'ajouter une carte à votre page (cette carte devra être centrée sur le campus de Saint-Martin-d'Hères) puis d'ajouter 3 épingles (<em>marker</em> dans le tutoriel) où vous le souhaitez, chacune de ces épingle devra être permettre d'ouvrir une popup lorsqu'elle sera cliquée.</p>
+<p>Vous constaterez que pour l'utiliser il est nécessaire d'inclure deux fichiers dans votre document HTML :</p>
+<ul>
+<li>Un fichier CSS (extension <code>.css</code>) contenant des règles de styles</li>
+<li>Un fichier JavaScript (extension <code>.js</code>) contenant le code source de la bibliothèque</li>
+</ul>
+<h3 id="33-choix-dun-autre-fond-de-carte"><a class="header" href="#33-choix-dun-autre-fond-de-carte">3.3 Choix d'un autre fond de carte</a></h3>
+<p>Renseignez vous (documentation, autres ressources sur le Web, ...) sur la manière de permettre à l'utilisateur de changer son fond de carte, comme sur l'exemple qui suit. Essayez d'implémenter cette fonctionnalité.</p>
+<p><img src="img/change-basemap3.gif" alt="" /></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="0.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="5-javascript.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="2-HTML_CSS.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="tbd.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -170,11 +216,11 @@ Voir le <a target="blank" href="1-Intro-Internet-web/index.html">cours sous form
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a href="0.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="5-javascript.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a href="2-HTML_CSS.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="tbd.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

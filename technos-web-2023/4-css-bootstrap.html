@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="fr" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <title>Le framework Bootstrap - Cours Technologies Web - LP ESSIG - 2022/2023</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="src/custom.css">
+        <link rel="stylesheet" href="src/bootstrap-scoped.min.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try {
+                  sidebar = localStorage.getItem('mdbook-sidebar');
+                } catch(e) {
+                  sidebar = 'visible';
+                }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="0.html">Accueil</a></li><li class="chapter-item expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="chapter-item expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="chapter-item expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="chapter-item expanded "><a href="4-css-bootstrap.html" class="active"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="chapter-item expanded "><a href="5-javascript.html"><strong aria-hidden="true">5.</strong> Javascript - Notions Théoriques</a></li><li class="chapter-item expanded "><a href="6-javascript-suite.html"><strong aria-hidden="true">6.</strong> Javascript - Mise en pratique</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">7.</strong> Programmation Web coté serveur en Python</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">8.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">9.</strong> Technos Web... quoi d'autre ?</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="chapter-item expanded affix "><a href="tp_data.html">Données TP & Corrections</a></li><li class="chapter-item expanded affix "><a href="exam.html">Précédents sujets d'examen</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+
+                        <h1 class="menu-title">Cours Technologies Web - LP ESSIG - 2022/2023</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="le-framework-bootstrap"><a class="header" href="#le-framework-bootstrap">Le framework Bootstrap</a></h1>
+<div class="center">
+<p><img src="img/bootstrap_logo.png" alt="Logo de Bootstrap" /></p>
+</div>
+<h2 id="1-introduction"><a class="header" href="#1-introduction">1. Introduction</a></h2>
+<p>Le développement de sites web requiert une très bonne connaissance des langages du web (HTML, CSS, JavaScript), mais leur apprentissage, pour en maitriser tous les aspects, peut être long et difficile.</p>
+<p>Des frameworks (ou cadriciels) sont proposés pour faciliter cette tâche. Un framework est une collection de briques de code bien structurées et prêtes à l'emploi permettant de faciliter le développement et la maintenance d'un projet informatique. L'un des plus utilisés est <a href="http://getbootstrap.com/">Bootstrap</a>.</p>
+<p><strong>Bootstrap est un kit CSS</strong>, <strong>incluant aussi des composant HTML et javascript</strong>, créé par les développeurs de Twitter. Il est devenu le framework CSS de référence et est disponible en <em>open source</em>. Au 09/01/2023, la dernière version est la <strong><code>v5.3.0-alpha1</code></strong> (la version <strong><code>4.6.1</code></strong> est la dernière mise-à-jour en v4.x).</p>
+<p>Ce framework :</p>
+<ul>
+<li>facilite l'utilisation des règles CSS pour concevoir des sites attractifs et adaptatifs <em>(Responsive Web Design)</em></li>
+<li>utilise une grille d'affichage pour agencer les différentes boîtes d'affichage des sites et s'adaptant immédiatement différents type de supports (ordinateurs, tablettes, smartphones)</li>
+</ul>
+<h3 id="11-avantages"><a class="header" href="#11-avantages">1.1 Avantages</a></h3>
+<ul>
+<li>portabilité <em>(cross-browser)</em> : présentation similaire quel que soit le navigateur</li>
+<li>homogénéité : ensemble de styles prédéfinis partagés, éléments complémentaires (barres de navigation, boutons...) uniformisés</li>
+<li>simplicité : système de grille pour positionner des éléments</li>
+<li>adaptabilité <em>(responsive)</em> : par défaut l'affichage s'adapte à la taille de l'écran <em>(mobile-first)</em></li>
+<li>facilité d'utilisation : avec des connaissances de base en HTML et CSS</li>
+</ul>
+<blockquote>
+<p><strong>Remarque</strong>: D'autres framework CSS connus sont par exemples <a href="https://get.foundation/">Foundation</a>, <a href="https://bulma.io/">Bulma</a> ou <a href="https://semantic-ui.com/">Semantic UI</a>. Ils proposent des fonctionnalités similaires.</p>
+</blockquote>
+<h3 id="12-utilisation"><a class="header" href="#12-utilisation">1.2 Utilisation</a></h3>
+<p>Pour utiliser Bootstrap dans une page HTML il faut inclure un ou plusieurs des fichiers distribués : <a href="http://getbootstrap.com/getting-started/">http://getbootstrap.com/getting-started/</a>.
+Plusieurs approches peuvent être utilisées pour inclure le(s) fichier(s) nécessaires (elles offrent différentes options et/ou correspondent à différents contextes de travail) :</p>
+<ol>
+<li>
+<p>Téléchargement en local des fichiers distribués depuis le site Web de Bootstrap et inclusion dans la page HTML de manière habituelle : l'archive zippée proposée est décompressée et vous faites référence (par des liens relatifs) à ces fichiers dans votre document HTML.</p>
+</li>
+<li>
+<p><strong>Utilisation d'un CDN</strong> <em>(<a href="https://fr.wikipedia.org/wiki/R%C3%A9seau_de_diffusion_de_contenu">Content Delivery Network - réseau de diffusion de contenu</a>)</em>, une infrastructure de serveurs <em>&quot;qui coopèrent afin de mettre à disposition du contenu ou des données à des utilisateurs&quot;</em>. Ce procédé permet d'optimiser le temps de chargement (performance des serveurs contactés, mise en cache du contenu par le navigateur Web, diminution de la charge du serveur servant le reste de la page, etc.). L'inclusion dans la page HTML est similaire, il suffit simplement d'utiliser l'URL d'un de ces <em>CDN</em> :</p>
+</li>
+</ol>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;link
+    href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css&quot;
+    rel=&quot;stylesheet&quot;
+    integrity=&quot;sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD&quot;
+    crossorigin=&quot;anonymous&quot;&gt;
+&lt;/head&gt;
+</code></pre>
+<ol start="3">
+<li>Utilisation d'un gestionnaire de paquets Javascript (<code>npm</code>, <em>node package manager</em>, par exemple) - cette solution ne sera par abordée dans le cadre de ce TP.</li>
+</ol>
+<blockquote>
+<p><strong>Remarque:</strong> Dans le cadre des premières parties de ce TP nous n'aborderons pas les fonctionnalités JavaScript offertes par Bootstrap et nous n'inclurons donc que le fichier CSS qui est distribué. Pour utiliser ses fonctionnalités Javascript, vous devriez inclure le fichier javascript de Bootstrap (<code>bootstrap.js</code>) ainsi qu'une bibliothèque qu'il utilise : <code>Popper.js</code>.</p>
+</blockquote>
+<h2 id="2-le-système-de-grille"><a class="header" href="#2-le-système-de-grille">2. Le système de grille</a></h2>
+<blockquote>
+<p>Documentation officielle :</p>
+<ul>
+<li><a href="https://getbootstrap.com/docs/5.3/layout/grid/">Bootstrap Docs - Grid system</a></li>
+</ul>
+</blockquote>
+<h3 id="21-en-théorie"><a class="header" href="#21-en-théorie">2.1 En théorie</a></h3>
+<p>Une des difficultés avec HTML + CSS est la maîtrise du placement des éléments dans une page.</p>
+<p>Pour faciliter celui-ci Bootstrap propose un système de <strong>grille</strong> <em>(grid)</em> composée de <strong>12 colonnes</strong> <em>(col)</em>, et d’un nombre de <strong>lignes</strong> <em>(row)</em> potentiellement illimité. Les élements de contenu sont placés dans cette grille, en utilisant une ou plusieurs de ses cellules.</p>
+<p>Ce système de dimensionnement à les propriétés suivantes :</p>
+<ul>
+<li>
+<p>la <strong>largeur des colonnes</strong> est exprimée en % de la largeur de la fenêtre de visualisation</p>
+</li>
+<li>
+<p>la <strong>hauteur des lignes</strong> est fixée par la hauteur de son contenu et prend la hauteur du plus gros élément qu'elle contient</p>
+</li>
+</ul>
+<p><img src="img/grid_bootstrap1.png" alt="Système de grille" /></p>
+<p>La puissance de Bootstrap réside dans le fait que le système de grille est <em>responsive</em> :</p>
+<p><strong>Les colonnes d'une même ligne se réorganisent automatiquement selon la largeur de la fenêtre d'affichage : si la fenêtre est suffisamment large, elles sont côte à côte, sinon elles s'empilent</strong>.</p>
+<p>Il est également possible de jouer sur la taille des contenus, voir de les faire disparaître.</p>
+<h3 id="22-en-pratique"><a class="header" href="#22-en-pratique">2.2 En pratique</a></h3>
+<h4 id="221-les-classes-à-utiliser"><a class="header" href="#221-les-classes-à-utiliser">2.2.1 Les classes à utiliser</a></h4>
+<p>On utilise ce système de grille grâce à des <strong>classes CSS</strong> particulières qui vont être associées à des éléments HTML pour déterminer leur largeur en nombre de colonnes.</p>
+<p><strong>Concrètement il va falloir :</strong></p>
+<ul>
+<li>
+<p><strong>un conteneur</strong> (<code>&lt;div&gt;</code>, <code>&lt;section&gt;</code>, ..) ayant la classe :</p>
+<ul>
+<li><code>container</code> pour une grille de largeur fixe (définit selon les tailles d'écrans), centrée sur la page, ou bien</li>
+<li><code>container-fluid</code> pour une grille occupant toute la largeur de l'écran (<code>width: 100%</code>), ou bien</li>
+<li><code>container-{breakpoint}</code> pour une grille occupant toute la largeur de l'écran jusqu'au breakpoint définit.</li>
+</ul>
+</li>
+<li>
+<p><strong>définir une ligne</strong> avec la classe <code>row</code></p>
+</li>
+<li>
+<p><strong>définir une colonne de la ligne</strong> avec <code>col-{breakpoint}-{width}</code></p>
+<ul>
+<li>où <em><strong><code>breakpoint</code></strong></em> correspond à la largeur d'écran au dessous de laquelle l'élément s'empile avec ses frères : <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code> ou <code>xxl</code>,</li>
+<li>où <em><strong><code>width</code></strong></em> correspond à la largeur de la colonne, en nombre de colonnes élémentaires, de 1 à 12.</li>
+</ul>
+</li>
+</ul>
+<p><u>Exemple:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-sm-4&quot;&gt;One of three columns&lt;/div&gt;
+    &lt;div class=&quot;col-sm-4&quot;&gt;One of three columns&lt;/div&gt;
+    &lt;div class=&quot;col-sm-4&quot;&gt;One of three columns&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-lg-6&quot;&gt;One of two columns&lt;/div&gt;
+    &lt;div class=&quot;col-lg-6&quot;&gt;One of two columns&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-2&quot;&gt;Third row, 1st column&lt;/div&gt;
+    &lt;div class=&quot;col-md-7&quot;&gt;Third row, 2nd column&lt;/div&gt;
+    &lt;div class=&quot;col-md-3&quot;&gt;Third row, 3rd column&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res twbs">
+  <section class="container">
+    <section class="row">
+      <section class="col-sm-4">One of three columns</section>
+      <section class="col-sm-4">One of three columns</section>
+      <section class="col-sm-4">One of three columns</section>
+    </section>
+    <section class="row">
+      <section class="col-lg-6">One of two columns</section>
+      <section class="col-lg-6">One of two columns</section>
+    </section>
+    <section class="row">
+      <section class="col-md-2">Third row, 1st column</section>
+      <section class="col-md-7">Third row, 2nd column</section>
+      <section class="col-md-3">Third row, 3rd column</section>
+    </section>
+  </section>
+</div>
+<h4 id="222-point-de-rupture"><a class="header" href="#222-point-de-rupture">2.2.2 Point de rupture</a></h4>
+<table class="twbs table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th class="text-center">
+        Extra small<br>
+        <small>&lt;576px</small>
+      </th>
+      <th class="text-center">
+        Small<br>
+        <small>≥576px</small>
+      </th>
+      <th class="text-center">
+        Medium<br>
+        <small>≥768px</small>
+      </th>
+      <th class="text-center">
+        Large<br>
+        <small>≥992px</small>
+      </th>
+      <th class="text-center">
+        X-large<br>
+        <small>≥1200px</small>
+      </th>
+      <th class="text-center">
+        XX-large<br>
+        <small>≥1400px</small>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="text-nowrap" scope="row">Max container width</th>
+      <td>None (auto)</td>
+      <td>540px</td>
+      <td>720px</td>
+      <td>960px</td>
+      <td>1140px</td>
+      <td>1320px</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Class prefix</th>
+      <td style="text-align: center;padding: 3px;"><code>.col-</code></td>
+      <td style="text-align: center;padding: 3px;"><code>.col-sm-</code></td>
+      <td style="text-align: center;padding: 3px;"><code>.col-md-</code></td>
+      <td style="text-align: center;padding: 3px;"><code>.col-lg-</code></td>
+      <td style="text-align: center;padding: 3px;"><code>.col-xl-</code></td>
+      <td style="text-align: center;padding: 3px;"><code>.col-xxl-</code></td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row"># of columns</th>
+      <td colspan="6">12</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Gutter width</th>
+      <td colspan="6">1.5rem (.75rem on each side of the column)</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Nestable</th>
+      <td colspan="6">Yes</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Column ordering</th>
+      <td colspan="6">Yes</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="223-illustration-de-leffet-des-breakpoints"><a class="header" href="#223-illustration-de-leffet-des-breakpoints">2.2.3 Illustration de l'effet des <em>breakpoints</em></a></h4>
+<p><img src="img/bootstrap-grid-1.png" alt="Dispositif d'affichage extra-extra-large" /></p>
+<hr />
+<p><img src="img/bootstrap-grid-2.png" alt="Dispositif d'affichage extra-large" /></p>
+<hr />
+<p><img src="img/bootstrap-grid-3.png" alt="Dispositif d'affichage large" /></p>
+<hr />
+<p><img src="img/bootstrap-grid-4.png" alt="Dispositif d'affichage medium" /></p>
+<hr />
+<p><img src="img/bootstrap-grid-5.png" alt="Dispositif d'affichage small" /></p>
+<hr />
+<p><img src="img/bootstrap-grid-6.png" alt="Dispositif d'affichage extra-small" /></p>
+<p>Version interactive : <a href="data/TP4/example_grid_layout.html">ici</a>.</p>
+<h4 id="224-possibilité-de-ne-pas-spécifier-la-largeur-pour-des-colonnes-de-mêmes-tailles-"><a class="header" href="#224-possibilité-de-ne-pas-spécifier-la-largeur-pour-des-colonnes-de-mêmes-tailles-">2.2.4 Possibilité de ne pas spécifier la largeur pour des colonnes de mêmes tailles :</a></h4>
+<p><u>Exemple:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-sm&quot;&gt;One of three columns&lt;/div&gt;
+    &lt;div class=&quot;col-sm&quot;&gt;One of three columns&lt;/div&gt;
+    &lt;div class=&quot;col-sm&quot;&gt;One of three columns&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-lg&quot;&gt;One of two columns&lt;/div&gt;
+    &lt;div class=&quot;col-lg&quot;&gt;One of two columns&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-2&quot;&gt;Third row, 1st column&lt;/div&gt;
+    &lt;div class=&quot;col-md-7&quot;&gt;Third row, 2nd column&lt;/div&gt;
+    &lt;div class=&quot;col-md-3&quot;&gt;Third row, 3rd column&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res twbs">
+  <section class="container">
+    <section class="row">
+      <section class="col-sm">One of three columns</section>
+      <section class="col-sm">One of three columns</section>
+      <section class="col-sm">One of three columns</section>
+    </section>
+    <section class="row">
+      <section class="col-lg">One of two columns</section>
+      <section class="col-lg">One of two columns</section>
+    </section>
+    <section class="row">
+      <section class="col-md-2">Third row, 1st column</section>
+      <section class="col-md-7">Third row, 2nd column</section>
+      <section class="col-md-3">Third row, 3rd column</section>
+    </section>
+  </section>
+</div>
+<h4 id="225-utilisation-sans-spécifier-de-point-de-rupture-"><a class="header" href="#225-utilisation-sans-spécifier-de-point-de-rupture-">2.2.5 Utilisation sans spécifier de point de rupture :</a></h4>
+<p><u>Exemple:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col&quot;&gt;One of two columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of two columns&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-2&quot;&gt;Third row, 1st column&lt;/div&gt;
+    &lt;div class=&quot;col-md-7&quot;&gt;Third row, 2nd column&lt;/div&gt;
+    &lt;div class=&quot;col-md-3&quot;&gt;Third row, 3rd column&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res twbs">
+  <section class="container">
+    <section class="row">
+      <section class="col">One of seven columns</section>
+      <section class="col">One of seven columns</section>
+      <section class="col">One of seven columns</section>
+      <section class="col">One of seven columns</section>
+      <section class="col">One of seven columns</section>
+      <section class="col">One of seven columns</section>
+      <section class="col">One of seven columns</section>
+    </section>
+    <section class="row">
+      <section class="col">One of two columns</section>
+      <section class="col">One of two columns</section>
+    </section>
+    <section class="row">
+      <section class="col-md-2">Third row, 1st column</section>
+      <section class="col-md-7">Third row, 2nd column</section>
+      <section class="col-md-3">Third row, 3rd column</section>
+    </section>
+  </section>
+</div>
+<h2 id="3-autres-composants-de-bootstrap"><a class="header" href="#3-autres-composants-de-bootstrap">3. Autres composants de Bootstrap</a></h2>
+<p>Ce framework permet également, toujours par l'utilisation de classes qu'il définie, d'appliquer des styles cohérents à un certain nombre d'éléments html (<code>img</code>, <code>button</code>, <code>input</code>, etc.) ainsi que de composer des éléments plus complexes (<code>dropdown menus</code>, <code>navbar</code>, etc.).</p>
+<h3 id="31-intégration-dimages-responsive"><a class="header" href="#31-intégration-dimages-responsive">3.1 Intégration d'images <em>responsive</em></a></h3>
+<blockquote>
+<p>Documentation officielle :</p>
+<ul>
+<li><a href="https://getbootstrap.com/docs/5.3/content/images/">Bootstrap Docs - Image</a></li>
+<li><a href="https://getbootstrap.com/docs/5.3/utilities/borders/">Bootstrap Docs - Borders</a></li>
+</ul>
+</blockquote>
+<p>Comme avec le système de grille, il va être possible d'appliquer simplement aux images des classes CSS qui vont permettre de faciliter leur intégration dans une page <em>responsive</em>.
+Quelques-unes des classes utilisables sont les suivantes :</p>
+<ul>
+<li>la classe <code>img-fluid</code> permet de rendre l'image responsive,</li>
+<li>la classe <code>img-thumbnail</code> permet de rendre l'image responsive et de lui ajouter une marge arrondie de 1px (effet vignette),</li>
+<li>la classe <code>rounded</code> permet d'arrondir les angles de l'image,</li>
+<li>la classe <code>rounded-circle</code> permet de découper l'image selon une ellipse.</li>
+</ul>
+<h3 id="32-un-composant-simple--le-bouton"><a class="header" href="#32-un-composant-simple--le-bouton">3.2 Un composant simple : le bouton</a></h3>
+<blockquote>
+<p>Documentation officielle :</p>
+<ul>
+<li><a href="https://getbootstrap.com/docs/5.3/components/buttons/">Bootstrap Docs - Buttons</a></li>
+<li><a href="https://getbootstrap.com/docs/5.3/components/button-group/">Bootstrap Docs - Button group</a></li>
+</ul>
+</blockquote>
+<p>Ces éléments peuvent être facilement combinés pour en créer de plus complexes, comme ici avec :</p>
+<h5 id="bouton-contenant-un-badge-"><a class="header" href="#bouton-contenant-un-badge-">Bouton contenant un <a href="https://getbootstrap.com/docs/5.3/components/badge/#example">badge</a> :</a></h5>
+<p><u>Code HTML:</u></p>
+<pre><code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;
+  Notifications &lt;span class=&quot;badge badge-light&quot;&gt;4&lt;/span&gt;
+&lt;/button&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res twbs" style="transform: scale(1.4)translate(107px, -2px);display: table-row;">
+  <button type="button" class="btn btn-primary">
+    Notifications <span class="badge badge-light">4</span>
+  </button>
+</div>
+<p><br><br></p>
+<h5 id="groupe-de-3-boutons-sans-se-soucier-des-angles-à-arrondir-"><a class="header" href="#groupe-de-3-boutons-sans-se-soucier-des-angles-à-arrondir-">Groupe de 3 boutons sans se soucier des angles à arrondir :</a></h5>
+<p><u>Code HTML:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;btn-group&quot; role=&quot;group&quot; aria-label=&quot;Basic example&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;Left&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;Middle&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res twbs" style="transform: scale(1.4)translate(107px, -2px);display: table-row;">
+  <section class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-secondary">Left</button>
+    <button type="button" class="btn btn-secondary">Middle</button>
+    <button type="button" class="btn btn-secondary">Right</button>
+  </section>
+</div>
+<h2 id="4-mise-en-pratique---exercice-1"><a class="header" href="#4-mise-en-pratique---exercice-1">4. Mise en pratique - Exercice 1</a></h2>
+<p><strong>🚀 Consignes</strong>:</p>
+<ol>
+<li>
+<p>Récupérer les données du jour : <a href="data/TP4.zip">TP4.zip</a> et extraire le contenu de l'archive sur votre ordinateur.</p>
+</li>
+<li>
+<p>Ouvrir la page <code>page_bootstrap1.html</code> (dans votre navigateur et dans votre éditeur de code). Cette page contient déjà plusieurs blocs de texte formatés sous la forme de paragraphes et organisés dans 3 <code>&lt;article&gt;</code> et dans 2 <code>&lt;section&gt;</code>.</p>
+</li>
+<li>
+<p>Inclure le fichier CSS de bootstrap dans la section <code>head</code> du document HTML en utilisant un CDN :</p>
+</li>
+</ol>
+<pre><code class="language-html">&lt;head&gt;
+  ...
+  &lt;link
+    href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css&quot;
+    rel=&quot;stylesheet&quot;
+    integrity=&quot;sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD&quot;
+    crossorigin=&quot;anonymous&quot;&gt;
+  ...
+&lt;/head&gt;
+</code></pre>
+<ol start="4">
+<li>
+<p>On souhaite organiser la page en utilisant le système de grille de Bootstrap présenté précédemment afin qu'elle présente son contenu de manière <em>responsive</em>. Les instructions concernant le style des éléments et le comportement relatif à la taille de la fenêtre du navigateur sont présentées ci-dessous :</p>
+<ul>
+<li>les <em>articles</em> doivent être affichés sur un fond de couleur <code>aliceblue</code>, avoir des bords arrondis (<code>border-radius</code>) à une longueur de 10px, et utiliser une marge interne (<code>padding</code>) de 12.5 pixels.</li>
+<li>les <em>articles</em> doivent être placés sur une même ligne et occuper une largeur identique si la largeur de la fenêtre est plus grande ou égale à 768 pixels, sinon ils s'empilent. Lorsqu'ils s'empilent ils doivent être séparés d'un espace de 10px.</li>
+<li>les <em>sections</em> doivent être affichées sur un fond de couleur <code>cornsilk</code>, avoir des bords arrondis (<code>border-radius</code>) à une longueur de 10px, et utiliser une marge interne (<code>padding</code>) de 8 pixels.</li>
+<li>les <em>sections</em> doivent être placées sur une même ligne et occuper une largeur identique si la largeur de la fenêtre est plus grande ou égale à 768 pixels, sinon elles s'empilent. Lorsqu'ils s'empilent ils doivent être séparés d'un espace de 10px.</li>
+</ul>
+</li>
+</ol>
+<p>Pour cet exercice comme pour les deux suivants, vous écrirez vos règles CSS directement dans le fichier HTML, entre les balises <code>&lt;style&gt; &lt;/style&gt;</code> à insérer dans l'en-tête du document (cf. TP2).</p>
+<p>Le résultat attendu est présenté ci-dessous.</p>
+<div class="center">
+<p><img src="img/tp4_ex1_resultat_large.png" alt="Résultat en largeur extra-large" />
+<img src="img/tp4_ex1_resultat_small.png" alt="Résultat en largeur small" /></p>
+</div>
+<h2 id="5-mise-en-pratique---exercice-2"><a class="header" href="#5-mise-en-pratique---exercice-2">5. Mise en pratique - Exercice 2</a></h2>
+<p><strong>🚀 Consignes</strong>:</p>
+<ol>
+<li>
+<p>Copiez la page <code>page_bootstrap1.html</code> vers <code>page_bootstrap2.html</code>. C'est sur ce nouveau document que vous travaillez désormais.</p>
+</li>
+<li>
+<p>Modifier le document de manière à ce que, lorsque la largeur de la fenêtre est supérieure à 768px, les <em>articles</em> occupent respectivement 25%, 50% et 25% de la largeur de la page.</p>
+</li>
+<li>
+<p>Veillez à ce que le texte des <em>articles</em> et des <em>sections</em> soit désormais justifié.</p>
+</li>
+</ol>
+<p><img src="img/tp4_ex2_resultat_large.png" alt="Résultat en largeur extra-large" /></p>
+<h2 id="5-mise-en-pratique---exercice-3"><a class="header" href="#5-mise-en-pratique---exercice-3">5. Mise en pratique - Exercice 3</a></h2>
+<p><strong>🚀 Consignes</strong>:</p>
+<ol>
+<li>
+<p>Copiez la page <code>page_bootstrap2.html</code> vers <code>page_bootstrap3.html</code>. C'est sur ce nouveau document que vous travaillez désormais.</p>
+</li>
+<li>
+<p>Nous souhaitons intégrer les images qui correspondent à nos 3 articles. Elles doivent s'insérer de manière harmonieuse avec l'article correspondant. Les images à utiliser sont les suivantes :</p>
+<ul>
+<li>https://upload.wikimedia.org/wikipedia/commons/c/cc/ESC_large_ISS022_ISS022-E-11387-edit_01.JPG (Vue aérienne de l'aéroport international de Hobart en Tasmanie)</li>
+<li>https://upload.wikimedia.org/wikipedia/commons/7/73/MatanuskaGlacierPanorama.jpg (Le glacier Matanuska en Alaska)</li>
+<li>https://upload.wikimedia.org/wikipedia/commons/1/15/Ile-large-2017-port.jpg (Vue aérienne de l'île du Large)</li>
+</ul>
+<p>Veillez à ce que la première et la troisième image présentent un effet de vignette. La seconde image devra être découpée selon une forme d'ellipse.</p>
+</li>
+<li>
+<p>Centrez le titre de la page.</p>
+</li>
+</ol>
+<p><img src="img/tp4_ex3_resultat_large.png" alt="Résultat en largeur extra-large" /></p>
+<h2 id="6-des-composants-plus-complexes--navbar-dropdown-menu-etc---exercice-4"><a class="header" href="#6-des-composants-plus-complexes--navbar-dropdown-menu-etc---exercice-4">6. Des composants plus complexes : <em>navbar</em>, <em>dropdown menu</em>, etc. - Exercice 4</a></h2>
+<p>Les exemples précédents ont pour vocation de fournir une introduction à la manière dont fonctionne <code>Bootstrap</code>.</p>
+<p>Certaines de ses fonctionnalités nécessitent l'ajout de dépendances Javascript, l'une est propre à <code>Bootstrap</code> et l'autre est une bibliothèque tiers (<code>Popper.js</code>).
+Vous devez les inclure dans votre fichier HTML, en utilisant la balise <code>&lt;script&gt;</code>, de préférence à la fin de l'élément <code>&lt;body&gt;</code>.</p>
+<p>En utilisant l'approche <em>CDN</em> :</p>
+<pre><code class="language-html">&lt;body&gt;
+  &lt;!--
+      Le contenu habituel de votre page ici ...
+  --&gt;
+  &lt;script
+      src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js&quot; 
+      integrity=&quot;sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN&quot; 
+      crossorigin=&quot;anonymous&quot;&gt;
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>Vous pouvez maintenant bénéficier de certains éléments de Bootstrap qui nécessitent ces fonctionnalités Javascript, et ce sans saisir de code Javascript supplémentaire (sauf si nécessaire).
+C'est par exemple le cas des barres de navigation et des menus déroulants.</p>
+<ol>
+<li>
+<p>Copiez la page <code>page_bootstrap3.html</code> vers <code>page_bootstrap4.html</code>. C'est sur ce nouveau document que vous travaillez désormais.</p>
+</li>
+<li>
+<p>Votre page inclue déjà le fichier CSS de Bootstrap. Vous devez maintenant inclure les deux bibliothèques Javascript requises (<code>Bootstrap</code> et <code>Popper.js</code>) dans votre page comme montré dans l'extrait de code précédent.</p>
+</li>
+<li>
+<p>Rendez-vous sur la page de documentation des barres de navigation : <a href="https://getbootstrap.com/docs/5.3/components/navbar/">https://getbootstrap.com/docs/5.3/components/navbar/</a></p>
+</li>
+<li>
+<p>Essayer d'inclure une barre de navigation noire contenant les entrées suivantes : <code>Accueil</code>, <code>Partenaires</code>, <code>Contact</code> et <code>À propos</code> (ce sont les mêmes intitulés que dans le TP3) ainsi qu'un élément permettant d'effectuer une recherche. Fiez-vous aux exemple de la documentation de Bootstrap.
+Cette barre de navigation devra être <em>responsive</em>, lorsque la largeur de l'écran est inférieure à 992px, elle doit disparaître au profit de l'élément qui permet de la déplier (voir exemple ci-dessous).<br />
+Vous pouvez également chercher dans la documentation comment faire en sorte que l'élément de recherche et son bouton forment un groupe comme sur le screenshot ci-dessous (ce n'est à priori pas le comportement que vous avez par défaut mais bootstrap propose des classes permettant de faire ça facilement).</p>
+</li>
+</ol>
+<div class="center">
+<p><strong>Largeur d'écran: 1250px</strong>
+<img src="img/tp4_ex4_extralarge.png" alt="Résultat en largeur extra-large" /></p>
+<p><strong>Largeur d'écran: 620px</strong>
+<img src="img/tp4_ex4_small.png" alt="Résultat en largeur small" /></p>
+</div>
+<ol start="5">
+<li>Si vous avez réussi avec succès les questions précédentes c'est que vous maîtrisez déjà bien la documentation de Bootstrap. Essayer d'ajouter à la page en cours une <a href="https://getbootstrap.com/docs/5.3/components/modal/">fenêtre modale</a> dont l'ouverture serait déclenchée par un clic sur un <a href="https://getbootstrap.com/docs/5.3/components/buttons/">bouton</a>. L'ensemble des informations sont présentes dans la documentation. Vous êtes libre de choisir le contenu de la fenêtre modale ainsi que la manière dont le lien entre le bouton et la fenêtre modale est défini dans votre code.</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3-structure-style.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="5-javascript.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a href="3-structure-style.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a href="5-javascript.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="src/custom.js"></script>
+
+
+    </body>
+</html>

@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="0.html">Accueil</a></li><li class="chapter-item expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="chapter-item expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="chapter-item expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">5.</strong> Javascript - Notions Théoriques</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">6.</strong> Javascript - Mise en pratique</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">7.</strong> Programmation Web coté serveur en Python</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">8.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">9.</strong> Technos Web... quoi d'autre ?</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="chapter-item expanded affix "><a href="tp_data.html">Données TP & Corrections</a></li><li class="chapter-item expanded affix "><a href="exam.html">Précédents sujets d'examen</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="0.html">Accueil</a></li><li class="chapter-item expanded "><a href="1-Intro.html"><strong aria-hidden="true">1.</strong> Éléments théoriques</a></li><li class="chapter-item expanded "><a href="2-HTML_CSS.html"><strong aria-hidden="true">2.</strong> Intro HTML 5 / CSS 3</a></li><li class="chapter-item expanded "><a href="3-structure-style.html"><strong aria-hidden="true">3.</strong> Structurer et styler un document HTML</a></li><li class="chapter-item expanded "><a href="4-css-bootstrap.html"><strong aria-hidden="true">4.</strong> Le framework Bootstrap</a></li><li class="chapter-item expanded "><a href="5-javascript.html"><strong aria-hidden="true">5.</strong> Javascript - Notions Théoriques</a></li><li class="chapter-item expanded "><a href="6-javascript-suite.html"><strong aria-hidden="true">6.</strong> Javascript - Mise en pratique</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">7.</strong> Programmation Web coté serveur en Python</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">8.</strong> Interactions serveur/client, formulaires et BD</a></li><li class="chapter-item expanded "><a href="tbd.html"><strong aria-hidden="true">9.</strong> Technos Web... quoi d'autre ?</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="glossaire.html">Glossaire - Mémo</a></li><li class="chapter-item expanded affix "><a href="tp_data.html">Données TP & Corrections</a></li><li class="chapter-item expanded affix "><a href="exam.html">Précédents sujets d'examen</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -968,6 +968,1190 @@ Lorsque l'on souhaite interdire le voisinage avec un élément flottant et repre
 </ul>
 </li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="le-framework-bootstrap"><a class="header" href="#le-framework-bootstrap">Le framework Bootstrap</a></h1>
+<div class="center">
+<p><img src="img/bootstrap_logo.png" alt="Logo de Bootstrap" /></p>
+</div>
+<h2 id="1-introduction"><a class="header" href="#1-introduction">1. Introduction</a></h2>
+<p>Le développement de sites web requiert une très bonne connaissance des langages du web (HTML, CSS, JavaScript), mais leur apprentissage, pour en maitriser tous les aspects, peut être long et difficile.</p>
+<p>Des frameworks (ou cadriciels) sont proposés pour faciliter cette tâche. Un framework est une collection de briques de code bien structurées et prêtes à l'emploi permettant de faciliter le développement et la maintenance d'un projet informatique. L'un des plus utilisés est <a href="http://getbootstrap.com/">Bootstrap</a>.</p>
+<p><strong>Bootstrap est un kit CSS</strong>, <strong>incluant aussi des composant HTML et javascript</strong>, créé par les développeurs de Twitter. Il est devenu le framework CSS de référence et est disponible en <em>open source</em>. Au 09/01/2023, la dernière version est la <strong><code>v5.3.0-alpha1</code></strong> (la version <strong><code>4.6.1</code></strong> est la dernière mise-à-jour en v4.x).</p>
+<p>Ce framework :</p>
+<ul>
+<li>facilite l'utilisation des règles CSS pour concevoir des sites attractifs et adaptatifs <em>(Responsive Web Design)</em></li>
+<li>utilise une grille d'affichage pour agencer les différentes boîtes d'affichage des sites et s'adaptant immédiatement différents type de supports (ordinateurs, tablettes, smartphones)</li>
+</ul>
+<h3 id="11-avantages"><a class="header" href="#11-avantages">1.1 Avantages</a></h3>
+<ul>
+<li>portabilité <em>(cross-browser)</em> : présentation similaire quel que soit le navigateur</li>
+<li>homogénéité : ensemble de styles prédéfinis partagés, éléments complémentaires (barres de navigation, boutons...) uniformisés</li>
+<li>simplicité : système de grille pour positionner des éléments</li>
+<li>adaptabilité <em>(responsive)</em> : par défaut l'affichage s'adapte à la taille de l'écran <em>(mobile-first)</em></li>
+<li>facilité d'utilisation : avec des connaissances de base en HTML et CSS</li>
+</ul>
+<blockquote>
+<p><strong>Remarque</strong>: D'autres framework CSS connus sont par exemples <a href="https://get.foundation/">Foundation</a>, <a href="https://bulma.io/">Bulma</a> ou <a href="https://semantic-ui.com/">Semantic UI</a>. Ils proposent des fonctionnalités similaires.</p>
+</blockquote>
+<h3 id="12-utilisation"><a class="header" href="#12-utilisation">1.2 Utilisation</a></h3>
+<p>Pour utiliser Bootstrap dans une page HTML il faut inclure un ou plusieurs des fichiers distribués : <a href="http://getbootstrap.com/getting-started/">http://getbootstrap.com/getting-started/</a>.
+Plusieurs approches peuvent être utilisées pour inclure le(s) fichier(s) nécessaires (elles offrent différentes options et/ou correspondent à différents contextes de travail) :</p>
+<ol>
+<li>
+<p>Téléchargement en local des fichiers distribués depuis le site Web de Bootstrap et inclusion dans la page HTML de manière habituelle : l'archive zippée proposée est décompressée et vous faites référence (par des liens relatifs) à ces fichiers dans votre document HTML.</p>
+</li>
+<li>
+<p><strong>Utilisation d'un CDN</strong> <em>(<a href="https://fr.wikipedia.org/wiki/R%C3%A9seau_de_diffusion_de_contenu">Content Delivery Network - réseau de diffusion de contenu</a>)</em>, une infrastructure de serveurs <em>&quot;qui coopèrent afin de mettre à disposition du contenu ou des données à des utilisateurs&quot;</em>. Ce procédé permet d'optimiser le temps de chargement (performance des serveurs contactés, mise en cache du contenu par le navigateur Web, diminution de la charge du serveur servant le reste de la page, etc.). L'inclusion dans la page HTML est similaire, il suffit simplement d'utiliser l'URL d'un de ces <em>CDN</em> :</p>
+</li>
+</ol>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;link
+    href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css&quot;
+    rel=&quot;stylesheet&quot;
+    integrity=&quot;sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD&quot;
+    crossorigin=&quot;anonymous&quot;&gt;
+&lt;/head&gt;
+</code></pre>
+<ol start="3">
+<li>Utilisation d'un gestionnaire de paquets Javascript (<code>npm</code>, <em>node package manager</em>, par exemple) - cette solution ne sera par abordée dans le cadre de ce TP.</li>
+</ol>
+<blockquote>
+<p><strong>Remarque:</strong> Dans le cadre des premières parties de ce TP nous n'aborderons pas les fonctionnalités JavaScript offertes par Bootstrap et nous n'inclurons donc que le fichier CSS qui est distribué. Pour utiliser ses fonctionnalités Javascript, vous devriez inclure le fichier javascript de Bootstrap (<code>bootstrap.js</code>) ainsi qu'une bibliothèque qu'il utilise : <code>Popper.js</code>.</p>
+</blockquote>
+<h2 id="2-le-système-de-grille"><a class="header" href="#2-le-système-de-grille">2. Le système de grille</a></h2>
+<blockquote>
+<p>Documentation officielle :</p>
+<ul>
+<li><a href="https://getbootstrap.com/docs/5.3/layout/grid/">Bootstrap Docs - Grid system</a></li>
+</ul>
+</blockquote>
+<h3 id="21-en-théorie"><a class="header" href="#21-en-théorie">2.1 En théorie</a></h3>
+<p>Une des difficultés avec HTML + CSS est la maîtrise du placement des éléments dans une page.</p>
+<p>Pour faciliter celui-ci Bootstrap propose un système de <strong>grille</strong> <em>(grid)</em> composée de <strong>12 colonnes</strong> <em>(col)</em>, et d’un nombre de <strong>lignes</strong> <em>(row)</em> potentiellement illimité. Les élements de contenu sont placés dans cette grille, en utilisant une ou plusieurs de ses cellules.</p>
+<p>Ce système de dimensionnement à les propriétés suivantes :</p>
+<ul>
+<li>
+<p>la <strong>largeur des colonnes</strong> est exprimée en % de la largeur de la fenêtre de visualisation</p>
+</li>
+<li>
+<p>la <strong>hauteur des lignes</strong> est fixée par la hauteur de son contenu et prend la hauteur du plus gros élément qu'elle contient</p>
+</li>
+</ul>
+<p><img src="img/grid_bootstrap1.png" alt="Système de grille" /></p>
+<p>La puissance de Bootstrap réside dans le fait que le système de grille est <em>responsive</em> :</p>
+<p><strong>Les colonnes d'une même ligne se réorganisent automatiquement selon la largeur de la fenêtre d'affichage : si la fenêtre est suffisamment large, elles sont côte à côte, sinon elles s'empilent</strong>.</p>
+<p>Il est également possible de jouer sur la taille des contenus, voir de les faire disparaître.</p>
+<h3 id="22-en-pratique"><a class="header" href="#22-en-pratique">2.2 En pratique</a></h3>
+<h4 id="221-les-classes-à-utiliser"><a class="header" href="#221-les-classes-à-utiliser">2.2.1 Les classes à utiliser</a></h4>
+<p>On utilise ce système de grille grâce à des <strong>classes CSS</strong> particulières qui vont être associées à des éléments HTML pour déterminer leur largeur en nombre de colonnes.</p>
+<p><strong>Concrètement il va falloir :</strong></p>
+<ul>
+<li>
+<p><strong>un conteneur</strong> (<code>&lt;div&gt;</code>, <code>&lt;section&gt;</code>, ..) ayant la classe :</p>
+<ul>
+<li><code>container</code> pour une grille de largeur fixe (définit selon les tailles d'écrans), centrée sur la page, ou bien</li>
+<li><code>container-fluid</code> pour une grille occupant toute la largeur de l'écran (<code>width: 100%</code>), ou bien</li>
+<li><code>container-{breakpoint}</code> pour une grille occupant toute la largeur de l'écran jusqu'au breakpoint définit.</li>
+</ul>
+</li>
+<li>
+<p><strong>définir une ligne</strong> avec la classe <code>row</code></p>
+</li>
+<li>
+<p><strong>définir une colonne de la ligne</strong> avec <code>col-{breakpoint}-{width}</code></p>
+<ul>
+<li>où <em><strong><code>breakpoint</code></strong></em> correspond à la largeur d'écran au dessous de laquelle l'élément s'empile avec ses frères : <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code> ou <code>xxl</code>,</li>
+<li>où <em><strong><code>width</code></strong></em> correspond à la largeur de la colonne, en nombre de colonnes élémentaires, de 1 à 12.</li>
+</ul>
+</li>
+</ul>
+<p><u>Exemple:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-sm-4&quot;&gt;One of three columns&lt;/div&gt;
+    &lt;div class=&quot;col-sm-4&quot;&gt;One of three columns&lt;/div&gt;
+    &lt;div class=&quot;col-sm-4&quot;&gt;One of three columns&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-lg-6&quot;&gt;One of two columns&lt;/div&gt;
+    &lt;div class=&quot;col-lg-6&quot;&gt;One of two columns&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-2&quot;&gt;Third row, 1st column&lt;/div&gt;
+    &lt;div class=&quot;col-md-7&quot;&gt;Third row, 2nd column&lt;/div&gt;
+    &lt;div class=&quot;col-md-3&quot;&gt;Third row, 3rd column&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res twbs">
+  <section class="container">
+    <section class="row">
+      <section class="col-sm-4">One of three columns</section>
+      <section class="col-sm-4">One of three columns</section>
+      <section class="col-sm-4">One of three columns</section>
+    </section>
+    <section class="row">
+      <section class="col-lg-6">One of two columns</section>
+      <section class="col-lg-6">One of two columns</section>
+    </section>
+    <section class="row">
+      <section class="col-md-2">Third row, 1st column</section>
+      <section class="col-md-7">Third row, 2nd column</section>
+      <section class="col-md-3">Third row, 3rd column</section>
+    </section>
+  </section>
+</div>
+<h4 id="222-point-de-rupture"><a class="header" href="#222-point-de-rupture">2.2.2 Point de rupture</a></h4>
+<table class="twbs table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th class="text-center">
+        Extra small<br>
+        <small>&lt;576px</small>
+      </th>
+      <th class="text-center">
+        Small<br>
+        <small>≥576px</small>
+      </th>
+      <th class="text-center">
+        Medium<br>
+        <small>≥768px</small>
+      </th>
+      <th class="text-center">
+        Large<br>
+        <small>≥992px</small>
+      </th>
+      <th class="text-center">
+        X-large<br>
+        <small>≥1200px</small>
+      </th>
+      <th class="text-center">
+        XX-large<br>
+        <small>≥1400px</small>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="text-nowrap" scope="row">Max container width</th>
+      <td>None (auto)</td>
+      <td>540px</td>
+      <td>720px</td>
+      <td>960px</td>
+      <td>1140px</td>
+      <td>1320px</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Class prefix</th>
+      <td style="text-align: center;padding: 3px;"><code>.col-</code></td>
+      <td style="text-align: center;padding: 3px;"><code>.col-sm-</code></td>
+      <td style="text-align: center;padding: 3px;"><code>.col-md-</code></td>
+      <td style="text-align: center;padding: 3px;"><code>.col-lg-</code></td>
+      <td style="text-align: center;padding: 3px;"><code>.col-xl-</code></td>
+      <td style="text-align: center;padding: 3px;"><code>.col-xxl-</code></td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row"># of columns</th>
+      <td colspan="6">12</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Gutter width</th>
+      <td colspan="6">1.5rem (.75rem on each side of the column)</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Nestable</th>
+      <td colspan="6">Yes</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Column ordering</th>
+      <td colspan="6">Yes</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="223-illustration-de-leffet-des-breakpoints"><a class="header" href="#223-illustration-de-leffet-des-breakpoints">2.2.3 Illustration de l'effet des <em>breakpoints</em></a></h4>
+<p><img src="img/bootstrap-grid-1.png" alt="Dispositif d'affichage extra-extra-large" /></p>
+<hr />
+<p><img src="img/bootstrap-grid-2.png" alt="Dispositif d'affichage extra-large" /></p>
+<hr />
+<p><img src="img/bootstrap-grid-3.png" alt="Dispositif d'affichage large" /></p>
+<hr />
+<p><img src="img/bootstrap-grid-4.png" alt="Dispositif d'affichage medium" /></p>
+<hr />
+<p><img src="img/bootstrap-grid-5.png" alt="Dispositif d'affichage small" /></p>
+<hr />
+<p><img src="img/bootstrap-grid-6.png" alt="Dispositif d'affichage extra-small" /></p>
+<p>Version interactive : <a href="data/TP4/example_grid_layout.html">ici</a>.</p>
+<h4 id="224-possibilité-de-ne-pas-spécifier-la-largeur-pour-des-colonnes-de-mêmes-tailles-"><a class="header" href="#224-possibilité-de-ne-pas-spécifier-la-largeur-pour-des-colonnes-de-mêmes-tailles-">2.2.4 Possibilité de ne pas spécifier la largeur pour des colonnes de mêmes tailles :</a></h4>
+<p><u>Exemple:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-sm&quot;&gt;One of three columns&lt;/div&gt;
+    &lt;div class=&quot;col-sm&quot;&gt;One of three columns&lt;/div&gt;
+    &lt;div class=&quot;col-sm&quot;&gt;One of three columns&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-lg&quot;&gt;One of two columns&lt;/div&gt;
+    &lt;div class=&quot;col-lg&quot;&gt;One of two columns&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-2&quot;&gt;Third row, 1st column&lt;/div&gt;
+    &lt;div class=&quot;col-md-7&quot;&gt;Third row, 2nd column&lt;/div&gt;
+    &lt;div class=&quot;col-md-3&quot;&gt;Third row, 3rd column&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res twbs">
+  <section class="container">
+    <section class="row">
+      <section class="col-sm">One of three columns</section>
+      <section class="col-sm">One of three columns</section>
+      <section class="col-sm">One of three columns</section>
+    </section>
+    <section class="row">
+      <section class="col-lg">One of two columns</section>
+      <section class="col-lg">One of two columns</section>
+    </section>
+    <section class="row">
+      <section class="col-md-2">Third row, 1st column</section>
+      <section class="col-md-7">Third row, 2nd column</section>
+      <section class="col-md-3">Third row, 3rd column</section>
+    </section>
+  </section>
+</div>
+<h4 id="225-utilisation-sans-spécifier-de-point-de-rupture-"><a class="header" href="#225-utilisation-sans-spécifier-de-point-de-rupture-">2.2.5 Utilisation sans spécifier de point de rupture :</a></h4>
+<p><u>Exemple:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of seven columns&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col&quot;&gt;One of two columns&lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;One of two columns&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-2&quot;&gt;Third row, 1st column&lt;/div&gt;
+    &lt;div class=&quot;col-md-7&quot;&gt;Third row, 2nd column&lt;/div&gt;
+    &lt;div class=&quot;col-md-3&quot;&gt;Third row, 3rd column&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res twbs">
+  <section class="container">
+    <section class="row">
+      <section class="col">One of seven columns</section>
+      <section class="col">One of seven columns</section>
+      <section class="col">One of seven columns</section>
+      <section class="col">One of seven columns</section>
+      <section class="col">One of seven columns</section>
+      <section class="col">One of seven columns</section>
+      <section class="col">One of seven columns</section>
+    </section>
+    <section class="row">
+      <section class="col">One of two columns</section>
+      <section class="col">One of two columns</section>
+    </section>
+    <section class="row">
+      <section class="col-md-2">Third row, 1st column</section>
+      <section class="col-md-7">Third row, 2nd column</section>
+      <section class="col-md-3">Third row, 3rd column</section>
+    </section>
+  </section>
+</div>
+<h2 id="3-autres-composants-de-bootstrap"><a class="header" href="#3-autres-composants-de-bootstrap">3. Autres composants de Bootstrap</a></h2>
+<p>Ce framework permet également, toujours par l'utilisation de classes qu'il définie, d'appliquer des styles cohérents à un certain nombre d'éléments html (<code>img</code>, <code>button</code>, <code>input</code>, etc.) ainsi que de composer des éléments plus complexes (<code>dropdown menus</code>, <code>navbar</code>, etc.).</p>
+<h3 id="31-intégration-dimages-responsive"><a class="header" href="#31-intégration-dimages-responsive">3.1 Intégration d'images <em>responsive</em></a></h3>
+<blockquote>
+<p>Documentation officielle :</p>
+<ul>
+<li><a href="https://getbootstrap.com/docs/5.3/content/images/">Bootstrap Docs - Image</a></li>
+<li><a href="https://getbootstrap.com/docs/5.3/utilities/borders/">Bootstrap Docs - Borders</a></li>
+</ul>
+</blockquote>
+<p>Comme avec le système de grille, il va être possible d'appliquer simplement aux images des classes CSS qui vont permettre de faciliter leur intégration dans une page <em>responsive</em>.
+Quelques-unes des classes utilisables sont les suivantes :</p>
+<ul>
+<li>la classe <code>img-fluid</code> permet de rendre l'image responsive,</li>
+<li>la classe <code>img-thumbnail</code> permet de rendre l'image responsive et de lui ajouter une marge arrondie de 1px (effet vignette),</li>
+<li>la classe <code>rounded</code> permet d'arrondir les angles de l'image,</li>
+<li>la classe <code>rounded-circle</code> permet de découper l'image selon une ellipse.</li>
+</ul>
+<h3 id="32-un-composant-simple--le-bouton"><a class="header" href="#32-un-composant-simple--le-bouton">3.2 Un composant simple : le bouton</a></h3>
+<blockquote>
+<p>Documentation officielle :</p>
+<ul>
+<li><a href="https://getbootstrap.com/docs/5.3/components/buttons/">Bootstrap Docs - Buttons</a></li>
+<li><a href="https://getbootstrap.com/docs/5.3/components/button-group/">Bootstrap Docs - Button group</a></li>
+</ul>
+</blockquote>
+<p>Ces éléments peuvent être facilement combinés pour en créer de plus complexes, comme ici avec :</p>
+<h5 id="bouton-contenant-un-badge-"><a class="header" href="#bouton-contenant-un-badge-">Bouton contenant un <a href="https://getbootstrap.com/docs/5.3/components/badge/#example">badge</a> :</a></h5>
+<p><u>Code HTML:</u></p>
+<pre><code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;
+  Notifications &lt;span class=&quot;badge badge-light&quot;&gt;4&lt;/span&gt;
+&lt;/button&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res twbs" style="transform: scale(1.4)translate(107px, -2px);display: table-row;">
+  <button type="button" class="btn btn-primary">
+    Notifications <span class="badge badge-light">4</span>
+  </button>
+</div>
+<p><br><br></p>
+<h5 id="groupe-de-3-boutons-sans-se-soucier-des-angles-à-arrondir-"><a class="header" href="#groupe-de-3-boutons-sans-se-soucier-des-angles-à-arrondir-">Groupe de 3 boutons sans se soucier des angles à arrondir :</a></h5>
+<p><u>Code HTML:</u></p>
+<pre><code class="language-html">&lt;div class=&quot;btn-group&quot; role=&quot;group&quot; aria-label=&quot;Basic example&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;Left&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;Middle&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<p><u>Résultat:</u></p>
+<div class="res twbs" style="transform: scale(1.4)translate(107px, -2px);display: table-row;">
+  <section class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-secondary">Left</button>
+    <button type="button" class="btn btn-secondary">Middle</button>
+    <button type="button" class="btn btn-secondary">Right</button>
+  </section>
+</div>
+<h2 id="4-mise-en-pratique---exercice-1"><a class="header" href="#4-mise-en-pratique---exercice-1">4. Mise en pratique - Exercice 1</a></h2>
+<p><strong>🚀 Consignes</strong>:</p>
+<ol>
+<li>
+<p>Récupérer les données du jour : <a href="data/TP4.zip">TP4.zip</a> et extraire le contenu de l'archive sur votre ordinateur.</p>
+</li>
+<li>
+<p>Ouvrir la page <code>page_bootstrap1.html</code> (dans votre navigateur et dans votre éditeur de code). Cette page contient déjà plusieurs blocs de texte formatés sous la forme de paragraphes et organisés dans 3 <code>&lt;article&gt;</code> et dans 2 <code>&lt;section&gt;</code>.</p>
+</li>
+<li>
+<p>Inclure le fichier CSS de bootstrap dans la section <code>head</code> du document HTML en utilisant un CDN :</p>
+</li>
+</ol>
+<pre><code class="language-html">&lt;head&gt;
+  ...
+  &lt;link
+    href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css&quot;
+    rel=&quot;stylesheet&quot;
+    integrity=&quot;sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD&quot;
+    crossorigin=&quot;anonymous&quot;&gt;
+  ...
+&lt;/head&gt;
+</code></pre>
+<ol start="4">
+<li>
+<p>On souhaite organiser la page en utilisant le système de grille de Bootstrap présenté précédemment afin qu'elle présente son contenu de manière <em>responsive</em>. Les instructions concernant le style des éléments et le comportement relatif à la taille de la fenêtre du navigateur sont présentées ci-dessous :</p>
+<ul>
+<li>les <em>articles</em> doivent être affichés sur un fond de couleur <code>aliceblue</code>, avoir des bords arrondis (<code>border-radius</code>) à une longueur de 10px, et utiliser une marge interne (<code>padding</code>) de 12.5 pixels.</li>
+<li>les <em>articles</em> doivent être placés sur une même ligne et occuper une largeur identique si la largeur de la fenêtre est plus grande ou égale à 768 pixels, sinon ils s'empilent. Lorsqu'ils s'empilent ils doivent être séparés d'un espace de 10px.</li>
+<li>les <em>sections</em> doivent être affichées sur un fond de couleur <code>cornsilk</code>, avoir des bords arrondis (<code>border-radius</code>) à une longueur de 10px, et utiliser une marge interne (<code>padding</code>) de 8 pixels.</li>
+<li>les <em>sections</em> doivent être placées sur une même ligne et occuper une largeur identique si la largeur de la fenêtre est plus grande ou égale à 768 pixels, sinon elles s'empilent. Lorsqu'ils s'empilent ils doivent être séparés d'un espace de 10px.</li>
+</ul>
+</li>
+</ol>
+<p>Pour cet exercice comme pour les deux suivants, vous écrirez vos règles CSS directement dans le fichier HTML, entre les balises <code>&lt;style&gt; &lt;/style&gt;</code> à insérer dans l'en-tête du document (cf. TP2).</p>
+<p>Le résultat attendu est présenté ci-dessous.</p>
+<div class="center">
+<p><img src="img/tp4_ex1_resultat_large.png" alt="Résultat en largeur extra-large" />
+<img src="img/tp4_ex1_resultat_small.png" alt="Résultat en largeur small" /></p>
+</div>
+<h2 id="5-mise-en-pratique---exercice-2"><a class="header" href="#5-mise-en-pratique---exercice-2">5. Mise en pratique - Exercice 2</a></h2>
+<p><strong>🚀 Consignes</strong>:</p>
+<ol>
+<li>
+<p>Copiez la page <code>page_bootstrap1.html</code> vers <code>page_bootstrap2.html</code>. C'est sur ce nouveau document que vous travaillez désormais.</p>
+</li>
+<li>
+<p>Modifier le document de manière à ce que, lorsque la largeur de la fenêtre est supérieure à 768px, les <em>articles</em> occupent respectivement 25%, 50% et 25% de la largeur de la page.</p>
+</li>
+<li>
+<p>Veillez à ce que le texte des <em>articles</em> et des <em>sections</em> soit désormais justifié.</p>
+</li>
+</ol>
+<p><img src="img/tp4_ex2_resultat_large.png" alt="Résultat en largeur extra-large" /></p>
+<h2 id="5-mise-en-pratique---exercice-3"><a class="header" href="#5-mise-en-pratique---exercice-3">5. Mise en pratique - Exercice 3</a></h2>
+<p><strong>🚀 Consignes</strong>:</p>
+<ol>
+<li>
+<p>Copiez la page <code>page_bootstrap2.html</code> vers <code>page_bootstrap3.html</code>. C'est sur ce nouveau document que vous travaillez désormais.</p>
+</li>
+<li>
+<p>Nous souhaitons intégrer les images qui correspondent à nos 3 articles. Elles doivent s'insérer de manière harmonieuse avec l'article correspondant. Les images à utiliser sont les suivantes :</p>
+<ul>
+<li>https://upload.wikimedia.org/wikipedia/commons/c/cc/ESC_large_ISS022_ISS022-E-11387-edit_01.JPG (Vue aérienne de l'aéroport international de Hobart en Tasmanie)</li>
+<li>https://upload.wikimedia.org/wikipedia/commons/7/73/MatanuskaGlacierPanorama.jpg (Le glacier Matanuska en Alaska)</li>
+<li>https://upload.wikimedia.org/wikipedia/commons/1/15/Ile-large-2017-port.jpg (Vue aérienne de l'île du Large)</li>
+</ul>
+<p>Veillez à ce que la première et la troisième image présentent un effet de vignette. La seconde image devra être découpée selon une forme d'ellipse.</p>
+</li>
+<li>
+<p>Centrez le titre de la page.</p>
+</li>
+</ol>
+<p><img src="img/tp4_ex3_resultat_large.png" alt="Résultat en largeur extra-large" /></p>
+<h2 id="6-des-composants-plus-complexes--navbar-dropdown-menu-etc---exercice-4"><a class="header" href="#6-des-composants-plus-complexes--navbar-dropdown-menu-etc---exercice-4">6. Des composants plus complexes : <em>navbar</em>, <em>dropdown menu</em>, etc. - Exercice 4</a></h2>
+<p>Les exemples précédents ont pour vocation de fournir une introduction à la manière dont fonctionne <code>Bootstrap</code>.</p>
+<p>Certaines de ses fonctionnalités nécessitent l'ajout de dépendances Javascript, l'une est propre à <code>Bootstrap</code> et l'autre est une bibliothèque tiers (<code>Popper.js</code>).
+Vous devez les inclure dans votre fichier HTML, en utilisant la balise <code>&lt;script&gt;</code>, de préférence à la fin de l'élément <code>&lt;body&gt;</code>.</p>
+<p>En utilisant l'approche <em>CDN</em> :</p>
+<pre><code class="language-html">&lt;body&gt;
+  &lt;!--
+      Le contenu habituel de votre page ici ...
+  --&gt;
+  &lt;script
+      src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js&quot; 
+      integrity=&quot;sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN&quot; 
+      crossorigin=&quot;anonymous&quot;&gt;
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>Vous pouvez maintenant bénéficier de certains éléments de Bootstrap qui nécessitent ces fonctionnalités Javascript, et ce sans saisir de code Javascript supplémentaire (sauf si nécessaire).
+C'est par exemple le cas des barres de navigation et des menus déroulants.</p>
+<ol>
+<li>
+<p>Copiez la page <code>page_bootstrap3.html</code> vers <code>page_bootstrap4.html</code>. C'est sur ce nouveau document que vous travaillez désormais.</p>
+</li>
+<li>
+<p>Votre page inclue déjà le fichier CSS de Bootstrap. Vous devez maintenant inclure les deux bibliothèques Javascript requises (<code>Bootstrap</code> et <code>Popper.js</code>) dans votre page comme montré dans l'extrait de code précédent.</p>
+</li>
+<li>
+<p>Rendez-vous sur la page de documentation des barres de navigation : <a href="https://getbootstrap.com/docs/5.3/components/navbar/">https://getbootstrap.com/docs/5.3/components/navbar/</a></p>
+</li>
+<li>
+<p>Essayer d'inclure une barre de navigation noire contenant les entrées suivantes : <code>Accueil</code>, <code>Partenaires</code>, <code>Contact</code> et <code>À propos</code> (ce sont les mêmes intitulés que dans le TP3) ainsi qu'un élément permettant d'effectuer une recherche. Fiez-vous aux exemple de la documentation de Bootstrap.
+Cette barre de navigation devra être <em>responsive</em>, lorsque la largeur de l'écran est inférieure à 992px, elle doit disparaître au profit de l'élément qui permet de la déplier (voir exemple ci-dessous).<br />
+Vous pouvez également chercher dans la documentation comment faire en sorte que l'élément de recherche et son bouton forment un groupe comme sur le screenshot ci-dessous (ce n'est à priori pas le comportement que vous avez par défaut mais bootstrap propose des classes permettant de faire ça facilement).</p>
+</li>
+</ol>
+<div class="center">
+<p><strong>Largeur d'écran: 1250px</strong>
+<img src="img/tp4_ex4_extralarge.png" alt="Résultat en largeur extra-large" /></p>
+<p><strong>Largeur d'écran: 620px</strong>
+<img src="img/tp4_ex4_small.png" alt="Résultat en largeur small" /></p>
+</div>
+<ol start="5">
+<li>Si vous avez réussi avec succès les questions précédentes c'est que vous maîtrisez déjà bien la documentation de Bootstrap. Essayer d'ajouter à la page en cours une <a href="https://getbootstrap.com/docs/5.3/components/modal/">fenêtre modale</a> dont l'ouverture serait déclenchée par un clic sur un <a href="https://getbootstrap.com/docs/5.3/components/buttons/">bouton</a>. L'ensemble des informations sont présentes dans la documentation. Vous êtes libre de choisir le contenu de la fenêtre modale ainsi que la manière dont le lien entre le bouton et la fenêtre modale est défini dans votre code.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-au-langage-javascript"><a class="header" href="#introduction-au-langage-javascript">Introduction au langage Javascript</a></h1>
+<h2 id="1-préambule"><a class="header" href="#1-préambule">1. Préambule</a></h2>
+<p>Le Javascript est aujourd’hui un langage incontournable du développement Web.<br />
+C'est un langage de programmation <strong>multi-paradigme</strong> : orienté objet à prototype, impératif et fonctionnel <em>(il partage ces deux dernières caractéristiques avec Python par exemple)</em>.</p>
+<div class="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/200px-Unofficial_JavaScript_logo_2.svg.png" />
+</div>
+<p>Le langage a été créé <em>Netscape</em> (fin 1995) est standardisé sous le nom d'<a href="https://fr.wikipedia.org/wiki/ECMAScript">ECMAScript</a> (c'est peut-être un terme que vous rencontrerez - notamment sous sa forme abrégée pour désigner les différentes versions du standard : <em>ES5</em>, <em>ES6</em>, etc.).</p>
+<p>Sa syntaxe est dérivée de celle du C/C++.</p>
+<pre><code class="language-js">for (let i = 0; i &lt; 10; i++) {
+  console.log(&quot;Iteration n°&quot; + i);
+}
+
+var j = 0;
+while (j &lt; 10) {
+  console.log(&quot;...&quot;);
+  j++;
+}
+</code></pre>
+<p>Ses autres particularités sont les suivantes :</p>
+<ul>
+<li>Langage <strong>interprété</strong> (pas de compilation, exécution directe dans un interpréteur)</li>
+<li><strong>Typage dynamique</strong> (laisse l'ordinateur réaliser l'opération de typage à la volée)</li>
+<li>Modèle objet à base de <strong>prototypes</strong></li>
+<li>Langage <strong>fonctionnel</strong> (les <a href="https://en.wikipedia.org/wiki/First-class_function">fonctions sont des <em>objets de première classe</em></a> : on peut passer des fonctions en argument à des fonctions, les assigner à des variables, les stocker dans des structures de données, etc.)</li>
+</ul>
+<h4 id="pourquoi-le-javascript-"><a class="header" href="#pourquoi-le-javascript-">Pourquoi le JavaScript ?</a></h4>
+<div class="center">
+<p><img src="https://mdn.mozillademos.org/files/13502/cake.png" alt="" /></p>
+<p><span class="source">Source: <a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/What_is_JavaScript">https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/What_is_JavaScript</a></p>
+</div>
+<ul>
+<li>Couche <strong>&quot;Comportement&quot;</strong> (JavaScript) qui s'ajoute naturellement à la couche <strong>&quot;Présentation&quot;</strong> (CSS) et à la couche <strong>&quot;Contenu structuré&quot;</strong> (HTML) des technologies web.</li>
+<li>Création de contenus complexes, dynamiques et interactifs dont la logique est exécutée coté client, le moment venu.</li>
+<li>Les navigateurs web disposent de plusieurs <strong>API</strong> <em>(Application Programming Interfaces)</em> qui permettent de manipuler le document (<em>API DOM</em>), de manipuler des contenues 2D ou 3D (<em>API Canvas</em> et <em>API WebGL</em>) ou les informations de géolocalisation (<em>API Geolocation</em>) par exemple ; ces API sont accessibles en JavaScript.</li>
+</ul>
+<h3 id="11-quelques-idées-reçues"><a class="header" href="#11-quelques-idées-reçues">1.1 Quelques idées reçues</a></h3>
+<ul>
+<li>
+<p>JavaScript n'est pas à proprement parlé le seul langage du Web. En effet d'autres solutions ont été développées pour s’exécuter coté client (c'est par exemple le cas de Adobe Flash ou des <em>applets</em> Java - désormais tombés en désuétude).
+En revanche, avec la normalisation du langage et un meilleur support par tous les navigateurs et avec l'introduction de HTML5 (et de ses nombreuses API JavaScript), le Javascript a effectué un retour en force dans l'écosystème Web coté client. Il existe également un language de bas niveau développé pour le Web et standardisé en 2019, nommé <a href="https://fr.wikipedia.org/wiki/WebAssembly">WebAssembly</a>.</p>
+</li>
+<li>
+<p>Le Javascript n'est pas seulement utilisé coté client mais également de plus en plus comme un langage de script à part entière, notamment depuis l'existence de <a href="https://nodejs.org">node.js</a> (vers 2009), ou, plus récemment de <a href="https://deno.land/">Deno</a> (2018). Il est ainsi désormais possible de l'utiliser également pour écrire du code côté serveur. Ce point ne sera pas abordé dans ce cours.</p>
+</li>
+</ul>
+<div class="center">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/320px-Node.js_logo.svg.png" alt="" style="
+    width: 200px;
+    margin: 0 40px;
+">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Deno_2021.svg" alt="" style="
+    width: 180px;
+    margin: 0 40px;
+"></p>
+</div>
+<h3 id="12-environnements-dexécution-javascript"><a class="header" href="#12-environnements-dexécution-javascript">1.2 Environnements d'exécution JavaScript</a></h3>
+<p>Un environnement d'exécution Javascript est composé d'un <strong>moteur d'exécution</strong> JavaScript <em>(runtime)</em> et d'objets JavaScript spécifiques à l'environnement en question.</p>
+<p>Les principaux environnement d'exécutions sont les <strong>navigateurs Web</strong> (<em>Chrome</em> utilise le moteur <a href="https://v8.dev/"><em>V8</em></a>, <em>Firefox</em> utilise <a href="https://developer.mozilla.org/fr/docs/SpiderMonkey"><em>SpiderMonkey</em></a> et <em>Safari</em> utilise <em>WebKit</em>).</p>
+<p><strong>Node.js</strong> est un environnement d’exécution célèbre (utilisant lui aussi le moteur <em>V8</em>) qui n'est lié à un aucun navigateur Web ; il permet ainsi l'exécution de code Javascript hors du contexte du navigateur.</p>
+<h3 id="13-intégration-dans-une-page-html"><a class="header" href="#13-intégration-dans-une-page-html">1.3 Intégration dans une page HTML</a></h3>
+<ul>
+<li>
+<p>L'intégration de code JavaScript se fait au moyen de la balise <code>&lt;script&gt; &lt;/script&gt;</code>.</p>
+</li>
+<li>
+<p>Elle peut se faire à deux endroits de la page HTML : dans l'en-tête ou dans le corps de la page HTML.</p>
+</li>
+<li>
+<p>Le chargement et l'exécution de ces scripts respecte l'ordre d'apparition dans la page.</p>
+</li>
+</ul>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;script&gt;
+      // Code Javascript Ici
+    &lt;/script&gt;
+    &lt;script src=&quot;monScript.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;Contenu ...&lt;/header&gt;
+    &lt;main&gt;
+        Contenu de la page
+    &lt;/main&gt;
+    &lt;footer&gt;Contenu ...&lt;/footer&gt;
+    &lt;script&gt;
+      // Code Javascript Ici
+    &lt;/script&gt;
+    &lt;script src=&quot;unAutreScript.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<blockquote>
+<p><strong>Remarque</strong>:</p>
+<ul>
+<li>Les scripts placés dans l'en-tête (<code>&lt;head&gt;</code>) sont exécutés avant la construction et l'affichage de la page.</li>
+<li>Les script placés dans le corps (<code>&lt;body&gt;</code>) sont exécutés au fur et à mesure que la page HTML est lue et que le DOM se construit.</li>
+</ul>
+</blockquote>
+<p>Comme pour l'ajout de règles CSS, il existe donc bien deux manières <em>(rédactions du code JavaScript dans la page HTML ou inclusion d'un fichier externe)</em> d'intégrer un script JavaScript.</p>
+<h3 id="14-la-manière-dont-ça-fonctionne-"><a class="header" href="#14-la-manière-dont-ça-fonctionne-">1.4 La manière dont ça fonctionne ?</a></h3>
+<ol>
+<li><strong>Écriture</strong> : Vous créez vos pages HTML et votre code JavaScript (que vous mettez dans le fichier HTML et/ou dans un ou plusieurs fichiers)</li>
+<li><strong>Chargement</strong> : Le navigateur retrouve et charge la page en analysant <em>(parsing)</em> son contenu de haut en bas.
+Lorsque le navigateur rencontre du code  JavaScript il l'analyse, vérifie sa correction puis l'exécute. Le navigateur construit un modèle interne de la page HTML : le DOM</li>
+<li><strong>Exécution</strong> :  Le navigateur affiche la page. JavaScript continue à s'exécuter, en utilisant le DOM  pour examiner la page, la modifier, recevoir des événements depuis celle-ci, ou pour demander au navigateur d'aller chercher d'autres données sur le serveur web.</li>
+</ol>
+<h3 id="15-quel-intérêt-dutiliser-de-la-programmation-côté-client-avec-javascript-"><a class="header" href="#15-quel-intérêt-dutiliser-de-la-programmation-côté-client-avec-javascript-">1.5 Quel intérêt d'utiliser de la programmation côté client avec JavaScript ?</a></h3>
+<ul>
+<li>
+<p>Vérification des données saisies (-&gt; n'envoyer au serveur que les valeurs correctes)</p>
+</li>
+<li>
+<p>Réduire les traitements sur le serveur (pour diminuer sa charge par exemple)</p>
+</li>
+<li>
+<p>Réduire les coûts de communication</p>
+</li>
+<li>
+<p>Pouvoir modifier la présentation (animation, etc.) sans avoir recours au serveur</p>
+</li>
+</ul>
+<p>De manière générale : <strong>améliorer l'interactivité</strong> et <strong>diminuer les temps de réponse</strong>.</p>
+<h3 id="16-votre-environnement-de-travail"><a class="header" href="#16-votre-environnement-de-travail">1.6 Votre environnement de travail</a></h3>
+<p>Vous utiliserez les mêmes outils (éditeur de code de votre choix et navigateur Web) que lors des premières séance de TP.</p>
+<p>Comme lors des autres séances <strong>il est indispensable de travailler avec la fenêtre des outils pour développeurs (<em>DevTools</em> - accessible avec <kbd>F12</kbd>) de votre navigateur - celui-ci comprend en effet une console JavaScript</strong>.</p>
+<h2 id="2-les-base-du-langages"><a class="header" href="#2-les-base-du-langages">2. Les base du langages</a></h2>
+<blockquote>
+<p><strong>Liens utiles sur le JavaScript:</strong></p>
+<ul>
+<li><strong>Mozilla Developpers Network - Premier pas en JavaScript</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps">https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps</a></li>
+<li><strong>W3schools Javascript Tutorial</strong> : <a href="https://www.w3schools.com/js/">https://www.w3schools.com/js/</a></li>
+<li><strong>Eloquent JavaScript</strong> - 3rd edition (online, PDF, E-PUB, etc.) : <a href="https://eloquentjavascript.net/">https://eloquentjavascript.net/</a></li>
+<li>Pour se faire la main en JavaScript il faut pratiquer... des <a href="https://www.w3schools.com/js/exercise_js.asp">exercices comme ceux de W3schools</a> puis des sites comme <a href="https://JavaScript30.com">JavaScript30</a> peuvent donner de bonnes occasions de pratiquer !</li>
+</ul>
+</blockquote>
+<p>De manière générale, si vous cherchez sur le Web en décrivant explicitement votre problème (et optionnellement en anglais), vous devrez trouver facilement la solution (<em>StackOverflow</em>, <em>Mozilla Developpers Network</em>, <em>W3schools</em>, etc.).</p>
+<p><img src="img/screenshot-google-js.png" alt="" /></p>
+<h3 id="21-Éléments-de-base-pour-javascript-dans-le-navigateur"><a class="header" href="#21-Éléments-de-base-pour-javascript-dans-le-navigateur">2.1 Éléments de base pour JavaScript dans le navigateur</a></h3>
+<p><strong>🚀 Ouvrez un navigateur et une console JavaScript et saisissez les commandes qui suivent une-à-une (validation avec <kbd>Enter</kbd>) et observez bien le résultat!</strong> (nous verrons plus tard à quoi correspondent <code>document</code> et <code>window</code>)</p>
+<pre><code class="language-js">console.log(&quot;Contenu du message à afficher&quot;);
+</code></pre>
+<pre><code class="language-js">document // Pour manipuler des objets sur la page
+</code></pre>
+<pre><code class="language-js">// Ne va pas fonctionner si aucun élément de la page n'a cet id !
+// Trouver l'id d'un élément de la page et modifiez le de la manière suivante !
+document.getElementById('myElem').innerHTML = &quot;New content !&quot;
+</code></pre>
+<pre><code class="language-js">// Ne va pas fonctionner si aucun élément de la page n'a cet id !
+// Trouver l'id d'un élément de la page et modifiez le de la manière suivante !
+document.querySelector('#myElem').innerHTML = &quot;New content !&quot;
+</code></pre>
+<pre><code class="language-js">// Ne va pas fonctionner si aucun élément 'div' n'a cette classe !
+// Trouver la classe d'un élément sur la page pour modifier son contenu.
+document.querySelector('div.myClass').innerHTML = &quot;New content too !&quot;
+</code></pre>
+<pre><code class="language-js">document.title // Le titre de la page (celui que vous écrivez dans &lt;head&gt;&lt;title&gt;)
+</code></pre>
+<pre><code class="language-js">window // Objet relatif à la fenêtre
+</code></pre>
+<pre><code class="language-js">window.alert(&quot;Contenu de l'alerte !&quot;) // ouvre une fenêtre d'alerte
+</code></pre>
+<pre><code class="language-js">window.innerHeight // renvoie un entier, la hauteur de la fenêtre
+</code></pre>
+<pre><code class="language-js">window.innerWidth // renvoie un entier, la largeur de la fenêtre
+</code></pre>
+<pre><code class="language-js">window.screen // renvoie un Object JavaScript contenant des informations sur l'écran
+</code></pre>
+<pre><code class="language-js">// Un Object décrivant l'URL actuelle du document
+window.location
+</code></pre>
+<pre><code class="language-js">// On accède à la propriété 'href' de cet objet
+// ... c'est la chaîne de caractère qui correspond à l'URL actuelle:
+window.location.href
+</code></pre>
+<h3 id="22-variables"><a class="header" href="#22-variables">2.2 Variables</a></h3>
+<h4 id="221-définition"><a class="header" href="#221-définition">2.2.1 Définition</a></h4>
+<blockquote>
+<p><strong>En informatique, les variables sont des symboles qui associent un nom (l'identifiant) à une valeur.</strong></p>
+</blockquote>
+<p>Elles sont utilisées pour stocker des données dans la mémoire de l'ordinateur <em>(on associe une valeur à un nom de variable)</em>.</p>
+<h4 id="222-types"><a class="header" href="#222-types">2.2.2 Types</a></h4>
+<p>Vous rencontrerez deux types de variables :</p>
+<ul>
+<li>
+<p>types primitifs :</p>
+<ul>
+<li><code>Boolean</code> : deux valeurs littérales <code>true</code> et <code>false</code></li>
+<li><code>Number</code> : nombres entiers ou flottants (<code>1</code>, <code>3.14</code>, etc.) et des valeurs particulières (<code>Infinity</code>, <code>-Infinity</code>, <code>NaN</code>)</li>
+<li><code>String</code> : chaînes de caractères (<code>&quot;Salut !&quot;</code>, <code>'Hello'</code>)</li>
+</ul>
+</li>
+<li>
+<p>variables de type objet (par exemple <code>Array</code> pour un tableau ou <code>Object</code> pour stocker des paires de clés/valeurs)</p>
+</li>
+<li>
+<p>types spéciaux :</p>
+<ul>
+<li><code>undefined</code> (possède une unique valeur, <code>undefined</code> et décrit une variable dont le contenu n'a jamais été initialisé)</li>
+<li><code>null</code> (possède une unique valeur, <code>null</code> et spécifie qu'une variable a bien été initialisée mais qu'elle ne point sur aucun objet)</li>
+</ul>
+</li>
+</ul>
+<p>Regardons en détails comment cela fonctionne.</p>
+<h4 id="223-déclaration-dune-variable"><a class="header" href="#223-déclaration-dune-variable">2.2.3 Déclaration d'une variable</a></h4>
+<p>Les instructions qui suivent peuvent être saisies dans la console JavaScript de votre navigateur :</p>
+<pre><code class="language-js">// On peut déclarer un variable sans lui affecter de valeur:
+var a; // équivalent à `var a = undefined;`
+var b, c;
+
+console.log(a); // undefined
+
+// Affectation avec la forme littérale
+// (chaîne de caractère, entier, réel)
+a = &quot;Coucou&quot;;
+b = 1;
+c = 3.14;
+
+// On peut affecter une valeur lors de la déclaration
+var d = &quot;Hello&quot;;
+
+// On peut ensuite affecter une valeur d'un autre type
+d = 12;
+
+
+// Tableau d'entiers (forme littérale)
+var myTableau = [1, 2, 3, 4];
+
+var tableauVide = [];
+var tableauVide = new Array(); // Identique à l'écriture précédente
+
+// Un tableau peut contenir 
+
+// Objet JavaScript (forme littérale)
+var myObj = {
+  &quot;rate&quot;: 5,
+  &quot;comment&quot;: &quot;Awesome place ! Great Food !&quot;
+};
+
+var autreObj = {};
+var autreObj = new Object(); // Identique à l'écriture précédente
+
+// Ces objets ont des méthodes :
+var nb = 12;
+var txt = nb.toString(); // Renvoie &quot;12&quot;
+console.log(txt.length); // 2
+</code></pre>
+<p>On accède ainsi aux propriétés (attributs, méthodes) d'un object en utilisant un <strong>accesseurs de propriété</strong>. Cela permet de fournir un accès aux propriétés d'un objet en utilisant <em>une notation avec un point</em> ou une <em>notation avec des crochets</em>.</p>
+<blockquote>
+<p><strong>Remarque:</strong> Historiquement la déclaration de variable se fait avec <code>var</code>. Depuis <strong>ES6</strong> la bonne pratique est d'utiliser <code>let</code> ou <code>const</code>. Cette fonctionnalité est maintenant supportée par les différents navigateurs Web.</p>
+</blockquote>
+<ul>
+<li><code>const</code> :</li>
+</ul>
+<pre><code class="language-js">const myConst = 12;
+
+// On ne peut pas faire :
+myConst = 15; // TypeError : invalid assignement to const 'myConst'
+</code></pre>
+<ul>
+<li><code>let</code> :</li>
+</ul>
+<pre><code class="language-js">let isValid = false;
+
+// later in your code :
+isValid = true;
+</code></pre>
+<p>Par ailleurs, il est possible de déterminer le type d'une variable en utilisant l'opérateur <code>typeof</code> :</p>
+<pre><code class="language-js">var v0;
+console.log(typeof v0); // undefined
+
+var v1 = 12;
+console.log(typeof v1); // number
+
+var v2 = &quot;Hello&quot;;
+console.log(typeof v2); // string
+
+var v3 = [1, 2, 3];
+console.log(typeof v3); // object
+
+var v4 = {&quot;clé&quot;: &quot;valeur&quot;};
+console.log(typeof v4); // object
+
+var v5 = null;
+console.log(typeof v5); // object
+</code></pre>
+<h4 id="224-règles-de-nommage-des-variables"><a class="header" href="#224-règles-de-nommage-des-variables">2.2.4 Règles de nommage des variables</a></h4>
+<ul>
+<li>Pas d'espace, d’opérateurs arithmétiques (<code>+</code> , <code>-</code>, <code>/</code>, <code>*</code>) ou de caractère de ponctuation (<code>.</code>, <code>,</code>, <code>;</code>)</li>
+<li>Des lettres, des chiffres, <code>_</code> ou <code>$</code></li>
+<li>Ne peuvent pas commencer par un chiffre</li>
+<li>Noms sensibles à la casse <code>nomUtilisateur</code> ≠ <code>nomutilisateur</code></li>
+<li>Interdiction d’utiliser des mots clés réservés JS (ex., if, then, else)</li>
+<li>Choisir des noms descriptifs (par exemple pour une variable correspondant au prix unitaire d'un produit, utiliser <code>prixUnitaire</code> plutôt que <code>u</code>)</li>
+<li>utiliser <em>camelCase</em> pour joindre des mots multiples dans un nom de variable (première lettre du premier mot en minuscule, première lettre des mots suivants en
+majuscule : <code>nomUtilisateur</code> plutôt que <code>nom_utilisateur</code>)</li>
+</ul>
+<h3 id="23-opérateur-arithmétiques-logiques-et-de-comparaison"><a class="header" href="#23-opérateur-arithmétiques-logiques-et-de-comparaison">2.3 Opérateur arithmétiques, logiques et de comparaison</a></h3>
+<ul>
+<li>
+<p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></p>
+</li>
+<li>
+<p><code>++</code>, <code>--</code></p>
+</li>
+<li>
+<p><code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code> ... mais aussi <code>===</code> et <code>!==</code></p>
+</li>
+<li>
+<p><code>||</code> (pensez à <code>or</code> en Python), <code>&amp;&amp;</code> (pensez à <code>and</code> en Python), <code>!</code> (pensez à <code>not</code> en Python)</p>
+</li>
+</ul>
+<p>Attention à la différence entre <code>==</code> et <code>!=</code> d'une part et <code>===</code> et <code>!==</code> d'autre part...!</p>
+<ul>
+<li>
+<p><code>==</code> égalité</p>
+</li>
+<li>
+<p><code>!=</code> différence</p>
+</li>
+<li>
+<p><code>===</code> égalité de valeur et de type</p>
+</li>
+<li>
+<p><code>!==</code> différence de valeur ou de type</p>
+</li>
+</ul>
+<p>Ainsi :</p>
+<pre><code class="language-js">'0' == 0 // true
+'0' === 0 // false
+
+null == undefined // true
+null === undefined // false
+</code></pre>
+<p>On voit que l'opérateur <code>==</code> effectue des conversions de type avant de tester l'égalité / la différence. De manière générale, utilisez <code>===</code> et <code>!==</code> plutôt que <code>==</code> et <code>!=</code>, car c'est généralement ce que vous voulez.</p>
+<h3 id="24-contrôle-du-flux-dexécution"><a class="header" href="#24-contrôle-du-flux-dexécution">2.4 Contrôle du flux d'exécution</a></h3>
+<ul>
+<li>
+<p>Lorsque le navigateur web rencontre du code JavaScript il l'exécute dans l'ordre d'apparition (à quelques exceptions qui ne sont pas abordées).</p>
+</li>
+<li>
+<p>Contrairement au Python, l'indentation ne joue pas de rôle dans la logique du code <em>(cela ne veut pas dire qu'il ne faut pas respecter certaines règles! pensez à la lecture du code par vous ou d'autres développeurs!)</em></p>
+</li>
+<li>
+<p>Instructions conditionnelles : <code>if</code>, <code>else</code>, <code>else if</code> <code>switch</code></p>
+</li>
+<li>
+<p>Instructions itératives : <code>for</code>, <code>while</code></p>
+</li>
+</ul>
+<p><strong>Exemple 1</strong>:</p>
+<pre><code class="language-js">// Pour i=0, tant que i inférieur à 35, et sachant qu'on incrémente i après chaque exécution du bloc ...
+for (let i = 0; i &lt; 35; i++) {
+
+  // Un message est écrit dans la console en fonction de la valeur de &quot;i&quot;
+  if (i &lt; 12) {
+    console.log('La valeur de la variable &quot;i&quot; est actuellement inférieure à 12 !');
+  } else if (i &lt; 25) {
+    console.log('La valeur de la variable &quot;i&quot; est actuellement inférieure à 25 (mais supérieure ou égale à 12) !');
+  } else {
+    console.log('La variable &quot;i&quot; vaut au moins 25 maintenant !')
+  }
+}
+</code></pre>
+<p><strong>Exemple 2</strong></p>
+<pre><code class="language-js">var i = 0; // On déclare la variable utilisée dans le test
+
+// Le contenu du bloc va s'exécuter tant que la condition est valide
+while (i &lt; 5) {
+    console.log('Je suis dans l\'itération n' + i);
+    // On incrémente (i.e. on ajoute 1 à) la variable 'i' 
+    i++;
+}
+</code></pre>
+<p><strong>Exemple 3</strong></p>
+<pre><code class="language-js">// Définition d'une fonction créant un paragraphe
+// et l'ajoutant à la fin de la page
+// (la fonction est définie, on pourra l'utiliser avec son nom 'createParagraph'
+// mais elle n'est pas exécutée lors de sa définition, seulement lorsqu'elle
+// sera invoquée par la suite).
+function createParagraph() {
+  let para = document.createElement('p');
+  para.textContent = 'You clicked the button!';
+  document.body.appendChild(para);
+}
+
+// Créé un tableau référençant tous les éléments 'button':
+let buttons = document.querySelectorAll('button');
+
+// Utilisation d'une boucle pour parcourir le tableau dans son ensemble
+for(let i = 0; i &lt; buttons.length ; i++) {
+
+  // Ajoute un &quot;click event listener&quot; sur chaque bouton
+  // lors du clic, la fonction 'createParagraph'
+  // sera appelée:
+  buttons[i].addEventListener('click', createParagraph);
+}
+</code></pre>
+<h3 id="25-commentaires"><a class="header" href="#25-commentaires">2.5 Commentaires</a></h3>
+<pre><code class="language-js">/*
+ Commentaire
+ multi lignes ...
+*/
+var a = 12;
+
+// Commentaire sur une seule ligne
+</code></pre>
+<h3 id="26-fonctions"><a class="header" href="#26-fonctions">2.6 Fonctions</a></h3>
+<p>On a vu un exemple de fonction dans la partie 2.4. Il existe plusieurs syntaxe pour définir une fonction appelée <code>addition</code>, par exemple :</p>
+<pre><code class="language-js">function addition(a, b) {
+  return a + b;
+}
+</code></pre>
+<p>et</p>
+<pre><code class="language-js">var addition = function (a, b) {
+  return a + b;
+}
+</code></pre>
+<p>On pourra ensuite <em>appeler</em> cette fonction (ici elle attend donc 2 arguments) et stocker la valeur de retour dans une variable :</p>
+<pre><code class="language-js">var resultat = addition(30, 20);
+console.log(resultat); // 50
+</code></pre>
+<p>On notera qu'une fonction peut être donnée en argument à une autre fonction.</p>
+<pre><code class="language-js">function multAdd(a, b, c, addFunction) {
+  return addFunction(a * b, c);
+}
+
+multAdd(2, 3, 4, addition); // 10
+</code></pre>
+<h3 id="27-portée-scope-des-variables"><a class="header" href="#27-portée-scope-des-variables">2.7 Portée (<em>scope</em>) des variables</a></h3>
+<ul>
+<li>
+<p>Les variables peuvent avoir une portée <strong>globale</strong> ou <strong>locale</strong>. </p>
+</li>
+<li>
+<p>En JavaScript, la portée d'une variable est définie par son emplacement dans le code source (elle apparaît de façon lexicale).</p>
+</li>
+<li>
+<p>Une variable globale est définie partout dans le script. Elle a une portée globale.</p>
+</li>
+<li>
+<p>Une variable déclarée à l'intérieur d'une fonction n'est définie que dans le corps de ceIe fonction. Elle est une variable locale et elle a une portée locale. C'est cela qu'on appelle &quot;portée de fonction&quot;. On note toutefois qu'avec <code>let</code> et <code>const</code> il est aussi possible d'avoir une <code>portée de bloc</code>.</p>
+</li>
+<li>
+<p>Les paramètres d'une fonction sont aussi des variables locales et elles ne sont définis que dans le corps de la fonction.</p>
+</li>
+<li>
+<p>Une variable affectée mais non déclarée est considérée comme une variable globale. Par conséquent, même si on peut éviter d'utiliser <code>var</code> quand on écrit du code dans la portée globale, pour déclarer les variables locales, il faudra toujours utiliser <code>var</code>, <code>let</code> ou <code>const</code>.</p>
+</li>
+</ul>
+<p><strong>Exemple</strong> : portée de fonction</p>
+<pre><code class="language-js">function addition(a, b) {
+  // 'a' et 'b' sont des variables locales,
+  // elles n'existent qu'au sein de la fonction 'addition'
+  return a + b;
+}
+
+console.log(a); // undefined
+
+var resultat = addition(12, 13);
+
+console.log(a); // undefined
+</code></pre>
+<p><strong>Exemple</strong> : portée de bloc</p>
+<pre><code class="language-js">function mult(a, b) {
+  // 'res' est une variable locale, elle n'est valable que
+  // dans le bloc définit par la fonction 'mult'
+  let res = 0;
+  for (let i = 0; i &lt; b; i++) {
+    res += a;
+    // Ici la variable 'i' est définie
+  }
+  // Ici on a quitté le bloc, la variable 'i' est 'undefined'
+  return res;
+}
+</code></pre>
+<p><strong>Exemple</strong> : variable globale</p>
+<pre><code class="language-js">var monNom = 'Matthieu';
+// On pourra utiliser cette variable au sein de n'importe quelle fonction
+// ou de n'importe quel bloc du script, elle est globale ...
+
+function mult(a, b) {
+  // ... alors que 'a' et 'b' sont des variables locales
+  let res = 0;
+  for (let i = 0; i &lt; b; i++) {
+    res += a;
+  }
+  return monNom + &quot; a calculé que &quot; + a + &quot; * &quot; + b + &quot; est égal à &quot; + res;
+}
+
+mult(12, 12) // 'Matthieu a calculé que 12 * 12 est égal à 144'
+</code></pre>
+<h2 id="3-manipulation-du-dom"><a class="header" href="#3-manipulation-du-dom">3. Manipulation du DOM</a></h2>
+<h3 id="31-la-variable-document"><a class="header" href="#31-la-variable-document">3.1 La variable <code>document</code></a></h3>
+<p>Nous avons utilisé précédemment la variable nommée <code>document</code> : il s'agit d'un objet JavaScript qui représente un document HTML (le contenu de la fenêtre).</p>
+<p>Cet object dispose de plusieurs propriétés intéressantes :</p>
+<ul>
+<li><code>body</code> (l'élément <code>&lt;body&gt;</code>)</li>
+<li><code>documentElement</code> (l'élément <code>&lt;html</code>)</li>
+<li><code>cookie</code> (permet de lire / écrire des cookies)</li>
+<li>etc.</li>
+</ul>
+<p>Comme avec les autres objects JavaScript, on accède à ses propriétés en utilisant un accesseur de propriétés, par exemple avec la notation avec un point :</p>
+<pre><code class="language-js">document.body
+</code></pre>
+<p>La variable <code>document</code> dispose également de propriétés très intéressantes permettant de sélectionner un (<code>querySelector</code>) ou plusieurs (<code>querySelectorAll</code>) éléments HTML en utilisant un sélecteur CSS (notation similaire à celles apprise dans le TP CSS) :</p>
+<ul>
+<li>sélection d'un élément par sa classe : <code>var navbar = document.querySelector('.navbar');</code></li>
+<li>sélection d'un élément par son type et sa classe : <code>var maDiv = document.querySelector('div.blue');</code></li>
+<li>sélection d'un élément par son id : <code>var menu = document.querySelector('#menu');</code></li>
+<li>sélection de toutes les 'div' du document : <code>var tableauDeDiv = document.querySelectorAll('div');</code> (retourne un tableau)</li>
+</ul>
+<p>La variable <code>document</code> dispose également d'une méthode pour sélectionner un élément par son identifiant seulement : <code>document.getElementById('menu')</code> (équivalent à <code>document.querySelector('#menu')</code>).</p>
+<p>Ces méthodes pour sélectionner un ou plusieurs éléments seront indispensables dans la suite de ce cours.</p>
+<p>Une fois une référence obtenue à un élément, il sera possible de modifier le contenu de cet élément, de modifier son style, de lui attacher un gestionnaire d'événement, etc.</p>
+<h3 id="32-les-principales-méthodes-des-éléments-html"><a class="header" href="#32-les-principales-méthodes-des-éléments-html">3.2 Les principales méthodes des éléments HTML</a></h3>
+<p>Changer le contenu d'un élément HTML avec <code>innerHTML</code>:</p>
+<pre><code class="language-js">// On sélectionne la div avec la classe 'test'
+const target = document.querySelector('div.test');
+// On remplace l'ensemble du contenu de cette div par un nouveau texte
+target.innerHTML = 'Hello hello !';
+</code></pre>
+<p>Changer une propriété de style avec <code>style</code>:</p>
+<pre><code class="language-js">// On sélectionne la div avec la classe 'test'
+const target = document.querySelector('div.test');
+// On change la valeur de la propriété CSS 'background-color':
+// (notez que les noms de propriétés CSS avec tirets sont transformés en camelCase)
+target.style.backgroundColor = 'red';
+</code></pre>
+<p>Enlever un élément HTML du DOM:</p>
+<pre><code class="language-js">// On sélectionne la div avec la classe 'test'
+const target = document.querySelector('div.test');
+// On supprime l'élément (il est enlevé du DOM / de la page)
+target.remove();
+</code></pre>
+<h3 id="33-création-déléments-html-en-javascript"><a class="header" href="#33-création-déléments-html-en-javascript">3.3 Création d'éléments HTML en JavaScript</a></h3>
+<p>On a vu qu'il était possible de modifier un élément HTML existant ou de le supprimer avec JavaScript.</p>
+<p>Il est également possible de créer un nouvel élément HTML avec JavaScript :</p>
+<pre><code class="language-js">// On créé un élément de type paragraphe
+// Attention, il a été créé en mémoire mais n'est pas encore ajouté au document !
+const monParagraphe = document.createElement('p');
+
+// On peut dès maintenant définir le contenu de l'élément et éventuellement son style
+monParagraphe.innerHTML = 'Hey there !';
+monParagraphe.style.color = 'red';
+
+// On ajoute cet élément, par exemple après le dernier élément de la page :
+document.body.appendChild(monParagraphe);
+</code></pre>
+<p>Il est aussi possible de choisir d'insérer un élément à un endroit particulier du document :</p>
+<pre><code class="language-js">// On créé un élément de type paragraphe
+// Attention, il a été créé en mémoire mais n'est pas encore ajouté au document !
+const monParagraphe = document.createElement('p');
+
+// On peut dès maintenant définir le contenu de l'élément et éventuellement son style
+monParagraphe.innerHTML = 'Hey there !';
+monParagraphe.style.color = 'red';
+
+// On sélectionne l'élément parent
+const parent = document.querySelector('#menu'):
+
+// On sélectionne l'élément, enfant du parent, avant lequel insérer le nouvel élément
+// (ici le dernier paragraphe)
+const otherChild = parent.querySelector('p:last-child');
+
+// On ajoute cet élément juste avant 'otherChild'
+parent.insertBefore(monParagraphe, otherChild);
+</code></pre>
+<h2 id="4-Événements"><a class="header" href="#4-Événements">4. Événements</a></h2>
+<ul>
+<li>
+<p>Les interactions de l'utilisateur avec la page peuvent provoquer l'exécution de code JavaScript:</p>
+<ul>
+<li>clic sur un bouton ou sur tout autre élément HTML</li>
+<li>survol de la souris au dessus d'un élément HTML</li>
+<li>modification d'une zone de saisie</li>
+<li>appui sur une touche de clavier</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>
+<p>Ces interactions sont gérées via des <strong>événements</strong> (<em>Event</em>)</p>
+</li>
+</ul>
+<h3 id="41-exemple-dévénements"><a class="header" href="#41-exemple-dévénements">4.1 Exemple d'événements</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>nom</th><th>événement</th><th>s'applique à</th></tr></thead><tbody>
+<tr><td>blur</td><td>perte du focus</td><td>champ de saisie, window</td></tr>
+<tr><td>focus</td><td>attribution du focus</td><td>champ de saisie, window</td></tr>
+<tr><td>click</td><td>clic sur un objet</td><td></td></tr>
+<tr><td>change</td><td>changement dans un champ de saisie</td><td></td></tr>
+<tr><td>contextmenu</td><td>clic droit sur un objet</td><td></td></tr>
+<tr><td>dblclick</td><td>double clic sur un objet</td><td></td></tr>
+<tr><td>load</td><td>la page  ou l'image est chargée</td><td>window, image</td></tr>
+<tr><td>keydown</td><td>touche enfoncée</td><td> </td></tr>
+<tr><td>keyup</td><td> l'utilisateur a appuyé sur une touche</td><td> </td></tr>
+<tr><td>keypress</td><td>touche relâchée </td><td> </td></tr>
+<tr><td> mousedown</td><td>un bouton de la souris est enfoncée </td><td> </td></tr>
+<tr><td>mouseup</td><td>le bouton de la souris est relâché </td><td> </td></tr>
+<tr><td>mousemove</td><td>déplacement de la souris </td><td> </td></tr>
+<tr><td>mouseout</td><td>le souris vient de quitter une zone </td><td> </td></tr>
+<tr><td>mouseover</td><td>la souris entre sur une zone </td><td> </td></tr>
+</tbody></table>
+</div>
+<h3 id="42-définir-un-gestionnaire-dévénement-event-handler"><a class="header" href="#42-définir-un-gestionnaire-dévénement-event-handler">4.2 Définir un gestionnaire d'événement (<em>event handler</em>)</a></h3>
+<p>Il existe 2 méthodes pour attacher / détacher un gestionnaire d'événement d'un élément HTML.
+Toutes les 2 nécessitent de connaître le nom de l'événement ciblé :</p>
+<ol>
+<li>Avec <code>addEventListener</code> et <code>removeEventListener</code> :</li>
+</ol>
+<pre><code class="language-js">// Création de la fonction qui sera appelée lorsque l'événement se produit
+function displayAlertOnClick() {
+  alert('clicked !');
+}
+
+// Sélection de la cible de l'événement, ici l'élément HTML body
+const target = document.querySelector('body');
+
+// Attache le gestionnaire d'événement à la cible
+target.addEventListener('click', displayAlertOnClick);
+
+// Essayez ensuite de cliquer n'importe où sur la page
+// ...
+
+// On peut ensuite enlever ce gestionnaire d'événement
+target.removeEventListener('click', displayAlertOnClick);
+
+// Essayez à nouveau de cliquer sur la page, il ne se passe plus rien.
+// ....
+</code></pre>
+<ol start="2">
+<li>Avec la propriété 'on' + nom de l'événement de la cible (<code>onclick</code>, <code>onload</code>, etc.):</li>
+</ol>
+<pre><code class="language-js">// Création de la fonction qui sera appelée lorsque l'événement se produit
+function displayAlertOnClick() {
+  alert('clicked !');
+}
+
+// Sélection de la cible de l'événement, ici l'élément HTML body
+const target = document.querySelector('body');
+
+// Attache le gestionnaire d'événement à la cible
+target.onclick = displayAlertOnClick
+
+// Essayez ensuite de cliquer n'importe où sur la page
+// ...
+
+// On peut ensuite enlever ce gestionnaire d'événement
+// (ou plutôt le remplacer par null ou undefined)
+target.onclick = null;
+
+// Essayez à nouveau de cliquer sur la page, il ne se passe plus rien.
+// ....
+</code></pre>
+<p>Cette méthode ne permet pas d'ajouter plusieurs gestionnaires d'événements du même type à un élément HTML (contrairement à la première méthode).</p>
+<h2 id="5-mise-en-pratique"><a class="header" href="#5-mise-en-pratique">5. Mise en pratique</a></h2>
+<p><strong>🚀 Rendez-vous sur la page <a href="https://www.w3schools.com/js/exercise_js.asp">https://www.w3schools.com/js/exercise_js.asp</a> et commencez les exercices dans l'ordre : faites les 15 premiers</strong> (<em>JS Variables</em>, <em>JS Operators</em>, <em>JS Data Types</em> et <em>JS Functions</em>).</p>
+<p>Ces exercices simples mettent l'accent sur votre bonne compréhension du mécanisme de base de l'écriture du code JavaScript. Ils représentent également un bon moyen d'apprendre certaines de ces notions par la pratique.</p>
+<p><strong>Soyez attentif aux énoncés et suivez votre instinct ! N'hésitez pas à demander et/ou à vous rendre sur le tutoriel correspondant avant de cliquer sur <code>Show Answer</code> :)</strong></p>
+<div class="center">
+<p><img src="img/tp8_1.png" alt="" /></p>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="javascript---mise-en-pratique"><a class="header" href="#javascript---mise-en-pratique">Javascript - Mise en pratique</a></h1>
+<div class="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/200px-Unofficial_JavaScript_logo_2.svg.png" />
+</div>
+<h2 id="1-améliorer-la-page-précédemment-créée-avec-du-javascript"><a class="header" href="#1-améliorer-la-page-précédemment-créée-avec-du-javascript">1. Améliorer la page précédemment créée avec du JavaScript</a></h2>
+<p>Nous allons reprendre la page créée lors du TP4.
+Vous pouvez prendre le résultat que vous avez obtenus si vous êtes allé jusqu'au bout de l'exercice ou celui fourni en guise de correction (conseillé).</p>
+<p>Nous souhaitons implémenter plusieurs fonctionnalités :</p>
+<ul>
+<li>
+<p>un message (de type <code>alert</code>) lors de l'ouverture de la page disant 'Bienvenue sur ma page Web !'.</p>
+</li>
+<li>
+<p>la couleur du texte de chacun des 3 articles doit changer afin que le texte apparaisse en rouge lors du clic, lors du clic suivant, il doit revenir noir.</p>
+</li>
+<li>
+<p>la couleur du fond de chacune des 2 sections doit changer afin que le fond apparaisse en gris lors du survol (cf. image ci-dessous).</p>
+</li>
+<li>
+<p>lors de l'appui sur le bouton 'search', si le contenu du champ est vide, une alerte sera affichée ; s'il n'est pas vide alors le contenu sera recherché sur google.fr (cf. image ci-dessous).</p>
+</li>
+</ul>
+<p><img src="img/section_mouseover.gif" alt="" /></p>
+<p><img src="img/search_google.gif" alt="" /></p>
+<h2 id="2-créer-un-carrousel"><a class="header" href="#2-créer-un-carrousel">2. Créer un carrousel</a></h2>
+<p>Nous souhaitons ensuite implémenter un &quot;carrousel&quot;. Il s'agit d'un composant rencontré très fréquemment sur web, permettant de faire défiler (automatiquement et/ou au clic de l'utilisateur) des images.</p>
+<p>Votre carrousel sera composé d'un espace image et de deux boutons sous cet espace permettant de changer l’image pour l'image précédente et pour l'image suivante.</p>
+<p>Vous devrez mettre en place un tableau JavaScript contenant 5 images, et faire défiler ces 5 images au clic sur les boutons &quot;précédent&quot; et &quot;suivant&quot; (en pensant à
+revenir à la première image en fin de parcours de la collection).</p>
+<p>Vous placerez ce carrousel en haut de la page HTML sur laquelle vous travaillez, sous le titre et avant les premiers articles. Vous utiliserez les images suivantes :</p>
+<ul>
+<li>https://pixnio.com/free-images/2017/08/06/2017-08-06-08-58-39-1000x526.jpg</li>
+<li>https://pixnio.com/free-images/2017/08/04/2017-08-04-13-34-03-1000x667.jpg</li>
+<li>https://pixnio.com/free-images/2017/08/04/2017-08-04-13-32-41-1000x690.jpg</li>
+<li>https://pixnio.com/free-images/2017/08/04/2017-08-04-13-34-27-1000x667.jpg</li>
+<li>https://pixnio.com/free-images/2017/08/04/2017-08-04-13-34-55-850x850.jpg</li>
+</ul>
+<p><img src="img/carrousel.gif" alt="" /></p>
+<h2 id="3-pour-aller-plus-loin-lajout-dune-carte-interactive"><a class="header" href="#3-pour-aller-plus-loin-lajout-dune-carte-interactive">3. Pour aller plus loin... l'ajout d'une carte interactive</a></h2>
+<p>Nous souhaitons désormais ajouter une carte interactive créée avec la bibliothèque <a href="https://leafletjs.com/"><em>leaflet</em></a> et y ajouter des épingles permettant de localiser nos lieux préférés.</p>
+<h3 id="31-leaflet"><a class="header" href="#31-leaflet">3.1 Leaflet</a></h3>
+<p>Il s'agit d'une bibliothèque permettant de créer des cartes interactives. La bibliothèque est <em>mobile-friendly</em> par défaut et dispose de l'ensemble des fonctionnalités requise pour créer des cartes interactives personnalisées et avec vos propres données.</p>
+<p><img src="img/tp7_leaflet_features.png" alt="Capture d'écran du site Web de Leaflet.js" /></p>
+<h3 id="32-ajout-dune-carte-et-de-plusieurs-épingles"><a class="header" href="#32-ajout-dune-carte-et-de-plusieurs-épingles">3.2 Ajout d'une carte et de plusieurs épingles.</a></h3>
+<p>Suivez le <a href="https://leafletjs.com/examples/quick-start/">tutoriel présent sur le site de <em>leaflet</em></a> (jusqu'à la partie &quot;Working with popups&quot; inclus) afin d'ajouter une carte à votre page (cette carte devra être centrée sur le campus de Saint-Martin-d'Hères) puis d'ajouter 3 épingles (<em>marker</em> dans le tutoriel) où vous le souhaitez, chacune de ces épingle devra être permettre d'ouvrir une popup lorsqu'elle sera cliquée.</p>
+<p>Vous constaterez que pour l'utiliser il est nécessaire d'inclure deux fichiers dans votre document HTML :</p>
+<ul>
+<li>Un fichier CSS (extension <code>.css</code>) contenant des règles de styles</li>
+<li>Un fichier JavaScript (extension <code>.js</code>) contenant le code source de la bibliothèque</li>
+</ul>
+<h3 id="33-choix-dun-autre-fond-de-carte"><a class="header" href="#33-choix-dun-autre-fond-de-carte">3.3 Choix d'un autre fond de carte</a></h3>
+<p>Renseignez vous (documentation, autres ressources sur le Web, ...) sur la manière de permettre à l'utilisateur de changer son fond de carte, comme sur l'exemple qui suit. Essayez d'implémenter cette fonctionnalité.</p>
+<p><img src="img/change-basemap3.gif" alt="" /></p>
 <div style="break-before: page; page-break-before: always;"></div><div style="text-align: center">
 <h1 id="cours-technologies-web-1"><a class="header" href="#cours-technologies-web-1">Cours Technologies Web</a></h1>
 <h1 id="lp-essig---université-grenoble-alpes-1"><a class="header" href="#lp-essig---université-grenoble-alpes-1">LP ESSIG - Université Grenoble Alpes</a></h1>
@@ -983,24 +2167,6 @@ Lorsque l'on souhaite interdire le voisinage avec un élément flottant et repre
 <div style="break-before: page; page-break-before: always;"></div><div style="text-align: center">
 <h1 id="cours-technologies-web-3"><a class="header" href="#cours-technologies-web-3">Cours Technologies Web</a></h1>
 <h1 id="lp-essig---université-grenoble-alpes-3"><a class="header" href="#lp-essig---université-grenoble-alpes-3">LP ESSIG - Université Grenoble Alpes</a></h1>
-<p><br><br><br></p>
-<p><em>Contenu à venir...</em></p>
-</div>
-<div style="break-before: page; page-break-before: always;"></div><div style="text-align: center">
-<h1 id="cours-technologies-web-4"><a class="header" href="#cours-technologies-web-4">Cours Technologies Web</a></h1>
-<h1 id="lp-essig---université-grenoble-alpes-4"><a class="header" href="#lp-essig---université-grenoble-alpes-4">LP ESSIG - Université Grenoble Alpes</a></h1>
-<p><br><br><br></p>
-<p><em>Contenu à venir...</em></p>
-</div>
-<div style="break-before: page; page-break-before: always;"></div><div style="text-align: center">
-<h1 id="cours-technologies-web-5"><a class="header" href="#cours-technologies-web-5">Cours Technologies Web</a></h1>
-<h1 id="lp-essig---université-grenoble-alpes-5"><a class="header" href="#lp-essig---université-grenoble-alpes-5">LP ESSIG - Université Grenoble Alpes</a></h1>
-<p><br><br><br></p>
-<p><em>Contenu à venir...</em></p>
-</div>
-<div style="break-before: page; page-break-before: always;"></div><div style="text-align: center">
-<h1 id="cours-technologies-web-6"><a class="header" href="#cours-technologies-web-6">Cours Technologies Web</a></h1>
-<h1 id="lp-essig---université-grenoble-alpes-6"><a class="header" href="#lp-essig---université-grenoble-alpes-6">LP ESSIG - Université Grenoble Alpes</a></h1>
 <p><br><br><br></p>
 <p><em>Contenu à venir...</em></p>
 </div>
@@ -1155,10 +2321,13 @@ Lorsque l'on souhaite interdire le voisinage avec un élément flottant et repre
 <!-- - [PDF TP1](1-Intro-Internet-web/1-Intro-slides.pdf) -->
 <ul>
 <li>
-<p><a href="data/TP2.zip">Données TP2</a></p>
+<p><a href="data/TP2.zip">Données TP2</a> - <a href="data/TP2_correction.zip">Correction (.zip)</a></p>
 </li>
 <li>
-<p><a href="data/TP3.zip">Données TP3</a> </p>
+<p><a href="data/TP3.zip">Données TP3</a></p>
+</li>
+<li>
+<p><a href="data/TP4.zip">Données TP4</a></p>
 </li>
 </ul>
 <!--
